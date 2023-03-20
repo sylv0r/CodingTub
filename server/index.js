@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const port = 3001
 const cors = require('cors')
 const mysql = require('mysql');
+const initDb = require('./initDb')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -13,12 +14,7 @@ app.use(cors({ origin: "http://localhost:3000" }));
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 
-  var con = mysql.createConnection({
-    host: "db4free.net",
-    user: "branli",
-    password: "Codingtub*",
-    database: "codingtub"
-  });
+  var con = mysql.createConnection(initDb);
   
   con.connect(function(err) {
     if (err) throw err;
