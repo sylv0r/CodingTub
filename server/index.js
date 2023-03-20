@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const port = 3001
 const cors = require('cors')
 const mysql = require('mysql');
-const initDb = require('./initDb')
+const initDb = require('./initDb.js');
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
