@@ -1,5 +1,15 @@
 #video-list {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#videos {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#singleVid {
+    padding: 25px;
 }
