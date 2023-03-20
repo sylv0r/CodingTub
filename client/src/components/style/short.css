@@ -1,0 +1,11 @@
+.short{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+video{
+    border-radius: 10px;
+    height: 650px;
+    width: 330px;
+}
