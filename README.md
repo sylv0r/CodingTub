@@ -19,4 +19,10 @@ npm install
 npm start
 ```
 
+## Accès à la base de données
+### Aller au lien suivant
+```
+https://www.db4free.net/phpMyAdmin/
+```
 
+### Rentrez les codes de connection présent dans index.js
