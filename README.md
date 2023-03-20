@@ -25,7 +25,7 @@ npm start
 https://www.db4free.net/phpMyAdmin/
 ```
 
-### Créez un fichier initDb.js avec le JSON envoyé sur le groupe Discord
+### Créez un fichier initDb.js avec le JSON envoyé sur le groupe Discord à la racine du dossier "server"
 ### Le fichier doit ressembler à ça :
 ```
 module.exports = <<Le JSON du Discord>>
