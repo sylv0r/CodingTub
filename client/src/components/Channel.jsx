@@ -1,7 +1,11 @@
 import React from 'react'
+import ChannelForm from './forms/ChannelForm'
 
 export default function Channel() {
   return (
-    <div>Channel</div>
+    <div>
+      <div>Channel</div>
+      <ChannelForm/>
+    </div>
   )
 }
