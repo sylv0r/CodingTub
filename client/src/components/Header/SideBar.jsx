@@ -1,3 +1,4 @@
+import SideBarButton from './SideBarButton'
 import './sidebar.scss'
 
 export default function SideBar() {
@@ -9,8 +10,26 @@ export default function SideBar() {
     //render
 
     return (
+        <div>
+        <SideBarButton name="Accueil" link="youtube.com" />
+        <SideBarButton name="Shorts" link="shorts.com" />
+        <SideBarButton name="Abonnements" link="Abonnements.com" />
+        <SideBarButton name="Bibliothèque" link="bibliothèque.com" />
+        <SideBarButton name="Historique" link="historique.com" />
+        <SideBarButton name="Shorts" link="shorts.com" />
+        <SideBarButton name="Shorts" link="shorts.com" />
+        <SideBarButton name="Shorts" link="shorts.com" />
+        <SideBarButton name="Shorts" link="shorts.com" />
+        <SideBarButton name="Shorts" link="shorts.com" />
+        <SideBarButton name="Shorts" link="shorts.com" />
+        <SideBarButton name="Shorts" link="shorts.com" />
+        <SideBarButton name="Shorts" link="shorts.com" />
+        <SideBarButton name="Shorts" link="shorts.com" />
 
-        <h1>NavBar</h1>
+        </div>
+
+       
+
 
     )
 
