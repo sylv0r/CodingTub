@@ -1,10 +1,9 @@
 import './App.css';
+import filtre from "./components/search/Search"
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <div className='App'> <Search /> </div>
   );
 }
 
