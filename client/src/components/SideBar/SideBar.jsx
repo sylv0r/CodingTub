@@ -13,8 +13,8 @@ export default function SideBar() {
 
     return (
     
-        <nav>
-        <SideBarButton name="Accueil" link="youtube.com" logo="house"/>
+        <nav className='wrapper'>
+        <SideBarButton className="button" name="Accueil" link="youtube.com" logo="house"/>
         <SideBarButton name="Shorts" link="shorts.com" logo="circle-play"/>
         <SideBarButton name="Abonnements" link="abonnements.com" logo="clapperboard"/>
         <SideBarButton name="Historique" link="historique.com" logo="clock-rotate-left"/>
