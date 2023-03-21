@@ -15,23 +15,25 @@ function Search() {
                 
                 <div className="icons">
 
-                    <div className="icon"></div>
-                    <div className="icon"></div>
-                    <div className="icon"></div>
+                    <div className="icon"><a href=""><img src="" alt="" /></a></div>
+                    <div className="icon"><a href=""></a></div>
+                    <div className="icon"><a href=""></a></div>
 
                 </div>
             </div>
 
             <div className="Navid">
-                <div className="icoon"></div>
-                <div className="icoon"></div>
-                <div className="icoon"></div>
-                <div className="icoon"></div>
-                <div className="icoon"></div>
-                <div className="icoon"></div>
-                <div className="icoon"></div>
-                <div className="icoon"></div>
-                <div className="icoon"></div>
+                <div className="icoon"><a href="">#Vilebrequin</a></div>
+                <div className="icoon"><a href="">#Wankil</a></div>
+                <div className="icoon"><a href="">#Anas</a></div>
+                <div className="icoon"><a href="">#Squeezie</a></div>
+                <div className="icoon"><a href="">#Pokimane</a></div>
+                <div className="icoon"><a href="">#Amouranth</a></div>
+                <div className="icoon"><a href="">#FuzeIII</a></div>
+                <div className="icoon"><a href="">#LeBouzeuh</a></div>
+                <div className="icoon"><a href="">#Louis-san</a></div>
+                <div className="icoon"><a href="">#Locklear</a></div>
+
 
             </div>    
 
