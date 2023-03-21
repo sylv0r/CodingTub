@@ -8,8 +8,65 @@
 #videos {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
-#singleVid {
-    padding: 25px;
+.singleVid {
+    padding: 2%;
+
+    .thumbnail {
+
+        position: relative;
+    
+        img {
+            max-width: 400px;
+        }
+    
+        .video-duration {
+            color: white;
+            background-color: #000;
+            width: fit-content;
+            border-radius: 10%;
+            position: absolute;
+            right: 1%;
+            bottom: 2%;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        
+    }
+
+    .informations {
+
+        display: flex;
+        max-width: 400px;
+        margin-top: 2%;
+
+        a {
+            width: 8%;
+            height: 8%;
+            margin: 2% 5% 0 2%;
+        }
+
+        .channel-img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-title {
+            font-weight: 700;
+        }
+
+        .channel-name {
+            text-decoration: none;
+            color: inherit;
+            margin: 0;
+        }
+
+        .channel-name:hover {
+            font-weight: 500;
+        }
+
+    }
+
 }
