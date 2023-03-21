@@ -1,0 +1,67 @@
+header {
+    height: 15vh;
+    background-color: gray;
+} 
+
+.recherche{
+    height: 10vh;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+}
+
+.Navsearch{
+    height: 5vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: green;
+
+}
+
+.search{
+    width: 70%;
+}
+
+.searchBar{
+    margin: 1vh 0 auto 50vh;
+    width: 40vh;
+    border-radius: 12px 0 0 12px;
+    border: none;
+}
+
+.lanchsubmit{
+    border-radius: 0 12px 12px 0;
+    border: none;
+}
+
+.icons{
+    height: 5vh;
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: blue;
+}
+
+.Navid{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.icon{ 
+    margin: auto 0;
+    height: 4vh;
+    width: 15%;
+    background-color: black;
+    text-align: center;
+}
+
+.icoon{ 
+    margin: 0.5vh 0;
+    text-align: center;
+    height: 4vh;
+    width: 5%;
+    background-color: black;
+}
+
