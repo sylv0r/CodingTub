@@ -19,17 +19,11 @@ export default function VideoList() {
 
     //render
     return (
-
-        <div id="video-list">
-            <h3>Videos</h3>
-
-            <div id="videos">
-                {list.map((vid) => (
-                    <SingleVideo video={vid} />
-                ))}
-            </div>
+        <div id="videos">
+            {list.map((vid) => (
+                <SingleVideo video={vid} />
+            ))}
         </div>
-
     )
 
 }
