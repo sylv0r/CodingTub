@@ -1,11 +1,11 @@
 import './App.css';
 import Search from './components/search/Search.js';
-import Header from './components/header/Header.js';
+//import Header from './components/search/Header';
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      
       <Search />
     </div>
   );
