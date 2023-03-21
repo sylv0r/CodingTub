@@ -15,6 +15,13 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 
   var con = mysql.createConnection(initDb);
+
+  app.get('/videos', function(req, res) {
+    con.query('SELECT * FROM videos', function(err, results) {
+      if (err) throw err;
+      res.send(results);
+    });
+  });
   
   con.connect(function(err) {
     if (err) throw err;

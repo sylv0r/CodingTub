@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './Connexion.css';
-
+import axios from 'axios';
 function Connexion() {
     // state (état, donné)
   const [formData, setFormData] = useState({
@@ -12,8 +12,9 @@ function Connexion() {
     event.preventDefault();
     /* console.log(formData); */
 
-    const db = 
+    console.log('formData', formData);
 
+    
   };
 
   const handleChange = (event) => {
@@ -24,8 +25,25 @@ function Connexion() {
     });
   };
 
+  const [videos, setVideos] = useState([]);
+
+    const getVideos = () => {
+        axios.get('http://localhost:3001/videos')
+            .then(response => {
+                setVideos(response.data);
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+
   return (
-      <form onSubmit={handleSubmit}>
+    <div className="connexion">
+      <h1 className='title'>Connexion</h1>
+
+
+      <form onSubmit={handleSubmit} className='form'>
        
         <div>
           <label>E-mail :</label><br />
@@ -39,7 +57,13 @@ function Connexion() {
 
         <button className="" type="submit">Envoyer</button>
 
-    </form>
+      </form>
+      <button onClick={getVideos}>Afficher les vidéos</button>
+
+      <p>{videos.map(video => (
+          <li key={video.id}>{video.title}</li>))}
+      </p>
+    </div>
   );
 }
 
