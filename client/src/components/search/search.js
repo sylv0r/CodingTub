@@ -9,7 +9,7 @@ function Search() {
         <nav className="recherche">
             <div className="Navsearch">
                 <form className="search" action="submit">
-                    <input className="searchBar" type="text" />
+                    <input className="searchBar" placeholder=" Recherche..." type="text" /> 
                     <button className="lanchsubmit" >envoyer</button>
                 </form>
                 
@@ -38,8 +38,7 @@ function Search() {
         </nav>
 
     </body>
-    
-  );
+    );
 }
 
 export default Search;

@@ -1,11 +1,17 @@
 header {
     height: 15vh;
-    background-color: gray;
 } 
+
+body{
+    height: 100vh;
+    background: linear-gradient(to bottom right, #6e19a3, #c53849);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
 .recherche{
     height: 10vh;
-    background-color: red;
     display: flex;
     flex-direction: column;
 }
@@ -15,7 +21,6 @@ header {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    background-color: green;
 
 }
 
@@ -24,10 +29,11 @@ header {
 }
 
 .searchBar{
-    margin: 1vh 0 auto 50vh;
+    margin: 1vh 0 auto 55vh;
     width: 40vh;
     border-radius: 12px 0 0 12px;
     border: none;
+    background-color: rgb(208, 208, 208);
 }
 
 .lanchsubmit{
@@ -40,13 +46,13 @@ header {
     width: 30%;
     display: flex;
     justify-content: space-evenly;
-    background-color: blue;
 }
 
 .Navid{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    //background-color: gray;
 }
 
 .icon{ 
@@ -61,7 +67,7 @@ header {
     margin: 0.5vh 0;
     text-align: center;
     height: 4vh;
-    width: 5%;
+    width: 8%;
     background-color: black;
 }
 
