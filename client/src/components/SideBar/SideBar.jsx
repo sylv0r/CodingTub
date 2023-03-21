@@ -1,7 +1,7 @@
 import SideBarButton from './SideBarButton'
 import './sidebar.scss'
 
-
+ 
 
 export default function SideBar() {
 
@@ -21,18 +21,7 @@ export default function SideBar() {
         <SideBarButton name="À regarder plus tard" link="loiiiiinnnn.com" logo="clock"/>
         <SideBarButton name="Vidéos J'aime" link="kiffffff.com" logo="thumbs-up"/>
        
-
         </nav>
-
-            
-          
-        
-        
-
-       
-
-       
-
 
     )
     
