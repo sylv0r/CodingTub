@@ -61,16 +61,20 @@ body{
     margin: auto 0;
     height: 4vh;
     width: 40%;
-    
     text-align: center;
 }
 
-.icoon{ 
+.hashtag{ 
     margin: 2vh 0;
     padding: 0.5vh 0 0.8vh;
     border-radius: 25px;
     width: 15vh;
     background-color: black;
+}
+
+.hashtag a{ 
+    color: white;
+    text-decoration: none;
 }
 
 .icon_title{

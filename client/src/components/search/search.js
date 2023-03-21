@@ -45,16 +45,16 @@ function Search() {
             </div>
 
             <div className="Navid">
-                <div className="icoon"><a href="">#Vilebrequin</a></div>
-                <div className="icoon"><a href="">#Wankil</a></div>
-                <div className="icoon"><a href="">#Anas</a></div>
-                <div className="icoon"><a href="">#Squeezie</a></div>
-                <div className="icoon"><a href="">#Pokimane</a></div>
-                <div className="icoon"><a href="">#Amouranth</a></div>
-                <div className="icoon"><a href="">#FuzeIII</a></div>
-                <div className="icoon"><a href="">#LeBouzeuh</a></div>
-                <div className="icoon"><a href="">#Louis-san</a></div>
-                <div className="icoon"><a href="">#Locklear</a></div>
+                <div className="hashtag"><a href="">#Vilebrequin</a></div>
+                <div className="hashtag"><a href="">#Wankil</a></div>
+                <div className="hashtag"><a href="">#Anas</a></div>
+                <div className="hashtag"><a href="">#Squeezie</a></div>
+                <div className="hashtag"><a href="">#Pokimane</a></div>
+                <div className="hashtag"><a href="">#Amouranth</a></div>
+                <div className="hashtag"><a href="">#FuzeIII</a></div>
+                <div className="hashtag"><a href="">#LeBouzeuh</a></div>
+                <div className="hashtag"><a href="">#Louis-san</a></div>
+                <div className="hashtag"><a href="">#Locklear</a></div>
 
 
             </div>    
