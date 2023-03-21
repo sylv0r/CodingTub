@@ -30,9 +30,7 @@ function Connexion() {
         console.log(error);
     });
 
-    users.map(user => (
-      console.log(user.name)
-    ));
+    users[0].email === formData.email && users[0].password === formData.password ? alert('Vous êtes connecté') : alert('Veuillez vérifier vos identifiants');
   };
 
   const handleChange = (event) => {
