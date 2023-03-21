@@ -1,6 +1,8 @@
 import SideBarButton from './SideBarButton'
 import './sidebar.scss'
 
+
+
 export default function SideBar() {
 
     //state
@@ -10,20 +12,28 @@ export default function SideBar() {
     //render
 
     return (
-        <div>
-        <SideBarButton name="Accueil" link="youtube.com" />
-        <SideBarButton name="Shorts" link="shorts.com" />
-        <SideBarButton name="Abonnements" link="Abonnements.com" />
-        <SideBarButton name="Historique" link="historique.com" />
-        <SideBarButton name="À regarder plus tard" link="loiiiiinnnn.com" />
-        <SideBarButton name="Vidéos J'aime" link="kiffffff.com" />
+    
+        <nav>
+        <SideBarButton name="Accueil" link="youtube.com" logo="house"/>
+        <SideBarButton name="Shorts" link="shorts.com" logo="circle-play"/>
+        <SideBarButton name="Abonnements" link="abonnements.com" logo="clapperboard"/>
+        <SideBarButton name="Historique" link="historique.com" logo="clock-rotate-left"/>
+        <SideBarButton name="À regarder plus tard" link="loiiiiinnnn.com" logo="clock"/>
+        <SideBarButton name="Vidéos J'aime" link="kiffffff.com" logo="thumbs-up"/>
        
 
-        </div>
+        </nav>
+
+            
+          
+        
+        
+
+       
 
        
 
 
     )
-
+    
 }

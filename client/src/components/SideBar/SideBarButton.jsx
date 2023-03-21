@@ -7,8 +7,8 @@ export default function SideBarButton({name, logo, link}){
     //render
 
     return(
-        <div id="SideBarButton">
-            <a href={link}>{name}</a>
+        <div className="SideBarButton">
+            <a href={link}><i className={`fa-solid fa-${logo}`}></i>{name}</a>
             
 
         </div>
