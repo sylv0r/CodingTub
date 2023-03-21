@@ -20,4 +20,16 @@ app.listen(port, () => {
     if (err) throw err;
     console.log("Connected!");
   });
+
+  app.get("/getVideos", (req, res) => {
+    //res.sendStatus(200)
+    con.query('SELECT * FROM videos INNER JOIN channels ON videos.channel_id = channels.id', function (err, results) {
+      if (err) throw err;
+      //console.log("results")
+      res.send(results)
+      console.log(results)
+      
+    });
+  })
+  
 })

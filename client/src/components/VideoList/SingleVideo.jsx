@@ -1,6 +1,38 @@
 export default function SingleVideo({video}) {
 
     //state
+    let currentdate = new Date(); 
+    let publicationDate = new Date(video.published_at);
+
+    let difference = (currentdate.getTime() - publicationDate.getTime()) / 1000
+
+    if (difference < 60) {
+        difference = Math.round(difference)
+        difference == 1 ? difference += " seconde" : difference += " secondes"
+    }
+    else if (difference < 3600) {
+        difference = Math.round(difference / 60)
+        difference == 1 ? difference += " minute" : difference += " minutes"
+    }
+    else if (difference < 86400) {
+        difference = Math.round(difference / 60 / 60)
+        difference == 1 ? difference += " heure" : difference += " heures"
+    }
+    else if (difference < 604800) {
+        difference = Math.round(difference)
+        difference == 1 ? difference += " jour" : difference += " jours"
+    }
+    else if (difference < 2592000) {
+        difference = Math.round(difference)
+        difference == 1 ? difference += " semaine" : difference += " semaines"
+    }
+    else if (difference < 31104000) {
+        difference = Math.round(difference) + " mois"
+    }
+    else {
+        difference = Math.round(difference)
+        difference == 1 ? difference += " an" : difference += " ans"
+    }
 
     //comportement
 
@@ -8,7 +40,7 @@ export default function SingleVideo({video}) {
     return (
         <div className="singleVid" key={video.id}>
             <div className="thumbnail">
-                <img src="https://www.howtogeek.com/wp-content/uploads/2021/08/YouTube-logo-hero-1.png?height=200p&trim=2,2,2,2&crop=16:9" alt="" /> <br />
+                <a href={video.video_link}><img src="https://www.howtogeek.com/wp-content/uploads/2021/08/YouTube-logo-hero-1.png?height=200p&trim=2,2,2,2&crop=16:9" alt="" /></a> <br />
                 <h6 className="video-duration">{video.duree}</h6>
             </div>
 
@@ -18,9 +50,9 @@ export default function SingleVideo({video}) {
                 <div className="video-data">
                     <span className="video-title">{video.title}</span><br />
 
-                    <a href={`/channel/${video.channelName}`} className="channel-name">{video.channelName}</a><br /> 
+                    <a href={`/channel/${video.name}`} className="channel-name">{video.name}</a><br /> 
                 
-                    {video.views} vues | Il y a {video.date}
+                    {video.vues} vues | Il y a {difference}
                 </div>
                 
             </div>

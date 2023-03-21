@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import './videolist.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios'
 
 import SingleVideo from './SingleVideo'
 
 export default function VideoList() {
 
     //state
-     const [list, setList] = useState([
+     const [videos, setVideos] = useState([
         {id: 1, title: "Video 1", views: 1000, date: "28 minutes", channelName: "User 1", duree: "18:34"},
         {id: 2, title: "Video 2", views: 2000, date: "3 heures", channelName: "User 2", duree: "8:53"},
         {id: 3, title: "Video 3", views: 3000, date: "5 jours", channelName: "User 3", duree: "4:16:45"},
@@ -16,12 +17,35 @@ export default function VideoList() {
      ])
 
     //comportement
+    const getVideos = () => {
+        axios.get('http://localhost:3001/getVideos')
+            .then(response => {
+                setVideos(response.data)
+                console.log(response.data)
+            })
+            .catch(error => {
+                if (error.response) {
+                    // Request made and server responded
+                    console.log(error.response.data);
+                    console.log(error.response.status);
+                    console.log(error.response.headers);
+                  } else if (error.request) {
+                    // The request was made but no response was received
+                    console.log(error.request);
+                  } else {
+                    // Something happened in setting up the request that triggered an Error
+                    console.log('Error :', error.message);
+                  }
+            })
+    }
 
     //render
     return (
         <div id="videos">
-            {list.map((vid) => (
-                <SingleVideo video={vid} />
+            <button onClick={getVideos}>Get Videos</button>
+
+            {videos.map((vid) => (
+                <SingleVideo video={vid} key={vid.id}/>
             ))}
         </div>
     )
