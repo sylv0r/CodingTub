@@ -1,6 +1,34 @@
-$adamcolor : #c800bb;
 
-h1  
-{
-    color: $adamcolor;
+
+nav{
+    width: 20%;
+    position: relative;
+    a{
+        text-decoration: none;
+        color: #262626;
+    }
+
+    .SideBarButton{
+        padding: 4%;
+
+        cursor: pointer;
+        text-transform: uppercase;
+        position: relative;
+       
+    }
+
+    .SideBarButton:hover {
+        opacity: 0.5;
+      }
+
+
+    i{
+        margin-right: 9%;
+    }
+
+    
+    
+
 }
+
+
