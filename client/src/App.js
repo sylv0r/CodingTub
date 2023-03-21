@@ -1,12 +1,10 @@
 import './App.css';
-import Header from './components/Header/Header'
-import SideBar from './components/Header/SideBar';
+import SideBar from './components/SideBar/SideBar';
 import VideoList from './components/VideoList/VideoList';
 
 function App() {
   return (
     <div>
-      <Header />
       <SideBar />
       <VideoList />
     </div>
