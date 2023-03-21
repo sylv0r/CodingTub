@@ -8,13 +8,31 @@ function Connexion() {
     password: '',
   });
 
+  const [users, setUsers] = useState([]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     /* console.log(formData); */
 
     console.log('formData', formData);
 
+    if (formData.email === '' || formData.password === '') {
+        alert('Veuillez remplir tous les champs');
+        return;
+    }
     
+    axios.get('http://localhost:3001/users')
+    .then(response => {
+        setUsers(response.data);
+        console.log(response.data);
+    })
+    .catch(error => {
+        console.log(error);
+    });
+
+    users.map(user => (
+      console.log(user.name)
+    ));
   };
 
   const handleChange = (event) => {
@@ -25,18 +43,18 @@ function Connexion() {
     });
   };
 
-  const [videos, setVideos] = useState([]);
-
-    const getVideos = () => {
-        axios.get('http://localhost:3001/videos')
-            .then(response => {
-                setVideos(response.data);
-                console.log(response.data);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    }
+/*   const [users, setUsers] = useState([]);
+ */
+/*   const getUsers = () => {
+      axios.get('http://localhost:3001/users')
+          .then(response => {
+              setUsers(response.data);
+              console.log(response.data);
+          })
+          .catch(error => {
+              console.log(error);
+          });
+  } */
 
   return (
     <div className="connexion">
@@ -55,14 +73,14 @@ function Connexion() {
           <input type="password" placeholder='Password' name="password" value={formData.password} onChange={handleChange} />
         </div>
 
-        <button className="" type="submit">Envoyer</button>
+        <button className="submit" type="submit">Envoyer</button>
 
       </form>
-      <button onClick={getVideos}>Afficher les vidéos</button>
+      {/* <button onClick={getUsers}>Afficher les vidéos</button>
 
-      <p>{videos.map(video => (
-          <li key={video.id}>{video.title}</li>))}
-      </p>
+      <p>{users.map(user => (
+          <li key={user.id}>{user.title}</li>))}
+      </p> */}
     </div>
   );
 }
