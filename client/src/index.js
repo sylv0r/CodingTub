@@ -9,7 +9,7 @@ import Search from './components/search/Searchs';
 
 const router = createBrowserRouter([
   {
-    path: "/Searchs",
+    path: "/search",
     element: <Search />,
   },
 ]);
