@@ -6,42 +6,45 @@ import Logo_profil from './img_header/Profil_picture.png';
 
 function Search() {
   return (
-    <body className="App">
-        <div className="icon">
-            <div>
-                <h1>
-                    <a href="#" target="" rel="">
-                        <span>
-                            <img src={Logo_Tube} alt="Logo CodingTube" class="icon_title" />
-                        </span>
-                    </a>
-                </h1>
-            </div>
-        </div>
+    <div className="body">
+
+        <div className="side"></div>
+
         <nav className="recherche">
+        
             <div className="Navsearch">
+
+                <a className="logo" href="#" target="" rel="">
+                    <img src={Logo_Tube} alt="Logo CodingTube" class="icon_title" />  
+                </a>
+
                 <form className="search" action="submit">
                     <input className="searchBar" placeholder=" Recherche..." type="text" /> 
                     <button className="lanchsubmit" >envoyer</button>
+                    <div className="voc">
+                        <a href="">
+                            <img src="" alt="" />
+                        </a>
+                    </div>
                 </form>
-                
-                <div className="icons">
-                    <div>
-                        <a href="" target="" rel="">
-                            <span>
-                                <img src={Logo_Notif} alt="Notifications" class="icon_notification"/>
-                            </span>
-                        </a>
-                    </div>
+
+                <div className="connect">
+                    
+                    <a className="not"href="" target="" rel="">
                         
-                    <div>
-                        <a href="" target="" rel="">
-                            <span>
-                                <img src={Logo_profil} alt="Profil" class="icon_profile"/>
-                            </span>
-                        </a>
-                    </div>
+                        <img src={Logo_Notif} alt="Notifications" class="icon_notification"/>
+                        
+                    </a>
+                    
+                    <a className="pp" href="" target="" rel="">
+                        
+                        <img src={Logo_profil} alt="Profil" class="icon_profile"/>
+                        
+                    </a>
                 </div>
+                
+                
+            
             </div>
 
             <div className="Navid">
@@ -56,12 +59,11 @@ function Search() {
                 <div className="hashtag"><a href="">#Louis-san</a></div>
                 <div className="hashtag"><a href="">#Locklear</a></div>
 
-
-            </div>    
+            </div>
 
         </nav>
 
-    </body>
+    </div>
     );
 }
 

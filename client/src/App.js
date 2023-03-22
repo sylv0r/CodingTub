@@ -1,9 +1,6 @@
 import './App.css';
-//import Search from './components/search/Searchs.js';
-import Filtre from './components/search/filtre.js';
-import Search from './components/search/search.js';
-import React from "react";
-
+import Search from './components/search/Searchs.js';
+//import Header from './components/search/Header';
 
 function App() {
   return (
