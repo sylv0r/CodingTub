@@ -2,9 +2,33 @@ import './Searchs.scss';
 import Logo_Tube from './img_header/Project_title_picture.png';
 import Logo_Notif from './img_header/cloche_notification.png';
 import Logo_profil from './img_header/Profil_picture.png';
-//import './Header.scss';
+import { useState } from "react";
+var data = require("./MOCK_DATA.json");
+
+
+
+
 
 function Search() {
+    
+    const [value, setValue] = useState("");
+
+  const onChange = (event) => {
+    setValue(event.target.value);
+  };
+
+  const onSearch = (searchTerm) => {
+    setValue(searchTerm);
+    // our api to fetch the search result
+    console.log("search ", searchTerm);
+  };
+  
+    
+  
+
+
+
+
   return (
     <div className="body">
 
@@ -19,14 +43,38 @@ function Search() {
                 </a>
 
                 <form className="search" action="submit">
-                    <input className="searchBar" placeholder=" Recherche..." type="text" /> 
-                    <button className="lanchsubmit" >envoyer</button>
+                    <input className="searchBar" value={value} onChange={onChange} type="text" /> 
+                    <button className="lanchsubmit" onClick={() => onSearch(value)} >envoyer</button>
+
+
+
                     <div className="voc">
                         <a href="">
                             <img src="" alt="" />
                         </a>
                     </div>
                 </form>
+                {data
+            .filter((item) => {
+              const searchTerm = value.toLowerCase();
+              const fullName = item.full_name.toLowerCase();
+
+              return (
+                searchTerm &&
+                fullName.startsWith(searchTerm) &&
+                fullName !== searchTerm
+              );
+            })
+            .slice(0, 10)
+            .map((item) => (
+              <div
+                onClick={() => onSearch(item.full_name)}
+                className="dropdown-row"
+                key={item.full_name}
+              >
+                {item.full_name}
+              </div>
+            ))}
 
                 <div className="connect">
                     
