@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const port = 3001
 const cors = require('cors')
 const mysql = require('mysql');
-const initDb = require('./initDb')
+const initDb = require('./db/initDb')
 
 const fs = require('fs');
 const path = require('path');
