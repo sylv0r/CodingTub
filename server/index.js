@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const port = 3005
 const cors = require('cors')
 const mysql = require('mysql');
 const initDb = require('./initDb')
@@ -13,31 +12,28 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors({ origin: "http://localhost:3000" }));
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-
-  var con = mysql.createConnection(initDb);
-  
-  con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-  });
-})
-
-
-
+app.use(function (req, res, next) { // Empeche les erreur de CORS
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader('Access-Control-Allow-Methods', '');
+  res.setHeader("Access-Control-Allow-Headers", "*");
+  next();
+});
 
 //////////////////////////LIVE\\\\\\\\\\\\\\\\\\\\\\\
 const server = require('http').Server(app);
-const io = require('socket.io')(server);
-
+const io = require('socket.io')(server, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"]
+  }
+});
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('Test');
 });
 
 io.on('connection', (socket) => {
-  console.log('a user connected');
+  console.log('SERVEUR >>>> CONNECTION');
 
   // Réception de l'offre du client
   socket.on('offer', (offer) => {
@@ -69,7 +65,7 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
+server.listen(3005, () => {
+  console.log(`Serveur ${3005}`);
 });
 //////////////////////////LIVE\\\\\\\\\\\\\\\\\\\\\\\
