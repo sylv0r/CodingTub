@@ -1,47 +1,45 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactPlayer from 'react-player';
-
 import '../style/short.css';
-//import API_KEY from '../../../cléAPI.txt;'
-import axios from 'axios';
 
-class VideoPlayer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      videoUrl: '',
-    };
-  };
-    
-  componentDidMount() {
-     const searchQuery = 'chat';
-     const API_KEY = 'oMZIXIvlIyN7dlfYApReIKBP24KDsi87mM5UULxIEYAwe16hwNgc8AhM'
-     axios.get(`https://api.pexels.com/v1/search?query=${searchQuery}`, {
-        headers: {
-          Authorization: API_KEY,
-        },
-      })
-      .then(response => {
-        this.setState({ videoUrl: response.data.videoUrl });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
+const videoUrls = [
+  'https://www.youtube.com/watch?v=video1',
+  'https://www.youtube.com/watch?v=video2',
+  'https://www.youtube.com/watch?v=video3',
+];
 
-  render() {
-    return (
-      <div  className='short'>
-      
-        <video controls>
+function Short() {
+  return (
+    <div className="player-container">
+      <div className="player-small">
         <ReactPlayer
-            url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                />
-          Your browser does not support the video tag.
-        </video>
+          url={videoUrls[0]}
+          controls={true}
+          height="300px"
+          width="200px"
+          className="player"
+        />
       </div>
-    );
-  }
+      <div className="player-large">
+        <ReactPlayer
+          url={videoUrls[1]}
+          controls={true}
+          height="750px"
+          width="380px"
+          className="player"
+        />
+      </div>
+      <div className="player-small">
+        <ReactPlayer
+          url={videoUrls[2]}
+          controls={true}
+          height="300px"
+          width="200px"
+          className="player"
+        />
+      </div>
+    </div>
+  );
 }
 
-export default VideoPlayer;
+export default Short;

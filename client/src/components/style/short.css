@@ -1,11 +1,19 @@
-.short{
+.player-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
-}
-video{
+    gap: 10px;
+  }
+  
+  .player-small,
+  .player-large {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .player {
     border-radius: 10px;
-    height: 650px;
-    width: 330px;
-}
+    overflow: hidden;
+  }
+  
