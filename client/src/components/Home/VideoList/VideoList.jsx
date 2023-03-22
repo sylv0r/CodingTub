@@ -18,7 +18,7 @@ export default function VideoList() {
 
     //comportement
     const getVideos = async () => {
-        await fetch('http://localhost:3001/getVideos', {method: "GET", headers: { "Content-Type": "application/json"}})
+        await fetch('http://localhost:3001/videos/getVideos', {method: "GET", headers: { "Content-Type": "application/json"}})
             .then(response => {
                 //setVideos(response.data)
                 //console.log(response.data)
