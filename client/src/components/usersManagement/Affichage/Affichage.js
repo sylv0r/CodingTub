@@ -31,25 +31,29 @@ function Affichage() {
 
         <><header className='barUp'></header>
 
-        <div className='barLeft'></div>
+        <div className='wrapper'>
+
+            <div className='barLeft'></div>
+            
+            <div className='user'>
+
+                <h1>Users</h1>
+
+                {users.map(user => (
+
+                    <ul key={user.id}>
+
+                        <li>{user.nom}</li>
+                        <li>{user.prenom}</li>
+                        <li>{user.pseudo}</li>
+                        <li>{user.email}</li>
+
+                    </ul>
+
+                ))}
+
+            </div>
         
-        <div className='user'>
-
-            <h1>Users</h1>
-
-            {users.map(user => (
-
-                <ul key={user.id}>
-
-                    <li>{user.nom}</li>
-                    <li>{user.prenom}</li>
-                    <li>{user.pseudo}</li>
-                    <li>{user.email}</li>
-
-                </ul>
-
-            ))}
-
         </div></>
 
     );
