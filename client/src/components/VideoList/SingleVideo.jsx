@@ -37,28 +37,31 @@ export default function SingleVideo({video}) {
     let views = video.vues
 
     if (views < 1000) {
-        views = views
+        views = views // --> 100 vues
     }
     // vues inférieures à dix mille
     else if (views < 10000) {
-        views = (views / 1000).toFixed(1) + " k"
+        views = (views / 1000).toFixed(1) + " k" // --> 3.4 k vues
     }
     // cent mille ou 1 million
     else if (views < 1000000) {
-        views = Math.round(views / 1000) + " k"
+        views = Math.round(views / 1000) + " k" // --> 124 k vues
     }
     // 1 million
     else if (views < 10000000) {
-        views = (views / 1000000).toFixed(1) + " M"
+        views = (views / 1000000).toFixed(1) + " M" // --> 1.4 M vues
     }
+    // 10 millions ou 100 millions
     else if (views < 1000000000) {
-        views = Math.round(views / 1000000) + " M"
+        views = Math.round(views / 1000000) + " M" // --> 32 M vues
     }
+    // 1 milliard
     else if (views < 10000000000) {
-        views = (views / 1000000000).toFixed(1) + " Md"
+        views = (views / 1000000000).toFixed(1) + " Md" // --> 5.2 Md vues
     }
+    // au dessus de 10 milliards
     else {
-        views = Math.round(views / 1000000000) + " Md"
+        views = Math.round(views / 1000000000) + " Md" // 10 Md vues
     }
 
     //comportement

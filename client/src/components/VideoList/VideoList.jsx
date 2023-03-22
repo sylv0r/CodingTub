@@ -17,11 +17,16 @@ export default function VideoList() {
      ])
 
     //comportement
-    const getVideos = () => {
-        axios.get('http://localhost:3001/getVideos')
+    const getVideos = async () => {
+        await fetch('http://localhost:3001/getVideos', {method: "GET", headers: { "Content-Type": "application/json"}})
             .then(response => {
-                setVideos(response.data)
-                console.log(response.data)
+                //setVideos(response.data)
+                //console.log(response.data)
+                return response.json()
+            })
+            .then((json) => {
+                console.log(json)
+                setVideos(json)
             })
             .catch(error => {
                 if (error.response) {
