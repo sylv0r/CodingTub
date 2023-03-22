@@ -34,7 +34,7 @@ function Affichage() {
         <div className='wrapper'>
 
             <div className='barLeft'></div>
-            
+
             <div className='user'>
 
                 <h1>Users</h1>
@@ -50,10 +50,10 @@ function Affichage() {
 
                     </ul>
 
-                ))}
+                )) }
 
             </div>
-        
+            
         </div></>
 
     );

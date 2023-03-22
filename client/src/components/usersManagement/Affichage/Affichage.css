@@ -2,6 +2,7 @@ body {
 
     background: linear-gradient(to bottom right, #6e19a3, #c53849);
     height: 100vh;
+    
 
 }
 
@@ -15,19 +16,18 @@ body {
 .barLeft {
 
     background-color: green;
-    height: 8vh;
+    height: 92vh;
+    width: 8vh;
 
 }
 
 .user {
-
-    margin: 100px;
-
+    margin-left: 5vh;
 }
 
 .wrapper {
 
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
 
 }
