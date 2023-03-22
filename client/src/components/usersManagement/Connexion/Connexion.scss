@@ -1,0 +1,24 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0px;
+  height: 100vh;
+}
+
+.connexion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: cyan;
+  height: 100vh;
+  width: 100vw;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+

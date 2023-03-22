@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react';
-import './Connexion.css';
+import './Connexion.scss';
 import axios from 'axios';
 function Connexion() {
     // state (état, donné)
@@ -35,27 +35,28 @@ function Connexion() {
     createSession();
   }, [users]);
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
+  	const handleChange = (event) => {
+		const { name, value } = event.target;
+		setFormData({
+			...formData,
+			[name]: value
+		});
+  	};
 
-  const createSession = () => {
+  	const createSession = () => {
     console.log('users', users);
 
     if (users.length > 0) {
         users.forEach(user => {
             if (user.email === formData.email && user.password === formData.password) {
-                //console.log("user logged in");
-                //console.log('user', user);
+                console.log('user', user);
 
-                app.get('/', (req, res) => {
-                  req.session.id = user.id;
-                  res.send('Hello World!');
-                });
+                localStorage.setItem('user', JSON.stringify(user.id));
+
+					const user_id = JSON.parse(localStorage.getItem('user'));
+
+					console.log('user_id', user_id);
+
                 //window.location.href = '/home';
                 //console.log(JSON.parse(localStorage.getItem('user')));
             }
