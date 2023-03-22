@@ -45,7 +45,14 @@ function App() {
 
   return (
     <div className="App">
-      <video ref={videoRef} autoPlay playsInline></video>
+      <head>
+        <style>
+
+        </style>
+      </head>
+      <body>
+        <video ref={videoRef} autoPlay playsInline id="live"></video>
+      </body>
     </div>
   );
 }
