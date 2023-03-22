@@ -1,6 +1,5 @@
 import './App.css';
-import Search from './components/search/Search.js';
-
+import Search from './components/search/Searchs.js';
 function App() {
   return (
     <div className="App">

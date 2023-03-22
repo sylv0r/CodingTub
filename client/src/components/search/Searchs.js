@@ -1,4 +1,4 @@
-import './Search.scss';
+import './Searchs.scss';
 import Logo_Tube from './img_header/Project_title_picture.png';
 import Logo_Notif from './img_header/cloche_notification.png';
 import Logo_profil from './img_header/Profil_picture.png';
