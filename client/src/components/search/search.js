@@ -1,7 +1,6 @@
 import React from "react";
-import "./Search.css";
-import { useState, useEffect} from "react"
-import { database } from "../../../../server/initDb";
+import "./search.scss";
+import { useState, useEffect} from "react";
 
 function Search() {
 
@@ -9,9 +8,9 @@ function Search() {
     const [SearchTerm, setSearchTerm] = useState("") 
 
     useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/posts")
-        .then((Response) => Response.json())
-        .then((json) => setDatas(json ));
+        fetch("https://jsonplaceholder.typicode.com/todos/1")
+        .then(response => response.json())
+        .then(json => console.log(json))
     }, []);
     const handleSearchTerm = (e) => {
             let value = e.target.value;
@@ -31,12 +30,17 @@ function Search() {
             />
         </div>
         <div className="search_results">
-            {datas.filter((val) => {
+            {datas
+            .filter((val) => {
                 return val.title.toLowerCase().includes(SearchTerm.toLowerCase())
-            }).map((val) =>{
-            return <div className="search_results" key={post.id}>{post.title }</div>
-            {val.title}
-            })}
+            })
+            .map((val) => {
+            return (
+                <div className="search_results" key={val.id}>
+                    {val.title}
+                </div>
+            );
+        })}
         
 
         </div>
