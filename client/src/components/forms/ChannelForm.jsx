@@ -1,17 +1,32 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "./ChannelForm.scss"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function ChannelForm() {
-  const title = useRef();
-  const descritpion = useRef();
+  const name = useRef();
+  const description = useRef();
   const imageLink = useRef();
 
   async function handleSubmit(e) {
     e.preventDefault()
-    console.log("alert : ",descritpion.current.value)
+    fetch("http://localhost:3001/channels/createChannel", {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: "name",
+        description: "desc",
+        image_link: "image",
+        user_id: 1
+      })
+    })
+    .then((response) => {
+      return response.json()
+    })
+    .then((json) => {
+      console.log(json)
+    })
   }
 
   return (
@@ -19,7 +34,7 @@ export default function ChannelForm() {
       <Form.Group className="mb-3" controlId="form-title">
         <Form.Label>Titre de la chaîne</Form.Label>
         <Form.Control
-          ref={title}
+          ref={name}
           type="text"
           placeholder="Entrer le titre" 
         />
@@ -31,7 +46,7 @@ export default function ChannelForm() {
       <Form.Group>
         <Form.Label>Description de la chaîne</Form.Label>
         <Form.Control
-          ref={descritpion}
+          ref={description}
           as="textarea"
           className="form-description"
           placeholder="Entrer la description"
