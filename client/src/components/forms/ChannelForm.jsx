@@ -13,11 +13,13 @@ export default function ChannelForm() {
     e.preventDefault()
     fetch("http://localhost:3001/channels/createChannel", {
       method: "POST",
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
-        name: "name",
-        description: "desc",
-        image_link: "image",
+        name: name.current.value,
+        description: description.current.value,
+        image_link: imageLink.current.value,
         user_id: 1
       })
     })
