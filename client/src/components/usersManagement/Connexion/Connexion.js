@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import './Connexion.css';
 import axios from 'axios';
 function Connexion() {
@@ -12,7 +12,6 @@ function Connexion() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    /* console.log(formData); */
 
     console.log('formData', formData);
 
@@ -24,14 +23,17 @@ function Connexion() {
     axios.get('http://localhost:3001/users')
     .then(response => {
         setUsers(response.data);
-        console.log(response.data);
+        //console.log(response.data);
     })
     .catch(error => {
         console.log(error);
     });
-
-    users[0].email === formData.email && users[0].password === formData.password ? alert('Vous êtes connecté') : alert('Veuillez vérifier vos identifiants');
+    
   };
+
+  useEffect(() => {
+    createSession();
+  }, [users]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -40,6 +42,26 @@ function Connexion() {
       [name]: value
     });
   };
+
+  const createSession = () => {
+    console.log('users', users);
+
+    if (users.length > 0) {
+        users.forEach(user => {
+            if (user.email === formData.email && user.password === formData.password) {
+                //console.log("user logged in");
+                //console.log('user', user);
+
+                app.get('/', (req, res) => {
+                  req.session.id = user.id;
+                  res.send('Hello World!');
+                });
+                //window.location.href = '/home';
+                //console.log(JSON.parse(localStorage.getItem('user')));
+            }
+        });
+    }
+  }
 
 /*   const [users, setUsers] = useState([]);
  */
