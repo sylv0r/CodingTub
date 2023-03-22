@@ -1,3 +1,4 @@
+
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
@@ -16,8 +17,10 @@ app.listen(port, () => {
 
   var con = mysql.createConnection(initDb);
   
-  con.connect(function(err) {
+  con.connect(function (err) {
     if (err) throw err;
     console.log("Connected!");
   });
 })
+
+

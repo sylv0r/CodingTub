@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom/client';
 /* import './App.css';
 import App from './App'; */
 
-import './usersManagement/Inscription.css';
-import Inscription from './usersManagement/Inscription';
+import Inscription from './components/usersManagement/InscriptionForm.js';
 
 import reportWebVitals from './reportWebVitals';
 
