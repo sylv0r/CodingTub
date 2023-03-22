@@ -1,46 +1,81 @@
 header {
     height: 15vh;
 } 
-
-body{
-    height: 100vh;
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.body{
+    width: 100%;
+    margin: 0;
     background: linear-gradient(to bottom right, #6e19a3, #c53849);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    display: flex;
+}
+
+.side{
+    height: 100vh;
+    background-color: white;
+    width: 15%;
 }
 
 .recherche{
+    margin: 0;
     height: 10vh;
-    display: flex;
-    flex-direction: column;
+    width: 85%;
 }
 
 .Navsearch{
-    height: 5vh;
     width: 100%;
     display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
+}
 
+.logo{
+    width: 33%;
 }
 
 .search{
-    width: 70%;
+    width: 33%;
+    display: flex;
+    flex-direction: row;
 }
 
 .searchBar{
-    margin: 1vh 0 auto 55vh;
+    margin: 3vh auto;
     height: 3vh;
-    width: 40vh;
     border-radius: 12px 0 0 12px;
     border: none;
     background-color: rgb(208, 208, 208);
+    width: 70%;
 }
 
 .lanchsubmit{
+    margin: 3vh auto;
     border-radius: 0 12px 12px 0;
-    height: 3.17vh;
+    height: 3vh;
     border: none;
+    width: 20%;
+}
+
+.voc{
+    background-color: white;
+    width: 6%;
+    margin: 3vh;
+    height: 3vh;
+    border-radius: 50%;
+}
+
+.not, .pp{
+    width: 10%;
+    height: 3vh;
+    margin: 3vh 2vh;
+}
+
+.connect{
+    width: 33%;
+    justify-content: center;
+    display: flex;
 }
 
 .icons{
@@ -51,24 +86,18 @@ body{
 }
 
 .Navid{
+    width: 100%;
+    margin: 0;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    //background-color: gray;
-}
-
-.icon{ 
-    margin: auto 0;
-    height: 4vh;
-    width: 40%;
-    text-align: center;
+    justify-content: space-around;
 }
 
 .hashtag{ 
     margin: 2vh 0;
     padding: 0.5vh 0 0.8vh;
     border-radius: 25px;
-    width: 15vh;
+    width: 9%;
     background-color: black;
 }
 
