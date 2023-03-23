@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import './Connexion.scss';
-
+import axios from 'axios';
 
 function Connexion() {
     // state (état, donné)
@@ -21,7 +21,7 @@ function Connexion() {
         return;
     }
     
-    /* axios.get('http://localhost:3001/users')
+    axios.get('http://localhost:3001/users/getUsers')
     .then(response => {
         setUsers(response.data);
         //console.log(response.data);
@@ -30,9 +30,9 @@ function Connexion() {
         console.log(error);
     });
     
-  }; */
+  };
 
-	async function getUsers() {
+	/* async function getUsers() {
 		const response = await fetch('http://localhost:3001/users/getUsers', 
 		{
 			method: 'GET',
@@ -45,7 +45,7 @@ function Connexion() {
 		}
 
 		getUsers();
-  	}
+  	} */
 
   useEffect(() => {
     createSession();
@@ -73,7 +73,7 @@ function Connexion() {
 
 					console.log('user_id', user_id);
 
-                	window.location.href = '/home';
+                	//window.location.href = '/home';
             }
         });
     }
