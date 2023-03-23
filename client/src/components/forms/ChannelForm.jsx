@@ -4,14 +4,20 @@ import Form from 'react-bootstrap/Form';
 import "./ChannelForm.scss"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function ChannelForm() {
+export default function ChannelForm({state}) {
   const name = useRef();
   const description = useRef();
   const imageLink = useRef();
 
   async function handleSubmit(e) {
     e.preventDefault()
-    fetch("http://localhost:3001/channels/createChannel", {
+
+    if (name.current.value.length < 4 || description.current.value.length < 10) {
+      state.setAlert(true)
+      state.setResponseType("danger")
+      state.setMessage("Vos champs doivent tous être remplis")
+    } else {
+      fetch("http://localhost:3001/channels/createChannel", {
       method: "POST",
       headers: { 
         'Content-Type': 'application/json'
@@ -27,8 +33,16 @@ export default function ChannelForm() {
       return response.json()
     })
     .then((json) => {
-      console.log(json)
+      if (!json.error) {
+        state.setResponseType("success")
+        state.setMessage('Votre chaîne a été créée avec succès !')
+      } else {
+        state.setResponseType("danger")
+        state.setMessage("Ce nom de chaîne existe déjà")
+      }
+      state.setAlert(true)
     })
+    }
   }
 
   return (
@@ -38,7 +52,7 @@ export default function ChannelForm() {
         <Form.Control
           ref={name}
           type="text"
-          placeholder="Entrer le titre" 
+          placeholder="Entrer le titre"
         />
         <Form.Text className="text-muted">
           Utilisez uniquement des mots corrects.
@@ -51,7 +65,7 @@ export default function ChannelForm() {
           ref={description}
           as="textarea"
           className="form-description"
-          placeholder="Entrer la description"
+          placeholder="Entrer la description (min 4)"
         />
         <Form.Text className="text-muted">
           Utilisez uniquement des mots corrects.
@@ -63,10 +77,10 @@ export default function ChannelForm() {
         <Form.Control
           ref={imageLink}
           type="text" 
-          placeholder="Entrer le lien de votre miniature"
+          placeholder="Entrer le lien de votre miniature (min 10)"
         />
         <Form.Text className="text-muted">
-          Utilisez uniquement des mots corrects.
+          Extensions .png, .jpeg, .jpg
         </Form.Text>
       </Form.Group>
 

@@ -1,21 +1,30 @@
 const { con } = require('../../db/connection')
+const { channelAlreadyExist } = require('../methods/channelAlreadyExist')
 
 module.exports = async (req, res) => {
-  console.log(req.body)
   const { name, description, image_link, user_id } = req.body
-  console.log(req.body.description)
   try {
-    await con.query2('INSERT INTO channels (name, description, image_link, user_id) VALUES (?,?,?,?)', [name, description, image_link, user_id]);
-    res.json({
-      messsage: "Chaîne créée avec succès"
-    }).status(201)
+    if (name.length >= 4 && description.length >= 10) {
+      const alreadyExist = await channelAlreadyExist(name)
+      if (!alreadyExist[0]) {
+        await con.query2('INSERT INTO channels (name, description, image_link, user_id) VALUES (?,?,?,?)', [name, description, image_link, user_id]);
+        res.status(201).json({
+          message: "Chaîne créée avec succès"
+        })
+      } else {
+        res.status(406).json({
+          error: "Ce nom de chaîne existe déjà"
+        })
+      }
+    } else {
+      res.status(406).json({
+        error: "Veuillez remplir les champs correctement"
+      })
+    }
   }
   catch(e) {
-    res.json({
+    res.status(403).json({
       error: e
-    }).status(403)
+    })
   }
- 
-
-  res.sendStatus(200)
 }
