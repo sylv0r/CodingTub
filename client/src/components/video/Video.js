@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import ReactPlayer from 'react-player'
 import './video.scss';
 
@@ -30,14 +31,15 @@ function Video() {
     
 
 
-
+    useEffect(()=>{
+        getVideos();
+    }, []) 
       
 
     
     return (
                  
         <div id='player-wrapper'>
-            <button onClick={getVideos}>Get videos</button>
             {videos.length > 0 &&
             <div className='video'>
                 <ReactPlayer 
