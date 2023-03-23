@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from 'react';
 import './Connexion.scss';
-import axios from 'axios';
+
+
 function Connexion() {
     // state (état, donné)
   const [formData, setFormData] = useState({
@@ -20,7 +21,7 @@ function Connexion() {
         return;
     }
     
-    axios.get('http://localhost:3001/users')
+    /* axios.get('http://localhost:3001/users')
     .then(response => {
         setUsers(response.data);
         //console.log(response.data);
@@ -29,7 +30,22 @@ function Connexion() {
         console.log(error);
     });
     
-  };
+  }; */
+
+	async function getUsers() {
+		const response = await fetch('http://localhost:3001/users/getUsers', 
+		{
+			method: 'GET',
+			headers: {'Content-Type': 'application/json'},
+		});
+
+		const data = await response.json();
+		setUsers(data);
+		console.log('data', data);
+		}
+
+		getUsers();
+  	}
 
   useEffect(() => {
     createSession();
@@ -57,25 +73,11 @@ function Connexion() {
 
 					console.log('user_id', user_id);
 
-                //window.location.href = '/home';
-                //console.log(JSON.parse(localStorage.getItem('user')));
+                	window.location.href = '/home';
             }
         });
     }
-  }
-
-/*   const [users, setUsers] = useState([]);
- */
-/*   const getUsers = () => {
-      axios.get('http://localhost:3001/users')
-          .then(response => {
-              setUsers(response.data);
-              console.log(response.data);
-          })
-          .catch(error => {
-              console.log(error);
-          });
-  } */
+  };
 
   return (
     <div className="connexion">
@@ -84,26 +86,31 @@ function Connexion() {
 
       <form onSubmit={handleSubmit} className='form'>
        
-        <div>
+        
           <label>E-mail :</label><br />
           <input type="email" placeholder='Email@gmail.com' name="email" value={formData.email} onChange={handleChange} />
-        </div>
+        
 
-        <div>
+        
           <label>Mot de passe :</label><br />
           <input type="password" placeholder='Password' name="password" value={formData.password} onChange={handleChange} />
-        </div>
+        
 
         <button className="submit" type="submit">Envoyer</button>
 
       </form>
-      {/* <button onClick={getUsers}>Afficher les vidéos</button>
-
-      <p>{users.map(user => (
-          <li key={user.id}>{user.title}</li>))}
-      </p> */}
     </div>
   );
 }
 
 export default Connexion;
+
+
+/* 
+  app.get('/users', function(req, res) {
+    con.query('SELECT * FROM users', function(err, results) {
+      if (err) throw err;
+      res.send(results);
+    });
+  });
+   */
