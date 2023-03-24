@@ -1,6 +1,6 @@
 import './Searchs.scss';
 import { useState } from 'react';
-//import './Header.scss';
+import Hashtag from "./hashtag"
 
 function Search() {
 
@@ -41,7 +41,7 @@ function Search() {
                 <div className="connect">
 
                     <a className="not"href="" target="" rel="">
-                        <img src="../../../public/assetsézéé    /img_header/cloche_notification.png" alt="" class="icon_notification"/>
+                        <img src="../../../public/assets/img_header/cloche_notification.png" alt="" class="icon_notification"/>
                     </a>
                     
                     <a className="pp" href="" target="" rel="">
@@ -52,16 +52,8 @@ function Search() {
             </div>
 
             <div className="Navid">
-                <div className="hashtag"><a href="">#Vilebrequin</a></div>
-                <div className="hashtag"><a href="">#Wankil</a></div>
-                <div className="hashtag"><a href="">#Anas</a></div>
-                <div className="hashtag"><a href="">#Squeezie</a></div>
-                <div className="hashtag"><a href="">#Pokimane</a></div>
-                <div className="hashtag"><a href="">#Amouranth</a></div>
-                <div className="hashtag"><a href="">#FuzeIII</a></div>
-                <div className="hashtag"><a href="">#LeBouzeuh</a></div>
-                <div className="hashtag"><a href="">#Louis-san</a></div>
-                <div className="hashtag"><a href="">#Locklear</a></div>
+
+                {Hashtag}
 
             </div>
         </nav>
