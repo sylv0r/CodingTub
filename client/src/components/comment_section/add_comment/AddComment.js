@@ -1,8 +1,12 @@
 import React, { useRef } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { useSearchParams  } from 'react-router-dom'
 
 function AddComment(props) {
+
+    let [searchParams, setSearchParams] = useSearchParams();
+    const id = searchParams.get('id'); // send
 
     const comment = useRef();
 
@@ -14,7 +18,7 @@ function AddComment(props) {
           body: JSON.stringify({
             comment: comment.current.value,
             id_users: 4,
-            id_video: 1
+            id_video: id
           })
         })
         .then((response) => {
