@@ -1,9 +1,10 @@
 import React, { useRef } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import AutoExpandingTextarea from "./AutoExpandingTextarea";
 
 function PostCommunaute(props) {
-    
+
     const content = useRef();
 
     async function contentSubmit(e) {
@@ -26,15 +27,13 @@ function PostCommunaute(props) {
     }
 
     return (
-        <div>
+        <div className='content_submit'>
             <Form>
-                <Form.Control
+                <AutoExpandingTextarea
                     ref={content}
-                    type="text"
-                    placeholder="Exprimez-vous !" 
                 />
-                    <Button variant="primary" type="submit" onClick={(e) => contentSubmit(e)}>
-                        publier
+                    <Button variant="primary" className='submit_content' type="submit" onClick={(e) => contentSubmit(e)}>
+                        Publier
                     </Button>
             </Form>
         </div>

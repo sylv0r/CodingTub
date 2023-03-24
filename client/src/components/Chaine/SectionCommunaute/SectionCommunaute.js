@@ -25,7 +25,7 @@ export default function SectionCommunaute(){
     // affichage (render)
     return (
     <div className='div_section_communaute'>
-        <div>
+        <div className='pdp_name'>
             <img src="https://st4.depositphotos.com/21557188/23287/v/600/depositphotos_232872160-stock-illustration-simple-person-icon-linear-symbol.jpg" alt="pdp_utilisateur" className='pdp_utilisateur'></img>
             <p>{user.name}Creepynax</p>
         </div>
