@@ -34,24 +34,20 @@ const UploadForm = () => {
     const handleSubmit = (event) => {
         const baseURL = "http://localhost:3001/channels/uploadVideo";
 
-
-
         // Empêcher le comportement par défaut du formulaire
         event.preventDefault();
 
-        // Création d'un objet FormData pour envoyer les données du formulaire en tant que multipart/form-data
-        const formData = new FormData();
-        formData.append('video', selectedVideo);
-        formData.append('title', title);
-        formData.append('description', description);
-        formData.append('tags', tags);
-        formData.append('miniature', selectedMiniature);
-
         // Envoi des données du formulaire au serveur
         try {
-            axios.post(baseURL, formData, {
+            axios.post(baseURL, {
+                "video": selectedVideo,
+                "title": title,
+                "description": description,
+                "tags": tags,
+                "miniature": selectedMiniature
+            }, {
                 headers: {
-                    'Content-Type': 'multipart/form-data'
+                    'Content-Type': 'application/form-data'
                 }
             }).then((response) => {
                 console.log(response);
