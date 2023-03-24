@@ -7,6 +7,6 @@ export default function SectionLives(){
 
     // affichage (render)
     return <div>
-        <p>Voici la section Lives, elle te permet de voir tous les derniers lives</p>
+        <p>Mettre le composant des Lives</p>
     </div>
 }

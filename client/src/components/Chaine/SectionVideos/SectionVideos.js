@@ -1,13 +1,15 @@
 import React from 'react'
 
-export default function SectionVideos(){
-    // state
+export default function SectionVideos() {
 
-    // comportements 
+    //state
 
-    // affichage (render)
-    return <div>
-        <p>Voici la section Vidéo, elle te permet de voir toutes les vidéos de la chaîne</p>
-    </div>
-    
+    //comportement
+
+    //render
+    return (
+        <div>
+            <p>Mettre le lien vers le composant de Bastien V</p>            
+         </div>
+    )
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'; // importez useState pour gérer l'état
+import './MenuChaine.scss'
 import SectionAccueil from '../SectionAccueil/SectionAccueil'
 import SectionVideos from '../SectionVideos/SectionVideos'
 import SectionShorts from '../SectionShorts/SectionShorts'
@@ -47,14 +48,14 @@ export default function MenuChaine() {
     // affichage (render)
     return (
     <div>
-    <button onClick={() => handleSectionChange('Accueil')}>Accueil</button>
-    <button onClick={() => handleSectionChange('Vidéos')}>Vidéos</button>
-    <button onClick={() => handleSectionChange('Shorts')}>Shorts</button>
-    <button onClick={() => handleSectionChange('Lives')}>Lives</button>
-    <button onClick={() => handleSectionChange('Playlists')}>Playlists</button>
-    <button onClick={() => handleSectionChange('Communauté')}>Communauté</button>
-    <button onClick={() => handleSectionChange('Chaînes')}>Chaînes</button>
-    <button onClick={() => handleSectionChange('À Propos')}>À Propos</button>
+    <button className='sections_menu' onClick={() => handleSectionChange('Accueil')}>Accueil</button>
+    <button className='sections_menu' onClick={() => handleSectionChange('Vidéos')}>Vidéos</button>
+    <button className='sections_menu' onClick={() => handleSectionChange('Shorts')}>Shorts</button>
+    <button className='sections_menu' onClick={() => handleSectionChange('Lives')}>Lives</button>
+    <button className='sections_menu' onClick={() => handleSectionChange('Playlists')}>Playlists</button>
+    <button className='sections_menu' onClick={() => handleSectionChange('Communauté')}>Communauté</button>
+    <button className='sections_menu' onClick={() => handleSectionChange('Chaînes')}>Chaînes</button>
+    <button className='sections_menu' onClick={() => handleSectionChange('À Propos')}>À Propos</button>
     {sectionAffichee}
     </div>
     );
