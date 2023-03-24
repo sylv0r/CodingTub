@@ -11,6 +11,7 @@ export default function ChannelForm({state}) {
   const imageLink = useRef();
 
   async function handleSubmit(e) {
+    console.log('clicked')
     e.preventDefault()
 
     if (name.current.value.length < 4 || description.current.value.length < 10) {

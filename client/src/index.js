@@ -8,6 +8,7 @@ import {
 import CreateChannel from './components/CreateChannel';
 import UploadForm from './components/chaine_upload/UploadForm';
 import Video from './components/show_video/ShowVideo.js';
+import MenuChaine from './components/Chaine/MenuChaine/MenuChaine';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
     path: "/video",
     element: <Video />,
   },
+  {
+    path: "/MenuChaine",
+    element: <MenuChaine />,
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
