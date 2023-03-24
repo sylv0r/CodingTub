@@ -13,7 +13,6 @@ module.exports = async (req, res) => {
   const miniatureExt = path.extname(miniature.originalname);
 
 
-  console.log(video.extension);
   const videoPath = path.join(__dirname, '../uploads', `${title}${videoExt}`);
   const miniaturePath = path.join(__dirname, '../uploads', `miniature_${title}${miniatureExt}`);
 
@@ -24,7 +23,6 @@ module.exports = async (req, res) => {
       res.status(500).send('Error uploading video');
     } else {
       console.log(`Video uploaded successfully: ${videoPath}`);
-      res.send('Video uploaded successfully');
     }
   });
 
@@ -34,7 +32,6 @@ module.exports = async (req, res) => {
       res.status(500).send('Error uploading video');
     } else {
       console.log(`Video uploaded successfully: ${miniaturePath}`);
-      res.send('Video uploaded successfully');
     }
 
 
@@ -44,7 +41,6 @@ module.exports = async (req, res) => {
         res.status(500).send(err);
         return;
       }
-      console.log(result);
       res.json({ message: 'Video and miniature have been saved successfully' });
     });
   });
