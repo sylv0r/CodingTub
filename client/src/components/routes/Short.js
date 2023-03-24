@@ -1,84 +1,60 @@
-import React, { useState } from 'react';
-import ReactPlayer from 'react-player';
-import '../style/short.css';
+import React, { useState, useEffect } from "react";
+import ReactPlayer from "react-player";
+import axios from "axios";
+import "../style/short.css";
 
-import axios from 'axios';
+const Short = () => {
+  const [videos, setVideos] = useState([]);
 
-const videoUrls = [
-  'https://www.youtube.com/watch?v=sySgyi7KDSE&ab_channel=Swiptype%E2%80%A2',
-  'https://www.youtube.com/watch?v=cFBKinVCjVA&ab_channel=Leboncot%C3%A9deschauves',
-  'https://www.youtube.com/watch?v=70y_OWTol9U&ab_channel=wlistlinks',
-];
-
-function Short() {
-  const [text, setText] = useState('');
-
-  const addItem = async (e) => {
-    e.preventDefault();
-    console.log(text)
+  // Fonction pour charger les vidéos depuis l'API
+  const fetchVideos = async () => {
     try {
-      const response = await axios.post('http://localhost:3001/shorts/video', {
-        text: text,
-      });
-
-      console.log('Text added successfully:', response.data);
-      setText('');
+      const response = await axios.get("http://localhost:3001/shorts/fetch");
+      setVideos(response.data);
     } catch (error) {
-      console.error('Error adding text:', error);
+      console.error("Error fetching videos:", error);
     }
   };
 
- 
+  // Charger les vidéos lors de l'initialisation du composant
+  useEffect(() => {
+    fetchVideos();
+  }, []);
 
   return (
-    <>
-      <div className="form-container" >
-        
-        <form className="form-short" onSubmit={addItem}>
-          <input
-            type="text"
-            placeholder="Text content"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          />
-          <button type="submit">Add Text</button>
-          <button id="likeButton">J'aime</button>
-        </form>
+    <div className="player-container">
+      <div className="player-past">
+        <ReactPlayer
+          url={videos[0]?.shorturl}
+          controls={true}
+          height="100%"
+          width="100%"
+          className="player"
+        />
+        <p>{videos[0]?.description}</p>
       </div>
-      <div className="player-container">
-        <div className="player-small">
-          <ReactPlayer
-            url={videoUrls[0]}
-            controls={true}
-            height="600px"
-            width="250px"
-            className="player"
-          />
-        </div>
-        <div className="player-large">
-          <ReactPlayer
-            url={videoUrls[1]}
-            controls={true}
-            height="750px"
-            width="380px"
-            className="player"
-          />
-        </div>
-        <div className="player-small">
-          <ReactPlayer
-            url={videoUrls[2]}
-            controls={true}
-            height="600px"
-            width="250px"
-            className="player"
-          />
-        </div>
-        <div>
-          <button> Suivant </button>
-        </div>
+      <div className="player-current">
+        <ReactPlayer
+          url={videos[1]?.shorturl}
+          controls={true}
+          height="100%"
+          width="100%"
+          className="player"
+        />
+        <p>{videos[1]?.description}</p>
       </div>
-    </>
+      <div className="player-next">
+        <ReactPlayer
+          url={videos[2]?.shorturl}
+          controls={true}
+          height="100%"
+          width="100%"
+          className="player"
+        />
+        <p>{videos[2]?.description}</p>
+      </div>
+    </div>
   );
-}
+};
 
 export default Short;
