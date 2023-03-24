@@ -84,9 +84,9 @@ export default function SingleVideo({video}) {
 
     //render
     return (
-        <div className="singleVid" key={video.id}>
+        <div className="singleVid">
             <div className="thumbnail">
-                <a href={video.video_link}><img src="https://www.howtogeek.com/wp-content/uploads/2021/08/YouTube-logo-hero-1.png?height=200p&trim=2,2,2,2&crop=16:9" alt="" /></a> <br />
+                <a href={`/video/${video.id}`}><img src="https://www.howtogeek.com/wp-content/uploads/2021/08/YouTube-logo-hero-1.png?height=200p&trim=2,2,2,2&crop=16:9" alt="" /></a> <br />
                 <h6 className="video-duration">{video.duree}</h6>
             </div>
 
