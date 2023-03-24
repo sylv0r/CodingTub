@@ -7,11 +7,12 @@ import {
   createBrowserRouter, 
   RouterProvider
 } from "react-router-dom";
+import Search from './components/search/Searchs';
 
 const router = createBrowserRouter([
   {
-    path: "/search",
-    element: <Search />,
+    path: "/searchPage",
+    element: <SearchPage />,
   },
 ]);
 
