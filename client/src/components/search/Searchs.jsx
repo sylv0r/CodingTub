@@ -2,90 +2,56 @@ import './Searchs.scss';
 import Logo_Tube from './img_header/Project_title_picture.png';
 import Logo_Notif from './img_header/cloche_notification.png';
 import Logo_profil from './img_header/Profil_picture.png';
-import { useState } from "react";
-var data = require("./MOCK_DATA.json");
-
-
-
-
+import { useState } from 'react';
+//import './Header.scss';
 
 function Search() {
-    
-    const [value, setValue] = useState("");
 
-  const onChange = (event) => {
-    setValue(event.target.value);
-  };
+    const data = [/*{chaine}, {profil}, {hashtag}, {video},*/"Chocolat", "Chien", "chat", "Café", "Cafeine"];
 
-  const onSearch = (searchTerm) => {
-    setValue(searchTerm);
-    // our api to fetch the search result
-    console.log("search ", searchTerm);
-  };
-  return (
-    <div className="body">
+    const [value, setvalue] = useState("  ");
+
+    function handleChange (event) {
+        setvalue(event.target.value)
+    }
+
+    return (
+
+    <header className="body">
 
         <div className="side"></div>
 
         <nav className="recherche">
-        
             <div className="Navsearch">
 
                 <a className="logo" href="#" target="" rel="">
                     <img src={Logo_Tube} alt="Logo CodingTube" class="icon_title" />  
                 </a>
 
-                <form className="search" action="submit">
-                    <input className="searchBar" value={value} onChange={onChange} type="text" /> 
-                    <button className="lanchsubmit" onClick={() => onSearch(value)} >envoyer</button>
-
-
-
-                    <div className="voc">
-                        <a href="">
-                            <img src="" alt="" />
-                        </a>
-                    </div>
-                </form>
-                {data
-            .filter((item) => {
-              const searchTerm = value.toLowerCase();
-              const fullName = item.full_name.toLowerCase();
-
-              return (
-                searchTerm &&
-                fullName.startsWith(searchTerm) &&
-                fullName !== searchTerm
-              );
-            })
-            .slice(0, 10)
-            .map((item) => (
-              <div
-                onClick={() => onSearch(item.full_name)}
-                className="dropdown-row"
-                key={item.full_name}
-              >
-                {item.full_name}
-              </div>
-            ))}
+                <div className="search" action="submit">
+                    <input className="searchBar" placeholder=" Recherche..." type="text" value={value} onChange={handleChange}/> 
+                    <button className="lanchsubmit" onClick={() => console.log(value)} >envoyer</button>
+                </div>
+                <ul>
+                    {value && 
+                        data
+                        .filter((element) => element.includes(value))
+                        .map((element, index) => <li onClick={() => 
+                        setvalue(element)} key={index}>{element}</li>)
+                    }
+                </ul>
 
                 <div className="connect">
-                    
+
                     <a className="not"href="" target="" rel="">
-                        
                         <img src={Logo_Notif} alt="Notifications" class="icon_notification"/>
-                        
                     </a>
                     
                     <a className="pp" href="" target="" rel="">
-                        
                         <img src={Logo_profil} alt="Profil" class="icon_profile"/>
-                        
                     </a>
                 </div>
                 
-                
-            
             </div>
 
             <div className="Navid">
@@ -101,10 +67,9 @@ function Search() {
                 <div className="hashtag"><a href="">#Locklear</a></div>
 
             </div>
-
         </nav>
 
-    </div>
+    </header>
     );
 }
 

@@ -1,7 +1,5 @@
 const { con } = require('../../db/connection')
 
-
-
 const app = express();
 app.use(express.json());
 app.post('/api/data', async (req, res) => {
