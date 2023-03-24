@@ -2,49 +2,56 @@ import './Searchs.scss';
 import Logo_Tube from './img_header/Project_title_picture.png';
 import Logo_Notif from './img_header/cloche_notification.png';
 import Logo_profil from './img_header/Profil_picture.png';
+import { useState } from 'react';
 //import './Header.scss';
 
 function Search() {
-  return (
-    <div className="body">
+
+    const data = [/*{chaine}, {profil}, {hashtag}, {video},*/"Chocolat", "Chien", "chat", "Café", "Cafeine"];
+
+    const [value, setvalue] = useState("  ");
+
+    function handleChange (event) {
+        setvalue(event.target.value)
+    }
+
+    return (
+
+    <header className="body">
 
         <div className="side"></div>
 
         <nav className="recherche">
-        
             <div className="Navsearch">
 
                 <a className="logo" href="#" target="" rel="">
                     <img src={Logo_Tube} alt="Logo CodingTube" class="icon_title" />  
                 </a>
 
-                <form className="search" action="submit">
-                    <input className="searchBar" placeholder=" Recherche..." type="text" /> 
-                    <button className="lanchsubmit" >envoyer</button>
-                    <div className="voc">
-                        <a href="">
-                            <img src="" alt="" />
-                        </a>
-                    </div>
-                </form>
+                <div className="search" action="submit">
+                    <input className="searchBar" placeholder=" Recherche..." type="text" value={value} onChange={handleChange}/> 
+                    <button className="lanchsubmit" onClick={() => console.log(value)} >envoyer</button>
+                </div>
+                <ul>
+                    {value && 
+                        data
+                        .filter((element) => element.includes(value))
+                        .map((element, index) => <li onClick={() => 
+                        setvalue(element)} key={index}>{element}</li>)
+                    }
+                </ul>
 
                 <div className="connect">
-                    
+
                     <a className="not"href="" target="" rel="">
-                        
                         <img src={Logo_Notif} alt="Notifications" class="icon_notification"/>
-                        
                     </a>
                     
                     <a className="pp" href="" target="" rel="">
-                        
                         <img src={Logo_profil} alt="Profil" class="icon_profile"/>
-                        
                     </a>
                 </div>
                 
-                
-            
             </div>
 
             <div className="Navid">
@@ -60,10 +67,9 @@ function Search() {
                 <div className="hashtag"><a href="">#Locklear</a></div>
 
             </div>
-
         </nav>
 
-    </div>
+    </header>
     );
 }
 
