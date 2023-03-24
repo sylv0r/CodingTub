@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import CreateChannel from './components/CreateChannel';
 import UploadForm from './components/chaine_upload/UploadForm';
+import Video from './components/show_video/ShowVideo.js';
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,11 @@ const router = createBrowserRouter([
   {
     path: "/uploadVideo",
     element: <UploadForm />
-  }
+  },
+  {
+    path: "/video",
+    element: <Video />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
