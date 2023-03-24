@@ -1,7 +1,6 @@
 import './Searchs.scss';
 import { useState } from 'react';
-import SideBar from '../Home/SideBar/SideBar';
-//import './Header.scss';
+import Hashtag from "./hashtag"
 
 function Search() {
 
@@ -45,16 +44,8 @@ function Search() {
             </div>
 
             <div className="Navid">
-                <div className="hashtag"><a href="">#Vilebrequin</a></div>
-                <div className="hashtag"><a href="">#Wankil</a></div>
-                <div className="hashtag"><a href="">#Anas</a></div>
-                <div className="hashtag"><a href="">#Squeezie</a></div>
-                <div className="hashtag"><a href="">#Pokimane</a></div>
-                <div className="hashtag"><a href="">#Amouranth</a></div>
-                <div className="hashtag"><a href="">#FuzeIII</a></div>
-                <div className="hashtag"><a href="">#LeBouzeuh</a></div>
-                <div className="hashtag"><a href="">#Louis-san</a></div>
-                <div className="hashtag"><a href="">#Locklear</a></div>
+
+                {Hashtag}
 
             </div>
         </nav>
