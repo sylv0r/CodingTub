@@ -5,16 +5,7 @@ import './video.scss';
 
 function Video() {
     const [videos, setVideos] = useState([]);
-    // const getViideos = () => {
-    //     axios.get('http://localhost:3001/channels/showVideos')
-    //         .then(response => {
-    //             setVideos(response.data);
-    //             console.log(response.data);
-    //         })
-    //         .catch(error => {
-    //             console.log(error);
-    //         });
-    // }
+
 
 
     async function getVideos() {

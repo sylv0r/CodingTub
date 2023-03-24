@@ -18,13 +18,11 @@ function AddComment(props) {
           })
         })
         .then((response) => {
-          return response.json()
+          props.onCommentSubmit(); 
+          return response
         })
-        .then((json) => {
-          console.log(json);
-        });
-        props.onCommentSubmit(); 
-        console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")// appel de la fonction pour mettre à jour les commentaires
+     
+        
     }
 
     return (

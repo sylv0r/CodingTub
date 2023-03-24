@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import AddComment from './add_comment/AddComment';
 import ShowComment from './show_comment/ShowComment';
 
-function CommentSection() {
+function CommentSection(props) {
     const [comments, setComments] = useState([]);
 
     async function getComments() {
@@ -19,13 +19,11 @@ function CommentSection() {
         getComments();
     }, []);
 
-    function handleCommentSubmit() {
-        getComments();
-    }
+
 
     return (
         <div>
-            <AddComment onCommentSubmit={handleCommentSubmit} />
+            <AddComment onCommentSubmit={getComments} />
             <br />
             <ShowComment comments={comments} />
         </div>
