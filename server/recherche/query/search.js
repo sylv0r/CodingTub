@@ -14,6 +14,7 @@ app.post('/api/data', async (req, res) => {
         con.query(`SELECT ${name.join(', ')} FROM ${channels}`),
         con.query(`SELECT ${contenu.join(', ')} FROM ${communaute}`)
       ]);
+      
       const data = [];
       results1[0].forEach((row) => {
         data.push({
