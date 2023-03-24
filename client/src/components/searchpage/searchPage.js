@@ -73,6 +73,6 @@ function SearchPage() {
 }
 
 export default SearchPage;
-<div className="video" href=""> </div>
+
 
 
