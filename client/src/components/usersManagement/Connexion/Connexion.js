@@ -67,9 +67,9 @@ function Connexion() {
             if (user.email === formData.email && user.password === formData.password) {
                 console.log('user', user);
 
-                localStorage.setItem('user', JSON.stringify(user.id));
+                localStorage.setItem('user_id', JSON.stringify(user.id));
 
-					const user_id = JSON.parse(localStorage.getItem('user'));
+					const user_id = JSON.parse(localStorage.getItem('user_id'));
 
 					console.log('user_id', user_id);
 
