@@ -4,6 +4,7 @@
 ### Allez dans le dossier client et faites les commandes suivantes
 ```
 npm install --save socket.io
+npm install --save node-media-server
 ````
 
 ### Dans votre OBS lancer la camera virtuelle, et dans la scène mettez le lien URL 
