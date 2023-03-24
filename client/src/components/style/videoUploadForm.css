@@ -1,0 +1,58 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: linear-gradient(120deg, #725dfe 0%, #c200fd 100%);
+    font-family: Arial, sans-serif;
+  }
+  
+  .form {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 300px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 800px;
+    height: 200px;
+  
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+
+  
+  input {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 400px;
+  }
+  
+  button {
+    display: inline-block; /* Changez 'block' en 'inline-block' pour aligner le bouton avec les champs input */
+    
+    padding: 8px;
+    margin-top: 20px;
+    background-color: #66a6ff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+   
+  }
+  
+  button:hover {
+    background-color: #568ad6;
+  }
+  
+  p {
+    text-align: center;
+  }
+  

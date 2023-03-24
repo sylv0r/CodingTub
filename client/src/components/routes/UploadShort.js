@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "../style/videoUploadForm.css";
 
 const VideoUploadForm = () => {
   const [videoDescription, setVideoDescription] = useState("");
@@ -15,38 +16,48 @@ const VideoUploadForm = () => {
     };
 
     try {
-      // Remplacez "your-api-url" par l'URL de votre API
-      await axios.post("http://localhost:3001/shorts/video", videoData);
-      setSubmitStatus("La vidéo a été ajoutée avec succès !");
+      const response = await axios.post("http://localhost:3001/shorts/video", videoData);
+
+      console.log("Video added successfully:", response.data);
+      setVideoDescription("");
+      setVideoURL("");
+      setSubmitStatus("Vidéo ajoutée avec succès.");
+
     } catch (error) {
-      setSubmitStatus("Une erreur s'est produite lors de l'ajout de la vidéo.");
+      console.error("Error adding video:", error);
+      setSubmitStatus("Erreur lors de l'ajout de la vidéo.");
     }
   };
 
   return (
-    <div>
+    <div className="container">
+    <div className="form-wrapper">
       <h2>Formulaire d'upload de vidéo</h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="videoDescription">Description de la vidéo :</label>
+        
         <input
           type="text"
+          placeholder="Description de la vidéo"
           id="videoDescription"
           value={videoDescription}
           onChange={(e) => setVideoDescription(e.target.value)}
         />
         <br />
-        <label htmlFor="videoURL">URL de la vidéo :</label>
+        
         <input
+
           type="text"
+          placeholder="URL de la vidéo"
           id="videoURL"
           value={videoURL}
           onChange={(e) => setVideoURL(e.target.value)}
         />
         <br />
-        <button type="submit">Envoyer</button>
+        <button type="submit">Upload</button>
       </form>
       {submitStatus && <p>{submitStatus}</p>}
     </div>
+  </div>
   );
 };
 
