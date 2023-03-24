@@ -5,12 +5,12 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Search from './components/search/Searchs.js';
+import SearchPage from './components/searchpage/searchPage.js';
 
 const router = createBrowserRouter([
   {
-    path: "/search",
-    element: <Search />,
+    path: "/searchPage",
+    element: <SearchPage />,
   },
 ]);
 
