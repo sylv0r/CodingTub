@@ -2,15 +2,11 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const cors = require('cors')
-
-
+const port = 3001
 const videoMiddleware = require('./video/route')
 const channelsMiddleware = require('./channel/route')
 const shortsMiddleware = require('./short/routes')
 const searchMiddleware = require('./recherche/route')
-
-
-
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));

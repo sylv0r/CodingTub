@@ -1,13 +1,12 @@
 import Live from './components/affichageLive/affichageLive';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
-import './index.css';
-import Home from './components/Home';
-import Playlists from './components/Playlists';
-import History from './components/History';
-import Abonnements from './components/Abonnements';
-import CreateChannel from './components/CreateChannel';
+import './index.scss';
+import Home from './components/Home/Home';
+import Playlists from './components/Playlist/Playlists';
+import History from './components/History/History';
+import Abonnements from './components/Abonnements/Abonnements';
+import CreateChannel from './components/createChannel/CreateChannel';
 import UploadForm from './components/chaine_upload/UploadForm';
 import Video from './components/show_video/ShowVideo.js';
 import MenuChaine from './components/Chaine/MenuChaine/MenuChaine';

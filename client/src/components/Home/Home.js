@@ -1,5 +1,5 @@
-import SideBar from './Home/SideBar/SideBar';
-import VideoList from './Home/VideoList/VideoList';
+import SideBar from './SideBar/SideBar';
+import VideoList from './VideoList/VideoList';
 
 function Home() {
   return (
