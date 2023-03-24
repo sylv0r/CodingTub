@@ -10,8 +10,8 @@ import {
 
 const router = createBrowserRouter([
   {
-    path: "/searchPage",
-    element: <SearchPage />,
+    path: "/search",
+    element: <Search />,
   },
 ]);
 

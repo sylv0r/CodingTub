@@ -1,7 +1,4 @@
 import './Searchs.scss';
-import Logo_Tube from './img_header/Project_title_picture.png';
-import Logo_Notif from './img_header/cloche_notification.png';
-import Logo_profil from './img_header/Profil_picture.png';
 import { useState } from 'react';
 //import './Header.scss';
 
@@ -25,7 +22,7 @@ function Search() {
             <div className="Navsearch">
 
                 <a className="logo" href="#" target="" rel="">
-                    <img src={Logo_Tube} alt="Logo CodingTube" class="icon_title" />  
+                    <img src="assets/img_header/Project_title_picture.png" alt="Logo CodingTube" class="icon_title" />  
                 </a>
 
                 <div className="search" action="submit">
@@ -44,11 +41,11 @@ function Search() {
                 <div className="connect">
 
                     <a className="not"href="" target="" rel="">
-                        <img src={Logo_Notif} alt="Notifications" class="icon_notification"/>
+                        <img src="../../../public/assetsézéé    /img_header/cloche_notification.png" alt="" class="icon_notification"/>
                     </a>
                     
                     <a className="pp" href="" target="" rel="">
-                        <img src={Logo_profil} alt="Profil" class="icon_profile"/>
+                        <img src="../../../public/assets/img_header/Profil_picture.png" alt="" class="icon_profile"/>
                     </a>
                 </div>
                 
