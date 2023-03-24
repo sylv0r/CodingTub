@@ -3,6 +3,7 @@ const app = express()
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const port = 3001
+const usersMiddleware = require('./users/route')
 const videoMiddleware = require('./video/route')
 const channelsMiddleware = require('./channel/route')
 const shortsMiddleware = require('./short/routes')
@@ -25,6 +26,9 @@ app.use("/channels", channelsMiddleware.routes)
 app.use("/videos", videoMiddleware.routes)
 app.use("/shorts", shortsMiddleware.routes)
 app.use("/search", searchMiddleware.routes)
+
+//utilise le middleware des channels lorsque la requête commence par /channels
+app.use("/users", usersMiddleware.routes)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
