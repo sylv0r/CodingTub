@@ -5,20 +5,11 @@ import './video.scss';
 
 function Video() {
     const [videos, setVideos] = useState([]);
-    // const getViideos = () => {
-    //     axios.get('http://localhost:3001/channels/showVideos')
-    //         .then(response => {
-    //             setVideos(response.data);
-    //             console.log(response.data);
-    //         })
-    //         .catch(error => {
-    //             console.log(error);
-    //         });
-    // }
+
 
 
     async function getVideos() {
-        const response = await fetch("http://localhost:3001/channels/showVideo/2", {
+        const response = await fetch("http://localhost:3001/channels/showVideo/1", {
             method: "GET",
             headers: { 'Content-Type': 'application/json' },
         })
