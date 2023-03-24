@@ -8,11 +8,10 @@ import Comment from './Comment.png';
 import Share from './Share.png';
 
 
-
 const videoUrls = [
-  'https://www.youtube.com/watch?v=video1',
-  'https://www.youtube.com/watch?v=video2',
-  'https://www.youtube.com/watch?v=video3',
+  'hthttps://www.youtube.com/shorts/RdsyobMf9_wtps://www.youtube.com/watchhttps://www.youtube.com/watch?v=V-_O7nl0Ii0?v=vhttps://www.youtube.com/shorthttps://www.youtube.com/shorthttps://www.youtube.com/shorts/RdsyobMf9_ws/RdsyobMf9_ws/RdsyobMf9_wideo2',
+  'https://www.youtube.com/watch?v=vhttps://www.youtube.com/watchttps://www.youtube.com/shorts/DemmGfTtZCAh?v=A_OKVHCPfEIideo1',
+  'https://www.youtube.com/watch?v=vihttps://www.youtube.com/shorts/8WO5Ui8OH3kdeo3',
 ];
 
 function Short() {
@@ -22,8 +21,8 @@ function Short() {
         <ReactPlayer
           url={videoUrls[0]}
           controls={true}
-          height="300px"
-          width="200px"
+          height="400px"
+          width="250px"
           className="player"
         />
       </div>
@@ -36,9 +35,9 @@ function Short() {
           className="player"
         />
         <div class="buttons">
-          <div class="gap"><img src={Like} class="like"/> <br></br></div>
-          <div class="gap"><img src={Dislike} class="dislike"/> <br></br></div>
-          <div class="gap"><img src={Comment} class="comment"/> <br></br></div>
+          <div class="gap">  <p class="liking">J'aime</p>  <img src={Like} class="like"/></div> 
+          <div class="gap"><img src={Dislike} class="dislike"/> </div>
+          <div class="gap"><img src={Comment} class="comment"/> </div>
           <div class="gap"><img src={Share} class="share"/></div>
         </div>
       </div>
@@ -46,8 +45,8 @@ function Short() {
         <ReactPlayer
           url={videoUrls[2]}
           controls={true}
-          height="300px"
-          width="200px"
+          height="400px"
+          width="250px"
           className="player"
         />
       </div>

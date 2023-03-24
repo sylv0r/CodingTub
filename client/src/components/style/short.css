@@ -1,5 +1,5 @@
 *{
-    background-color: #262626;
+    background-color: #1e1e20;
 
 }
 .player-container {
@@ -21,6 +21,7 @@
     align-items: center;
   }
   
+  
   .player {
     border-radius: 10px;
     overflow: hidden;
@@ -38,19 +39,37 @@
 }
 
 
-  .like, 
-  .dislike,
-  .comment,
-  .share{
+.like, 
+.dislike,
+.comment,
+.share{
     background-color: #161616;
     border-radius: 40px;
     width: 50px;
-  }
+}
 
-  .like:hover, 
-  .dislike:hover,
-  .comment:hover,
-  .share:hover{
-    background-color: #333333;
+.like:hover, 
+.dislike:hover,
+.comment:hover,
+.share:hover{
+background-color: #333333;
+cursor: pointer;
+}
+ 
+.liking {
+    background-color: #353536;
+    border-radius: 10px;
+    display: none;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+}
+
+.liking:hover{
+    visibility: visible;
+    height: 30px;
+    width: 30%;
 }
   
