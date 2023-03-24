@@ -7,7 +7,7 @@ function Comment() {
 
 
     async function getComment() {
-        const response = await fetch("http://localhost:3001/channels/getComment/2", {
+        const response = await fetch("http://localhost:3001/videos/getComment/1", {
             method: "GET",
             headers: { 'Content-Type': 'application/json' },
         })

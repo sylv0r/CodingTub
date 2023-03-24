@@ -18,7 +18,7 @@ function Video() {
 
 
     async function getVideos() {
-        const response = await fetch("http://localhost:3001/channels/showVideo/2", {
+        const response = await fetch("http://localhost:3001/videos/showVideo/1", {
             method: "GET",
             headers: { 'Content-Type': 'application/json' },
         })

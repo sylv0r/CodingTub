@@ -6,7 +6,7 @@ function CommentSection() {
     const [comments, setComments] = useState([]);
 
     async function getComments() {
-        const response = await fetch("http://localhost:3001/channels/getComment/1", {
+        const response = await fetch("http://localhost:3001/videos/getComment/1", {
             method: "GET",
             headers: { 'Content-Type': 'application/json' },
         });

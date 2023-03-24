@@ -8,7 +8,7 @@ function AddComment(props) {
 
     async function commentSubmit(e) {
         e.preventDefault();
-        fetch("http://localhost:3001/channels/postComment", {
+        fetch("http://localhost:3001/videos/postComment", {
           method: "POST",
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

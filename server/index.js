@@ -14,7 +14,7 @@ app.use(cors({ origin: "http://localhost:3000" }));
 
 //utilise le middleware des channels lorsque la requête commence par /channels
 app.use("/channels", channelsMiddleware.routes)
-//app.use("/videos", videoMiddleware.routes)
+app.use("/videos", videoMiddleware.routes)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
