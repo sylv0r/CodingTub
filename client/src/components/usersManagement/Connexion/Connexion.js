@@ -59,7 +59,7 @@ function Connexion() {
 
 			console.log(localStorage.getItem('user_id'));
 
-			//window.location.href = '/home';
+			window.location.href = '/';
 		};
 	};
 

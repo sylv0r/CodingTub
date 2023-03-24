@@ -34,6 +34,10 @@ const router = createBrowserRouter([
     element: <History />
   },*/
   {
+    path: "/connexion",
+    element: <Connexion />
+  },
+  {
     path: "/subscriptions",
     element: <Abonnements />
   },
