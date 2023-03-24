@@ -7,12 +7,17 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Short from './components/routes/Short';
+import UploadShort from './components/routes/UploadShort';
 
 const router = createBrowserRouter([
   
   {
     path: "/Short",
     element: <Short />,
+  },
+  {
+    path: "/UploadShort",
+    element: <UploadShort />,
   }
 ]);
 
