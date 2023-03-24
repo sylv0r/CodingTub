@@ -5,7 +5,7 @@ function Abonnements() {
   return (
     <div>
       <SideBar />
-      <VideoList action="channels/getSubscriptions" />
+      <VideoList action="getSubscriptionsVideos" />
     </div>
   );
 }

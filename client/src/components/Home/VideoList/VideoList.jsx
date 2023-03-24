@@ -12,16 +12,12 @@ export default function VideoList({ action }) {
 
     //comportement
     const getVideos = async () => {
-        await fetch(`http://localhost:3001/${action}`, {method: "GET", headers: { "Content-Type": "application/json"}})
+        await fetch(`http://localhost:3001/videos/${action}`, {method: "GET", headers: { "Content-Type": "application/json"}})
             .then(response => {
                 return response.json()
             })
             .then((json) => {
-                console.log(Object.keys(json).length)
-                for (let i = 0; i < Object.keys(json).length; i++) {
-                    console.log("Bonjour" + i);
-                    
-                }
+                console.log(json)
                 setVideos(json)
             })
             .catch(error => {

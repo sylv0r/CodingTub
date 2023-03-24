@@ -5,7 +5,7 @@ function Home() {
   return (
     <div>
       <SideBar />
-      <VideoList action="videos/getVideos" />
+      <VideoList action="getVideos" />
     </div>
   );
 }
