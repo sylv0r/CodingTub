@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import ChannelForm from './forms/ChannelForm'
+import ChannelForm from '../forms/ChannelForm'
 import Alert from 'react-bootstrap/Alert';
 import "./CreateChannel.scss"
 

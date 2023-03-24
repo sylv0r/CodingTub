@@ -6,7 +6,7 @@ import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom"
-import CreateChannel from './components/CreateChannel';
+import CreateChannel from './components/createChannel/CreateChannel';
 import UploadForm from './components/chaine_upload/UploadForm';
 import Video from './components/show_video/ShowVideo.js';
 import MenuChaine from './components/Chaine/MenuChaine/MenuChaine';

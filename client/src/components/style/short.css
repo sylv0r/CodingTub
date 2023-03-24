@@ -33,7 +33,7 @@
     padding: 20px;
   }
   
-  form {
+  .form-short {
     display: flex;
     align-items: center;
   }

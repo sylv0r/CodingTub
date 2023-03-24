@@ -34,7 +34,7 @@ function Short() {
     <>
       <div className="form-container" >
         
-        <form onSubmit={addItem}>
+        <form className="form-short" onSubmit={addItem}>
           <input
             type="text"
             placeholder="Text content"
