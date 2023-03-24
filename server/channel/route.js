@@ -3,6 +3,8 @@ const createChannel = require('./query/createChannel');
 const getName = require("./query/showNamePp");
 const postCommunaute = require("./query/postCommunaute");
 const uploadVideo = require('./query/uploadVideo')
+const multer = require('multer');
+const upload = multer()
 
 const router = Router()
 
@@ -10,6 +12,8 @@ const router = Router()
 router.post('/createChannel', createChannel)
 router.get('/showNamePp/:id', getName)
 router.post('/postCommunaute', postCommunaute)
-router.post('/uploadVideo', uploadVideo)
+
+const cpUpload = upload.fields([{ name: 'video', maxCount: 1 }, { name: 'miniature', maxCount: 1 }])
+router.post('/uploadVideo', cpUpload, uploadVideo)
 
 module.exports.routes = router
