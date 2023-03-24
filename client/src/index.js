@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import Search from './components/search/Searchs';
+
 import {
-  createBrowserRouter,
-  RouterProvider,
+  createBrowserRouter, 
+  RouterProvider
 } from "react-router-dom";
-import SearchPage from './components/searchpage/searchPage.js';
+import Search from './components/search/Searchs';
 
 const router = createBrowserRouter([
   {
