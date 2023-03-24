@@ -24,14 +24,14 @@ const router = createBrowserRouter([
     path: "/",
     element: <Home/>
   },
-  // {
-  //   path: "/playlist",
-  //   element: <Playlists />
-  // },
-  // {
-  //   path: "/history",
-  //   element: <History />
-  // },
+  /*{
+    path: "/playlist",
+    element: <Playlists />
+  },
+  {
+    path: "/history",
+    element: <History />
+  },*/
   {
     path: "/subscriptions",
     element: <Abonnements />
