@@ -10,6 +10,10 @@
     padding: 15rem;
 }
 
+input{
+    padding: 10px;
+}
+
 
 .form-group {
     margin-top: 25px;

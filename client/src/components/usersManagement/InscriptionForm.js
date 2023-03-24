@@ -43,7 +43,7 @@ const options = {
   }
 };
 
-axios.post(options)
+axios(options)
   .then(response => {
     console.log(response.status);
   })
