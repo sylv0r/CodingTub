@@ -28,8 +28,7 @@ export default function ChannelForm({state}) {
         description: description.current.value,
         image_link: imageLink.current.value,
         user_id: 1
-      })
-      
+      })  
    })
    .then((response) => {
     return response.json()
@@ -58,7 +57,7 @@ export default function ChannelForm({state}) {
           <Form.Control
             ref={name}
             type="text"
-            placeholder="Entrer le titre"
+            placeholder="Entrer le titre (min 4 caractères)"
           />
           <InputGroup.Text onClick={() => name.current.value=""}>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg" viewBox="0 0 16 16">
@@ -77,7 +76,7 @@ export default function ChannelForm({state}) {
           ref={description}
           as="textarea"
           className="form-description"
-          placeholder="Entrer la description (min 4)"
+          placeholder="Entrer la description (min 10 caractères)"
         />
         <Form.Text className="text-muted">
           Utilisez uniquement des mots corrects.
