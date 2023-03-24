@@ -1,11 +1,56 @@
-.short{
+*{
+    background-color: #262626;
+
+}
+.player-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
-}
-video{
+    gap: 30px;
+    padding-top: 8%;
+  }
+
+  .player-large{
+    padding-left: 50px;
+  }
+  
+  .player-small,
+  .player-large {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .player {
     border-radius: 10px;
-    height: 650px;
-    width: 330px;
+    overflow: hidden;
+  }
+
+
+.buttons{
+    padding-left: 10px;
+    padding-top: 40%;
 }
+
+
+.gap{
+    padding-bottom: 40px;
+}
+
+
+  .like, 
+  .dislike,
+  .comment,
+  .share{
+    background-color: #161616;
+    border-radius: 40px;
+    width: 50px;
+  }
+
+  .like:hover, 
+  .dislike:hover,
+  .comment:hover,
+  .share:hover{
+    background-color: #333333;
+}
+  
