@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import io from 'socket.io-client';
+import './affichageLive.scss';
 
 function App() {
   const videoRef = useRef();
@@ -50,8 +51,19 @@ function App() {
           <link src=""></link>
         </style>
       </head>
-      <body>
-        <video ref={videoRef} autoPlay playsInline id="live"></video>
+      <body id="global">
+        <div id="autre_live">
+            <h2>Lives en cours</h2>
+        </div>
+        <div id="actuel_live">
+            <video ref={videoRef} autoPlay playsInline id="live"></video>
+            <div id="description">
+                <h2>description</h2>
+            </div>
+        </div>
+        <div id="chat_live">
+            <h2>Salon textuelle</h2>
+        </div>
       </body>
     </div>
   );
