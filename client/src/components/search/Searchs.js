@@ -22,13 +22,6 @@ function Search() {
     // our api to fetch the search result
     console.log("search ", searchTerm);
   };
-  
-    
-  
-
-
-
-
   return (
     <div className="body">
 
