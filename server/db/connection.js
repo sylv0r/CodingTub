@@ -3,7 +3,7 @@ const initDb = require('./initDb');
 
 // Création de la connexion à la base de données MySQL
 const connection = mysql.createConnection(initDb);
-
+const { promisify } = require('util')
 // Connexion à la base de données MySQL
 connection.connect((err) => {
   if (err) {
@@ -15,3 +15,14 @@ connection.connect((err) => {
 
 // Exportation de la connexion pour une utilisation dans d'autres fichiers
 module.exports = connection;
+
+var con = mysql.createConnection(initDb);
+  
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
+
+con.query2 = promisify(con.query)
+
+module.exports.con = con
