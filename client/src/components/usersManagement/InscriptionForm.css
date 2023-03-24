@@ -7,7 +7,7 @@
     justify-content: center;
     background: #fff;
     width: 100%;
-    padding: 1rem;
+    padding: 15rem;
 }
 
 
@@ -48,11 +48,11 @@
     height: calc(100% - 59px);
 }
 
-.button-profile {
+.button-container-profile {
   cursor: pointer;
     font-weight: bold;
     line-height: 19px;
-    background: #5850eb;
+    background: #eb5050;
     border: none;
     padding: 15px 25px;
     border-radius: 6px;
@@ -60,11 +60,11 @@
     width: 100%;
     margin-top: 24px;
 }
-.button-profile:hover {
-    background: #6e67ee;
+.button-container-profile:hover {
+    background: #303030;
 }
-.button-profile:focus {
-    background: #4239e8;
+.button-container-profile:focus {
+    background: #157b19;
 }
 
 @media screen and (min-width: 1024px) {
