@@ -1,11 +1,12 @@
 import Live from './components/affichageLive/affichageLive';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import "./index.scss"
-import {
-  createBrowserRouter,
-  RouterProvider
-} from "react-router-dom"
+
+import './index.css';
+import Home from './components/Home';
+import Playlists from './components/Playlists';
+import History from './components/History';
+import Abonnements from './components/Abonnements';
 import CreateChannel from './components/CreateChannel';
 import UploadForm from './components/chaine_upload/UploadForm';
 import Video from './components/show_video/ShowVideo.js';
@@ -14,7 +15,28 @@ import Short from './components/routes/Short';
 import UploadShort from './components/routes/UploadShort';
 import Search from './components/search/Searchs';
 
+import {
+  createBrowserRouter,
+  RouterProvider
+} from "react-router-dom";
+
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home/>
+  },
+  {
+    path: "/playlist",
+    element: <Playlists />
+  },
+  {
+    path: "/history",
+    element: <History />
+  },
+  {
+    path: "/subscriptions",
+    element: <Abonnements />
+  },
   {
     path: "/createChannel",
     element: <CreateChannel />,

@@ -3,10 +3,12 @@ const app = express()
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
+
 const videoMiddleware = require('./video/route')
 const channelsMiddleware = require('./channel/route')
 const shortsMiddleware = require('./short/routes')
 const searchMiddleware = require('./recherche/route')
+
 
 
 
@@ -31,4 +33,3 @@ app.use("/search", searchMiddleware.routes)
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
-
