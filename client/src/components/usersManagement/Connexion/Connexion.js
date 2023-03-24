@@ -21,10 +21,9 @@ function Connexion() {
         return;
     }
     
-    axios.get('http://localhost:3001/users/getUsers')
+    axios.get(`http://localhost:3001/users/getUsers/${formData.email}`)
     .then(response => {
         setUsers(response.data);
-        //console.log(response.data);
     })
     .catch(error => {
         console.log(error);
@@ -74,7 +73,10 @@ function Connexion() {
 					console.log('user_id', user_id);
 
                 	//window.location.href = '/home';
-            }
+            } else {
+				alert('L\'email ou le mot de passe est incorrect');
+				return;
+			}
         });
     }
   };
