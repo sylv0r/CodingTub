@@ -1,28 +1,30 @@
+import { useState } from "react";
 import './Searchs.scss';
 import Logo_Tube from './img_header/Project_title_picture.png';
 import Logo_Notif from './img_header/cloche_notification.png';
 import Logo_profil from './img_header/Profil_picture.png';
-import { useState } from "react";
-var data = require("./MOCK_DATA.json");
-
-
+import axios from 'axios';
 
 
 
 function Search() {
-    
-    const [value, setValue] = useState("");
+  const [value, setValue] = useState("");
 
   const onChange = (event) => {
     setValue(event.target.value);
   };
 
+  const test = ()=>{
+    
+  }
   const onSearch = (searchTerm) => {
     setValue(searchTerm);
     // our api to fetch the search result
     console.log("search ", searchTerm);
   };
+
   return (
+  
     <div className="body">
 
         <div className="side"></div>
@@ -36,18 +38,10 @@ function Search() {
                 </a>
 
                 <form className="search" action="submit">
-                    <input className="searchBar" value={value} onChange={onChange} type="text" /> 
-                    <button className="lanchsubmit" onClick={() => onSearch(value)} >envoyer</button>
-
-
-
-                    <div className="voc">
-                        <a href="">
-                            <img src="" alt="" />
-                        </a>
-                    </div>
-                </form>
-                {data
+                    <input className="searchBar"  type="text" value={value} onChange={onChange} onClick={()=> test()}/> 
+                    <button className="lanchsubmit" onClick={() => onSearch(value)}>envoyer</button>
+                    <div className="dropdown">
+          {keyValueList
             .filter((item) => {
               const searchTerm = value.toLowerCase();
               const fullName = item.full_name.toLowerCase();
@@ -68,6 +62,13 @@ function Search() {
                 {item.full_name}
               </div>
             ))}
+        </div>
+                    <div className="voc">
+                        <a href="">
+                            <img src="" alt="" />
+                        </a>
+                    </div>
+                </form>
 
                 <div className="connect">
                     

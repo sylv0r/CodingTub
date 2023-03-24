@@ -1,73 +1,65 @@
 const { con } = require('../../db/connection')
 
-
-
 const app = express();
 app.use(express.json());
 app.post('/api/data', async (req, res) => {
     try {
-      const { users,videos,channels,communaute, pseudo, title,description,name,contenu } = req.body;
-      const [results1, results2,results3,results4,results5] = await Promise.all([
+      const { users, videos, channels, communaute, pseudo, title, description, name, contenu } = req.body;
+      const [results1, results2, results3, results4] = await Promise.all([
         con.query(`SELECT ${pseudo.join(', ')} FROM ${users}`),
         con.query(`SELECT ${title.join(', ')} FROM ${videos}`),
         con.query(`SELECT ${description.join(', ')} FROM ${videos}`),
         con.query(`SELECT ${name.join(', ')} FROM ${channels}`),
         con.query(`SELECT ${contenu.join(', ')} FROM ${communaute}`)
       ]);
-      const data = [];
+  
+      const keyValueList = [];
+  
       results1[0].forEach((row) => {
-        data.push({
+        keyValueList.push({
           id: row.id,
-          name: row.name,
-          email: row.email,
-          date: null,
-          amount: null
+          type: 'user',
+          pseudo: row.pseudo,
         });
+        console.log(results1);
       });
+  
       results2[0].forEach((row) => {
-        data.push({
+        keyValueList.push({
           id: row.id,
-          name: null,
-          email: null,
-          date: row.date,
-          amount: row.amount
+          type: 'video',
+          title: row.title,
+          description: row.description,
+          channel_id:row.channel_id,
         });
       });
+  
+      
+  
       results3[0].forEach((row) => {
-        data.push({
+        keyValueList.push({
           id: row.id,
-          name: null,
-          email: null,
-          date: row.date,
-          amount: row.amount
+          type: 'channel',
+          name: row.name,
+          description:row.description,
         });
       });
+  
       results4[0].forEach((row) => {
-        data.push({
+        keyValueList.push({
           id: row.id,
-          name: null,
-          email: null,
-          date: row.date,
-          amount: row.amount
+          type: 'communaute',
+          id_user: row.id_user,
+          content:row.content,
         });
       });
-      results5[0].forEach((row) => {
-        data.push({
-          id: row.id,
-          name: null,
-          email: null,
-          date: row.date,
-          amount: row.amount
-        });
-      });
-      res.json(data);
+  
+      res.json(keyValueList);
     } catch (error) {
       console.error(error);
       res.status(500).send('Erreur serveur');
     }
   });
+
   
-  app.listen(5000, () => {
-    console.log('Serveur démarré sur le port 5000');
-  });
-  
+  module.exports.keyValueList = keyValueList
