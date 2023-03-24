@@ -1,8 +1,6 @@
 const { con } = require('../../db/connection')
 
-const app = express();
-app.use(express.json());
-app.post('/api/data', async (req, res) => {
+module.exports = async (req, res) => {
     try {
       const { users,videos,channels,communaute, pseudo, title,description,name,contenu } = req.body;
       const [results1, results2,results3,results4,results5] = await Promise.all([
@@ -64,9 +62,5 @@ app.post('/api/data', async (req, res) => {
       console.error(error);
       res.status(500).send('Erreur serveur');
     }
-  });
-  
-  app.listen(5000, () => {
-    console.log('Serveur démarré sur le port 5000');
-  });
+  }
   
