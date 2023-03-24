@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
+import "./index.scss"
+import {
+  createBrowserRouter,
+  RouterProvider
+} from "react-router-dom"
 import CreateChannel from './components/CreateChannel';
 import UploadForm from './components/chaine_upload/UploadForm';
 import Video from './components/show_video/ShowVideo.js';
