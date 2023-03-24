@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const port = 3001
 const cors = require('cors')
 const channelsMiddleware = require('./channel/route')
+const channelsMiddleware = require('./channel/route')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
