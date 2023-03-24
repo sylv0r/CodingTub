@@ -1,0 +1,54 @@
+.App {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #fdf8fd;
+
+    #global{
+        display: flex;
+    }
+  
+    #autre_live {
+      flex: 1;
+      color: #FFF;
+      font-weight: bold;
+      background-color: #2d2d2d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 55%;
+    }
+  
+    #actuel_live {
+      flex: 3;
+      justify-content: center;
+      align-items: center;
+      }
+    #live {
+        width:100%;
+        border: solid;
+        border-color: red;
+    }
+    #description {
+        padding-top: 15%;
+        background-color: #9e9595;
+        padding-bottom: 55%;
+    }
+    
+
+  
+    #chat_live {
+      flex: 1;
+      color: #FFF;
+      font-weight: bold;
+      background-color: #2d2d2d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 55%;
+    }
+}
+  
+  
