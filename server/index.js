@@ -2,8 +2,11 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const mysql = require('mysql');
-const initDb = require('./initDb')
+
+const videoMiddleware = require('./video/route')
+const channelsMiddleware = require('./channel/route')
+const shortsMiddleware = require('./short/routes')
+const searchMiddleware = require('./recherche/route')
 
 
 
@@ -19,4 +22,13 @@ app.use(function (req, res, next) { // Empeche les erreur de CORS
   next();
 });
 
+//utilise le middleware des channels lorsque la requête commence par /channels
+app.use("/channels", channelsMiddleware.routes)
+app.use("/videos", videoMiddleware.routes)
+app.use("/shorts", shortsMiddleware.routes)
+app.use("/search", searchMiddleware.routes)
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
 
