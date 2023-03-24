@@ -20,4 +20,12 @@ app.listen(port, () => {
     if (err) throw err;
     console.log("Connected!");
   });
+
+  app.get('/users', function(req, res) {
+    con.query("SELECT * FROM users", function (err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
+  });
+
 })
