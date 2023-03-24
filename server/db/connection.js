@@ -3,8 +3,8 @@ const initDb = require('./initDb.js');
 const { promisify } = require('util')
 
 var con = mysql.createConnection(initDb);
-  
-con.connect(function(err) {
+
+con.connect(function (err) {
   if (err) throw err;
   console.log("Connected!");
 });
@@ -12,3 +12,4 @@ con.connect(function(err) {
 con.query2 = promisify(con.query)
 
 module.exports.con = con
+

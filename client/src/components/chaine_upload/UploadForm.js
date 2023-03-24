@@ -47,11 +47,12 @@ const UploadForm = () => {
                 "miniature": selectedMiniature
             }, {
                 headers: {
-                    'Content-Type': 'application/form-data'
+                    'Content-Type': 'application/json'
                 }
             }).then((response) => {
                 console.log(response);
             });
+
 
         } catch (error) {
             console.log(error);
