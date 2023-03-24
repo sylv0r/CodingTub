@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './InscriptionForm.css';
-/* import axios from 'axios'; */
+import axios from 'axios';
 
 
 
@@ -25,7 +25,28 @@ function Inscription() {
         }
     };
 
-    
+const options = {
+  url: 'http://localhost:3001/users/createinscription',
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json;charset=UTF-8'
+  },
+  data: {
+    nom: formData.nom,
+    prenom: formData.prenom,
+    pseudo: formData.pseudo,
+    email: formData.email,
+    password: formData.password,
+    cpassword: formData.cpassword
+
+  }
+};
+
+axios(options)
+  .then(response => {
+    console.log(response.status);
+  });
 
     const handleChange = (event) => {
     const { name, value } = event.target;
