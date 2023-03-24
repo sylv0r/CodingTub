@@ -1,3 +1,4 @@
+import Live from './components/affichageLive/affichageLive';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import "./index.scss"
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
     path: "/search",
     element: <Search />,
   }
+  {
+    path: "/live",
+    element: <Live />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
