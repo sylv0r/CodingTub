@@ -1,8 +1,6 @@
 const { con } = require('../../db/connection')
 
-const app = express();
-app.use(express.json());
-app.post('/api/data', async (req, res) => {
+module.exports = async (req, res) => {
     try {
       const { users, videos, channels, communaute, pseudo, title, description, name, contenu } = req.body;
       const [results1, results2, results3, results4] = await Promise.all([
@@ -12,9 +10,8 @@ app.post('/api/data', async (req, res) => {
         con.query(`SELECT ${name.join(', ')} FROM ${channels}`),
         con.query(`SELECT ${contenu.join(', ')} FROM ${communaute}`)
       ]);
-  
-      const keyValueList = [];
-  
+      
+      const data = [];
       results1[0].forEach((row) => {
         keyValueList.push({
           id: row.id,
@@ -59,7 +56,5 @@ app.post('/api/data', async (req, res) => {
       console.error(error);
       res.status(500).send('Erreur serveur');
     }
-  });
-
+  }
   
-  module.exports.keyValueList = keyValueList
