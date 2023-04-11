@@ -28,4 +28,23 @@ app.use("/search", searchMiddleware.routes)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
+<<<<<<< HEAD
 })
+=======
+
+  var con = mysql.createConnection(initDb);
+  
+  con.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+  });
+
+  app.get('/users', function(req, res) {
+    con.query("SELECT * FROM users", function (err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
+  });
+
+})
+>>>>>>> main

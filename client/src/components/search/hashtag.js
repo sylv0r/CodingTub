@@ -7,7 +7,7 @@ import axios from 'axios';
  
 function Hashtag() {
 
-    const [data, setData] = useState([]);
+    const [datas, setData] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
