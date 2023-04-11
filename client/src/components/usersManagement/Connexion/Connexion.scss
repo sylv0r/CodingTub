@@ -1,0 +1,16 @@
+.UsersConnexion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: mediumaquamarine;
+  height: 100vh;
+}
+
+.UsersConnexionForm {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: yellow;
+  padding: 2%;
+}
