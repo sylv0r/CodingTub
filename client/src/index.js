@@ -13,7 +13,7 @@ import MenuChaine from './components/Chaine/MenuChaine/MenuChaine';
 import Short from './components/routes/Short';
 import UploadShort from './components/routes/UploadShort';
 import Search from './components/search/Searchs';
-import Connexion from './components/usersManagement/Connexion/Connexion';
+import Connexion from './components/connexion/Connexion/Connexion';
 
 import {
   createBrowserRouter,
