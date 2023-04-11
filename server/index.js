@@ -1,21 +1,34 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const port = 3001
 const cors = require('cors')
-//const channelsMiddleware = require('./channel/route')
-const videosMiddleware = require('./videos/route')
+const port = 3001
+const usersMiddleware = require('./users/route')
+const videoMiddleware = require('./video/route')
+const channelsMiddleware = require('./channel/route')
+const shortsMiddleware = require('./short/routes')
+const searchMiddleware = require('./recherche/route')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors({ origin: "http://localhost:3000" }));
 
-//utilise le middleware des channels lorsque la requête commence par /channels
-//app.use("/channels", channelsMiddleware.routes)
+app.use(function (req, res, next) { // Empeche les erreur de CORS
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader('Access-Control-Allow-Methods', '');
+  res.setHeader("Access-Control-Allow-Headers", "*");
+  next();
+});
 
-//utilise le middleware des videos lorsque la requête commence par /videos
-app.use("/videos", videosMiddleware.routes)
+//utilise le middleware des channels lorsque la requête commence par /channels
+app.use("/channels", channelsMiddleware.routes)
+app.use("/videos", videoMiddleware.routes)
+app.use("/shorts", shortsMiddleware.routes)
+app.use("/search", searchMiddleware.routes)
+
+//utilise le middleware des channels lorsque la requête commence par /channels
+app.use("/users", usersMiddleware.routes)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
