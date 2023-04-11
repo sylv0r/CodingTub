@@ -13,7 +13,7 @@ export default function SideBar() {
 
     return (
     
-        <nav className='wrapper'>
+        <>
         <SideBarButton className="button" name="Accueil" link="/" logo="house"/>
         <SideBarButton name="Shorts" link="/short" logo="circle-play"/>
         <SideBarButton name="Abonnements" link="/subscriptions" logo="clapperboard"/>
@@ -21,7 +21,7 @@ export default function SideBar() {
         <SideBarButton name="À regarder plus tard" link="/playlist?list=WL" logo="clock"/>
         <SideBarButton name="Vidéos J'aime" link="/playlist?list=LL" logo="thumbs-up"/>
        
-        </nav>
+        </>
 
     )
     
