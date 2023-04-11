@@ -52,7 +52,6 @@ function Search() {
             </div>
 
             <div className="Navid">
-
                 {Hashtag}
 
             </div>
