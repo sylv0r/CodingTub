@@ -1,8 +1,17 @@
+*{
+    background-color: #262626;
+
+}
 .player-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 30px;
+    padding-top: 8%;
+  }
+
+  .player-large{
+    padding-left: 50px;
   }
   
   .player-small,
@@ -16,4 +25,52 @@
     border-radius: 10px;
     overflow: hidden;
   }
+
+
+.buttons{
+    padding-left: 10px;
+    padding-top: 40%;
+}
+
+
+.gap{
+    padding-bottom: 40px;
+}
+
+
+  .like, 
+  .dislike,
+  .comment,
+  .share{
+    background-color: #161616;
+    border-radius: 40px;
+    width: 50px;
+  }
+
+  .like:hover, 
+  .dislike:hover,
+  .comment:hover,
+  .share:hover{
+    background-color: #333333;
+}
   
+.CreateShort {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    float: right;
+  }
+  
+  .CreateShortButton {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .CreateShortButton img {
+    display: block;
+    width: 60px; 
+    height: auto; 
+  }
