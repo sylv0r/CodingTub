@@ -2,13 +2,16 @@ import React, { useState, useEffect } from 'react';
 import './affichageProfil.scss';
 import axios from 'axios';
 
-function affichageProfil() {
+function AffichageProfil() {
 
     const [users, setUsers] = useState([]);
 
     const action = () => {
 
-        axios.get('http://localhost:3001/users').then(response => {
+        axios.post('http://localhost:3000/users/getUserBis', {
+            id:1
+        })
+        .then(response => {
 
             setUsers(response.data);
             console.log(response.data);
@@ -60,4 +63,4 @@ function affichageProfil() {
 
 };
 
-export default affichageProfil;
+export default AffichageProfil;
