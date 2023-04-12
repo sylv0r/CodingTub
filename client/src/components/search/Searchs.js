@@ -1,5 +1,7 @@
 import './Searchs.scss';
-import { useState } from 'react';
+
+import React from "react";
+import { useState,useEffect } from 'react';
 import Hashtag from "./hashtag"
 
 function Search() {
