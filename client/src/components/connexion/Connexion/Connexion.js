@@ -7,21 +7,31 @@ function Connexion() {
 
 	let vision = false;
 
-    // state (état, donné)
 	const [formData, setFormData] = useState({
 		email: '',
 		password: '',
 	});
 
-  	//const [users, setUsers] = useState([]);
-
   	const handleSubmit = (event) => {
    	 	event.preventDefault();
 
-		console.log('formData', formData);
+		/* console.log('formData', formData); */
 
 		if (formData.email === '' || formData.password === '') {
-			alert('Veuillez remplir tous les champs');
+			document.getElementById('errorConnexion').innerHTML = 'Email ou mot de passe pas rempli';
+
+			document.getElementById('errorConnexion').animate([
+				{ transform: 'translateX(0px)' },
+				{ transform: 'translateX(10px)' },
+				{ transform: 'translateX(-10px)' },
+				{ transform: 'translateX(0px)' },
+				{ transform: 'translateX(5px)' },
+				{ transform: 'translateX(0px)' }
+			], {
+				duration: 400,
+				iterations: 1
+			});
+
 			return;
 		}
 
@@ -30,9 +40,6 @@ function Connexion() {
 			password: formData.password
 		})
 		.then(response => {
-			/* console.log('response', response);
-			console.log('response.data', response.data) */
-			//setUsers(response.data);
 			createSession(response.data);
 		})
 		.catch(error => {
@@ -50,10 +57,9 @@ function Connexion() {
   	};
 
   	const createSession = (data) => {
-		//console.log('users', users);
 
 		if(data == 0) {
-			//console.log(users)
+
 			document.getElementById('errorConnexion').innerHTML = 'Email ou mot de passe incorrect';
 
 			document.getElementById('errorConnexion').animate([
@@ -69,13 +75,13 @@ function Connexion() {
 			});
 
 		} else {
-			console.log("connected")
+			/* console.log("connected") */
 
 			localStorage.setItem('user_id', JSON.stringify(data[0].id));
 
-			console.log(localStorage.getItem('user_id'));
+			/* console.log(localStorage.getItem('user_id')); */
 
-			//window.location.href = '/';
+			window.location.href = '/inscription';
 		};
 	};
 
