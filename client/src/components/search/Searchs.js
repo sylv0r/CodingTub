@@ -25,7 +25,7 @@ function Search() {
                 </a>
 
                 <div className="search" action="submit">
-                    <input className="searchBar" placeholder=" Recherche..." type="text" value={value} onChange={handleChange}/> 
+                    <input className="searchBar" placeholder="Rechercher" type="text" value={value} onChange={handleChange}/> 
                     <button className="lanchsubmit" onClick={() => console.log(value)} >Envoyer</button>
                 </div>
 
@@ -35,7 +35,7 @@ function Search() {
                         <i class="fa-solid fa-bell fa-2x"></i>
                     </a>
                     
-                    <a className="pp" href="" target="" rel="">
+                    <a className="pp" href="/connexion" target="" rel="">
                         <i class="fa-solid fa-user fa-2x"></i>
                     </a>
                 </div>
