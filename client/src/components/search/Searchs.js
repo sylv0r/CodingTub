@@ -2,7 +2,8 @@ import './Searchs.scss';
 
 import React from "react";
 import { useState,useEffect } from 'react';
-import Hashtag from "./hashtag"
+import Hashtag from "./hashtag";
+import Search2 from "./searchbar";
 
 function Search() {
 
@@ -27,19 +28,8 @@ function Search() {
                     <img src="assets/img_header/Project_title_picture.png" alt="Logo CodingTube" className="icon_title" />  
                 </a>
 
-                <div className="search" action="submit">
-                    <input className="searchBar" placeholder=" Recherche..." type="text" value={value} onChange={handleChange}/> 
-                    <button className="lanchsubmit" onClick={() => console.log(value)} >envoyer</button>
-                </div>
-                <ul>
-                    {value &&
-                        data
-                        .filter((element) => element.includes(value))
-                        .map((element, index) => <li onClick={() => 
-                        setvalue(element)} key={index}>{element}</li>)
-                    }
-                </ul>
-
+               <Search2 />
+                
                 <div className="connect">
 
                     <a className="not"href="" target="" rel="">
