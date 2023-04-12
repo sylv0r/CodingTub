@@ -89,13 +89,13 @@ function Connexion() {
 		event.preventDefault();
 
 		if (vision === false) {
-			document.getElementById('PassInput').type = 'text';
-			document.getElementById('showPassBtn').innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
+			document.getElementById('PassInputConnexion').type = 'text';
+			document.getElementById('showPassBtnConnexion').innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
 			vision = true;
 
 		} else {
-			document.getElementById('PassInput').type = 'password';
-			document.getElementById('showPassBtn').innerHTML = '<i class="fa-regular fa-eye"></i>';
+			document.getElementById('PassInputConnexion').type = 'password';
+			document.getElementById('showPassBtnConnexion').innerHTML = '<i class="fa-regular fa-eye"></i>';
 			vision = false;
 		}
 	}
@@ -110,12 +110,12 @@ function Connexion() {
       	<form onSubmit={handleSubmit} className='UsersConnexionForm'>
 			
           	<label>E-mail :</label>
-          	<input type="email" className='inputSize' placeholder='Email@gmail.com' name="email" value={formData.email} onChange={handleChange} />
+          	<input type="email" className='inputSizeConnexion' placeholder='Email@gmail.com' name="email" value={formData.email} onChange={handleChange} />
         
           	<label>Mot de passe :</label>
 			<div id='formP2Connexion'>
-				<input type="password" id='PassInput' className='inputSize' placeholder='Password' name="password" value={formData.password} onChange={handleChange} />
-				<button onClick={showPass} id='showPassBtn'><i class="fa-regular fa-eye"></i></button>
+				<input type="password" id='PassInputConnexion' className='inputSizeConnexion' placeholder='Password' name="password" value={formData.password} onChange={handleChange} />
+				<button onClick={showPass} id='showPassBtnConnexion'><i class="fa-regular fa-eye"></i></button>
 			</div>
 
 			<p id='errorConnexion'></p>
