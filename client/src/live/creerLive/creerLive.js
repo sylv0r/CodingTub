@@ -4,20 +4,26 @@ import './creerLive.scss';
 
 function App() {
   const videoRef = useRef();
-  const [isLiveOpen, setIsLiveOpen] = useState(false);
 
-  const handleOpenLive = () => {
-    setIsLiveOpen(true);
-    localStorage.setItem("isLiveOpen", true);
+  //Pour commencer ou finir le live\\
+  const [liveEnCours, setLiveEnCours] = useState(false); //Live en cours sur false
+
+  const liveOuvert = () => {
+    setLiveEnCours(true); //Met Live en cours en true, quand cliqué sur le bouton "Ouvrir le live"
+    localStorage.setItem("liveEnCours", true);//Met Live en cours en true dans le stockage local -> pour affichage
+
+    
   };
 
-  const handleCloseLive = () => {
-    setIsLiveOpen(false);
-    localStorage.setItem("isLiveOpen", false);
+  const liveFermé = () => {
+    setLiveEnCours(false); //Met Live en cours en false, quand cliqué sur le bouton "Fermer le live"
+    localStorage.setItem("liveEnCours", false);//Met Live en cours en false dans le stockage local -> pour affichage
   };
+  //-------------------------------\\
+
 
   useEffect(() => {
-    if (!isLiveOpen) {
+    if (!liveEnCours) {
       return;
     }
 
@@ -57,11 +63,11 @@ function App() {
       console.log("CLIENT <<<<< CANDIDATE");
       pc.addIceCandidate(candidate);
     });
-
+    
     return () => {
       socket.disconnect();
     };
-  }, [isLiveOpen]);
+  }, [liveEnCours]);
 
   return (
     <div className="App">
@@ -72,16 +78,16 @@ function App() {
       </head>
       <body id="global">
         <div id="actuel_live">
-          {isLiveOpen ? (
+          {liveEnCours ? ( //Si liveEnCours = false alors rien ne s'affiche
             <>
               <video ref={videoRef} autoPlay playsInline id="live"></video>
-              <button onClick={handleCloseLive}>Fermer le live</button>
+              <button onClick={liveFermé}>Fermer le live</button>
               <div id="description">
                 <h2>description</h2>
               </div>
             </>
           ) : (
-            <button onClick={handleOpenLive}>Ouvrir le live</button>
+            <button onClick={liveOuvert}>Ouvrir le live</button>
           )}
         </div>
         <div id="chat_live">

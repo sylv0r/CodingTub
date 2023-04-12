@@ -4,23 +4,25 @@ import './affichageLive.scss';
 
 function App() {
   const videoRef = useRef();
-  const [isLiveOpen, setIsLiveOpen] = useState(false);
+
+  //Pour commencer ou finir le live\\
+  const [liveEnCours, setLiveEnCours] = useState(false); //Live en cours sur false
 
   useEffect(() => {
     const handleStorageChange = () => {
-      const isLiveOpenInStorage = JSON.parse(localStorage.getItem('isLiveOpen'));
-      setIsLiveOpen(isLiveOpenInStorage);
+      const liveEnCoursStockage = JSON.parse(localStorage.getItem('liveEnCours')); // Récupere la valeur de "liveEnCours" dans le stockage local
+      setLiveEnCours(liveEnCoursStockage); // Redéfinie
     };
 
-    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener('storage', handleStorageChange); //Ecoute si la valeur change
 
     return () => {
-      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('storage', handleStorageChange); //Enleve le listener pour eviter d'utiliser trop de mémoire
     };
   }, []);
 
   useEffect(() => {
-    if (!isLiveOpen) {
+    if (!liveEnCours) {
       return;
     }
     //Configuration des sockets pour relier le serveur au client
@@ -30,7 +32,7 @@ function App() {
     //Configuration des Peer to Peer 
     const pc = new RTCPeerConnection();
 
-    console.log (isLiveOpen);
+    console.log (liveEnCours);
 
     // Connection Peer
     navigator.mediaDevices.getUserMedia({ video: true, audio: true })
@@ -61,7 +63,7 @@ function App() {
       console.log("CLIENT <<<<< CANDIDATE");
       pc.addIceCandidate(candidate);
     });
-  }, [isLiveOpen]);
+  }, [liveEnCours]);
 
 
   return (
@@ -76,7 +78,7 @@ function App() {
             <h2>Lives en cours</h2>
         </div>
         <div id="actuel_live">
-            {isLiveOpen && <video ref={videoRef} autoPlay playsInline id="live"></video>}
+            {liveEnCours && <video ref={videoRef} autoPlay playsInline id="live"></video>}
             <div id="description">
                 <h2>description</h2>
             </div>
