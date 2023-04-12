@@ -1,5 +1,5 @@
 //import './Hashtag.scss';
-/*import React, {Fragment, useState, useEffect} from "react";
+import React, {Fragment, useState, useEffect} from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import "./hashtag.scss"
@@ -32,4 +32,4 @@ function Hashtag() {
   );
 }
 
-export default Hashtag;*/
+export default Hashtag;
