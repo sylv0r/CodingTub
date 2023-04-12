@@ -9,7 +9,7 @@ function AffichageProfil() {
     const action = () => {
 
         axios.post('http://localhost:3001/users/getUserBis', {
-            id:1
+            id:23
         })
         .then(response => {
 
@@ -40,16 +40,12 @@ function AffichageProfil() {
 
             <div className='user'>
 
-                <h1>Users</h1>
-
                 {users.map(user => (
 
                     <ul key={user.id}>
 
-                        <li>{user.nom}</li>
-                        <li>{user.prenom}</li>
-                        <li>{user.pseudo}</li>
-                        <li>{user.email}</li>
+                        <li>{user.name}</li>
+                        <li>{user.description}</li>
 
                     </ul>
 
