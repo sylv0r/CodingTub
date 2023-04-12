@@ -1,4 +1,6 @@
-import Live from './components/affichageLive/affichageLive';
+import AccueilLive from './live/accueilLive/accueilLive';
+import CreerLive from './live/creerLive/creerLive';
+import AffichageLive from './live/affichageLive/affichageLive';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 //import './index.css';
@@ -46,8 +48,16 @@ const router = createBrowserRouter([
     element: <Search />,
   },*/
   {
-    path: "/live",
-    element: <Live />,
+    path: "/accueilLive",
+    element: <AccueilLive />,
+  },
+  {
+    path: "/creerLive",
+    element: <CreerLive />,
+  },
+  {
+    path: "/affichageLive",
+    element: <AffichageLive />,
   },
 ]);
 

@@ -1,11 +1,26 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import io from 'socket.io-client';
-import './affichageLive.scss';
+import './creerLive.scss';
 
 function App() {
   const videoRef = useRef();
+  const [isLiveOpen, setIsLiveOpen] = useState(false);
+
+  const handleOpenLive = () => {
+    setIsLiveOpen(true);
+    localStorage.setItem("isLiveOpen", true);
+  };
+
+  const handleCloseLive = () => {
+    setIsLiveOpen(false);
+    localStorage.setItem("isLiveOpen", false);
+  };
 
   useEffect(() => {
+    if (!isLiveOpen) {
+      return;
+    }
+
     //Configuration des sockets pour relier le serveur au client
     const socket = io.connect('http://localhost:3005');
     //Configuration des sockets pour relier le serveur au client
@@ -42,7 +57,11 @@ function App() {
       console.log("CLIENT <<<<< CANDIDATE");
       pc.addIceCandidate(candidate);
     });
-  }, []);
+
+    return () => {
+      socket.disconnect();
+    };
+  }, [isLiveOpen]);
 
   return (
     <div className="App">
@@ -52,17 +71,21 @@ function App() {
         </style>
       </head>
       <body id="global">
-        <div id="autre_live">
-            <h2>Lives en cours</h2>
-        </div>
         <div id="actuel_live">
-            <video ref={videoRef} autoPlay playsInline id="live"></video>
-            <div id="description">
+          {isLiveOpen ? (
+            <>
+              <video ref={videoRef} autoPlay playsInline id="live"></video>
+              <button onClick={handleCloseLive}>Fermer le live</button>
+              <div id="description">
                 <h2>description</h2>
-            </div>
+              </div>
+            </>
+          ) : (
+            <button onClick={handleOpenLive}>Ouvrir le live</button>
+          )}
         </div>
         <div id="chat_live">
-            <h2>Salon textuelle</h2>
+          <h2>Salon textuelle</h2>
         </div>
       </body>
     </div>
