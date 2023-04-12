@@ -51,7 +51,7 @@ function AffichageProfil() {
 
                 )) }
 
-                <button id='subscribe'><i className="fa-regular fa-eye"></i></button>
+                <button id='subscribe' type='submit'>Subscribe</button>
 
             </div>
             
