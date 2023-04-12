@@ -1,6 +1,6 @@
 import './Searchs.scss';
 import { useState } from 'react';
-import Hashtag from "./hashtag"
+import ControlledCarousel from "./hashtag"
 
 function Search() {
 
@@ -45,7 +45,7 @@ function Search() {
 
             <div className="Navid">
 
-                {Hashtag}
+                <ControlledCarousel/>
 
             </div>
         </nav>
