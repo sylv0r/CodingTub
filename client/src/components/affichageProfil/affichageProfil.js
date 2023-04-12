@@ -8,7 +8,7 @@ function AffichageProfil() {
 
     const action = () => {
 
-        axios.post('http://localhost:3000/users/getUserBis', {
+        axios.post('http://localhost:3001/users/getUserBis', {
             id:1
         })
         .then(response => {
