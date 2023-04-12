@@ -42,12 +42,12 @@ function AffichageProfil() {
 
                 {users.map(user => (
 
-                    <ul key={user.id}>
+                    <div key={user.id}>
 
-                        <li>{user.name}</li>
-                        <li>{user.description}</li>
+                        <p className='pseudo'>{user.name}</p>
+                        <p>{user.description}</p>
 
-                    </ul>
+                    </div>
 
                 )) }
 
