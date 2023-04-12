@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-//import "./Search.css";
+//import "./Searchs.scss";
 
-export default function Search() {
+export default function Search2() {
   const [datas, setDatas] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -33,11 +33,14 @@ export default function Search() {
         {datas
           .filter((val) => {
             return val.title.toLowerCase().includes(searchTerm.toLowerCase());
+            
           })
           .map((val) => {
             return (
+                
               <div className="search__result" key={val.id}>
                 {val.title}
+                
               </div>
             );
           })}
