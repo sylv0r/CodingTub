@@ -10,6 +10,6 @@ export default function SectionVideos() {
     return (
         <div>
             <p>Mettre le lien vers le composant de Bastien V</p>            
-         </div>
+        </div>
     )
 }
