@@ -13,6 +13,8 @@ import MenuChaine from './components/Chaine/MenuChaine/MenuChaine';
 import Short from './components/routes/Short';
 import UploadShort from './components/routes/UploadShort';
 import Search from './components/search/Searchs';
+import Connexion from './components/usersManagement/Connexion/Connexion';
+import SideBar from './components/Home/SideBar/SideBar';
 
 import {
   createBrowserRouter,
@@ -32,6 +34,10 @@ const router = createBrowserRouter([
     path: "/history",
     element: <History />
   },*/
+  {
+    path: "/connexion",
+    element: <Connexion />
+  },
   {
     path: "/subscriptions",
     element: <Abonnements />
@@ -73,6 +79,13 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <nav className='side'><SideBar /></nav>
+    <section id="main-search">
+    <Search />
+    <main id="main">
+      <RouterProvider router={router} />
+    </main>
+    
+    </section>
   </React.StrictMode>
 );

@@ -1,0 +1,13 @@
+#hashtag{
+    display: flex;
+    flex-direction: row;
+    color: aliceblue;
+}
+#hashtag div{
+    width: 10%;
+    height: 3vh;
+    background-color: rgb(139, 139, 139);
+    display: flex;
+    justify-content: space-around;
+    border-radius: 12px;
+}
