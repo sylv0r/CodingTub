@@ -20,15 +20,17 @@ body {
 
 }
 
+.wrapper {
+
+    display: flex;
+    justify-content: flex-start;
+
+}
+
 .user {
 
     margin-left: 15vh;
     margin-top: 10vh;
-
-}
-
-.user p {
-
     color: white;
 
 }
@@ -39,9 +41,8 @@ body {
 
 }
 
-.wrapper {
+#subscribe {
 
-    display: flex;
-    justify-content: flex-start;
+    background-color: rgb(145, 29, 52);
 
 }

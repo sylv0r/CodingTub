@@ -51,7 +51,11 @@ function AffichageProfil() {
 
                 )) }
 
-                <button id='subscribe' type='submit'>Subscribe</button>
+            </div>
+
+            <div className='user'>
+
+                <button id='subscribe' type='submit'>S'abonner</button>
 
             </div>
             
