@@ -28,7 +28,7 @@ function PostCommunaute(props) {
 
     return (
         <div className='content_submit'>
-            <Form>
+            <Form className='form_submit_community'>
                 <AutoExpandingTextarea
                     ref={content}
                 />

@@ -11,36 +11,46 @@
     justify-content: space-around;
     padding: 1% 1%;
     margin-left: 2%;
-    margin-right: 49%;
+    margin-right: 30%;
     border: solid #a2a2a2;
     border-radius: 10px;
+    height: 23%;
+    max-height: 40%;
+    background-color: greenyellow;
 }
 
 .pdp_name {
+    width: 100%;
     display: flex;
-    justify-content: flex-start;
-    margin-bottom: 1%;
 }
 
 .pdp_name p {
-    margin-left: 10%;
-    margin-top: 10%;
+    width: 100%;
+    margin-left: 1%;
+    margin-top: 1%;
+    font-size: 16px;
+}
+
+.form_submit_community {
+    width: 100%;
+    max-height: 150%;
 }
 
 .content_submit {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    padding-bottom: 1%;
-    padding-right: 10%;
+    background-color: red;
 }
 
 .content {
     font-size: 17px;
-    width: 200%;
+    width: 100%;
     border: none;
     word-wrap: break-word;
-    max-width: 200%;
     resize: none;
+    max-height: 100%;
+    overflow-y: auto;
 }
 
 .content:focus{
@@ -55,8 +65,9 @@
     border: none;
     font-size: 17px;
     cursor: pointer;
-    margin-top: 5%;
+    margin-top: 2%;
     margin-right: 60%;
+    margin-bottom: 1%;
 }
 
 /*.div_section_communaute {
