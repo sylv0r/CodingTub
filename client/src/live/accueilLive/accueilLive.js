@@ -4,13 +4,37 @@ import { Link } from 'react-router-dom';
 function AffichageLive() {
   const [lives, setLives] = useState([]);
 
+
+  //AFFICHE LES LIVES EN COURS SUR LA PAGE D'ACCUEIL\\
   useEffect(() => {
-    fetch('http://localhost:3009/api/getLives')
-      .then(response => response.json())
-      .then(data => {
-        setLives(data);
-      });
+    const fetchLives = () => { //Regarde si y a un live en cours
+      fetch('http://localhost:3009/api/getLives')
+        .then(response => response.json())
+        .then(data => {
+          setLives(data);
+        })
+        .catch(error => {
+          console.error('Erreur dans la recherche de lives en cours :', error);
+        });
+    };
+
+    //Fetch la requete au lancement
+    fetchLives();
+
+    //Fetch la requete toute les 5 secondes
+    const intervalDesFetch = setInterval(() => {
+      fetchLives();
+    }, 5000);
+
+    //Supprime le fetch de la requete lorsque l'utilisateur quitte la page (important)
+    return () => {
+      clearInterval(intervalDesFetch);
+    };
   }, []);
+  //------------------------------------------------\\
+
+
+
 
   return (
     <div>
@@ -22,13 +46,10 @@ function AffichageLive() {
           </li>
         ))}
       </ul>
-      <Link to="/affichageLive">
-          <button className="Accueil-button">Visualiser le live</button>
-        </Link>
-        <Link to="/creerLive">
-          <button className="Accueil-button">Créer le live</button>
-        </Link>
-      </div>
+      <Link to="/creerLive">
+        <button className="Accueil-button">Créer le live</button>
+      </Link>
+    </div>
   );
 }
 

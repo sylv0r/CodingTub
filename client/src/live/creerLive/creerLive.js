@@ -5,10 +5,10 @@ import './creerLive.scss';
 function App() {
   const videoRef = useRef();
 
-  //Pour commencer ou finir le live\\
+  //POUR COMMENCER OU FINIR LE LIVE\\
   const [liveEnCours, setLiveEnCours] = useState(false); //Live en cours sur false
 
-  //Ouvert\\
+  //OUVERT\\
   const liveOuvert = () => {
     setLiveEnCours(true); //Met Live en cours en true, quand cliqué sur le bouton "Ouvrir le live"
     localStorage.setItem("liveEnCours", true);//Met Live en cours en true dans le stockage local -> pour affichage
@@ -31,7 +31,7 @@ function App() {
   //------\\
 
   
-  //Fermé\\
+  //FERMÉ\\
   const liveFermé = () => {
     setLiveEnCours(false); //Met Live en cours en false, quand cliqué sur le bouton "Fermer le live"
     localStorage.setItem("liveEnCours", false);//Met Live en cours en false dans le stockage local -> pour affichage
@@ -55,6 +55,8 @@ function App() {
   //-------------------------------\\
 
 
+
+  //FAIRE AFFICHER LE LIVE\\
   useEffect(() => {
     if (!liveEnCours) {
       return;
@@ -101,6 +103,9 @@ function App() {
       socket.disconnect();
     };
   }, [liveEnCours]);
+  //----------------------\\
+
+
 
   return (
     <div className="App">

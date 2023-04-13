@@ -1,11 +1,9 @@
 //SOCKET ENTRE OBS ET LE SITE POUR AFFICHER LE LIVE => 3000\\
 const express = require('express');
 const { con } = require('../../db/connection')
-const app = express()
-const app2 = express()
-const app3 = express()
+const requetePostLive = express()
 const cors = require('cors');
-const server = require('http').Server(app);
+const server = require('http').Server(requetePostLive);
 
 const io = require('socket.io')(server, {
     cors: {
@@ -58,12 +56,14 @@ module.exports = async (req, res) => {
     }
 //-------------------------------------------------\\
 
+
+
 //REQUETE POST LIVE VERS BDD => 3008\\
-app.use(express.json());
-app.use(cors());
+requetePostLive.use(express.json());
+requetePostLive.use(cors());
 
 
-app.post('/api/postLives', (req, res) => {
+requetePostLive.post('/api/postLives', (req, res) => {
     const { url, title } = req.body;
     const sql = `INSERT INTO lives (url, title, statut) VALUES ('${url}', '${title}', '1')`;
     con.query(sql, (error, results) => {
@@ -76,16 +76,19 @@ app.post('/api/postLives', (req, res) => {
     });
   });
 
-app.listen(3008, () => { // Serveur Node
+  requetePostLive.listen(3008, () => { // Serveur Node
 console.log('--> Requete POST LIVE sur 3008');
 });
 //----------------------------------\\
 
-//REQUETE GET LIVE DEPUIS BDD => 3009\\
-app2.use(express.json());
-app2.use(cors());
 
-app2.get('/api/getLives', (req, res) => {
+
+//REQUETE GET LIVE DEPUIS BDD => 3009\\
+const requeteGetLive = express()
+requeteGetLive.use(express.json());
+requeteGetLive.use(cors());
+
+requeteGetLive.get('/api/getLives', (req, res) => {
   const sql = 'SELECT * FROM lives WHERE statut = 1';
 
   con.query(sql, (error, results) => {
@@ -98,16 +101,19 @@ app2.get('/api/getLives', (req, res) => {
   });
 });
 
-app2.listen(3009, () => { // Serveur Node
+requeteGetLive.listen(3009, () => { // Serveur Node
   console.log('--> Requete GET LIVE sur 3009');
 });
 //----------------------------------\\
 
-//REQUETE UPDATE LIVE VERS BDD => 3010\\
-app3.use(express.json());
-app3.use(cors());
 
-app3.post('/api/updateLives', (req, res) => {
+
+//REQUETE UPDATE LIVE VERS BDD => 3010\\
+const requeteUpdateLive = express()
+requeteUpdateLive.use(express.json());
+requeteUpdateLive.use(cors());
+
+requeteUpdateLive.post('/api/updateLives', (req, res) => {
     const { url, title } = req.body;
     const sql = `UPDATE lives SET statut='0' WHERE url='${url}'`;
     con.query(sql, (error, results) => {
@@ -120,7 +126,7 @@ app3.post('/api/updateLives', (req, res) => {
     });
 });
 
-app3.listen(3010, () => { // Serveur Node
+requeteUpdateLive.listen(3010, () => { // Serveur Node
     console.log('--> Requete UPDATE LIVE sur 3010');
 });
 //----------------------------------\\
