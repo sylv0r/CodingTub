@@ -7,7 +7,9 @@ export default function PreviewPlaylist(){
 
         <div className='container2'>
             <div className='preview-videos'>
-                <div className='display-videos'></div>
+                <div className='display-videos'>
+                    <img src="" alt="" />
+                </div>
                 <div className='display-text'>
                     <h2>Vidéos</h2>
                     <p>User</p>
@@ -19,7 +21,7 @@ export default function PreviewPlaylist(){
                 </div>
             </div>
         </div>
-        
+
     )
 
     

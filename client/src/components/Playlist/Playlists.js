@@ -9,8 +9,8 @@ export default function Playlists(){
 
         <div className="container">
 
-                <PreviewPlaylist/>
-                <ListPlaylist/>
+            <PreviewPlaylist/>
+            <ListPlaylist/>
 
         </div>
     );
