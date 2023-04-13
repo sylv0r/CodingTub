@@ -24,14 +24,20 @@ export default function Playlists(){
                     </div>
                 </div>
                 <div className="list-videos">
-                    <ul>
-                        <li className='div-list-videos'></li>
-                        <li className='div-list-videos'></li>
-                        <li className='div-list-videos'></li>
-                        <li className='div-list-videos'></li>
-                        <li className='div-list-videos'></li>
-                        <li className='div-list-videos'></li>
-                    </ul>
+                    <div class="playlist-container">
+                        <ul class="playlist-list">
+                            <li class="playlist-item">
+                                <a href="#">
+                                <img src="" alt="" />
+                                <div class="playlist-item-info">
+                                    <p class="playlist-video-title">Nom de la vidéo</p>
+                                    <p class="playlist-item-infos">Nom de la chaine - nb de vues - il y a x heures</p>
+                                    <span class="playlist-item-duration">00:00</span>
+                                </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
