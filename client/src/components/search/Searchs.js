@@ -1,6 +1,7 @@
 import './Searchs.scss';
 import { useState } from 'react';
-import Hashtag from "./hashtag"
+import ControlledCarousel from "./hashtag"
+//import Hashtag from "./hashtag"
 
 function Search() {
 
@@ -16,43 +17,34 @@ function Search() {
 
     <header className="body">
 
-        <div className="side"></div>
-
         <nav className="recherche">
             <div className="Navsearch">
 
                 <a className="logo" href="#" target="" rel="">
-                    <img src="assets/img_header/Project_title_picture.png" alt="Logo CodingTube" class="icon_title" />  
+                    <img src="assets/img_header/Project_title_picture.png" alt="Logo CodingTube" class="icon_title" width="100" />  
                 </a>
 
                 <div className="search" action="submit">
-                    <input className="searchBar" placeholder=" Recherche..." type="text" value={value} onChange={handleChange}/> 
-                    <button className="lanchsubmit" onClick={() => console.log(value)} >envoyer</button>
+                    <input className="searchBar" placeholder="Rechercher" type="text" value={value} onChange={handleChange}/> 
+                    <button className="lanchsubmit" onClick={() => console.log(value)} >Envoyer</button>
                 </div>
-                <ul>
-                    {value && 
-                        data
-                        .filter((element) => element.includes(value))
-                        .map((element, index) => <li onClick={() => 
-                        setvalue(element)} key={index}>{element}</li>)
-                    }
-                </ul>
 
                 <div className="connect">
 
                     <a className="not"href="" target="" rel="">
-                        <img src="../../../public/assets/img_header/cloche_notification.png" alt="" class="icon_notification"/>
+                        <i class="fa-solid fa-bell fa-2x"></i>
                     </a>
                     
-                    <a className="pp" href="" target="" rel="">
-                        <img src="../../../public/assets/img_header/Profil_picture.png" alt="" class="icon_profile"/>
+                    <a className="pp" href="/connexion" target="" rel="">
+                        <i class="fa-solid fa-user fa-2x"></i>
                     </a>
                 </div>
                 
             </div>
 
             <div className="Navid">
-                {Hashtag}
+
+                <ControlledCarousel/>
 
             </div>
         </nav>

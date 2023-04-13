@@ -16,8 +16,16 @@
     width: 15%;
 }
 
-nav input[type='text'], nav input[type='text']:focus {
+input[type='text'], input[type='text']:focus {
     border-radius: 12px 0 0 12px !important;
+}
+
+.searchBar:focus {
+    border-radius: 12px 0 0 12px;
+}
+
+input:focus {
+    border-radius: 12px 0 0 12px;
 }
 
 .recherche{
@@ -72,14 +80,11 @@ nav input[type='text'], nav input[type='text']:focus {
 .not, .pp{
     width: 100%;
     margin: 3vh 2vh;
-    
 }
 
 .connect{
     justify-content: center;
     display: flex;
-
-  
 }
 
 .icons{
@@ -89,34 +94,10 @@ nav input[type='text'], nav input[type='text']:focus {
     justify-content: space-evenly;
 }
 
-#carousel {
-    position: absolute;
-    height: 200px;
-    width: 810px;
-    margin: auto;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-}
-
-.item {
-    text-align: center;
-    color: white;
-    font-size: 40px;
-    position: absolute;
-    transition: height 1s, width 1s, left 1s, margin-top 1s, line-height 1s, background-color 1s;
-}
-
-
 .Navid{
     width: 100%;
-    margin-top: -5px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    background-color: white;
-    z-index: 1;
+    margin-top: 10px;
+    justify-content: space-evenly;
 }
 
 .hashtag{ 
