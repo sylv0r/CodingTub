@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player'
 import './video.scss';
 import { useSearchParams  } from 'react-router-dom'
@@ -11,11 +10,12 @@ function Video() {
     
 
 
+
     const [videos, setVideos] = useState([]);
 
 
 
-    async function getVideos() {
+    async function getVideosInfo() {
         const response = await fetch(`http://localhost:3001/videos/showVideo/${id}`, {
             method: "GET",
             headers: { 'Content-Type': 'application/json' },
@@ -25,14 +25,34 @@ function Video() {
         setVideos(data);
         console.log(data);
     }
-    
+    async function handleLikeClick() {
+  
+
+        await fetch(`http://localhost:3001/videos/likes/`, {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+            
+                id_video: id
+            })
+            
+        });
+    }
+
+
+    const [isActive, setIsActive] = useState(false);
+
+    const toggleActive = () => {
+      setIsActive(!isActive);
+    }
+
     
 
 
     useEffect(()=>{
-        getVideos();
+        getVideosInfo();
     }, []) 
-      
+
 
     
     return (
@@ -57,12 +77,17 @@ function Video() {
                     </h2>
                         <div id='video_stats'>
                             <span id='likes'>
-                                {videos[0].likes} likes
+                                {videos[0].likes} 
                             </span>
+                            <button id='button_like' onClick={handleLikeClick}>Like</button>
+                            <div className="placement">
+                                <div className={`heart ${isActive ? 'is-active' : ''}`} onClick={() => {toggleActive();handleLikeClick();}}></div>
+                            </div>
                             <span id='vues'>
-                                {videos[0].vues} vues
+                            {videos[0].vues} vues
                             </span>
                         </div>
+
                         <div id='video-description'>
                             <p>
                                 description :

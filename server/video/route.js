@@ -4,6 +4,7 @@ const getComment = require("./query/getComment");
 const postComment = require("./query/postComment");
 const getVideos = require('./query/getVideos')
 const getSubscriptionsVideos = require('./query/getSubscriptionsVideos')
+const postLike = require('./query/postLike')
 
 const router = Router()
 
@@ -15,6 +16,7 @@ router.get('/getComment/:id_video', getComment)
 router.post('/postComment', postComment)
 router.get('/getVideos', getVideos)  // --> chercher toutes les videos
 router.get('/getSubscriptionsVideos', getSubscriptionsVideos)
+router.post('/likes/', postLike)
 
 
 

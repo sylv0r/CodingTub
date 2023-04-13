@@ -1,9 +1,9 @@
 import React, { useRef } from 'react'
-import Button from 'react-bootstrap/Button';
+//import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import "./ChannelForm.scss"
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function ChannelForm({state}) {
   const name = useRef();
@@ -104,9 +104,9 @@ export default function ChannelForm({state}) {
         </Form.Text>
       </Form.Group>
 
-      <Button variant="primary" type="submit" onClick={(e) => handleSubmit(e)}>
+      <button variant="primary" type="submit" onClick={(e) => handleSubmit(e)}>
         Créer la chaîne
-      </Button>
+      </button>
     </Form>
   )
 }
