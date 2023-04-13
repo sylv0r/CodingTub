@@ -7,7 +7,7 @@ function Search() {
 
     const data = [/*{chaine}, {profil}, {hashtag}, {video},*/"Chocolat", "Chien", "chat", "Café", "Cafeine"];
 
-    const [value, setvalue] = useState("  ");
+    const [value, setvalue] = useState("");
 
     function handleChange (event) {
         setvalue(event.target.value)

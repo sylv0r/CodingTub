@@ -9,7 +9,7 @@ export default function SideBarButton({name, logo, link, channelId}){
 
     //comportement
     const handleClick = () => {
-        window.location.href = link
+        channelId != undefined ? window.location.href = links : window.location.href = link
     }
 
     const getChannel = () => {
