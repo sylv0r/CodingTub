@@ -8,6 +8,11 @@ body, html, #root {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -23,6 +28,7 @@ code {
 .side {
   width: 15%;
   position: fixed;
+  top: 2%;
 }
 
 #main {
