@@ -10,6 +10,11 @@
     .thumbnail {
 
         position: relative;
+        /*width: 100%;*/
+        width: 350px;
+        border: 1px solid #000;
+        /*height: inherit;*/
+        height: 192.66px;
     
         img {
             max-width: 350px;
