@@ -30,8 +30,18 @@ export default function Playlists(){
                                 <a href="#">
                                 <img src="" alt="" />
                                 <div class="playlist-item-info">
-                                    <p class="playlist-video-title">Nom de la vidéo</p>
-                                    <p class="playlist-item-infos">Nom de la chaine - nb de vues - il y a x heures</p>
+                                    <h3 class="playlist-video-title">Nom de la vidéo</h3>
+                                    <p class="playlist-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
+                                    <span class="playlist-item-duration">00:00</span>
+                                </div>
+                                </a>
+                            </li>
+                            <li class="playlist-item">
+                                <a href="#">
+                                <img src="" alt="" />
+                                <div class="playlist-item-info">
+                                    <h3 class="playlist-video-title">Nom de la vidéo</h3>
+                                    <p class="playlist-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
                                     <span class="playlist-item-duration">00:00</span>
                                 </div>
                                 </a>
