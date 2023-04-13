@@ -1,6 +1,6 @@
 import './Searchs.scss';
 import { useState } from 'react';
-import Hashtag from "./hashtag"
+//import Hashtag from "./hashtag"
 
 function Search() {
 
@@ -52,10 +52,11 @@ function Search() {
             </div>
 
             <div className="Navid">
+            
 
-                {Hashtag}
-
+             
             </div>
+            
         </nav>
 
     </header>

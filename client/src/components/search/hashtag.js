@@ -5,7 +5,7 @@ import { Carousel } from 'react-responsive-carousel';
 import "./hashtag.scss"
 import axios from 'axios';
  
-function Hashtag() {
+/*function Hashtag() {
 
     const [datas, setData] = useState([]);
 
@@ -32,4 +32,4 @@ function Hashtag() {
   );
 }
 
-export default Hashtag;
+export default Hashtag;*/
