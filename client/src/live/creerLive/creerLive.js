@@ -2,53 +2,66 @@ import React, { useEffect, useRef, useState } from 'react';
 import io from 'socket.io-client';
 import './creerLive.scss';
 
+
 function App() {
   const videoRef = useRef();
 
+  
+
   //POUR COMMENCER OU FINIR LE LIVE\\
-  const [liveEnCours, setLiveEnCours] = useState(false); //Live en cours sur false
+
+  const [liveEnCours, setLiveEnCours] = useState(false); //Stockage en local de liveEnCours en false
+  const [inputTitre, setInputTitre] = useState('');//Stockage en local de inputTitre (le titre du live)
+  const [inputDescription, setInputDescription] = useState('');//Stockage en local de inputDescription (la description  du live)
+
 
   //OUVERT\\
   const liveOuvert = () => {
-    setLiveEnCours(true); //Met Live en cours en true, quand cliqué sur le bouton "Ouvrir le live"
-    localStorage.setItem("liveEnCours", true);//Met Live en cours en true dans le stockage local -> pour affichage
+    const titre = document.getElementById("creer_form_titre").value;
+    const description = document.getElementById("creer_form_description").value;
+    setInputTitre(titre);
+    setInputDescription(description);
+
+    setLiveEnCours(true);
+    localStorage.setItem("liveEnCours", true);
+    localStorage.setItem("inputTitre", titre);
+    localStorage.setItem("inputDescription", description);
+
   
-    const liveData = { url: 'http://localhost:3000/affichageLive', title: 'Titre du live' };
+    const liveData1 = { url: 'http://localhost:3000/affichageLive', title: titre, description: description};
   
     fetch('http://localhost:3008/api/postLives', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(liveData)
+      body: JSON.stringify(liveData1)
     })
     .then(response => response.json())
     .then(data => console.log("requete sql : " + data))
     .catch(error => console.error(error));
-
-    
   };
   //------\\
 
-  
+
+
   //FERMÉ\\
   const liveFermé = () => {
-    setLiveEnCours(false); //Met Live en cours en false, quand cliqué sur le bouton "Fermer le live"
-    localStorage.setItem("liveEnCours", false);//Met Live en cours en false dans le stockage local -> pour affichage
+    setLiveEnCours(false);
+    localStorage.removeItem("liveEnCours");
 
-    const liveData = { url: 'http://localhost:3000/affichageLive', title: 'Titre du live' };
+    const liveData2 = { url: 'http://localhost:3000/affichageLive', title: inputTitre, description: inputDescription};
   
     fetch('http://localhost:3010/api/updateLives', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(liveData)
+      body: JSON.stringify(liveData2)
     })
     .then(response => response.json())
     .then(data => console.log("requete sql : " + data))
     .catch(error => console.error(error));
-
   };
   //-----\\
 
@@ -114,23 +127,45 @@ function App() {
           <link src=""></link>
         </style>
       </head>
-      <body id="global">
-        <div id="actuel_live">
+      <body id="body_creer_live">
+        <div id="global_creer_live">
           {liveEnCours ? ( //Si liveEnCours = false alors rien ne s'affiche
-            <>
-              <video ref={videoRef} autoPlay playsInline id="live"></video>
-              <button onClick={liveFermé}>Fermer le live</button>
-              <div id="description">
-                <h2>description</h2>
-              </div>
-            </>
+              <>
+                <div id="option_creer_live">
+                  <h1 id="connecté">CONNECTÉ</h1>
+                  <button onClick={liveFermé}>Fermer le live</button>
+                </div>
+                <div id="creer_live_description">
+                  <video ref={videoRef} autoPlay playsInline id="creer_live"></video>
+                <div id="description">
+                    <h2>description</h2>
+                  </div>
+                </div>
+              </>
           ) : (
-            <button onClick={liveOuvert}>Ouvrir le live</button>
+              <>
+                <div id="option_creer_live">
+                  <h1 id="déconnecté">DÉCONNECTÉ</h1>
+                  <button onClick={liveOuvert}>Ouvrir le live</button>
+                </div>
+                <div id="creer_live_description">
+                    <div id="emplacement_live"></div>
+                  <div id="creer_description">
+                    <form id="creer_form">
+                      <input type="text" id="creer_form_titre" name="creer_form_titre" placeholder="TITRE DU LIVE :" />
+                      <input type="text" id="creer_form_description" name="creer_form_description" placeholder="DESCRIPTION DU LIVE :" />
+                    </form>
+                  </div>
+                </div>
+              </>
           )}
+
+          <div id="creer_chat_live">
+            <h2>Salon textuelle</h2>
+          </div>
         </div>
-        <div id="chat_live">
-          <h2>Salon textuelle</h2>
-        </div>
+
+
       </body>
     </div>
   );

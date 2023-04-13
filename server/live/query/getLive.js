@@ -64,8 +64,8 @@ requetePostLive.use(cors());
 
 
 requetePostLive.post('/api/postLives', (req, res) => {
-    const { url, title } = req.body;
-    const sql = `INSERT INTO lives (url, title, statut) VALUES ('${url}', '${title}', '1')`;
+    const { url, title, description } = req.body;
+    const sql = `INSERT INTO lives (url, title, description, statut) VALUES ('${url}', '${title}', '${description}', '1')`;
     con.query(sql, (error, results) => {
       if (error) {
         console.error(`Error executing SQL query: ${error.stack}`);
@@ -114,8 +114,8 @@ requeteUpdateLive.use(express.json());
 requeteUpdateLive.use(cors());
 
 requeteUpdateLive.post('/api/updateLives', (req, res) => {
-    const { url, title } = req.body;
-    const sql = `UPDATE lives SET statut='0' WHERE url='${url}'`;
+    const { url, title, description } = req.body;
+    const sql = `UPDATE lives SET statut='0' WHERE title='${title}' AND description = '${description}'`;
     con.query(sql, (error, results) => {
       if (error) {
         console.error(`Error executing SQL query: ${error.stack}`);
