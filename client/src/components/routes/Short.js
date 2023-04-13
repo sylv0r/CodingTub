@@ -63,7 +63,32 @@ function Short() {
             width="380px"
             className="player"
           />
+          <div class="buttons">
+          <div class="gap"> 
+            <p class="liking">J'aime</p> 
+            <img src={Like} class="like"/> 
+          </div> 
+
+          <div class="gap"> 
+            <p class="liking">Je n'aime pas</p> 
+            <img src={Dislike} class="dislike"/> 
+          </div>
+
+
+          <div class="gap"> 
+            <p class="liking">Commentaires</p> 
+              <img src={Comment} class="comment"/> 
+          </div>
+
+          <div class="gap"> 
+            <p class="liking">Autres</p> 
+            <img src={Other} class="comment"/> 
+          </div>
+
         </div>
+        </div>
+
+        
         <div className="player-small">
           <ReactPlayer
             url={videoUrls[2]}

@@ -64,4 +64,46 @@
     
 
 
-  
+  .buttons{
+    padding-left: 10px;
+    padding-top: 40%;
+}
+
+
+.gap{
+    padding-bottom: 50px;
+}
+
+
+.like, 
+.dislike,
+.comment,
+.share{
+    background-color: #161616;
+    border-radius: 40px;
+    width: 50px;
+}
+
+.like:hover, 
+.dislike:hover,
+.comment:hover,
+.share:hover{
+background-color: #333333;
+cursor: pointer;
+}
+ 
+.liking {
+    display: none;
+}
+
+.gap:hover .liking {
+    display: block;
+    background-color: #161616;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+  }
+
