@@ -16,6 +16,7 @@ function AutoExpandingTextarea(props) {
         {...props}
         placeholder="Exprimez-vous !"
         className='content'
+        type="text"
     />
   );
 }
