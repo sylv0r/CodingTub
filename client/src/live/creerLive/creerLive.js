@@ -8,6 +8,7 @@ function App() {
   //Pour commencer ou finir le live\\
   const [liveEnCours, setLiveEnCours] = useState(false); //Live en cours sur false
 
+  //Ouvert\\
   const liveOuvert = () => {
     setLiveEnCours(true); //Met Live en cours en true, quand cliqué sur le bouton "Ouvrir le live"
     localStorage.setItem("liveEnCours", true);//Met Live en cours en true dans le stockage local -> pour affichage
@@ -27,11 +28,30 @@ function App() {
 
     
   };
+  //------\\
 
+  
+  //Fermé\\
   const liveFermé = () => {
     setLiveEnCours(false); //Met Live en cours en false, quand cliqué sur le bouton "Fermer le live"
     localStorage.setItem("liveEnCours", false);//Met Live en cours en false dans le stockage local -> pour affichage
+
+    const liveData = { url: 'http://localhost:3000/affichageLive', title: 'Titre du live' };
+  
+    fetch('http://localhost:3010/api/updateLives', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(liveData)
+    })
+    .then(response => response.json())
+    .then(data => console.log("requete sql : " + data))
+    .catch(error => console.error(error));
+
   };
+  //-----\\
+
   //-------------------------------\\
 
 

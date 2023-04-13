@@ -3,6 +3,7 @@ const express = require('express');
 const { con } = require('../../db/connection')
 const app = express()
 const app2 = express()
+const app3 = express()
 const cors = require('cors');
 const server = require('http').Server(app);
 
@@ -64,7 +65,7 @@ app.use(cors());
 
 app.post('/api/postLives', (req, res) => {
     const { url, title } = req.body;
-    const sql = `INSERT INTO lives (url, title) VALUES ('${url}', '${title}')`;
+    const sql = `INSERT INTO lives (url, title, statut) VALUES ('${url}', '${title}', '1')`;
     con.query(sql, (error, results) => {
       if (error) {
         console.error(`Error executing SQL query: ${error.stack}`);
@@ -85,7 +86,7 @@ app2.use(express.json());
 app2.use(cors());
 
 app2.get('/api/getLives', (req, res) => {
-  const sql = 'SELECT * FROM lives';
+  const sql = 'SELECT * FROM lives WHERE statut = 1';
 
   con.query(sql, (error, results) => {
     if (error) {
@@ -99,5 +100,27 @@ app2.get('/api/getLives', (req, res) => {
 
 app2.listen(3009, () => { // Serveur Node
   console.log('--> Requete GET LIVE sur 3009');
+});
+//----------------------------------\\
+
+//REQUETE UPDATE LIVE VERS BDD => 3010\\
+app3.use(express.json());
+app3.use(cors());
+
+app3.post('/api/updateLives', (req, res) => {
+    const { url, title } = req.body;
+    const sql = `UPDATE lives SET statut='0' WHERE url='${url}'`;
+    con.query(sql, (error, results) => {
+      if (error) {
+        console.error(`Error executing SQL query: ${error.stack}`);
+        res.status(500).json({ error: "Une erreur s'est produite lors de l'exécution de la requête SQL" });
+      } else {
+        res.json(results);
+      }
+    });
+});
+
+app3.listen(3010, () => { // Serveur Node
+    console.log('--> Requete UPDATE LIVE sur 3010');
 });
 //----------------------------------\\

@@ -6,7 +6,7 @@ function App() {
   const videoRef = useRef();
 
   //Pour commencer ou finir le live\\
-  const [liveEnCours, setLiveEnCours] = useState(false); //Live en cours sur false
+  const [liveEnCours, setLiveEnCours] = useState(true); //Live en cours sur false
 
   useEffect(() => {
     const handleStorageChange = () => {
