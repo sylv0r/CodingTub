@@ -31,7 +31,8 @@ app.use("/live", liveMiddleware.routes)
 
 //utilise le middleware des channels lorsque la requête commence par /channels
 //app.use("/users", usersMiddleware.routes)
+console.log(`--> Serveur site sur ${3000}`)
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`--> Requete site sur ${port}`)
 })

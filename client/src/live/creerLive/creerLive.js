@@ -11,10 +11,10 @@ function App() {
   const liveOuvert = () => {
     setLiveEnCours(true); //Met Live en cours en true, quand cliqué sur le bouton "Ouvrir le live"
     localStorage.setItem("liveEnCours", true);//Met Live en cours en true dans le stockage local -> pour affichage
-
+  
     const liveData = { url: 'https://example.com/live', title: 'Titre du live' };
-
-    fetch('http://localhost:3001/api/lives', {
+  
+    fetch('http://localhost:3008/api/lives', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -22,7 +22,7 @@ function App() {
       body: JSON.stringify(liveData)
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => console.log("requete sql : " + data))
     .catch(error => console.error(error));
 
     
