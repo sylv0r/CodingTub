@@ -40,11 +40,18 @@ function AffichageProfil() {
 
             <div className='user'>
 
+                <img id='profile' src='chat.jpg' alt="Image d'un mignon chat"></img>
+
+            </div>
+
+            <div className='user'>
+
                 {users.map(user => (
 
                     <div key={user.id}>
 
                         <p className='pseudo'>{user.name}</p>
+                        <p>1 M d'abonnés 1 vidéo</p> 
                         <p>{user.description}</p>
 
                     </div>
