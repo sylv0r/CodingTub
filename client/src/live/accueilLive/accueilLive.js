@@ -1,24 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+function AffichageLive() {
+  const [lives, setLives] = useState([]);
 
-function Accueil() {
+  useEffect(() => {
+    fetch('http://localhost:3009/api/getLives')
+      .then(response => response.json())
+      .then(data => {
+        setLives(data);
+      });
+  }, []);
+
   return (
-    <div className="Accueil">
-      <header className="Accueil-header">
-        <h1 className="Accueil-title">Bienvenue sur la section Live de CodingTube</h1>
-        <p className="Accueil-intro">
-          Vous pouvez accéder à la page de visualisation du live en cliquant sur le bouton ci-dessous.
-        </p>
-        <Link to="/affichageLive">
+    <div>
+      <h1>Liste des lives en cours</h1>
+      <ul>
+        {lives.map(live => (
+          <li key={live.id}>
+            <a href={live.URL}>{live.title}</a>
+          </li>
+        ))}
+      </ul>
+      <Link to="/affichageLive">
           <button className="Accueil-button">Visualiser le live</button>
         </Link>
         <Link to="/creerLive">
           <button className="Accueil-button">Créer le live</button>
         </Link>
-      </header>
-    </div>
+      </div>
   );
 }
 
-export default Accueil;
+export default AffichageLive;

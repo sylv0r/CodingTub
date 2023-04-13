@@ -1,7 +1,8 @@
-//////////////////////////LIVE\\\\\\\\\\\\\\\\\\\\\\\
+//SOCKET ENTRE OBS ET LE SITE POUR AFFICHER LE LIVE => 3000\\
 const express = require('express');
 const { con } = require('../../db/connection')
 const app = express()
+const app2 = express()
 const cors = require('cors');
 const server = require('http').Server(app);
 
@@ -54,12 +55,14 @@ const io = require('socket.io')(server, {
 
 module.exports = async (req, res) => {
     }
-//////////////////////////LIVE\\\\\\\\\\\\\\\\\\\\\\\
+//-------------------------------------------------\\
+
+//REQUETE POST LIVE VERS BDD => 3008\\
 app.use(express.json());
 app.use(cors());
 
 
-app.post('/api/lives', (req, res) => {
+app.post('/api/postLives', (req, res) => {
     const { url, title } = req.body;
     const sql = `INSERT INTO lives (url, title) VALUES ('${url}', '${title}')`;
     con.query(sql, (error, results) => {
@@ -75,3 +78,26 @@ app.post('/api/lives', (req, res) => {
 app.listen(3008, () => { // Serveur Node
 console.log('--> Requete POST LIVE sur 3008');
 });
+//----------------------------------\\
+
+//REQUETE GET LIVE DEPUIS BDD => 3009\\
+app2.use(express.json());
+app2.use(cors());
+
+app2.get('/api/getLives', (req, res) => {
+  const sql = 'SELECT * FROM lives';
+
+  con.query(sql, (error, results) => {
+    if (error) {
+      console.error(`Error executing SQL query: ${error.stack}`);
+      res.status(500).json({ error: "Une erreur s'est produite lors de l'exécution de la requête SQL" });
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+app2.listen(3009, () => { // Serveur Node
+  console.log('--> Requete GET LIVE sur 3009');
+});
+//----------------------------------\\
