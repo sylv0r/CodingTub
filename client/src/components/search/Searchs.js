@@ -1,6 +1,7 @@
 import './Searchs.scss';
 import { useState } from 'react';
 import ControlledCarousel from "./hashtag"
+//import Hashtag from "./hashtag"
 
 function Search() {
 
