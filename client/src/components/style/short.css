@@ -35,7 +35,7 @@
 
 
 .gap{
-    padding-bottom: 40px;
+    padding-bottom: 50px;
 }
 
 
@@ -57,19 +57,16 @@ cursor: pointer;
 }
  
 .liking {
-    background-color: #353536;
-    border-radius: 10px;
     display: none;
+}
+
+.gap:hover .liking {
+    display: block;
+    background-color: #161616;
+    border-radius: 10px;
     color: #fff;
     text-align: center;
     border-radius: 6px;
     padding: 8px;
     position: absolute;
-}
-
-.liking:hover{
-    visibility: visible;
-    height: 30px;
-    width: 30%;
-}
-  
+  }

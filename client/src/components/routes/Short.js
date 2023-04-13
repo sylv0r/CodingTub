@@ -5,7 +5,31 @@ import '../style/short.css';
 import Like from './Like.png';
 import Dislike from './Dislike.png';
 import Comment from './Comment.png';
-import Share from './Share.png';
+import Other from './Other.png';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 const videoUrls = [
@@ -15,6 +39,32 @@ const videoUrls = [
 ];
 
 function Short() {
+
+  const [coms, setComs] = useState([
+ ]);
+
+ //const inputRef = useRef();
+
+ const Delete = (id) => {
+
+   console.log(id);
+
+   const comsCopy = [...coms];
+
+   const comsCopyUpdated = comsCopy.filter((coms) => coms.id !== id)
+
+   setComs(comsCopyUpdated)
+   
+ };
+
+ const Submit = (event) => {
+   event.preventDefault();
+   //console.log(inputRef.current.value);
+ };
+
+ 
+
+
   return (
     <div className="player-container">
       <div className="player-small">
@@ -27,6 +77,7 @@ function Short() {
         />
       </div>
       <div className="player-large">
+
         <ReactPlayer
           url={videoUrls[1]}
           controls={true}
@@ -34,12 +85,35 @@ function Short() {
           width="380px"
           className="player"
         />
+
         <div class="buttons">
-          <div class="gap">  <p class="liking">J'aime</p>  <img src={Like} class="like"/></div> 
-          <div class="gap"><img src={Dislike} class="dislike"/> </div>
-          <div class="gap"><img src={Comment} class="comment"/> </div>
-          <div class="gap"><img src={Share} class="share"/></div>
+          <div class="gap"> 
+            <p class="liking">J'aime</p> 
+            <img src={Like} class="like"/> 
+          </div> 
+
+          <div class="gap"> 
+            <p class="liking">Je n'aime pas</p> 
+            <img src={Dislike} class="dislike"/> 
+          </div>
+
+
+          <div class="gap"> 
+            <p class="liking">Commentaires</p> 
+              <img src={Comment} class="comment"/> 
+          </div>
+
+          <div class="gap"> 
+            <p class="liking">Autres</p> 
+            <img src={Other} class="comment"/> 
+          </div>
+
+
+
+
+
         </div>
+        
       </div>
       <div className="player-small">
         <ReactPlayer
