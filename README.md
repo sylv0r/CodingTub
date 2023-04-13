@@ -1,5 +1,7 @@
 # CodingTub
+## Deso y avait trop de package à installer j'ai oublié 
 
+## Sur le site mettait la camera "OBS virtual camera" 
 
 ## Installation Front 
 ### Allez dans le dossier client et faites les commandes suivantes
