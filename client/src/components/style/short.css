@@ -1,63 +1,83 @@
+.player-container {
+  background-color: darkseagreen;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 
-  
-  .player-small,
-  .player-large {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .player {
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  #body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
-  }
-  
-  .player-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-  }
-  
-  .form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f8f9fa;
-    padding: 20px;
-  }
-  
-  .form-short {
-    display: flex;
-    align-items: center;
-  }
-  
-  #input[type='text'] {
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
-  }
-  
-  #button {
-    background-color: #007bff;
-    border-color: #007bff;
-    color: #fff;
-    font-size: 14px;
-    padding: 6px 12px;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-    
+
+}
+
+.player-past,
+.player-current,
+.player-next {
+  margin-top: 100px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.player-past,
+.player-next {
+  height: 600px;
+  width: 250px;
+  border-radius: 20px;
+}
+
+.player-current {
+  height: 750px;
+  width: 380px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.player-past {
+  margin-right: 60px;
+  filter: grayscale(100%);
+}
+
+.player-next {
+  margin-left: 60px;
+}
+
+.like-comment-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px 0;
+  position: absolute;
+  top: 60%;
+  right: 0px;
+  transform: translateY(-50%);
+}
+
+.like-button,
+.comment-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  margin: 0 10px;
+}
+
+.color-picker-container {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+.comments-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  overflow-y: auto;
+  border-left: 1px solid #ccc;
+}

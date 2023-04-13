@@ -26,6 +26,7 @@
   padding: 30px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   width: 450px;
+  margin-bottom: 20px;
   
   display: flex;
   flex-direction: column;
@@ -70,7 +71,7 @@ button:hover {
   transform: translateX(-50%); /* Centre le message banner horizontalement */
   padding: 10px;
   margin-top: 20px; /* Déplace le message banner en dessous du formulaire */
-  border-radius: 4px;
+  border-radius: 10px;
   text-align: center;
   font-weight: bold;
   width: 450px;

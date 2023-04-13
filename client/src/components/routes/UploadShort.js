@@ -39,10 +39,19 @@ const VideoUploadForm = () => {
       setVideoFile(null);
       setSubmitStatus("Vidéo ajoutée avec succès.");
       setMessageType("success");
+
+      setTimeout(() => {
+        setSubmitStatus("");
+        setMessageType("");
+      }, 5000); // fait disparaître le message-banner après 5 secondes
     } catch (error) {
       console.error("Error adding video:", error);
       setSubmitStatus("Erreur lors de l'ajout de la vidéo.");
       setMessageType("error");
+      setTimeout(() => {
+        setSubmitStatus("");
+        setMessageType("");
+      }, 5000);
     }
   };
 
@@ -94,15 +103,11 @@ const VideoUploadForm = () => {
             messageType === "error" ? "message-error" : "message-success"
           }`}
         >
-         
-
           {submitStatus}
         </div>
       )}
     </div>
   );
-  
 };
 
 export default VideoUploadForm;
-
