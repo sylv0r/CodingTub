@@ -36,6 +36,71 @@ export default function ListPlaylist(){
                             <FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>
                         </div>
                     </li>
+                    <li class="playlist-item">
+                        <a href="#">
+                        <img src="" alt="" />
+                        <div class="playlist-item-info">
+                            <h3 class="playlist-video-title">Nom de la vidéo</h3>
+                            <p class="playlist-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
+                            <span class="playlist-item-duration">00:00</span>
+                        </div>
+                        </a>
+                        <div class="playlist-item-icon">
+                            <FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>
+                        </div>
+                    </li>
+                    <li class="playlist-item">
+                        <a href="#">
+                        <img src="" alt="" />
+                        <div class="playlist-item-info">
+                            <h3 class="playlist-video-title">Nom de la vidéo</h3>
+                            <p class="playlist-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
+                            <span class="playlist-item-duration">00:00</span>
+                        </div>
+                        </a>
+                        <div class="playlist-item-icon">
+                            <FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>
+                        </div>
+                    </li>
+                    <li class="playlist-item">
+                        <a href="#">
+                        <img src="" alt="" />
+                        <div class="playlist-item-info">
+                            <h3 class="playlist-video-title">Nom de la vidéo</h3>
+                            <p class="playlist-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
+                            <span class="playlist-item-duration">00:00</span>
+                        </div>
+                        </a>
+                        <div class="playlist-item-icon">
+                            <FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>
+                        </div>
+                    </li>
+                    <li class="playlist-item">
+                        <a href="#">
+                        <img src="" alt="" />
+                        <div class="playlist-item-info">
+                            <h3 class="playlist-video-title">Nom de la vidéo</h3>
+                            <p class="playlist-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
+                            <span class="playlist-item-duration">00:00</span>
+                        </div>
+                        </a>
+                        <div class="playlist-item-icon">
+                            <FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>
+                        </div>
+                    </li>
+                    <li class="playlist-item">
+                        <a href="#">
+                        <img src="" alt="" />
+                        <div class="playlist-item-info">
+                            <h3 class="playlist-video-title">Nom de la vidéo</h3>
+                            <p class="playlist-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
+                            <span class="playlist-item-duration">00:00</span>
+                        </div>
+                        </a>
+                        <div class="playlist-item-icon">
+                            <FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
