@@ -1,12 +1,11 @@
 .container {
-    display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-image: linear-gradient(120deg, #725dfe 0%, #c200fd 100%);
     font-family: Arial, sans-serif;
   }
-  
+
   .form {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
@@ -55,4 +54,59 @@
   p {
     text-align: center;
   }
+
+
+
+  /* Bouttons Toggle */
+
+  .toggle {
+    display: none;
+  }
+
+  .label {
+    display:inline-block;
+
+    
+    height: 25px;
+    width: 50px;
+
+    background: blue;
+
+    position:relative;
+
+    border-radius: 15px;
+  }
+
+  .label:after {
+    transition: 0.25s;
+    content: "";
+    
+    height: 15px;
+    width: 15px;
+
+    background: white;
+
+    position: absolute;
+    top: 5.5px;
+    left: 6px;
+
+    border-radius: 50%;
+  }
+
+  .toggle:checked + .label:after{
+
+    transform: translate(22px);
+    transition: 0.25s;
+  }
+
+  .toggle:checked + .label{
+    background: grey;
+  }
+
+
+  .block2 {
+    display: flex;
+
+    flex-direction: column;
   
+  }

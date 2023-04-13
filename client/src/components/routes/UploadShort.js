@@ -31,34 +31,44 @@ const VideoUploadForm = () => {
 
   return (
     <div className="container">
-    <div className="form-wrapper">
-      <h2>Formulaire d'upload de vidéo</h2>
-      <form onSubmit={handleSubmit}>
-        
-        <input
-          type="text"
-          placeholder="Description de la vidéo"
-          id="videoDescription"
-          value={videoDescription}
-          onChange={(e) => setVideoDescription(e.target.value)}
-        />
-        <br />
-        
-        <input
+      <div className="form-wrapper">
+        <h2>Formulaire d'upload de vidéo</h2>
+        <form onSubmit={handleSubmit}>
 
-          type="text"
-          placeholder="URL de la vidéo"
-          id="videoURL"
-          value={videoURL}
-          onChange={(e) => setVideoURL(e.target.value)}
-        />
-        <br />
-        <button type="submit">Upload</button>
-      </form>
-      {submitStatus && <p>{submitStatus}</p>}
+          <input
+            type="text"
+            placeholder="Description de la vidéo"
+            id="videoDescription"
+            value={videoDescription}
+            onChange={(e) => setVideoDescription(e.target.value)}
+          />
+          <br />
+
+          <input
+
+            type="text"
+            placeholder="URL de la vidéo"
+            id="videoURL"
+            value={videoURL}
+            onChange={(e) => setVideoURL(e.target.value)}
+          />
+          <br />
+          <button type="submit">Upload</button>
+        </form>
+        {submitStatus && <p>{submitStatus}</p>}
+      </div>
+      <div class="block2">
+        <input type="checkbox" id="toggle" class="toggle"></input>
+        <label for="toggle" class="label"></label>
+        <br/>
+      </div>
+      <input type="checkbox" id="toggle2" class="toggle"></input>
+      <label for="toggle2" class="label"></label>
     </div>
-  </div>
   );
+
+
+
 };
 
 export default VideoUploadForm;
