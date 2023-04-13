@@ -56,21 +56,26 @@ function Video() {
                         {videos[0].title}
                     </h2>
                         <div id='video_stats'>
-                            <span>
+                            <span id='likes'>
                                 {videos[0].likes} likes
                             </span>
-                            <span>
+                            <span id='vues'>
                                 {videos[0].vues} vues
                             </span>
+                        </div>
+                        <div id='video-description'>
+                            <p>
+                                description :
+                            </p>
+                            <p id='description'>
+                                {videos[0].description}
+                            </p>
+                        </div>
+                        <div id='published'>
                             <span>
                                 {videos[0].published_at}
                             </span>
                         </div>
-                            <div className='video-description'>
-                                <p>
-                                    {videos[0].description}
-                                </p>
-                            </div>
                         </div>
             }
         </div>
