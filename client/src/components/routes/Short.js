@@ -6,55 +6,43 @@ import "../style/short.css";
 const Short = () => {
   const [videos, setVideos] = useState([]);
 
-  // Fonction pour charger les vidéos depuis l'API
-  const fetchVideos = async () => {
-    try {
-      const response = await axios.get("http://localhost:3001/shorts/fetch");
-      setVideos(response.data);
-    } catch (error) {
-      console.error("Error fetching videos:", error);
-    }
+class VideoPlayer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      videoUrl: '',
+    };
   };
+    
+  componentDidMount() {
+     const searchQuery = 'chat';
+     const API_KEY = 'oMZIXIvlIyN7dlfYApReIKBP24KDsi87mM5UULxIEYAwe16hwNgc8AhM'
+     axios.get(`https://api.pexels.com/v1/search?query=${searchQuery}`, {
+        headers: {
+          Authorization: API_KEY,
+        },
+      })
+      .then(response => {
+        this.setState({ videoUrl: response.data.videoUrl });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
 
-  // Charger les vidéos lors de l'initialisation du composant
-  useEffect(() => {
-    fetchVideos();
-  }, []);
+  render() {
+    return (
+      <div  className='short'>
+      
+        <video controls>
+        <ReactPlayer
+            url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    );
+  }
+}
 
-  return (
-    <div className="player-container">
-      <div className="player-past">
-        <ReactPlayer
-          url={videos[0]?.shorturl}
-          controls={true}
-          height="100%"
-          width="100%"
-          className="player"
-        />
-        <p>{videos[0]?.description}</p>
-      </div>
-      <div className="player-current">
-        <ReactPlayer
-          url={videos[1]?.shorturl}
-          controls={true}
-          height="100%"
-          width="100%"
-          className="player"
-        />
-        <p>{videos[1]?.description}</p>
-      </div>
-      <div className="player-next">
-        <ReactPlayer
-          url={videos[2]?.shorturl}
-          controls={true}
-          height="100%"
-          width="100%"
-          className="player"
-        />
-        <p>{videos[2]?.description}</p>
-      </div>
-    </div>
-  );
-};
-
-export default Short;
+export default VideoPlayer;
