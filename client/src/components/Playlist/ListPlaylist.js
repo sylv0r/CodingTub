@@ -1,7 +1,7 @@
 import React from 'react';
 import './../style/ListPlaylist.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+//import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
 
 export default function ListPlaylist(){
 
@@ -20,7 +20,8 @@ export default function ListPlaylist(){
                         </div>
                         </a>
                         <div class="playlist-item-icon">
-                            <FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>
+                            <i className="fa-solid fa-ellipsis-vertical" style={{color: "#ffffff"}} id="threedoticon"></i>
+                            {/*<FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>*/}
                         </div>
                     </li>
                     <li class="playlist-item">
@@ -33,7 +34,8 @@ export default function ListPlaylist(){
                         </div>
                         </a>
                         <div class="playlist-item-icon">
-                            <FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>
+                            <i className="fa-solid fa-ellipsis-vertical" style={{color: "#ffffff"}} id="threedoticon"></i>
+                            {/*<FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>*/}
                         </div>
                     </li>
                     <li class="playlist-item">
@@ -46,7 +48,8 @@ export default function ListPlaylist(){
                         </div>
                         </a>
                         <div class="playlist-item-icon">
-                            <FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>
+                            <i className="fa-solid fa-ellipsis-vertical" style={{color: "#ffffff"}} id="threedoticon"></i>
+                            {/*<FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>*/}
                         </div>
                     </li>
                     <li class="playlist-item">
@@ -59,7 +62,8 @@ export default function ListPlaylist(){
                         </div>
                         </a>
                         <div class="playlist-item-icon">
-                            <FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>
+                            <i className="fa-solid fa-ellipsis-vertical" style={{color: "#ffffff"}} id="threedoticon"></i>
+                            {/*<FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>*/}
                         </div>
                     </li>
                     <li class="playlist-item">
@@ -72,7 +76,8 @@ export default function ListPlaylist(){
                         </div>
                         </a>
                         <div class="playlist-item-icon">
-                            <FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>
+                            <i className="fa-solid fa-ellipsis-vertical" style={{color: "#ffffff"}} id="threedoticon"></i>
+                            {/*<FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>*/}
                         </div>
                     </li>
                     <li class="playlist-item">
@@ -85,7 +90,8 @@ export default function ListPlaylist(){
                         </div>
                         </a>
                         <div class="playlist-item-icon">
-                            <FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>
+                            <i className="fa-solid fa-ellipsis-vertical" style={{color: "#ffffff"}} id="threedoticon"></i>
+                            {/*<FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>*/}
                         </div>
                     </li>
                     <li class="playlist-item">
@@ -98,7 +104,8 @@ export default function ListPlaylist(){
                         </div>
                         </a>
                         <div class="playlist-item-icon">
-                            <FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>
+                            <i className="fa-solid fa-ellipsis-vertical" style={{color: "#ffffff"}} id="threedoticon"></i>
+                            {/*<FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>*/}
                         </div>
                     </li>
                 </ul>
