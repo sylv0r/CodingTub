@@ -138,7 +138,8 @@ function App() {
                 <div id="creer_live_description">
                   <video ref={videoRef} autoPlay playsInline id="creer_live"></video>
                 <div id="description">
-                    <h2>description</h2>
+                  <h2>{inputTitre}</h2>
+                  <h2>{inputDescription}</h2>
                   </div>
                 </div>
               </>
