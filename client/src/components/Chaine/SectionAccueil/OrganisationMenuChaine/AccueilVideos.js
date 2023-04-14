@@ -1,7 +1,7 @@
 import React from 'react'
-import VideoList from '../../Home/VideoList/VideoList'
+import VideoList from '../../../Home/VideoList/VideoList'
 
-export default function SectionVideos() {
+export default function AccueilVideos() {
 
     //state
     var currentUrl = window.location.href
@@ -14,7 +14,7 @@ export default function SectionVideos() {
     //render
     return (
         <div>
-            <VideoList action={`getChannelVideos/${name}`} />
+            <VideoList action={`getChannelVideosAccueil/${name}`} />
         </div>
-    );
+    )
 }
