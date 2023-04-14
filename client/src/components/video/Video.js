@@ -2,14 +2,24 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import ReactPlayer from 'react-player'
 import './video.scss';
+import './listDroite.scss';
 
+import { useSearchParams  } from 'react-router-dom'
+import VideoListRight from './VideoListRight';
 function Video() {
+    
+    
+    let [searchParams, setSearchParams] = useSearchParams();
+    const id = searchParams.get('id'); // send
+    
+
+
     const [videos, setVideos] = useState([]);
 
 
 
     async function getVideos() {
-        const response = await fetch("http://localhost:3001/videos/showVideo/1", {
+        const response = await fetch(`http://localhost:3001/videos/showVideo/${id}`, {
             method: "GET",
             headers: { 'Content-Type': 'application/json' },
         })
@@ -66,8 +76,21 @@ function Video() {
                             </div>
                         </div>
             }
+
+            <VideoListRight />
+
+
+                
+            
         </div>
+
+       
+        
+
+             
     );
+  
+        
     
 }    
 

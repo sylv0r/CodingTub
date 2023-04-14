@@ -13,8 +13,10 @@ import MenuChaine from './components/Chaine/MenuChaine/MenuChaine';
 import Short from './components/routes/Short';
 import UploadShort from './components/routes/UploadShort';
 import Search from './components/search/Searchs';
-import Connexion from './components/connexion/Connexion';
-import Inscription from './components/Inscription/InscriptionForm';
+import Profile from './components/Profile/Profile';
+import UserProfile from './components/UserProfile/UserProfile';
+import Connexion from './components/connexion/Connexion/Connexion';
+import Inscription from './components/Inscription/InscriptionForm.js';
 
 import {
   createBrowserRouter,
@@ -22,6 +24,8 @@ import {
 } from "react-router-dom";
 
 const router = createBrowserRouter([
+
+
   {
     path: "/home",
     element: <Home/>
@@ -78,6 +82,14 @@ const router = createBrowserRouter([
     path: "/live",
     element: <Live />,
   },
+  {
+    path: "/Profile",
+    element: <Profile />
+  },
+  {
+    path: "/UserProfile",
+    element: <UserProfile />
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
