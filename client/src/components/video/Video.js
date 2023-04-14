@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player'
 import './video.scss';
 import { useSearchParams  } from 'react-router-dom'
+import Likes from './likes/Likes';
 function Video() {
     
     
@@ -46,8 +47,9 @@ function Video() {
       setIsActive(!isActive);
     }
 
-    
+    const url = process.env.REACT_APP_NGINX_LINK;
 
+    
 
     useEffect(()=>{
         getVideosInfo();
@@ -61,7 +63,7 @@ function Video() {
             {videos.length > 0 &&
             <div className='video'>
                 <ReactPlayer 
-                    url={videos[0].video_link} 
+                    url={url + videos[0].video_link}
                     controls
                     className='player'
                     width='50%'
@@ -76,13 +78,7 @@ function Video() {
                         {videos[0].title}
                     </h2>
                         <div id='video_stats'>
-                            <span id='likes'>
-                                {videos[0].likes} 
-                            </span>
-                            <button id='button_like' onClick={handleLikeClick}>Like</button>
-                            <div className="placement">
-                                <div className={`heart ${isActive ? 'is-active' : ''}`} onClick={() => {toggleActive();handleLikeClick();}}></div>
-                            </div>
+                            <Likes video={videos} />
                             <span id='vues'>
                             {videos[0].vues} vues
                             </span>
