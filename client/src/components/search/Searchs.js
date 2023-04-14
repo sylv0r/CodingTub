@@ -1,6 +1,11 @@
+import { useState } from "react";
 import './Searchs.scss';
+<<<<<<< HEAD
 import ControlledCarousel from "./hashtag";
 import Search2 from './searchbar';
+=======
+import Hashtag from "./hashtag";
+>>>>>>> recherche_matheo
 
 function Search() {
     return (
