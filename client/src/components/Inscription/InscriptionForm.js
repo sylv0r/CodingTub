@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import './InscriptionForm.css';
+import './InscriptionForm.scss';
 import axios from 'axios';
 import logo from './codingTub.png'
 
+let vision1 = false;
 
-let vision = false;
 
 function validatePassword(password) {
   const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -22,7 +22,7 @@ function Inscription() {
   cpassword: ''
 });
 
-const [passwordError, setPasswordError] = useState(false);
+const [passwordError ,setPasswordError] = useState(false);
 
 const handleSubmit = (event) => {
   event.preventDefault();
@@ -95,18 +95,18 @@ const options = {
   }
 };
   
-const showPass = (event) => {
+	const showPass1 = (event) => {
     event.preventDefault();
 
-    if (vision === false) {
-      document.getElementById('PassInput').type = 'text';
-      document.getElementById('showPassBtn').innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
-      vision = true;
+    if (vision1 === false) {
+      document.getElementById('PassInput1').type = 'text';
+      document.getElementById('showPassBtnInscription').innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
+      vision1 = true;
       
       } else {
-			document.getElementById('PassInput').type = 'password';
-			document.getElementById('showPassBtn').innerHTML = '<i class="fa-regular fa-eye"></i>';
-			vision = false;
+			document.getElementById('PassInput1').type = 'password';
+			document.getElementById('showPassBtnInscription').innerHTML = '<i class="fa-regular fa-eye"></i>';
+			vision1 = false;
     }
   }
 
@@ -114,26 +114,26 @@ const showPass = (event) => {
   const showPass2 = (event) => {
     event.preventDefault();
 
-    if (vision === false) {
+    if (vision1 === false) {
       document.getElementById('PassInput2').type = 'text';
-      document.getElementById('showPassBtn').innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
-      vision = true;
+      document.getElementById('showPassBtnInscription').innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
+      vision1 = true;
       
       } else {
 			document.getElementById('PassInput2').type = 'password';
-			document.getElementById('showPassBtn').innerHTML = '<i class="fa-regular fa-eye"></i>';
-			vision = false;
+			document.getElementById('showPassBtnInscription').innerHTML = '<i class="fa-regular fa-eye"></i>';
+			vision1 = false;
     }
   }
 
 
   return (
       <form onSubmit={handleSubmit}>
-        <div className='container-profile'>
+        <div className='container-profile-inscription'>
         
-          <img src={logo} id='codingLogoConnexion' alt='logo' />
-        
-              <div className='grid-profil'>
+          <img src={logo} id='codingLogoInscription' alt='logo' />
+			<h2>Inscription</h2>
+              <div className='grid-profil-inscription'>
                   
                   <div className='form-group a'>
                         <label>Nom :</label>
@@ -159,14 +159,14 @@ const showPass = (event) => {
 
                   <div className='form-group'>
                       <label>Mot de passe :</label>
-                      <input type="password" id='PassInput' name="password" value={formData.password} onChange={handleChange} />
-                      <button onClick={showPass} id='showPassBtn'><i class="fa-regular fa-eye"></i></button>
+                      <input type="password" id='PassInput1' name="password" value={formData.password} onChange={handleChange} />
+                      <button onClick={showPass1} id='showPassBtnInscription'><i class="fa-regular fa-eye"></i></button>
                   </div>
 
                   <div className='form-group'>
                       <label>Confirmez le mot de passe :</label>
                       <input type="password" id='PassInput2' name="cpassword" value={formData.cpassword} onChange={handleChange} />
-                      <button onClick={showPass2} id='showPassBtn'><i class="fa-regular fa-eye"></i></button>
+                      <button onClick={showPass2} id='showPassBtnInscription'><i class="fa-regular fa-eye"></i></button>
                   </div>
                   
                   <p id='errorConnexion'></p>
@@ -174,16 +174,10 @@ const showPass = (event) => {
                   <button className='button-container-profile' type='submit'>Envoyer</button>
 
                 </div>
-      </div>
-      
-      <div>
-			<a href='/connexion' id='connexionVersInsc'>Pas encore inscrit ?</a>
-      </div>
-      
+            </div>
     </form>
     
-    
-        
+
   );
 }
 export default Inscription;
