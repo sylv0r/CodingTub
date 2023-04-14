@@ -9,6 +9,7 @@ const channelsMiddleware = require('./channel/route')
 const shortsMiddleware = require('./short/routes')
 const searchMiddleware = require('./recherche/route')
 
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -26,25 +27,12 @@ app.use("/channels", channelsMiddleware.routes)
 app.use("/videos", videoMiddleware.routes)
 app.use("/shorts", shortsMiddleware.routes)
 app.use("/search", searchMiddleware.routes)
+app.use("/hashtag", searchMiddleware.routes)
 
 //utilise le middleware des channels lorsque la requête commence par /channels
 app.use("/users", usersMiddleware.routes)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
-
-  var con = mysql.createConnection(initDb);
-  
-  con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-  });
-
-  app.get('/users', function(req, res) {
-    con.query("SELECT * FROM users", function (err, result) {
-      if (err) throw err;
-      res.json(result);
-    });
-  });
 
 })
