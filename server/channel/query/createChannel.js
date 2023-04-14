@@ -3,6 +3,7 @@ const { channelAlreadyExist } = require('../methods/channelAlreadyExist')
 const path = require("path")
 const fs = require('fs');
 const axios = require('axios')
+require('dotenv').config()
 
 module.exports = async (req, res) => {
   const { name, description, user_id } = req.body
@@ -14,7 +15,7 @@ module.exports = async (req, res) => {
         if (!alreadyExist[0]) {
           const imagePath = path.join(__dirname, '../uploads', req.file.filename);
           const fileStream = fs.createReadStream(imagePath);
-          const url = 'https://8a19-80-70-44-4.ngrok-free.app/miniatures/' + req.file.filename;
+          const url = `${process.env.NGROK_PATH}/miniatures/` + req.file.filename;
 
           await axios.put(url, fileStream, {
             headers: {
@@ -22,7 +23,7 @@ module.exports = async (req, res) => {
             },
           });
 
-          fs.unlink(imagePath);
+          fs.unlink(imagePath, () => {});
         
           await con.query2('INSERT INTO channels (name, description, image_link, user_id) VALUES (?,?,?,?)', [name, description, `miniatures/${image.filename}`, user_id]);
           res.status(201).json({

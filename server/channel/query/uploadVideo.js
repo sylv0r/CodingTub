@@ -2,6 +2,7 @@ const { con } = require('../../db/connection')
 const path = require('path');
 const fs = require('fs');
 const axios = require('axios')
+require('dotenv').config()
 
 module.exports = async (req, res) => {
   try {
@@ -17,8 +18,8 @@ module.exports = async (req, res) => {
     const fileStreamMinia = fs.createReadStream(miniaturePath);
     const fileStreamVideo = fs.createReadStream(videoPath);
 
-    const urlVideo = 'https://8a19-80-70-44-4.ngrok-free.app/videos/' + video.originalname;
-    const urlMiniature = 'https://8a19-80-70-44-4.ngrok-free.app/miniatures/' + miniature.originalname;
+    const urlVideo = `${process.env.NGROK_PATH}/videos/`+ video.originalname;
+    const urlMiniature = `${process.env.NGROK_PATH}/miniatures/` + miniature.originalname;
 
     await axios.put(urlVideo, fileStreamVideo, {
       headers: {
