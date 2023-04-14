@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './Profil.scss';
+import './Profile.scss';
 import axios from 'axios';
 
-function Profil() {
+function Profile() {
 
     const [users, setUsers] = useState([]);
 
@@ -72,4 +72,4 @@ function Profil() {
 
 };
 
-export default Profil;
+export default Profile;
