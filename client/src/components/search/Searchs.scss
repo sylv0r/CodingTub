@@ -16,16 +16,8 @@
     width: 15%;
 }
 
-input[type='text'], input[type='text']:focus {
+nav input[type='text'], nav input[type='text']:focus {
     border-radius: 12px 0 0 12px !important;
-}
-
-.searchBar:focus {
-    border-radius: 12px 0 0 12px;
-}
-
-input:focus {
-    border-radius: 12px 0 0 12px;
 }
 
 .recherche{
