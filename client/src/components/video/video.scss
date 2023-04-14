@@ -32,8 +32,19 @@
 #video_stats {
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: end;
     margin-top: 10px;
+    width: 50%;
+    
+}
+#likes {
+    margin-right: 1%;  
+}
+#vues {
+    margin-left: 1%;
+}
+#description {
+    margin-top: -15px;
 }
 .video-info {
     display: flex;
@@ -48,3 +59,10 @@ h2 {
 .video-stats span {
     margin-right: 10px;
 }
+
+
+
+
+
+
+
