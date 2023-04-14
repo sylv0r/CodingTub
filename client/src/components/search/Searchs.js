@@ -1,21 +1,8 @@
 import './Searchs.scss';
-import { useState } from 'react';
-//import ControlledCarousel from "./hashtag"
-//import Hashtag from "./hashtag"
-import SideBar from '../Home/SideBar/SideBar';
+import ControlledCarousel from "./hashtag";
 import Search2 from './searchbar';
-//import './Header.scss';
 
 function Search() {
-
-    const data = [/*{chaine}, {profil}, {hashtag}, {video},*/"Chocolat", "Chien", "chat", "Café", "Cafeine"];
-
-    const [value, setvalue] = useState("  ");
-
-    function handleChange (event) {
-        setvalue(event.target.value)
-    }
-
     return (
 
     <header className="body">
@@ -46,7 +33,7 @@ function Search() {
 
             <div className="Navid">
 
-                
+                <ControlledCarousel />
             </div>
         </nav>
 
