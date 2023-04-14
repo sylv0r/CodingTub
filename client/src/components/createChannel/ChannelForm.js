@@ -12,41 +12,60 @@ export default function ChannelForm({state}) {
   async function handleSubmit(e) {
     console.log('clicked')
     e.preventDefault()
-
-    if (name.current.value.length < 4 || description.current.value.length < 10) {
-      state.setAlert(true)
-      state.setResponseType("danger")
-      state.setMessage("Vos champs doivent tous être remplis")
-    } else {
-      fetch("http://localhost:3001/channels/createChannel", {
-      method: "POST",
-      headers: { 
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: name.current.value,
-        description: description.current.value,
-        image_link: imageLink.current.value,
-        user_id: 1
-      })  
-   })
-   .then((response) => {
-    return response.json()
-    })
-    .then((json) => {
-      if (!json.error) {
-        state.setResponseType("success")
-        state.setMessage('Votre chaîne a été créée avec succès !')
-        name.current.value = ""
-        description.current.value = ""
-        imageLink.current.value = ""
-      } else {
-        state.setResponseType("danger")
-        state.setMessage("Ce nom de chaîne existe déjà")
+    const formData = new FormData();
+    console.log(imageLink.current.files[0])
+    formData.append('image', imageLink.current.files[0]);
+  
+    try {
+      const response = await fetch('http://localhost:3001/channels/uploadMiniature', {
+        method: 'POST',
+        body: formData,
+      });
+  
+      const json = await response.text();
+      if (json.error) {
+        throw new Error(json.error);
       }
-      state.setAlert(true)
-    })
+  
+      const imageUrl = json.url;
+    } catch (error) {
+      console.error(error);
     }
+
+  //   if (name.current.value.length < 4 || description.current.value.length < 10) {
+  //     state.setAlert(true)
+  //     state.setResponseType("danger")
+  //     state.setMessage("Vos champs doivent tous être remplis")
+  //   } else {
+  //     fetch("http://localhost:3001/channels/createChannel", {
+  //     method: "POST",
+  //     headers: { 
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //       name: name.current.value,
+  //       description: description.current.value,
+  //       image_link: imageLink.current.value,
+  //       user_id: 1
+  //     })  
+  //  })
+  //  .then((response) => {
+  //   return response.json()
+  //   })
+  //   .then((json) => {
+  //     if (!json.error) {
+  //       state.setResponseType("success")
+  //       state.setMessage('Votre chaîne a été créée avec succès !')
+  //       name.current.value = ""
+  //       description.current.value = ""
+  //       imageLink.current.value = ""
+  //     } else {
+  //       state.setResponseType("danger")
+  //       state.setMessage("Ce nom de chaîne existe déjà")
+  //     }
+  //     state.setAlert(true)
+  //   })
+  //   }
   }
 
   return (

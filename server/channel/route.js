@@ -4,8 +4,22 @@ const getName = require("./query/showNamePp");
 const postCommunaute = require("./query/postCommunaute");
 const uploadVideo = require('./query/uploadVideo')
 const getSubscriptions = require('./query/getSubscriptions')
+const uploadMiniature = require('./query/uploadMiniature')
+
+const path = require('path');
 const multer = require('multer');
-const upload = multer()
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const uploadPath = path.join(__dirname, 'uploads');
+    cb(null, uploadPath);
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+
+const upload = multer({ storage });
 
 const router = Router()
 
@@ -13,6 +27,10 @@ const router = Router()
 router.post('/createChannel', createChannel)
 router.get('/showNamePp/:id', getName)
 router.post('/postCommunaute', postCommunaute)
+router.post('/uploadMiniature', upload.single('image'), uploadMiniature);
+
+// ...
+
 
 const cpUpload = upload.fields([{ name: 'video', maxCount: 1 }, { name: 'miniature', maxCount: 1 }])
 router.post('/uploadVideo', cpUpload, uploadVideo)
