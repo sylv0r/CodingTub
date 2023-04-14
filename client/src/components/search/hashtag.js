@@ -1,7 +1,6 @@
-//import './Hashtag.scss';
-import React, {Fragment, useState, useEffect} from "react";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+import React from "react";
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css';
 import "./hashtag.scss"
 import axios from 'axios';
  

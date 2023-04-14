@@ -4,7 +4,6 @@ import VideoList from './VideoList/VideoList';
 function Home() {
   return (
     <div>
-      <SideBar />
       <VideoList action="getVideos" />
     </div>
   );
