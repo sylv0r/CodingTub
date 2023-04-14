@@ -32,11 +32,7 @@ function UserProfile() {
 
     return (
 
-        <><header className='barUp'></header>
-
-        <div className='wrapper'>
-
-            <div className='barLeft'></div>
+        <><div className='wrapper'>
 
             <div className='user'>
 

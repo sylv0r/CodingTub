@@ -1,22 +1,6 @@
 body {
 
-    background: linear-gradient(to bottom right, #6e19a3, #c53849);
-    height: 100vh;
-
-}
-
-.barUp {
-
-    background-color: red;
-    height: 8vh;
-
-}
-
-.barLeft {
-
-    background-color: green;
-    height: 92vh;
-    width: 8vh;
+    background: none;
 
 }
 
@@ -29,9 +13,9 @@ body {
 
 .user {
 
-    margin-left: 15vh;
-    margin-top: 10vh;
-    color: white;
+    margin-left: 50px;
+    margin-top: 20px;
+    color: black;
 
 }
 
@@ -43,7 +27,7 @@ body {
 
 #update {
 
-    background-color: rgb(145, 29, 52);
+    background-color: black;
     margin-left: 300px;
     margin-top: 40px;
 
