@@ -1,9 +1,8 @@
 import './Searchs.scss';
-
-import React from "react";
-import { useState,useEffect } from 'react';
-import Hashtag from "./hashtag";
-import Search2 from "./searchbar";
+import { useState } from 'react';
+import SideBar from '../Home/SideBar/SideBar';
+import Search2 from './searchbar';
+//import './Header.scss';
 
 function Search() {
 
@@ -19,35 +18,31 @@ function Search() {
 
     <header className="body">
 
-        <div className="side"></div>
-
         <nav className="recherche">
             <div className="Navsearch">
 
                 <a className="logo" href="#" target="" rel="">
-                    <img src="assets/img_header/Project_title_picture.png" alt="Logo CodingTube" className="icon_title" />  
+                    <img src="assets/img_header/Project_title_picture.png" alt="Logo CodingTube" class="icon_title" width="100" />  
                 </a>
 
-               <Search2 />
-                
+                <div className="search" action="submit">
+                    <Search2/>
+                </div>
+
                 <div className="connect">
 
                     <a className="not"href="" target="" rel="">
-                        <img src="../../../public/assets/img_header/cloche_notification.png" alt="" className="icon_notification"/>
+                        <i class="fa-solid fa-bell fa-2x"></i>
                     </a>
                     
-                    <a className="pp" href="" target="" rel="">
-                        <img src="../../../public/assets/img_header/Profil_picture.png" alt="" className="icon_profile"/>
+                    <a className="pp" href="/connexion" target="" rel="">
+                        <i class="fa-solid fa-user fa-2x"></i>
                     </a>
                 </div>
                 
             </div>
 
-            <div className="Navid">
-
-                {Hashtag}
-
-            </div>
+            
         </nav>
 
     </header>
