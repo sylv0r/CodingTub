@@ -1,6 +1,6 @@
-import AccueilLive from './live/accueilLive/accueilLive';
-import CreerLive from './live/creerLive/creerLive';
-import AffichageLive from './live/affichageLive/affichageLive';
+import AccueilLive from './components/live/accueilLive/accueilLive';
+import CreerLive from './components/live/creerLive/creerLive';
+import AffichageLive from './components/live/affichageLive/affichageLive';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 //import './index.css';
