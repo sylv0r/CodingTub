@@ -4,8 +4,8 @@ module.exports = (req, res) => {
   const query = `
     SELECT * FROM shorts
     ORDER BY created_at DESC
-    LIMIT 3;
   `;
+
 
   dbConnection.query(query, (err, result) => {
     if (err) {
