@@ -14,5 +14,6 @@ const getUserBis = require("./query/getUserBis");
 router.use(cors());
 router.post('/getUsers', getUsers)
 router.post('/getUserBis', getUserBis)
+router.post('/createInscription', createInscription)
 
 module.exports.routes = router
