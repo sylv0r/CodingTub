@@ -7,7 +7,7 @@ function Search() {
 
     const data = [/*{chaine}, {profil}, {hashtag}, {video},*/"Chocolat", "Chien", "chat", "Café", "Cafeine"];
 
-    const [value, setvalue] = useState("  ");
+    const [value, setvalue] = useState("");
 
     function handleChange (event) {
         setvalue(event.target.value)
@@ -20,7 +20,7 @@ function Search() {
         <nav className="recherche">
             <div className="Navsearch">
 
-                <a className="logo" href="#" target="" rel="">
+                <a className="logo" href="/" target="" rel="">
                     <img src="assets/img_header/Project_title_picture.png" alt="Logo CodingTube" class="icon_title" width="100" />  
                 </a>
 
