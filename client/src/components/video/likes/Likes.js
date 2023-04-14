@@ -42,7 +42,7 @@ function Likes(props) {
     
     return (
                  
-             <div>
+             <div id='all_like'>
                 <span id='likes'>
                     {video_info} 
                 </span>
