@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './affichageProfil.scss';
+import './Profil.scss';
 import axios from 'axios';
 
-function AffichageProfil() {
+function Profil() {
 
     const [users, setUsers] = useState([]);
 
@@ -51,7 +51,7 @@ function AffichageProfil() {
                     <div key={user.id}>
 
                         <p className='pseudo'>{user.name}</p>
-                        <p>1 M d'abonnés 1 vidéo</p> 
+                        <p>{user.subscribers} abonnés {user.number_videos} vidéos</p>
                         <p>{user.description}</p>
 
                     </div>
@@ -72,4 +72,4 @@ function AffichageProfil() {
 
 };
 
-export default AffichageProfil;
+export default Profil;

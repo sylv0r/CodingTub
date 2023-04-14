@@ -14,7 +14,7 @@ import Short from './components/routes/Short';
 import UploadShort from './components/routes/UploadShort';
 import Search from './components/search/Searchs';
 import Connexion from './components/usersManagement/Connexion/Connexion';
-import AffichageProfil from './components/affichageProfil/affichageProfil';
+import Profil from './components/Profil/Profil';
 
 import {
   createBrowserRouter,
@@ -75,8 +75,8 @@ const router = createBrowserRouter([
     element: <Live />,
   },
   {
-    path: "/affichageProfil",
-    element: <AffichageProfil />
+    path: "/Profil",
+    element: <Profil />
   }
 ]);
 
