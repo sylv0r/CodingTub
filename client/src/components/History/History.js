@@ -1,30 +1,61 @@
-import React, { useState } from 'react';
+
+import './History.scss';
+
+import React, { useState, useEffect } from 'react';
 
 function History(props) {
   const [videoHistory, setVideoHistory] = useState([]);
 
   const handleVideoClick = (video) => {
-    // Ajouter la vidéo cliquée à l'historique
-    const updatedHistory = [...videoHistory, video];
-    setVideoHistory(updatedHistory);
+    // Vérifier si la video est dans l'historique
+    const index = videoHistory.indexOf(video);
 
-    // Mettre à jour l'historique dans localStorage
-    localStorage.setItem('videoHistory', JSON.stringify(updatedHistory));
+    if (index !== -1) {
+  
+      const updatedHistory = [...videoHistory];
+      updatedHistory.splice(index, 1);
+
+      // video en haut de l'historique
+      setVideoHistory([video, ...updatedHistory]);
+    } else {
+      // Ajouter la vidéo au début de l'historique
+      const updatedHistory = [video, ...videoHistory];
+      setVideoHistory(updatedHistory);
+    }
+
+    // Mise à jour historique dans le localstorage
+    localStorage.setItem('videoHistory', JSON.stringify(videoHistory));
   };
 
+  const handleHistoryClick = (video) => {
+    // Modifier l'URL pour inclure l'id de la vidéo
+    window.history.pushState(null, null, `?v=${video}`);
+    
+  };
+
+  // Charger l'historique sauvgardé
+  useEffect(() => {
+    const savedHistory = localStorage.getItem('videoHistory');
+    if (savedHistory) {
+      setVideoHistory(JSON.parse(savedHistory));
+    }
+  }, []);
+
   return (
-    <div>
-      <h2>Liste des vidéos</h2>
+    <div className='evenement'>
+      <h2>vidéos</h2>
       <ul>
-        <li onClick={() => handleVideoClick('Vidéo 1')}>Vidéo 1</li>
-        <li onClick={() => handleVideoClick('Vidéo 2')}>Vidéo 2</li>
-        <li onClick={() => handleVideoClick('Vidéo 3')}>Vidéo 3</li>
+        <li onClick={() => handleVideoClick('dinggzzz')}>dinggzzz</li>
+        <li onClick={() => handleVideoClick('vroum')}>vroum</li>
+        <li onClick={() => handleVideoClick('testss')}>testss</li>
       </ul>
 
-      <h2>Historique des vidéos visionnées</h2>
+      <h2>Historique </h2>
       <ul>
         {videoHistory.map((video, index) => (
-          <li key={index}>{video}</li>
+          <li key={index} onClick={() => handleHistoryClick(video)}>
+            {video}
+          </li>
         ))}
       </ul>
     </div>
