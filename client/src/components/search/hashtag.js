@@ -14,7 +14,7 @@ function Hashtag() {
             const result = await axios(
 
             );
-            setData
+            setData();
         }  
     })
 
