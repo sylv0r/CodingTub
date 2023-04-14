@@ -16,6 +16,7 @@ import Search from './components/search/Searchs';
 import Profile from './components/Profile/Profile';
 import UserProfile from './components/UserProfile/UserProfile';
 import Connexion from './components/connexion/Connexion/Connexion';
+import Inscription from './components/Inscription/InscriptionForm.js';
 
 import {
   createBrowserRouter,
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
 
 
   {
-    path: "/",
+    path: "/home",
     element: <Home/>
   },
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
   {
     path: "/connexion",
     element: <Connexion />
+  },
+   {
+    path: "/Inscription",
+    element: <Inscription />
   },
   {
     path: "/subscriptions",
