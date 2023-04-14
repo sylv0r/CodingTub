@@ -7,7 +7,7 @@ const router = Router()
 //lance la fonction createChannel lorsqu'un post est effecté à /channels/createChannel
 //router.post('/createChannel', createChannel)
 
-router.use(cors())
+router.use(cors());
 router.post('/getUsers', getUsers)
 router.post('/getUserBis', getUserBis)
 
