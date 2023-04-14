@@ -1,16 +1,30 @@
 const { con } = require('../../db/connection')
 const { channelAlreadyExist } = require('../methods/channelAlreadyExist')
 const path = require("path")
+const fs = require('fs');
+const axios = require('axios')
 
 module.exports = async (req, res) => {
-  const { name, description, image_link, user_id } = req.body
+  const { name, description, user_id } = req.body
+  const image = req.file
   try {
-    if (name.length >= 4 && description.length >= 10) {
+    if (name && description && name.length >= 4 && description.length >= 10) {
       const alreadyExist = await channelAlreadyExist(name)
-      const extension = path.extname(image_link)
-      if (!extension || (extension == ".jpeg" || extension == ".jpg" || extension == ".png")) {
+      if (image && (image.mimetype == "image/jpeg" || image.mimetype == "image/jpg" || image.mimetype == "image/png")) {
         if (!alreadyExist[0]) {
-          await con.query2('INSERT INTO channels (name, description, image_link, user_id) VALUES (?,?,?,?)', [name, description, image_link, user_id]);
+          const imagePath = path.join(__dirname, '../uploads', req.file.filename);
+          const fileStream = fs.createReadStream(imagePath);
+          const url = 'https://8a19-80-70-44-4.ngrok-free.app/miniatures/' + req.file.filename;
+
+          await axios.put(url, fileStream, {
+            headers: {
+              'Content-Type': req.file.mimetype,
+            },
+          });
+
+          fs.unlink(imagePath);
+        
+          await con.query2('INSERT INTO channels (name, description, image_link, user_id) VALUES (?,?,?,?)', [name, description, `miniatures/${image.filename}`, user_id]);
           res.status(201).json({
             message: "Chaîne créée avec succès"
           })
