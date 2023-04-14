@@ -1,11 +1,10 @@
 import { useState } from "react";
 import './Searchs.scss';
-<<<<<<< HEAD
 import ControlledCarousel from "./hashtag";
 import Search2 from './searchbar';
-=======
 import Hashtag from "./hashtag";
->>>>>>> recherche_matheo
+import SideBar from '../Home/SideBar/SideBar';
+//import './Header.scss';
 
 function Search() {
     return (
@@ -37,9 +36,11 @@ function Search() {
             </div>
 
             <div className="Navid">
+                {Hashtag}
 
                 <ControlledCarousel />
             </div>
+            
         </nav>
 
     </header>

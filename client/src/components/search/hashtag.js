@@ -5,17 +5,10 @@ import Carousel from 'react-bootstrap/Carousel';
 
 async function getHashtag(setHashtags) {
 
-<<<<<<< HEAD
     const response = await fetch(`http://localhost:3001/hashtag/hashtag`, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
     });
-=======
-            );
-            setData();
-        }  
-    })
->>>>>>> recherche_matheo
 
     const data = await response.json();
     setHashtags(data);
