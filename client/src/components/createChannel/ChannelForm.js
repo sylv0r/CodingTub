@@ -3,7 +3,6 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import "./ChannelForm.scss"
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function ChannelForm({state}) {
   const name = useRef();
@@ -52,6 +51,7 @@ export default function ChannelForm({state}) {
 
   return (
     <Form className='form'>
+      <h3>Création de chaîne CodingTub</h3>
       <Form.Group className="mb-3" controlId="form-title">
         <Form.Label>Titre de la chaîne</Form.Label>
         <InputGroup>
@@ -59,6 +59,7 @@ export default function ChannelForm({state}) {
             ref={name}
             type="text"
             placeholder="Entrer le titre (min 4 caractères)"
+            style={{ marginRight: "0px" }}
           />
           <InputGroup.Text onClick={() => name.current.value=""}>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg" viewBox="0 0 16 16">
@@ -71,7 +72,7 @@ export default function ChannelForm({state}) {
         </Form.Text>
       </Form.Group>
 
-      <Form.Group>
+      <Form.Group  className="mb-3" controlId="form-description">
         <Form.Label>Description de la chaîne</Form.Label>
         <Form.Control
           ref={description}
