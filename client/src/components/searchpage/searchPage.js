@@ -49,7 +49,11 @@ function SearchPage() {
                 {function vod() {
                     let vod = [];
                     for (let i = 0; i < vod.length; i++) {
-                        vod.push(<div className='video'></div>);
+                        <><div className='video'>
+                            </div><div className='title'>
+                                </div><div className='description'>
+                                    </div><div className='img'></div>
+                                    </>
                     }
                     for (let i = 0; i < vod.length; i++) {
                         chaine.push(<div className='chaine'></div>);
