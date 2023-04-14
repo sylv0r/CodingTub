@@ -15,7 +15,7 @@ import UploadShort from './components/routes/UploadShort';
 import Search from './components/search/Searchs';
 import Profile from './components/Profile/Profile';
 import UserProfile from './components/UserProfile/UserProfile';
-import Connexion from './components/connexion/Connexion';
+import Connexion from './components/connexion/Connexion/Connexion';
 
 import {
   createBrowserRouter,
