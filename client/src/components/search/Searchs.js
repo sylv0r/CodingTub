@@ -1,6 +1,7 @@
 import './Searchs.scss';
 import { useState } from 'react';
 import SideBar from '../Home/SideBar/SideBar';
+import Search2 from './searchbar';
 //import './Header.scss';
 
 function Search() {
@@ -25,8 +26,7 @@ function Search() {
                 </a>
 
                 <div className="search" action="submit">
-                    <input className="searchBar" placeholder="Rechercher" type="text" value={value} onChange={handleChange}/> 
-                    <button className="lanchsubmit" onClick={() => console.log(value)} >Envoyer</button>
+                    <Search2/>
                 </div>
 
                 <div className="connect">
@@ -42,10 +42,7 @@ function Search() {
                 
             </div>
 
-            <div className="Navid">
-                {Hashtag}
-
-            </div>
+            
         </nav>
 
     </header>

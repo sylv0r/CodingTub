@@ -2,12 +2,13 @@ import React from "react";
 import { useState, useEffect } from "react";
 //import "./Searchs.scss";
 
+
 export default function Search2() {
   const [datas, setDatas] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
+    fetch("http://localhost:3001/searchbarreur/search_bar")
       .then((response) => response.json())
       .then((json) => setDatas(json));
   }, []);
@@ -39,7 +40,7 @@ export default function Search2() {
             return (
                 
               <div className="search__result" key={val.id}>
-                {val.title}
+                {val.pseudo}
                 
               </div>
             );
@@ -48,4 +49,5 @@ export default function Search2() {
     </>
   );
 }
+
     
