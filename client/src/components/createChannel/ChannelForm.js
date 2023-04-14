@@ -7,63 +7,39 @@ import "./ChannelForm.scss"
 export default function ChannelForm({state}) {
   const name = useRef();
   const description = useRef();
-  const imageLink = useRef();
+  const image = useRef();
 
   async function handleSubmit(e) {
+    state.setAlert(false)
     e.preventDefault()
     const formData = new FormData();
-    formData.append('image', imageLink.current.files[0]);
+    formData.append('description', description.current.value);
+    formData.append('user_id', "1");
+    formData.append('name', name.current.value);
+    formData.append('image', image.current.files[0]);
   
     try {
-      const response = await fetch('http://localhost:3001/channels/uploadMiniature', {
+      const response = await fetch('http://localhost:3001/channels/createChannel', {
         method: 'POST',
         body: formData,
       });
   
       const json = await response.json();
       if (json.error) {
-        throw new Error(json.error);
+        state.setResponseType("danger")
+        state.setMessage(json.error)
+        state.setAlert(true)
+      } else {
+        state.setResponseType("success")
+        state.setMessage(json.message)
+        state.setAlert(true)
+        name.current.value = ""
+        description.current.value = ""
+        image.current.value = ""
       }
-  
-      const imageUrl = json.url;
     } catch (error) {
       console.error(error);
     }
-
-  //   if (name.current.value.length < 4 || description.current.value.length < 10) {
-  //     state.setAlert(true)
-  //     state.setResponseType("danger")
-  //     state.setMessage("Vos champs doivent tous être remplis")
-  //   } else {
-  //     fetch("http://localhost:3001/channels/createChannel", {
-  //     method: "POST",
-  //     headers: { 
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       name: name.current.value,
-  //       description: description.current.value,
-  //       image_link: imageLink.current.value,
-  //       user_id: 1
-  //     })  
-  //  })
-  //  .then((response) => {
-  //   return response.json()
-  //   })
-  //   .then((json) => {
-  //     if (!json.error) {
-  //       state.setResponseType("success")
-  //       state.setMessage('Votre chaîne a été créée avec succès !')
-  //       name.current.value = ""
-  //       description.current.value = ""
-  //       imageLink.current.value = ""
-  //     } else {
-  //       state.setResponseType("danger")
-  //       state.setMessage("Ce nom de chaîne existe déjà")
-  //     }
-  //     state.setAlert(true)
-  //   })
-  //   }
   }
 
   return (
@@ -106,12 +82,12 @@ export default function ChannelForm({state}) {
         <Form.Label>Miniature de la chaîne</Form.Label>
         <InputGroup>
           <Form.Control
-            ref={imageLink}
+            ref={image}
             type="file" 
             accept="image/png, image/jpeg, image/jpg"
             placeholder="Entrer le lien de votre miniature (min 10)"
           />
-          <InputGroup.Text onClick={() => imageLink.current.value=""}>
+          <InputGroup.Text onClick={() => image.current.value=""}>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg" viewBox="0 0 16 16">
               <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
             </svg>

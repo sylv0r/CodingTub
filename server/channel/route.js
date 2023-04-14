@@ -24,7 +24,7 @@ const upload = multer({ storage });
 const router = Router()
 
 //lance la fonction createChannel lorsqu'un post est effecté à /channels/createChannel
-router.post('/createChannel', createChannel)
+router.post('/createChannel', upload.single('image'), createChannel)
 router.get('/showNamePp/:id', getName)
 router.post('/postCommunaute', postCommunaute)
 router.post('/uploadMiniature', upload.single('image'), uploadMiniature);
