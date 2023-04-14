@@ -10,10 +10,8 @@ export default function ChannelForm({state}) {
   const imageLink = useRef();
 
   async function handleSubmit(e) {
-    console.log('clicked')
     e.preventDefault()
     const formData = new FormData();
-    console.log(imageLink.current.files[0])
     formData.append('image', imageLink.current.files[0]);
   
     try {
@@ -22,7 +20,7 @@ export default function ChannelForm({state}) {
         body: formData,
       });
   
-      const json = await response.text();
+      const json = await response.json();
       if (json.error) {
         throw new Error(json.error);
       }

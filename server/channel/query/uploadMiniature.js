@@ -6,9 +6,9 @@ module.exports = async (req, res) => {
   try {
     const imagePath = path.join(__dirname, '../uploads', req.file.filename);
     const fileStream = fs.createReadStream(imagePath);
-    const url = 'https://8a19-80-70-44-4.ngrok-free.app/miniatures/' + req.file.filename; // Remplacez par l'URL de votre serveur Nginx
+    const url = 'https://8a19-80-70-44-4.ngrok-free.app/miniatures/' + req.file.filename;
 
-    const axiosResponse = await axios.put(url, fileStream, {
+    await axios.put(url, fileStream, {
       headers: {
         'Content-Type': req.file.mimetype,
       },
