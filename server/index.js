@@ -32,9 +32,6 @@ app.use("/users", usersMiddleware.routes)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
-<<<<<<< HEAD
-})
-=======
 
   var con = mysql.createConnection(initDb);
   
@@ -51,4 +48,3 @@ app.listen(port, () => {
   });
 
 })
->>>>>>> Profile
