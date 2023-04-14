@@ -35,11 +35,23 @@
 
 .submitConnexion {
   background-color: rgb(145, 29, 52);
+  color: #FFF;
+  font-size: 14px;
+  padding: 6px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 #showPassBtnConnexion {
   background-color: rgb(145, 29, 52);
   width: 48px;
+  color: #fff;
+  font-size: 14px;
+  padding: 6px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .inputSizeConnexion {
@@ -55,4 +67,8 @@
   margin: 0px;
   border: 1px solid rgb(146, 146, 146);
   border-radius: 2px;
+}
+
+.fa-regular {
+  color: #FFF;
 }

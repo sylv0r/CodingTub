@@ -81,7 +81,7 @@ function Connexion() {
 
 			/* console.log(localStorage.getItem('user_id')); */
 
-			window.location.href = '/inscription';
+			window.location.href = '/';
 		};
 	};
 
