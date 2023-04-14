@@ -26,6 +26,7 @@ function AddComment(props) {
           props.onCommentSubmit(); 
           return response
         })
+        comment.current.value = ""
      
         
     }

@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player'
 import './video.scss';
 import './listDroite.scss';
 
 import { useSearchParams  } from 'react-router-dom'
+import VideoListRight from './VideoListRight';
+import Likes from './likes/Likes';
 function Video() {
     
     
@@ -13,11 +14,12 @@ function Video() {
     
 
 
+
     const [videos, setVideos] = useState([]);
 
 
 
-    async function getVideos() {
+    async function getVideosInfo() {
         const response = await fetch(`http://localhost:3001/videos/showVideo/${id}`, {
             method: "GET",
             headers: { 'Content-Type': 'application/json' },
@@ -27,14 +29,34 @@ function Video() {
         setVideos(data);
         console.log(data);
     }
-    
-    
+    async function handleLikeClick() {
+  
 
+        await fetch(`http://localhost:3001/videos/likes/`, {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                id_video: id
+            })
+            
+        });
+    }
+
+
+    const [isActive, setIsActive] = useState(false);
+
+    const toggleActive = () => {
+      setIsActive(!isActive);
+    }
+
+    const url = process.env.REACT_APP_NGINX_LINK;
+
+    
 
     useEffect(()=>{
-        getVideos();
+        getVideosInfo();
     }, []) 
-      
+
 
     
     return (
@@ -43,7 +65,7 @@ function Video() {
             {videos.length > 0 &&
             <div className='video'>
                 <ReactPlayer 
-                    url={videos[0].video_link} 
+                    url={url + videos[0].video_link}
                     controls
                     className='player'
                     width='50%'
@@ -58,51 +80,31 @@ function Video() {
                         {videos[0].title}
                     </h2>
                         <div id='video_stats'>
-                            <span>
-                                {videos[0].likes} likes
+                            <Likes video={videos} />
+                            <span id='vues'>
+                            {videos[0].vues} vues
                             </span>
-                            <span>
-                                {videos[0].vues} vues
-                            </span>
+                        </div>
+
+                        <div id='video-description'>
+                            <p>
+                                description :
+                            </p>
+                            <p id='description'>
+                                {videos[0].description}
+                            </p>
+                        </div>
+                        <div id='published'>
                             <span>
                                 {videos[0].published_at}
                             </span>
                         </div>
-                            <div className='video-description'>
-                                <p>
-                                    {videos[0].description}
-                                </p>
-                            </div>
                         </div>
             }
 
+            <VideoListRight />
 
-                <div className="list-videos">
-                    <div class="playlist-container">
-                        <ul class="playlist-list">
-                            <li class="playlist-item">
-                                <a href="#">
-                                <img src="" alt="" />
-                                <div class="playlist-item-info">
-                                    <h3 class="playlist-video-title">Nom de la vidéo</h3>
-                                    <p class="playlist-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
-                                    <span class="playlist-item-duration">00:00</span>
-                                </div>
-                                </a>
-                            </li>
-                            <li class="playlist-item">
-                                <a href="#">
-                                <img src="" alt="" />
-                                <div class="playlist-item-info">
-                                    <h3 class="playlist-video-title">Nom de la vidéo</h3>
-                                    <p class="playlist-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
-                                    <span class="playlist-item-duration">00:00</span>
-                                </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+
                 
             
         </div>

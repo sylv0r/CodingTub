@@ -16,16 +16,8 @@
     width: 15%;
 }
 
-input[type='text'], input[type='text']:focus {
+nav input[type='text'], nav input[type='text']:focus {
     border-radius: 12px 0 0 12px !important;
-}
-
-.searchBar:focus {
-    border-radius: 12px 0 0 12px;
-}
-
-input:focus {
-    border-radius: 12px 0 0 12px;
 }
 
 .recherche{
@@ -125,6 +117,10 @@ input:focus {
     justify-content: space-around;
     background-color: white;
     z-index: 1;
+}
+
+a:hover {
+    color: rgb(145, 29, 52);
 }
 
 .hashtag{ 

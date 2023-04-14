@@ -1,4 +1,5 @@
 import React from 'react'
+import Playlist from '../../Playlist/Playlists'
 
 export default function SectionPlaylists(){
     // state
@@ -6,7 +7,9 @@ export default function SectionPlaylists(){
     // comportements 
 
     // affichage (render)
-    return <div>
-        <p>Voici la section de Playlists, elle te permet d'avoir toutes les vidéos regroupées par thème</p>
-    </div>
+    return (
+        <div>
+            <Playlist />
+        </div>
+    );
 }
