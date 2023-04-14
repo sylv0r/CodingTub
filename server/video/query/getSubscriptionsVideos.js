@@ -20,5 +20,5 @@ module.exports = async (req, res) => {
                     if (err) throw err
                     //console.log(allChannels)
                     res.send(results)
-                }) 
+                })
 })}
