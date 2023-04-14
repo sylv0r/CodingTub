@@ -25,7 +25,7 @@ app.use(function (req, res, next) { // Empeche les erreur de CORS
 app.use("/channels", channelsMiddleware.routes)
 app.use("/videos", videoMiddleware.routes)
 app.use("/shorts", shortsMiddleware.routes)
-app.use("/search", searchMiddleware.routes)
+app.use("/searchbarreur", searchMiddleware.routes)
 
 //utilise le middleware des channels lorsque la requête commence par /channels
 app.use("/users", usersMiddleware.routes)
@@ -33,7 +33,7 @@ app.use("/users", usersMiddleware.routes)
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 
-  var con = mysql.createConnection(initDb);
+  /*var con = mysql.createConnection(initDb);
   
   con.connect(function(err) {
     if (err) throw err;
@@ -45,6 +45,6 @@ app.listen(port, () => {
       if (err) throw err;
       res.json(result);
     });
-  });
+  });*/
 
 })

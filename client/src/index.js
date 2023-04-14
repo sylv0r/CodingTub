@@ -13,6 +13,7 @@ import MenuChaine from './components/Chaine/MenuChaine/MenuChaine';
 import Short from './components/routes/Short';
 import UploadShort from './components/routes/UploadShort';
 import Search from './components/search/Searchs';
+import Search2 from './components/search/searchbar';
 import Connexion from './components/usersManagement/Connexion/Connexion';
 import SideBar from './components/Home/SideBar/SideBar';
 
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
   {
     path: "/connexion",
     element: <Connexion />
+  },
+  {
+    path: "/search2",
+    element: <Search2 />
   },
   {
     path: "/subscriptions",

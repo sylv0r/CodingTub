@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+/*import React from "react";
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css';
+>>>>>>> rechercche_matheo2
 import "./hashtag.scss"
 import React, { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
