@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import ReactPlayer from 'react-player'
 import './video.scss';
+import './listDroite.scss';
+
 import { useSearchParams  } from 'react-router-dom'
+import VideoListRight from './VideoListRight';
 function Video() {
     
     
@@ -73,8 +76,21 @@ function Video() {
                             </div>
                         </div>
             }
+
+            <VideoListRight />
+
+
+                
+            
         </div>
+
+       
+        
+
+             
     );
+  
+        
     
 }    
 

@@ -8,8 +8,11 @@ function ShowVideo() {
         <div>
             <Video />
             <Comment />
+            
 
         </div>
+    
+       
     );
 }
 
