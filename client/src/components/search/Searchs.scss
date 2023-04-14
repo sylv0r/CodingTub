@@ -16,33 +16,54 @@
     width: 15%;
 }
 
+input[type='text'], input[type='text']:focus {
+    border-radius: 12px 0 0 12px !important;
+}
+
+.searchBar:focus {
+    border-radius: 12px 0 0 12px;
+}
+
+input:focus {
+    border-radius: 12px 0 0 12px;
+}
+
 .recherche{
     margin: 0;
     height: 10vh;
     width: 85%;
+    position: fixed;
+    background-color: white;
+    z-index: 1;
 }
 
 .Navsearch{
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo{
-    width: 33%;
+
+    img {
+        width: 100%;
+    }
+   
 }
 
 .search{
-    width: 33%;
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    width: 45%;
 }
 
 .searchBar{
     margin: 3vh auto;
+    margin-right: 0 !important;
     height: 4vh;
-    border-radius: 12px 0 0 12px;
+    border-radius: 12px 0 0 0;
     border: none;
     background-color: rgb(208, 208, 208);
     width: 80%;
@@ -57,15 +78,15 @@
 }
 
 .not, .pp{
-    width: 10%;
-    height: 3vh;
+    width: 100%;
     margin: 3vh 2vh;
 }
 
 .connect{
-    width: 33%;
     justify-content: center;
     display: flex;
+
+  
 }
 
 .icons{
@@ -258,10 +279,12 @@ $level2-left: 50px;
 
 .Navid{
     width: 100%;
-    margin: 0;
+    margin-top: -5px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    background-color: white;
+    z-index: 1;
 }
 
 .hashtag{ 
@@ -288,14 +311,12 @@ $level2-left: 50px;
 }
 .icon_profile{
     margin: auto 0;
-    height: 4vh;
     width: 100%;
     
     text-align: center;
     }
 .icon_notification{
     margin: auto 0;
-    height: 4vh;
     width: 100%;
     
     text-align: center;
