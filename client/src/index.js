@@ -1,4 +1,6 @@
-import Live from './components/affichageLive/affichageLive';
+import AccueilLive from './live/accueilLive/accueilLive';
+import CreerLive from './live/creerLive/creerLive';
+import AffichageLive from './live/affichageLive/affichageLive';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
@@ -7,6 +9,7 @@ import Playlists from './components/Playlist/Playlists';
 import History from './components/History/History';
 import Abonnements from './components/Abonnements/Abonnements';
 import CreateChannel from './components/createChannel/CreateChannel';
+
 import UploadForm from './components/chaine_upload/UploadForm';
 import Video from './components/show_video/ShowVideo.js';
 import MenuChaine from './components/Chaine/MenuChaine/MenuChaine';
@@ -43,6 +46,7 @@ const router = createBrowserRouter([
     element: <Abonnements />
   },
   {
+
     path: "/createChannel",
     element: <CreateChannel />,
   },
@@ -71,9 +75,18 @@ const router = createBrowserRouter([
     path: "/search",
     element: <Search />,
   },
+
   {
-    path: "/live",
-    element: <Live />,
+    path: "/accueilLive",
+    element: <AccueilLive />,
+  },
+  {
+    path: "/creerLive",
+    element: <CreerLive />,
+  },
+  {
+    path: "/affichageLive",
+    element: <AffichageLive />,
   },
 ]);
 

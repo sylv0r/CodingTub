@@ -1,7 +1,17 @@
 # CodingTub
-## Deso y avait trop de package à installer j'ai oublié 
+## Package à installer pour Live
 
-## Sur le site mettait la camera "OBS virtual camera" 
+### Allez dans le dossier client et faites les commandes suivantes
+```
+npm install --save socket.io
+npm install --save socket.io-client
+npm install --save node-media-server
+````
+
+### Dans votre OBS lancer la camera virtuelle, et dans la scène mettez le lien URL 
+````
+http://localhost:3000/
+`````
 
 ## Installation Front 
 ### Allez dans le dossier client et faites les commandes suivantes
