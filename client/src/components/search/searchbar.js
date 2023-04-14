@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 export default function Search2() {
   const [datas, setDatas] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     fetch("http://localhost:3001/searchbarreur/search_bar")
@@ -14,10 +14,14 @@ export default function Search2() {
   }, []);
 
   const handleSearchTerm = (e) => {
-    setSearchTerm("");
     let value = e.target.value;
-    value.length > 2 && setSearchTerm(e.target.value);
+    if (value.length > 2) {
+      setSearchTerm(value);
+    } else {
+      setSearchTerm('');
+    }
   };
+  
 
   return (
     <>
@@ -31,20 +35,20 @@ export default function Search2() {
         />
       </div>
       <div className="search__results">
-        {datas
-          .filter((val) => {
-            return val.title.toLowerCase().includes(searchTerm.toLowerCase());
-            
-          })
-          .map((val) => {
-            return (
-                
-              <div className="search__result" key={val.id}>
-                {val.pseudo}
-                
-              </div>
-            );
-          })}
+      {searchTerm.length > 2 &&
+  datas
+    .filter((val) => {
+      return val.title.toLowerCase().includes(searchTerm.toLowerCase());
+    })
+    .map((val) => {
+      return (
+        <div className="search__result" key={val.id}>
+          <p>{val.pseudo}</p>
+          <p>{val.title}</p>
+          <p>{val.name}</p>
+        </div>
+      );
+    })}
       </div>
     </>
   );
