@@ -1,5 +1,7 @@
 import './Searchs.scss';
 import { useState } from 'react';
+//import ControlledCarousel from "./hashtag"
+//import Hashtag from "./hashtag"
 import SideBar from '../Home/SideBar/SideBar';
 import Search2 from './searchbar';
 //import './Header.scss';
@@ -42,7 +44,10 @@ function Search() {
                 
             </div>
 
-            
+            <div className="Navid">
+
+                
+            </div>
         </nav>
 
     </header>
