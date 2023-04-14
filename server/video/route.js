@@ -20,6 +20,7 @@ router.get('/getVideos', getVideos)  // --> chercher toutes les videos
 router.get('/getSubscriptionsVideos', getSubscriptionsVideos)
 router.get('/getChannelVideos/:name', getChannelVideos)
 router.get('/getChannelVideosAccueil/:name', getChannelVideosAccueil)
+router.post('/likes', postLike)
 
 
 
