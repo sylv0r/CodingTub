@@ -97,6 +97,10 @@ requeteGetLive.get('/api/getLives', (req, res) => {
       res.status(500).json({ error: "Une erreur s'est produite lors de l'exécution de la requête SQL" });
     } else {
       res.json(results);
+      if (!Array.isArray(results)) {
+        results = [results];
+      }
+      
     }
   });
 });

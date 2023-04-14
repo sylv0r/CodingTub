@@ -4,6 +4,7 @@
 ### Allez dans le dossier client et faites les commandes suivantes
 ```
 npm install --save socket.io
+npm install --save socket.io-client
 npm install --save node-media-server
 ````
 

@@ -40,11 +40,11 @@ function AffichageLive() {
     <div>
       <h1>Liste des lives en cours</h1>
       <ul>
-        {lives.map(live => (
-          <li key={live.id}>
-            <a href={live.URL}>{live.title}</a>
-          </li>
-        ))}
+      {Array.isArray(lives) && lives.map(live => (
+        <li key={live.id}>
+          <a href={live.URL}>{live.title}</a>
+        </li>
+      ))}
       </ul>
       <Link to="/creerLive">
         <button className="Accueil-button">Créer le live</button>
