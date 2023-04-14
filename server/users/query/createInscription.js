@@ -1,4 +1,5 @@
 const { con } = require('../../db/connection');
+const bcrypt = require('bcrypt');
 
 module.exports = async (req, res) => {
   console.log(req.body)
