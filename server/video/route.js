@@ -3,7 +3,8 @@ const showVideo = require("./query/showVideo");
 const getComment = require("./query/getComment");
 const postComment = require("./query/postComment");
 const getVideos = require('./query/getVideos')
-const getSubscriptionsVideos = require('./query/getSubscriptionsVideos')
+const getSubscriptionsVideos = require('./query/getSubscriptionsVideos');
+const getChannelVideos = require("./query/getChannelVideos");
 
 const router = Router()
 
@@ -15,7 +16,7 @@ router.get('/getComment/:id_video', getComment)
 router.post('/postComment', postComment)
 router.get('/getVideos', getVideos)  // --> chercher toutes les videos
 router.get('/getSubscriptionsVideos', getSubscriptionsVideos)
-
+router.get('/getChannelVideos/:name', getChannelVideos)
 
 
 module.exports.routes = router

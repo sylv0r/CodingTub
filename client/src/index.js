@@ -54,7 +54,7 @@ const router = createBrowserRouter([
     element: <Video />,
   },
   {
-    path: "/MenuChaine",
+    path: "/channel/:name",
     element: <MenuChaine />,
   },
   {

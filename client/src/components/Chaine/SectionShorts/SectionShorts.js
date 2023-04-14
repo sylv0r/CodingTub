@@ -1,4 +1,5 @@
 import React from 'react'
+import Short from '../../routes/Short'
 
 export default function SectionShorts(){
     // state
@@ -6,8 +7,9 @@ export default function SectionShorts(){
     // comportements 
 
     // affichage (render)
-    return <div>
-        <p>Voici la section des Shorts, elle te permet de voir tous les shorts de la chaîne</p>
-    </div>
-    
+    return (
+        <div>
+            <Short />
+        </div>
+    );
 }

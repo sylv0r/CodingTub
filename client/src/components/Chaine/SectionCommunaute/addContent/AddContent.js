@@ -1,9 +1,8 @@
 import React, { useRef, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import AutoExpandingTextarea from "./AutoExpandingTextarea";
 
-function PostCommunaute(props) {
+function AddContent(props) {
 
     const content = useRef();
     const [value, setValue] = useState([""]);
@@ -16,7 +15,7 @@ function PostCommunaute(props) {
 
     async function contentSubmit(e) {
         e.preventDefault();
-        fetch("http://localhost:3001/channels/postCommunaute", {
+        fetch("http://localhost:3001/channels/addContent", {
           method: "POST",
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -52,4 +51,4 @@ function PostCommunaute(props) {
     );
 }
 
-export default PostCommunaute;
+export default AddContent;

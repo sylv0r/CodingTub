@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import PostCommunaute from './PostCommunaute';
+import AddContent from './addContent/AddContent';
+import ShowContent from './showContent/ShowContent';
 import './SectionCommunaute.scss'
 
 export default function SectionCommunaute(){
@@ -24,12 +25,15 @@ export default function SectionCommunaute(){
 
     // affichage (render)
     return (
-        <div className='div_section_communaute'>
-            <div className='pdp_name'>
-                <img src="" alt="pdp_utilisateur" className='pdp_utilisateur'></img>
-                <p>{user.name}Sequoia</p>
+        <div>
+            <div className='div_section_communaute'>
+                <div className='pdp_name'>
+                    <img src="" alt="pdp_utilisateur" className='pdp_utilisateur'></img>
+                    <p>{user.name}Sequoia</p>
+                </div>
+                <AddContent />
             </div>
-            <PostCommunaute />
+            <ShowContent />
         </div>
     );
 }

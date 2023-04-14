@@ -44,7 +44,7 @@ export default function MenuChaine() {
     setSectionAffichee(<SectionAccueil />);
     }
     };
-    
+
     // affichage (render)
     return (
     <div className='body_menu_chaine'>
