@@ -13,8 +13,8 @@ import MenuChaine from './components/Chaine/MenuChaine/MenuChaine';
 import Short from './components/routes/Short';
 import UploadShort from './components/routes/UploadShort';
 import Search from './components/search/Searchs';
-import Connexion from './components/connexion/Connexion/Connexion';
-import Inscription from './components/Inscription/InscriptionForm.js';
+import Connexion from './components/Connexion/Connexion';
+import Inscription from './components/Inscription/InscriptionForm';
 
 import {
   createBrowserRouter,
