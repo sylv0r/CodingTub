@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 //import "./Searchs.scss";
 
-
 export default function Search2() {
   const [datas, setDatas] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -22,7 +21,6 @@ export default function Search2() {
     }
   };
   
-
   return (
     <>
       <div className="searchBar">
@@ -35,23 +33,23 @@ export default function Search2() {
         />
       </div>
       <div className="search__results">
-      {searchTerm.length > 2 &&
-  datas
-    .filter((val) => {
-      return val.title.toLowerCase().includes(searchTerm.toLowerCase());
-    })
-    .map((val) => {
-      return (
-        <div className="search__result" key={val.id}>
-          <p>{val.pseudo}</p>
-          <p>{val.title}</p>
-          <p>{val.name}</p>
-        </div>
-      );
-    })}
+        {searchTerm.length > 2 &&
+          datas.filter((val) =>
+            (val.title && val.title.toLowerCase().includes(searchTerm.toLowerCase())) ||
+            (val.pseudo && val.pseudo.toLowerCase().includes(searchTerm.toLowerCase())) ||
+            (val.name && val.name.toLowerCase().includes(searchTerm.toLowerCase()))
+          )
+          .map((val) => {
+            return (
+              <div className="search__result" key={val.id}>
+                {val.name}
+                {val.title}
+                {val.pseudo}
+              </div>
+            );
+          })
+        }
       </div>
     </>
   );
 }
-
-    
