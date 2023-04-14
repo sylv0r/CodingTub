@@ -39,7 +39,7 @@ module.exports = async (req, res) => {
               channelName: channelNames[i]
             })
           }
-          res.send(data)
+          res.json(data).status(200)
         })
       })
     })
