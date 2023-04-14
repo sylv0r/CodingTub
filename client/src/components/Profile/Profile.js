@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Profile.scss';
 import axios from 'axios';
+import profilePhoto from './chat.jpg';
 
 function Profile() {
 
@@ -36,7 +37,7 @@ function Profile() {
 
             <div className='user'>
 
-                <img id='profile' src='chat.jpg' alt="Image d'un mignon chat"></img>
+                <img id='profile' src={profilePhoto} alt="Image d'un mignon chat"></img>
 
             </div>
 
