@@ -1,12 +1,15 @@
 import React from 'react'
+//import accueilLive from '../../live/accueillive'
 
 export default function SectionLives(){
     // state
 
     // comportements 
 
+    //  <accueilLive />
     // affichage (render)
-    return <div>
-        <p>Mettre le composant des Lives</p>
-    </div>
+    return (
+        <div>
+        </div>
+    );
 }

@@ -54,13 +54,14 @@ const router = createBrowserRouter([
     element: <Video />,
   },
   {
-    path: "/MenuChaine",
+    path: "/channel/:name",
     element: <MenuChaine />,
   },
   {
     path: "/Short",
     element: <Short />,
   },
+  
   {
     path: "/UploadShort",
     element: <UploadShort />,
