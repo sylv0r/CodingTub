@@ -11,7 +11,7 @@ export default function PreviewPlaylist(){
                     <img src="" alt="" />
                 </div>
                 <div className='display-text'>
-                    <h2>Vidéos</h2>
+                    <h2>Vidéos </h2>
                     <p>User</p>
                     <p>x vidéos - Mise à jour aujourd'hui</p>
                 </div>
