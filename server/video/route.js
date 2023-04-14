@@ -18,6 +18,9 @@ router.get('/getComment/:id_video', getComment)
 router.post('/postComment', postComment)
 router.get('/getVideos', getVideos)  // --> chercher toutes les videos
 router.get('/getSubscriptionsVideos', getSubscriptionsVideos)
+router.get('/getChannelVideos/:name', getChannelVideos)
+router.get('/getChannelVideosAccueil/:name', getChannelVideosAccueil)
+
 
 
 
