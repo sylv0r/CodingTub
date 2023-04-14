@@ -1,7 +1,7 @@
 #videos {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
 }
 
 .singleVid {
@@ -12,9 +12,9 @@
         position: relative;
         /*width: 100%;*/
         width: 350px;
-        border: 1px solid #000;
         /*height: inherit;*/
-        height: 192.66px;
+        height: 196.85px;
+        background-color: #000;
     
         img {
             max-width: 350px;
@@ -84,7 +84,7 @@
             .options {
                 /*border: 1px solid #000;*/
                 background-color: #FFF;
-                border-radius: 5%;
+                border-radius: 5px;
                 z-index: 1;
                 list-style-type: none;
                 width: max-content;
