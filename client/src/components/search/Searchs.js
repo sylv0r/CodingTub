@@ -1,6 +1,6 @@
 import './Searchs.scss';
 import { useState } from 'react';
-import ControlledCarousel from "./hashtag"
+//import ControlledCarousel from "./hashtag"
 //import Hashtag from "./hashtag"
 import SideBar from '../Home/SideBar/SideBar';
 import Search2 from './searchbar';
@@ -46,8 +46,7 @@ function Search() {
 
             <div className="Navid">
 
-                <ControlledCarousel/>
-
+                
             </div>
         </nav>
 
