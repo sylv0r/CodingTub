@@ -7,19 +7,22 @@ function History(props) {
   const [videoHistory, setVideoHistory] = useState([]);
 
   const handleVideoClick = (video) => {
-    // Vérifier si la video est dans l'historique
-    const index = videoHistory.indexOf(video);
+// Check if the video is in the history    
+
+const index = videoHistory.indexOf(video);
 
     if (index !== -1) {
   
       const updatedHistory = [...videoHistory];
       updatedHistory.splice(index, 1);
 
-      // video en haut de l'historique
+      // video at the top of the history
       setVideoHistory([video, ...updatedHistory]);
     } else {
-      // Ajouter la vidéo au début de l'historique
-      const updatedHistory = [video, ...videoHistory];
+
+// Add the video to the beginning of the history
+
+  const updatedHistory = [video, ...videoHistory];
       setVideoHistory(updatedHistory);
     }
 
@@ -28,12 +31,15 @@ function History(props) {
   };
 
   const handleHistoryClick = (video) => {
-    // Modifier l'URL pour inclure l'id de la vidéo
+
+// Modify the URL to include the video id
+
     window.history.pushState(null, null, `?v=${video}`);
     
   };
 
-  // Charger l'historique sauvgardé
+// Load saved history
+
   useEffect(() => {
     const savedHistory = localStorage.getItem('videoHistory');
     if (savedHistory) {
