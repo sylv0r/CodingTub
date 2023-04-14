@@ -15,6 +15,7 @@ import UploadShort from './components/routes/UploadShort';
 import Search from './components/search/Searchs';
 import Connexion from './components/usersManagement/Connexion/Connexion';
 import Profile from './components/Profile/Profile';
+import UserProfile from './components/UserProfile/UserProfile';
 
 import {
   createBrowserRouter,
@@ -77,6 +78,10 @@ const router = createBrowserRouter([
   {
     path: "/Profile",
     element: <Profile />
+  },
+  {
+    path: "/UserProfile",
+    element: <UserProfile />
   }
 ]);
 
