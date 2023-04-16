@@ -43,7 +43,8 @@ function Connexion() {
 			createSession(response.data);
 		})
 		.catch(error => {
-			console.log(error);
+			console.log('error', error.response.data)
+			createError(error.response.data);
 		});
 		
   	};
@@ -56,33 +57,37 @@ function Connexion() {
 		});
   	};
 
+	const createError = (data) => {
+
+		console.log('data', data.message);
+
+		document.getElementById('errorConnexion').innerHTML = data.message;
+
+		document.getElementById('errorConnexion').animate([
+			{ transform: 'translateX(0px)' },
+			{ transform: 'translateX(10px)' },
+			{ transform: 'translateX(-10px)' },
+			{ transform: 'translateX(0px)' },
+			{ transform: 'translateX(5px)' },
+			{ transform: 'translateX(0px)' }
+		], {
+			duration: 400,
+			iterations: 1
+		});
+
+	};
+
   	const createSession = (data) => {
 
-		if(data == 0) {
+		console.log('data', data);
 
-			document.getElementById('errorConnexion').innerHTML = 'Email ou mot de passe incorrect';
+		/* console.log("connected") */
 
-			document.getElementById('errorConnexion').animate([
-				{ transform: 'translateX(0px)' },
-				{ transform: 'translateX(10px)' },
-				{ transform: 'translateX(-10px)' },
-				{ transform: 'translateX(0px)' },
-				{ transform: 'translateX(5px)' },
-				{ transform: 'translateX(0px)' }
-			], {
-				duration: 400,
-				iterations: 1
-			});
+		localStorage.setItem('user_id', JSON.stringify(data));
 
-		} else {
-			/* console.log("connected") */
+		//console.log(localStorage.getItem('user_id'));
 
-			localStorage.setItem('user_id', JSON.stringify(data[0].id));
-
-			/* console.log(localStorage.getItem('user_id')); */
-
-			window.location.href = '/';
-		};
+		window.location.href = '/';
 	};
 
 	const showPass = (event) => {
