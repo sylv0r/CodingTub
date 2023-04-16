@@ -3,7 +3,8 @@
   flex-direction: column;
   align-items: center;
   background-color: rgb(250, 249, 250);
-  height: 100vh;
+  height: 100%;
+  padding-bottom: 10%;
 }
 
 #codingLogoConnexion {
