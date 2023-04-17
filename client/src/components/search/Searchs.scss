@@ -16,16 +16,8 @@
     width: 15%;
 }
 
-input[type='text'], input[type='text']:focus {
+nav input[type='text'], nav input[type='text']:focus {
     border-radius: 12px 0 0 12px !important;
-}
-
-.searchBar:focus {
-    border-radius: 12px 0 0 12px;
-}
-
-input:focus {
-    border-radius: 12px 0 0 12px;
 }
 
 .recherche{
@@ -78,6 +70,7 @@ input:focus {
 .not, .pp{
     width: 100%;
     margin: 3vh 2vh;
+    
 }
 
 .connect{
@@ -91,6 +84,26 @@ input:focus {
     display: flex;
     justify-content: space-evenly;
 }
+
+#carousel {
+    position: absolute;
+    height: 200px;
+    width: 810px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.item {
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    position: absolute;
+    transition: height 1s, width 1s, left 1s, margin-top 1s, line-height 1s, background-color 1s;
+}
+
 
 .Navid{
     width: 100%;

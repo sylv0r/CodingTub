@@ -1,4 +1,3 @@
-import SideBar from './SideBar/SideBar';
 import VideoList from './VideoList/VideoList';
 
 function Home() {
@@ -6,6 +5,7 @@ function Home() {
     <div>
       <VideoList action="getVideos" />
     </div>
+    
   );
 }
 

@@ -1,0 +1,57 @@
+.App {
+
+
+    #emplacement_live{
+      border: solid;
+      border-color: red;
+      padding-top: 20%;
+      padding-left: 20%;
+      padding-right: 20%;
+      padding-bottom: 37%;
+      
+    }
+
+    #global_creer_live{
+        display: flex;
+    }
+
+    #option_creer_live{
+      flex: 1;
+      display: block;
+      border: solid;
+      border-color: rgb(86, 84, 84);
+    }
+    #creer_live {
+        width:100%;
+        border: solid;
+        border-color: red;
+    }
+    #creer_live_description{
+      flex:3;
+    }
+
+    #creer_description {
+      display: flex;
+      justify-content: space-around;
+      padding-top: 2%;
+      background-color: #9e9595;
+      padding-bottom: 55%;
+    }
+
+    #creer_titre{
+    }
+  
+  
+    #creer_chat_live {
+      flex: 1;
+      color: #FFF;
+      font-weight: bold;
+      background-color: #2d2d2d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 55%;
+    }
+}
+  
+  

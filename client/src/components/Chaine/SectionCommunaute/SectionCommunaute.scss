@@ -1,5 +1,124 @@
 .pdp_utilisateur {
     width: 40px;
     height: 40px;
-    border-radius: 50px;
+    border-radius: 100%;
 }
+
+.div_section_communaute {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding: 1% 1%;
+    margin-left: 2%;
+    margin-right: 30%;
+    border: solid #a2a2a2;
+    border-radius: 10px;
+    height: auto;
+    max-height: 70%;
+}
+
+.pdp_name {
+    width: 100%;
+    display: flex;
+}
+
+.pdp_name p {
+    width: 100%;
+    margin-left: 1%;
+    margin-top: 1%;
+    font-size: 16px;
+}
+
+.form_submit_community {
+    width: 100%;
+    max-height: 150%;
+}
+
+.content_submit {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    font-size: 17px;
+    width: 100%;
+    border: none;
+    word-wrap: break-word;
+    resize: none;
+    max-height: 54vh;
+    overflow-y: auto;
+}
+
+.content:focus{
+    outline: none;
+}
+
+.submit_content {
+    background-color: #65b8ff;
+    color: black;
+    padding: 10px 30px;
+    border-radius: 10px;
+    border: none;
+    font-size: 17px;
+    cursor: pointer;
+    margin-top: 2%;
+    margin-right: 60%;
+    margin-bottom: 1%;
+}
+
+.submit_content:hover {
+    cursor: pointer;
+}
+
+/*.div_section_communaute {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 1%;
+    padding-bottom: 7%;
+    padding-left: 1%;
+    font-size: 90%;
+    border-radius: 10px;
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 60%;
+    border: solid #a2a2a2;
+}
+
+.pdp_name {
+    display: flex;
+    margin-bottom: 2%;
+}
+
+.pdp_name p{
+    margin-left: 10%;
+}
+
+.content_submit{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.content{
+    border: none;
+    font-size: large;
+}
+
+.content:focus{
+    outline: none;
+}
+
+.submit_content {
+    background-color: #272727;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 20px;
+    border: none;
+    font-size: 17px;
+    cursor: pointer;
+}
+*/

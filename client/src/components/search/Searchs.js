@@ -7,6 +7,17 @@ import SideBar from '../Home/SideBar/SideBar';
 //import './Header.scss';
 
 function Search() {
+
+    const data = [/*{chaine}, {profil}, {hashtag}, {video},*/"Chocolat", "Chien", "chat", "Café", "Cafeine"];
+
+    const [value, setvalue] = useState("");
+
+    function handleChange (event) {
+        setvalue(event.target.value)
+    }
+
+    const url = process.env.REACT_APP_NGINX_LINK;
+
     return (
 
     <header className="body">
@@ -14,8 +25,8 @@ function Search() {
         <nav className="recherche">
             <div className="Navsearch">
 
-                <a className="logo" href="#" target="" rel="">
-                    <img src="assets/img_header/Project_title_picture.png" alt="Logo CodingTube" class="icon_title" width="100" />  
+                <a className="logo" href="/" target="" rel="">
+                    <img src={url + 'logo/logo_codingtub.png'} alt="Logo CodingTube" className="icon_title" width="100" />
                 </a>
 
                 <div className="search" action="submit">

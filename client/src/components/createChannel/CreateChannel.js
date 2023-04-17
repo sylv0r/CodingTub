@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import ChannelForm from '../forms/ChannelForm'
+import ChannelForm from './ChannelForm'
 import Alert from 'react-bootstrap/Alert';
 import "./CreateChannel.scss"
 
@@ -11,7 +11,7 @@ export default function Channel() {
   return (
     <div className='main'>
       <ChannelForm state={{setAlert, setMessage, setResponseType}} />
-      {alert && <Alert variant={responseType}>{message}</Alert>}
+      {alert && <Alert className='alert' variant={responseType}>{message}</Alert>}
     </div>
   )
 }

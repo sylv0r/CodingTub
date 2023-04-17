@@ -44,10 +44,10 @@ export default function MenuChaine() {
     setSectionAffichee(<SectionAccueil />);
     }
     };
-    
+
     // affichage (render)
     return (
-    <div>
+    <div className='body_menu_chaine'>
     <button className='sections_menu' onClick={() => handleSectionChange('Accueil')}>Accueil</button>
     <button className='sections_menu' onClick={() => handleSectionChange('Vidéos')}>Vidéos</button>
     <button className='sections_menu' onClick={() => handleSectionChange('Shorts')}>Shorts</button>

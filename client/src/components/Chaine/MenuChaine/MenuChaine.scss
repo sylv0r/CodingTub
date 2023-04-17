@@ -1,4 +1,6 @@
-
+.body_menu_chaine {
+    height: 100vh;
+}
 
 .sections_menu {
     background-color: #040404;
@@ -12,9 +14,4 @@
 
 .sections_menu:hover {
     color: white;
-    
-}
-
-.sections_menu:checked {
-    border-bottom: 2px #a2a2a2;
 }
