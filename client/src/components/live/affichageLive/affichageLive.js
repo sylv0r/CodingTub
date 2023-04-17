@@ -83,7 +83,8 @@ function App() {
       pc.addIceCandidate(candidate);
     });
   }, [liveEnCours]);
-  const liveEnCoursData = lives.find(live => live.URL === window.location.href);
+  // envoie au meme url que celui dans la bdd
+  const liveEnCoursData = lives.find(live => live.URL === window.location.href); 
 
 
   return (
@@ -111,7 +112,7 @@ function App() {
               <div id="creer_live_description">
                 <video ref={videoRef} autoPlay playsInline id="creer_live"></video>
                 {Array.isArray(lives) && lives.map(live => {
-                  if (live.id === live.id) {
+                  if (live.URL === window.location.href) {
                     return (
                       <div id="description" key={live.id}>
                         <h2>{live.title}</h2>
