@@ -5,7 +5,7 @@ import Carousel from 'react-bootstrap/Carousel';
 
 async function getHashtag(setHashtags) {
 
-    const response = await fetch(`http://localhost:3001/hashtag/hashtag`, {
+    const response = await fetch(`http://localhost:3001/search/hashtag`, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
     });

@@ -19,7 +19,7 @@ export default function Search2() {
   };
 
   async function getSearch() {
-    const response = await fetch(`http://localhost:3001/searchbarreur/search_bar`, {
+    const response = await fetch(`http://localhost:3001/search/search_bar`, {
       method: "GET",
       headers: { 'Content-Type': 'application/json' },
     });
