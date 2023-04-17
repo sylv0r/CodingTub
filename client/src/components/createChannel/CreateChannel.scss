@@ -2,8 +2,10 @@
   height: 100%;
 
   .alert {
-    width: 70%;
+    width: 50%;
+    margin-top: 10px;
     text-align: center;
-    margin: auto;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

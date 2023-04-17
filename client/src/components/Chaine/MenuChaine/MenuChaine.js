@@ -8,6 +8,7 @@ import SectionPlaylists from '../SectionPlaylists/SectionPlaylists'
 import SectionCommunaute from '../SectionCommunaute/SectionCommunaute'
 import SectionChaines from '../SectionChaines/SectionChaines'
 import SectionPlus from '../SectionPlus/SectionPlus'
+import Profile from '../../Profile/Profile'
 
 export default function MenuChaine() {
     // state
@@ -44,10 +45,12 @@ export default function MenuChaine() {
     setSectionAffichee(<SectionAccueil />);
     }
     };
-    
+
     // affichage (render)
     return (
-    <div>
+    <div className='body_menu_chaine'>
+    <Profile />
+    <div id="buttons">
     <button className='sections_menu' onClick={() => handleSectionChange('Accueil')}>Accueil</button>
     <button className='sections_menu' onClick={() => handleSectionChange('Vidéos')}>Vidéos</button>
     <button className='sections_menu' onClick={() => handleSectionChange('Shorts')}>Shorts</button>
@@ -56,6 +59,7 @@ export default function MenuChaine() {
     <button className='sections_menu' onClick={() => handleSectionChange('Communauté')}>Communauté</button>
     <button className='sections_menu' onClick={() => handleSectionChange('Chaînes')}>Chaînes</button>
     <button className='sections_menu' onClick={() => handleSectionChange('À Propos')}>À Propos</button>
+    </div>
     {sectionAffichee}
     </div>
     );

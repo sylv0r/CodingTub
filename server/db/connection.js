@@ -6,7 +6,7 @@ var con = mysql.createConnection(initDb);
   
 con.connect(function(err) {
   if (err) throw err;
-  console.log("Connected!");
+  console.log("=> Connecté à la BDD");
 });
 
 con.query2 = promisify(con.query)

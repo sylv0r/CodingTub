@@ -1,15 +1,20 @@
 import React from 'react'
+import VideoList from '../../Home/VideoList/VideoList'
 
 export default function SectionVideos() {
 
     //state
+    var currentUrl = window.location.href
 
+    var split = currentUrl.split('/')
+    var name = split[split.length-1]
+    console.log(name)
     //comportement
 
     //render
     return (
         <div>
-            <p>Mettre le lien vers le composant de Bastien V</p>            
-         </div>
-    )
+            <VideoList action={`getChannelVideos/${name}`} />
+        </div>
+    );
 }
