@@ -2,8 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import './searchbar.scss';
 
-//import "./Searchs.scss";
-
 export default function Search2() {
 
   const [datas, setDatas] = useState([]);
@@ -42,19 +40,11 @@ export default function Search2() {
   });
 
   return (
-
-
     <div id="search">
       <div className="searchBar">
-        <input
-          type="text"
-          name="search"
-          id="search"
-          placeholder="Rechercher"
-          onChange={handleSearchTerm}
-        />
+        <input type="text" name="search" id="search" placeholder="Rechercher" onChange={handleSearchTerm}/>
       </div>
-      <div className="search__results">
+      <div className={`search__results ${searchTerm.length > 0 ? 'active' : ''}`}>
         {searchTerm.length > 0 &&
           filteredData.map((item, index) => (
             <div key={index}>
@@ -78,6 +68,5 @@ export default function Search2() {
           ))}
       </div>
     </div>
-
   );
 }
