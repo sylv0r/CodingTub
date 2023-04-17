@@ -22,14 +22,15 @@ const Hashtag = () => {
         setIndex(selectedIndex);
     };
 
-    console.log(names)
-
     return (
         <Carousel activeIndex={index} onSelect={handleSelect}>
+
             <Carousel.Item>
                 <div className="hashtag-list" id='hashtag'>
                     {names.map((name, i) => (
-                        <div key={i}>{name}
+                        <div key={i}>
+                            <a href={'/search-result?query=' + name}>{name}
+                            </a>
                         </div>
                     ))}
                 </div>
