@@ -17,6 +17,17 @@ const Hashtag = () => {
             .catch(error => console.log(error));
     }, []);
 
+    // Divide the names array into chunks of 8 names each
+    const chunkSize = 6;
+    const nameChunks = names.reduce((resultArray, item, index) => {
+        const chunkIndex = Math.floor(index / chunkSize);
+        if (!resultArray[chunkIndex]) {
+            resultArray[chunkIndex] = []; // start a new chunk
+        }
+        resultArray[chunkIndex].push(item); // add the name to the current chunk
+        return resultArray;
+    }, []);
+
     // Handle carousel item selection
     const handleSelect = (selectedIndex) => {
         setIndex(selectedIndex);
@@ -24,17 +35,18 @@ const Hashtag = () => {
 
     return (
         <Carousel activeIndex={index} onSelect={handleSelect}>
-
-            <Carousel.Item>
-                <div className="hashtag-list" id='hashtag'>
-                    {names.map((name, i) => (
-                        <div key={i}>
-                            <a href={'/search-result?query=' + name}>{name}
-                            </a>
-                        </div>
-                    ))}
-                </div>
-            </Carousel.Item>
+            {nameChunks.map((chunk, i) => (
+                <Carousel.Item key={i}>
+                    <div className="hashtag-list" id='hashtag'>
+                        {chunk.map((name, j) => (
+                            <div key={j}>
+                                <a href={'/search-result?query=' + name}>{name}
+                                </a>
+                            </div>
+                        ))}
+                    </div>
+                </Carousel.Item>
+            ))}
         </Carousel>
     );
 };
