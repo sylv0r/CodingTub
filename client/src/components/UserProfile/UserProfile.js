@@ -43,7 +43,7 @@ function UserProfile() {
 
             <div className='profileUserBis'>
 
-                <img id='pictureUserBis' src={profilePhoto} alt="Image d'un mignon chat"></img>
+                <img id='pictureUserBis' src={profilePhoto}></img>
 
             </div>
 
