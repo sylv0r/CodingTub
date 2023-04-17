@@ -1,21 +1,9 @@
 import './Searchs.scss';
-import React, { useState } from 'react';
 import ControlledCarousel from "./hashtag";
 import Search2 from './searchbar';
 import Hashtag from "./hashtag";
 
 function Search() {
-
-    const data = [/*{chaine}, {profil}, {hashtag}, {video},*/"Chocolat", "Chien", "chat", "Café", "Cafeine"];
-
-    const [value, setvalue] = useState("");
-
-    function handleChange(event) {
-        setvalue(event.target.value)
-    }
-
-    const url = process.env.REACT_APP_NGINX_LINK;
-
     return (
 
         <header className="body">
