@@ -112,7 +112,7 @@ function Connexion() {
   return (
     <div className="UsersConnexion">
 
-		<img src={logo} id='codingLogoConnexion' alt='logo'/>
+		<a href="/" className='linkCodingLogoConnexion'><img src={logo} id='codingLogoConnexion' alt='logo'/></a>
 
       	<h1>Connexion</h1>
 
