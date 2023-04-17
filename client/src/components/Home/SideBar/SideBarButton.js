@@ -14,13 +14,13 @@ export default function SideBarButton({name, logo, link, channelId}){
 
     const getChannel = () => {
         if (channelId !== undefined) {
-        console.log(channelId)
+        //console.log(channelId)
         fetch(`http://localhost:3001/channels/showNamePp/${channelId}`, {method: "GET", headers: { "Content-Type": "application/json"}})
         .then(response => {
             return response.json()
         })
         .then((json) => {
-            console.log(json[0])
+            ///console.log(json[0])
             setLinks(`/channel/${json[0].name}`)
             setNames(json[0].name)
             setImg(json[0].image_link)

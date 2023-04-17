@@ -6,7 +6,9 @@ const getVideos = require('./query/getVideos')
 const getSubscriptionsVideos = require('./query/getSubscriptionsVideos');
 const getChannelVideos = require("./query/getChannelVideos");
 const getChannelVideosAccueil = require("./query/getChannelVideosAccueil");
-const postLike = require('./query/postLike')
+const postLike = require('./query/postLike');
+const addToHistory = require("./query/addToHistory");
+const videoInHistory = require("./query/videoInHistory");
 
 const router = Router()
 
@@ -21,6 +23,8 @@ router.get('/getSubscriptionsVideos', getSubscriptionsVideos)
 router.get('/getChannelVideos/:name', getChannelVideos)
 router.get('/getChannelVideosAccueil/:name', getChannelVideosAccueil)
 router.post('/likes', postLike)
+router.post('/addHistory', addToHistory)
+router.post('/videoInHistory', videoInHistory)
 
 
 
