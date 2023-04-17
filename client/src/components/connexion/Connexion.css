@@ -3,12 +3,17 @@
   flex-direction: column;
   align-items: center;
   background-color: rgb(250, 249, 250);
-  height: 100vh;
+  height: 100%;
+}
+
+.linkCodingLogoConnexion {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 #codingLogoConnexion {
   width: 50%;
-  margin: 5% 0;
 }
 
 .UsersConnexionForm {
@@ -59,6 +64,8 @@
   height: 35px;
   padding: 10px;
   font-size: 15px;
+  border: 1px solid rgb(146, 146, 146);
+  border-radius: 2px !important;
 }
 
 .inputSizeConnexion[type='text'] {
@@ -66,7 +73,7 @@
   width: 100%;
   margin: 0px;
   border: 1px solid rgb(146, 146, 146);
-  border-radius: 2px;
+  border-radius: 2px !important;
 }
 
 .fa-regular {

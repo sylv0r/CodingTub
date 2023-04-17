@@ -11,6 +11,24 @@ function validatePassword(password) {
   return regex.test(password);
 }
 
+const createErrorInscription = (message) => {
+
+  document.getElementById('errorInscription').innerHTML = message;
+
+  document.getElementById('errorInscription').animate([
+    { transform: 'translateX(0px)' },
+    { transform: 'translateX(10px)' },
+    { transform: 'translateX(-10px)' },
+    { transform: 'translateX(0px)' },
+    { transform: 'translateX(5px)' },
+    { transform: 'translateX(0px)' }
+  ], {
+    duration: 400,
+    iterations: 1
+  });
+
+};
+
 function Inscription() {
     // state (état, donné)
   const [formData, setFormData] = useState({
@@ -22,30 +40,32 @@ function Inscription() {
   cpassword: ''
 });
 
-const [passwordError ,setPasswordError] = useState(false);
-
 const handleSubmit = (event) => {
   event.preventDefault();
   console.log(formData);
 
   if (formData.nom === '' || formData.prenom === '' || formData.prenom === '' || formData.email === '' || formData.password === '' || formData.cpassword === '') {
-    alert('Veuillez remplir tous les champs')
+    createErrorInscription('Veuillez remplir tous les champs');
     return;
   }
 
   if (formData.password !== formData.cpassword) {
-    alert('Les mots de passe doivent être identiques');
+    createErrorInscription('Les mots de passe doivent être identiques');
     return;
   }
-  
+
   if (!validatePassword(formData.password)) {
-    setPasswordError(true);
+    createErrorInscription('Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial');
     return;
   }
 
   axios(options)
     .then(response => {
-        console.log(response.status);
+        console.log(response);
+
+        localStorage.setItem('user_id', JSON.stringify(response.data.userId));
+
+        window.location.href = '/';
     })
     .catch(error => {
         if (error.response) {
@@ -53,16 +73,17 @@ const handleSubmit = (event) => {
             console.log(error.response.data);
             console.log(error.response.status);
             console.log(error.response.headers);
+            return;
         } else if (error.request) {
             // The request was made but no response was received
             console.log(error.request);
+            return;
         } else {
             // Something happened in setting up the request that triggered an Error
             console.log('Error :', error.message);
+            return;
         }
     });
-  
-  window.location.href = '/connexion';
 };
 
 const handleChange = (event) => {
@@ -71,10 +92,6 @@ const handleChange = (event) => {
     ...formData,
     [name]: value
   });
-
-  if (name === 'password') {
-    setPasswordError(!validatePassword(value));
-  }
 };
 
 const options = {
@@ -91,9 +108,8 @@ const options = {
     email: formData.email,
     password: formData.password,
     cpassword: formData.cpassword
-
   }
-};
+  };
   
 	const showPass1 = (event) => {
     event.preventDefault();
@@ -116,68 +132,71 @@ const options = {
 
     if (vision1 === false) {
       document.getElementById('PassInput2').type = 'text';
-      document.getElementById('showPassBtnInscription').innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
+      document.getElementById('showPassBtnInscription2').innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
       vision1 = true;
       
       } else {
 			document.getElementById('PassInput2').type = 'password';
-			document.getElementById('showPassBtnInscription').innerHTML = '<i class="fa-regular fa-eye"></i>';
+			document.getElementById('showPassBtnInscription2').innerHTML = '<i class="fa-regular fa-eye"></i>';
 			vision1 = false;
     }
   }
 
 
   return (
-      <form onSubmit={handleSubmit}>
-        <div className='container-profile-inscription'>
+    <div className='pageInscriptionSize'>
+        <form onSubmit={handleSubmit}>
+            <div className='container-profile-inscription'>
         
-          <img src={logo} id='codingLogoInscription' alt='logo' />
-			<h2>Inscription</h2>
-              <div className='grid-profil-inscription'>
+                <img src={logo} id='codingLogoInscription' alt='logo' />
+			          <h2>Inscription</h2>
+                <div className='grid-profil-inscription'>
                   
                   <div className='form-group a'>
-                        <label>Nom :</label>
-                        <input type="text" placeholder='Votre Nom' name="nom" value={formData.nom} onChange={handleChange} />
+                        <label className='inscriptionLabel'>Nom :</label>
+                        <input className='inputInscriptionSize' type="text" placeholder='Votre Nom' name="nom" value={formData.nom} onChange={handleChange} />
                   </div>
 
                   <div className='form-group b'>
-                      <label>Prénom :</label>
-                      <input type="text" placeholder='Votre Prénom' name="prenom" value={formData.prenom} onChange={handleChange} />
+                      <label className='inscriptionLabel'>Prénom :</label>
+                      <input className='inputInscriptionSize' type="text" placeholder='Votre Prénom' name="prenom" value={formData.prenom} onChange={handleChange} />
                   </div>
                   
                   <div className='form-group c'>
-                      <label>Pseudo :</label>
-                      <input type="text" placeholder='Votre Pseudo' name="pseudo" value={formData.pseudo} onChange={handleChange} />
+                      <label className='inscriptionLabel'>Pseudo :</label>
+                      <input className='inputInscriptionSize' type="text" placeholder='Votre Pseudo' name="pseudo" value={formData.pseudo} onChange={handleChange} />
                   </div>
 
                   
 
                   <div className='form-group'>
-                      <label>E-mail :</label>
-                      <input type="email" placeholder='email' name="email" value={formData.email} onChange={handleChange} />
+                      <label className='inscriptionLabel'>E-mail :</label>
+                      <input className='inputInscriptionSize' type="email" placeholder='email' name="email" value={formData.email} onChange={handleChange} />
                   </div>
 
                   <div className='form-group'>
-                      <label>Mot de passe :</label>
-                      <input type="password" id='PassInput1' name="password" value={formData.password} onChange={handleChange} />
+                      <label className='inscriptionLabel'>Mot de passe :</label>
+                      <input className='inputInscriptionSize' type="password" placeholder='password' id='PassInput1' name="password" value={formData.password} onChange={handleChange} />
                       <button onClick={showPass1} id='showPassBtnInscription'><i class="fa-regular fa-eye"></i></button>
                   </div>
 
                   <div className='form-group'>
-                      <label>Confirmez le mot de passe :</label>
-                      <input type="password" id='PassInput2' name="cpassword" value={formData.cpassword} onChange={handleChange} />
-                      <button onClick={showPass2} id='showPassBtnInscription'><i class="fa-regular fa-eye"></i></button>
+                      <label className='inscriptionLabel'>Confirmez le mot de passe :</label>
+                      <input className='inputInscriptionSize' type="password" placeholder='confirm password' id='PassInput2' name="cpassword" value={formData.cpassword} onChange={handleChange} />
+                      <button onClick={showPass2} id='showPassBtnInscription2'><i class="fa-regular fa-eye"></i></button>
                   </div>
                   
-                  <p id='errorConnexion'></p>
+                  <p id='errorInscription'></p>
 
                   <button className='button-container-profile' type='submit'>Envoyer</button>
 
                 </div>
             </div>
-    </form>
-    
+        </form>
 
+        <a href="/connexion" className='linkToConnexion'>Déja inscrit ?</a>
+
+    </div>
   );
 }
 export default Inscription;

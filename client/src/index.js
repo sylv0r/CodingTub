@@ -109,7 +109,7 @@ const router = createBrowserRouter([
 ]);
 
 let url = window.location.href
-let connRegiPage = !url.includes('/connexion') && !url.includes('/inscription')
+let connRegiPage = !url.includes('/connexion') && !url.includes('/Inscription')
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
