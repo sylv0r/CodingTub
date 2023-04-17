@@ -1,17 +1,11 @@
-body {
-
-    background: none;
-
-}
-
-.wrapper {
+.wrapperProfile {
 
     display: flex;
     justify-content: flex-start;
 
 }
 
-.user {
+.profileUser {
 
     margin-left: 50px;
     margin-top: 20px;
@@ -19,7 +13,7 @@ body {
 
 }
 
-#profile {
+#pictureUser {
 
     margin-top: 20px;
     width: 100px;
@@ -28,15 +22,19 @@ body {
 
 }
 
-.pseudo {
+.pseudoUsername {
 
     font-size: 35px;
 
 }
 
-#subscribe {
+#subscribeButton {
 
     background-color: black;
+    text-align: center;
+    color: white;
+    padding: 5px;
+    border-radius: 25px;
     margin-left: 350px;
     margin-top: 40px;
 

@@ -33,21 +33,21 @@ function Profile() {
 
     return (
 
-        <><div className='wrapper'>
+        <><div className='wrapperProfile'>
 
-            <div className='user'>
+            <div className='profileUser'>
 
-                <img id='profile' src={profilePhoto} alt="Image d'un mignon chat"></img>
+                <img id='pictureUser' src={profilePhoto} alt="Image d'un mignon chat"></img>
 
             </div>
 
-            <div className='user'>
+            <div className='profileUser'>
 
                 {users.map(user => (
 
                     <div key={user.id}>
 
-                        <p className='pseudo'>{user.name}</p>
+                        <p className='pseudoUsername'>{user.name}</p>
                         <p>{user.subscribers} abonnés {user.number_videos} vidéos</p>
                         <p>{user.description}</p>
 
@@ -57,9 +57,9 @@ function Profile() {
 
             </div>
 
-            <div className='user'>
+            <div className='profileUser'>
 
-                <button id='subscribe' type='submit'>S'abonner</button>
+                <button id='subscribeButton' type='submit'>S'abonner</button>
 
             </div>
             
