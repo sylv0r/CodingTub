@@ -17,7 +17,7 @@ export default function VideoList({ action }) {
                 return response.json()
             })
             .then((json) => {
-                console.log(json)
+                //console.log(json)
                 setVideos(json)
             })
             .catch(error => {
