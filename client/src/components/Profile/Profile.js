@@ -43,7 +43,7 @@ export default function Profile({ action }) {
 
             <div className='profileUser'>
 
-                <img id='pictureUser' src={profilePhoto} alt="Image d'un mignon chat"></img>
+                <img id='pictureUser' src={users.image_link} alt="Image d'un mignon chat"></img>
 
             </div>
 
