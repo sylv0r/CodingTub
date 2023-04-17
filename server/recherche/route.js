@@ -9,4 +9,5 @@ const router = Router()
 router.post('/search', newSearch)
 router.get('/hashtag', hashtag)
 router.get('/search_bar', searchBar)
+
 module.exports.routes = router

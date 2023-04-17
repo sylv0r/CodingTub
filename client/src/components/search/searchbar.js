@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import './searchbar.scss';
-
 //import "./Searchs.scss";
+
 
 export default function Search2() {
 
