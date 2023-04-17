@@ -23,7 +23,9 @@ module.exports = async (req, res) => {
             },
           });
 
-          fs.unlink(imagePath, () => {});
+          fs.unlink(imagePath, () => {
+            console.log("Image deleted successfully")
+          });
         
           await con.query2('INSERT INTO channels (name, description, image_link, user_id) VALUES (?,?,?,?)', [name, description, `miniatures/${image.filename}`, user_id]);
           res.status(201).json({

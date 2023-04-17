@@ -1,9 +1,11 @@
+$error-color: 50px;
 .main {
   height: 100%;
 
   .alert {
     width: 50%;
-    margin-top: 10px;
+    margin-top: $error-color;
+    margin-bottom: $error-color;
     text-align: center;
     left: 50%;
     transform: translateX(-50%);
