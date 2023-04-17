@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom';
 
 export default function SingleVideo({video}) {
 
@@ -98,6 +99,11 @@ export default function SingleVideo({video}) {
 
     const url = process.env.REACT_APP_NGINX_LINK;
 
+    const location = useLocation();
+    //console.log(location.pathname);
+
+    const channelPage = !location.pathname.includes('/channel/')
+
     //render
     return (
         <div className="singleVid">
@@ -107,12 +113,14 @@ export default function SingleVideo({video}) {
             </div>
 
             <div className="informations" onMouseOver={handleHover} onMouseLeave={handleEndHover}>
-                <a href={`/channel/${video.name}`}><img className="channel-img" src={video.image_link} alt="pfp" onError={(e) => handlePfpError(e)} /></a>
+
+                {channelPage && <a href={`/channel/${video.name}`}><img className="channel-img" src={url + video.image_link} alt="pfp" onError={(e) => handlePfpError(e)} /></a>}
 
                 <div className="video-data">
+
                     <span className="video-title">{video.title}</span><br />
 
-                    <a href={`/channel/${video.name}`} className="channel-name">{video.name}</a><br /> 
+                    {channelPage && <><a href={`/channel/${video.name}`} className="channel-name">{video.name}</a><br /></>} 
                 
                     {views} vues | Il y a {difference}
 

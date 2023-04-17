@@ -16,7 +16,10 @@ import MenuChaine from './components/Chaine/MenuChaine/MenuChaine';
 import Short from './components/routes/Short';
 import UploadShort from './components/routes/UploadShort';
 import Search from './components/search/Searchs';
-import Connexion from './components/usersManagement/Connexion/Connexion';
+import Profile from './components/Profile/Profile';
+import UserProfile from './components/UserProfile/UserProfile';
+import Connexion from './components/connexion/Connexion';
+import Inscription from './components/Inscription/InscriptionForm.js';
 import SideBar from './components/Home/SideBar/SideBar';
 
 import {
@@ -25,6 +28,8 @@ import {
 } from "react-router-dom";
 
 const router = createBrowserRouter([
+
+
   {
     path: "/",
     element: <Home/>
@@ -40,6 +45,10 @@ const router = createBrowserRouter([
   {
     path: "/connexion",
     element: <Connexion />
+  },
+   {
+    path: "/Inscription",
+    element: <Inscription />
   },
   {
     path: "/subscriptions",
@@ -88,6 +97,14 @@ const router = createBrowserRouter([
     path: "/affichageLive",
     element: <AffichageLive />,
   },
+  {
+    path: "/Profile",
+    element: <Profile />
+  },
+  {
+    path: "/UserProfile",
+    element: <UserProfile />
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -97,7 +114,7 @@ root.render(
     <section id="main-search">
     <Search />
     <main id="main">
-      <RouterProvider router={router} />
+    <RouterProvider router={router} />
     </main>
     
     </section>
