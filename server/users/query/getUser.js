@@ -2,10 +2,9 @@ const { con } = require('../../db/connection.js');
 const bcrypt = require('bcrypt');
 
 module.exports = async (req, res) => {
-    
 
-    /* const hashedPassword = await bcrypt.hash(req.body.password, 10); */
-    const hashedPassword = req.body.password;
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    //const hashedPassword = req.body.password;
 
     const result = await con.query2('SELECT * FROM users WHERE users.email = ? AND users.password = ?', [req.body.email, hashedPassword])
     console.log('result', result);
