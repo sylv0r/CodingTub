@@ -77,7 +77,7 @@ const router = createBrowserRouter([
   },
   
   {
-    path: "/UploadShort",
+    path: "/Uploadshort",
     element: <UploadShort />,
   },
   {

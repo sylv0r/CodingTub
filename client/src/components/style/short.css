@@ -19,6 +19,7 @@
 .player-next {
   height: 500px;
   width: 250px;
+  margin: 50px;
   border-radius: 20px;
 }
 
@@ -31,6 +32,8 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  margin: 30px;
+
 }
 
 .player-past {
@@ -100,9 +103,9 @@ border-radius: 20px;
 .prev-video-button,
 .next-video-button {
   position: absolute;
-  top: 52%;
+  top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.0);
   border: none;
   color: #ffffff;
   font-size: 2rem;
@@ -112,7 +115,7 @@ border-radius: 20px;
 
 }
 .prev-video-button {
-  left: 35.9%;
+  left: 35.3%;
   
   transform: translateY(-50%);
 }
