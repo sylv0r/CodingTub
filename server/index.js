@@ -10,7 +10,6 @@ const shortsMiddleware = require('./short/routes')
 const searchMiddleware = require('./recherche/route')
 const liveMiddleware = require('./live/route')
 
-
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 

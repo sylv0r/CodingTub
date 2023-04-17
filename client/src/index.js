@@ -47,13 +47,13 @@ const router = createBrowserRouter([
     path: "/connexion",
     element: <Connexion />
   },
-   {
-    path: "/Inscription",
-    element: <Inscription />
-  },
   {
     path: "/search2",
     element: <Search2 />
+  },
+   {
+    path: "/Inscription",
+    element: <Inscription />
   },
   {
     path: "/subscriptions",

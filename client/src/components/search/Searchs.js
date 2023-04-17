@@ -7,6 +7,17 @@ import SideBar from '../Home/SideBar/SideBar';
 //import './Header.scss';
 
 function Search() {
+
+    const data = [/*{chaine}, {profil}, {hashtag}, {video},*/"Chocolat", "Chien", "chat", "Café", "Cafeine"];
+
+    const [value, setvalue] = useState("");
+
+    function handleChange (event) {
+        setvalue(event.target.value)
+    }
+
+    const url = process.env.REACT_APP_NGINX_LINK;
+
     return (
 
     <header className="body">
