@@ -8,6 +8,7 @@ const videoMiddleware = require('./video/route')
 const channelsMiddleware = require('./channel/route')
 const shortsMiddleware = require('./short/routes')
 const searchMiddleware = require('./recherche/route')
+const liveMiddleware = require('./live/route')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -31,5 +32,5 @@ app.use("/search", searchMiddleware.routes)
 app.use("/users", usersMiddleware.routes)
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`--> Requete site sur ${port}`)
 })

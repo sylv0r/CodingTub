@@ -8,7 +8,31 @@ body, html, #root {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#main-search {
+  width: 85%;
+  margin-left: 15%;
+  position: relative;
+  height: 100vh;
+}
+
+.side {
+  width: 15%;
+  position: fixed;
+  top: 2%;
+}
+
+#main {
+  position: absolute;
+  top: 20%;
+  width: 100%;
 }

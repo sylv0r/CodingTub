@@ -1,5 +1,5 @@
 import React from 'react'
-//import accueilLive from '../../live/accueillive'
+import AffichageLive from '../../live/accueilLive/accueilLive'
 
 export default function SectionLives(){
     // state
@@ -10,6 +10,7 @@ export default function SectionLives(){
     // affichage (render)
     return (
         <div>
+            <AffichageLive />
         </div>
     );
 }

@@ -1,5 +1,9 @@
 import './Searchs.scss';
 import { useState } from 'react';
+//import ControlledCarousel from "./hashtag"
+//import Hashtag from "./hashtag"
+import SideBar from '../Home/SideBar/SideBar';
+import Search2 from './searchbar';
 //import './Header.scss';
 
 function Search() {
@@ -16,53 +20,33 @@ function Search() {
 
     <header className="body">
 
-        <div className="side"></div>
-
         <nav className="recherche">
             <div className="Navsearch">
 
                 <a className="logo" href="#" target="" rel="">
-                    <img src="assets/img_header/Project_title_picture.png" alt="Logo CodingTube" class="icon_title" />  
+                    <img src="assets/img_header/Project_title_picture.png" alt="Logo CodingTube" class="icon_title" width="100" />  
                 </a>
 
                 <div className="search" action="submit">
-                    <input className="searchBar" placeholder=" Recherche..." type="text" value={value} onChange={handleChange}/> 
-                    <button className="lanchsubmit" onClick={() => console.log(value)} >envoyer</button>
+                    <Search2/>
                 </div>
-                <ul>
-                    {value && 
-                        data
-                        .filter((element) => element.includes(value))
-                        .map((element, index) => <li onClick={() => 
-                        setvalue(element)} key={index}>{element}</li>)
-                    }
-                </ul>
 
                 <div className="connect">
 
                     <a className="not"href="" target="" rel="">
-                        <img src="../../../public/assetsézéé    /img_header/cloche_notification.png" alt="" class="icon_notification"/>
+                        <i class="fa-solid fa-bell fa-2x"></i>
                     </a>
                     
-                    <a className="pp" href="" target="" rel="">
-                        <img src="../../../public/assets/img_header/Profil_picture.png" alt="" class="icon_profile"/>
+                    <a className="pp" href="/connexion" target="" rel="">
+                        <i class="fa-solid fa-user fa-2x"></i>
                     </a>
                 </div>
                 
             </div>
 
             <div className="Navid">
-                <div className="hashtag"><a href="">#Vilebrequin</a></div>
-                <div className="hashtag"><a href="">#Wankil</a></div>
-                <div className="hashtag"><a href="">#Anas</a></div>
-                <div className="hashtag"><a href="">#Squeezie</a></div>
-                <div className="hashtag"><a href="">#Pokimane</a></div>
-                <div className="hashtag"><a href="">#Amouranth</a></div>
-                <div className="hashtag"><a href="">#FuzeIII</a></div>
-                <div className="hashtag"><a href="">#LeBouzeuh</a></div>
-                <div className="hashtag"><a href="">#Louis-san</a></div>
-                <div className="hashtag"><a href="">#Locklear</a></div>
 
+                
             </div>
         </nav>
 
