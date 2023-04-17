@@ -12,7 +12,7 @@ function Search() {
 
     const [value, setvalue] = useState("");
 
-    function handleChange (event) {
+    function handleChange(event) {
         setvalue(event.target.value)
     }
 
@@ -20,41 +20,41 @@ function Search() {
 
     return (
 
-    <header className="body">
+        <header className="body">
 
-        <nav className="recherche">
-            <div className="Navsearch">
+            <nav className="recherche">
+                <div className="Navsearch">
 
-                <a className="logo" href="#" target="" rel="">
-                    <img src="assets/img_header/Project_title_picture.png" alt="Logo CodingTube" className="icon_title" width="100" />  
-                </a>
+                    <a className="logo" href=" " target="" rel="">
+                        <img src="assets/img_header/Project_title_picture.png" alt="Logo CodingTube" className="icon_title" width="100" />
+                    </a>
 
-                <div className="search" action="submit">
-                    <Search2/>
+                    <div className="search" action="submit">
+                        <Search2 />
+                    </div>
+
+                    <div className="connect">
+
+                        <a className="not" href="" target="" rel="">
+                            <i class="fa-solid fa-bell fa-2x"></i>
+                        </a>
+
+                        <a className="pp" href="/connexion" target="" rel="">
+                            <i className="fa-solid fa-user fa-2x"></i>
+                        </a>
+                    </div>
+
                 </div>
 
-                <div className="connect">
+                <div className="Navid">
+                    {Hashtag}
 
-                    <a className="not"href="" target="" rel="">
-                        <i class="fa-solid fa-bell fa-2x"></i>
-                    </a>
-                    
-                    <a className="pp" href="/connexion" target="" rel="">
-                        <i className="fa-solid fa-user fa-2x"></i>
-                    </a>
+                    <ControlledCarousel />
                 </div>
-                
-            </div>
 
-            <div className="Navid">
-                {Hashtag}
+            </nav>
 
-                <ControlledCarousel />
-            </div>
-            
-        </nav>
-
-    </header>
+        </header>
     );
 }
 
