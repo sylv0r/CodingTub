@@ -1,4 +1,5 @@
 import './Searchs.scss';
+import React, { useState } from 'react';
 import ControlledCarousel from "./hashtag";
 import Search2 from './searchbar';
 import Hashtag from "./hashtag";
