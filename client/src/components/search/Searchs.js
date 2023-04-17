@@ -1,10 +1,7 @@
-import { useState } from "react";
 import './Searchs.scss';
 import ControlledCarousel from "./hashtag";
 import Search2 from './searchbar';
 import Hashtag from "./hashtag";
-import SideBar from '../Home/SideBar/SideBar';
-//import './Header.scss';
 
 function Search() {
 
@@ -25,7 +22,7 @@ function Search() {
             <nav className="recherche">
                 <div className="Navsearch">
 
-                    <a className="logo" href=" " target="" rel="">
+                    <a className="logo" href=" " rel="">
                         <img src="assets/img_header/Project_title_picture.png" alt="Logo CodingTube" className="icon_title" width="100" />
                     </a>
 
