@@ -20,7 +20,7 @@ console.log(sqlDatetime);
         res.sendStatus(200)
 
     }else{
-        await con.query('INSERT INTO historique(id_user, id_video) VALUES(?, ?)', [user, video])
+        await con.query('INSERT INTO historique(id_user, id_video, date) VALUES(?, ?, ?)', [user, video, sqlDatetime])
         res.sendStatus(200)
 
     }

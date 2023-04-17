@@ -9,6 +9,7 @@ const getChannelVideosAccueil = require("./query/getChannelVideosAccueil");
 const postLike = require('./query/postLike');
 const addToHistory = require("./query/addToHistory");
 const videoInHistory = require("./query/videoInHistory");
+const getHistory = require("./query/getHistory");
 
 const router = Router()
 
@@ -25,6 +26,7 @@ router.get('/getChannelVideosAccueil/:name', getChannelVideosAccueil)
 router.post('/likes', postLike)
 router.post('/addHistory', addToHistory)
 router.post('/videoInHistory', videoInHistory)
+router.get('/getHistory/:user', getHistory )
 
 
 
