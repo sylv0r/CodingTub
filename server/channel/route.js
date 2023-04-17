@@ -4,7 +4,6 @@ const showNamePp = require("./query/showNamePp");
 const addContent = require("./query/addContent");
 const uploadVideo = require('./query/uploadVideo')
 const getSubscriptions = require('./query/getSubscriptions')
-const uploadMiniature = require('./query/uploadMiniature')
 
 const path = require('path');
 const multer = require('multer');
@@ -24,10 +23,12 @@ const upload = multer({ storage });
 const router = Router()
 
 //lance la fonction createChannel lorsqu'un post est effecté à /channels/createChannel
+
+router.get('/showNamePp/:id', showNamePp)
+router.post('/addContent', addContent)
+
 router.post('/createChannel', upload.single('image'), createChannel)
-router.get('/showNamePp/:id', getName)
-router.post('/postCommunaute', postCommunaute)
-router.post('/uploadMiniature', upload.single('image'), uploadMiniature);
+
 
 const cpUpload = upload.fields([{ name: 'video', maxCount: 1 }, { name: 'miniature', maxCount: 1 }])
 router.post('/uploadVideo', cpUpload, uploadVideo)

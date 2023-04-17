@@ -1,19 +1,20 @@
 import './Searchs.scss';
 import { useState } from 'react';
+//import ControlledCarousel from "./hashtag"
+//import Hashtag from "./hashtag"
 import SideBar from '../Home/SideBar/SideBar';
+import Search2 from './searchbar';
 //import './Header.scss';
 
 function Search() {
 
     const data = [/*{chaine}, {profil}, {hashtag}, {video},*/"Chocolat", "Chien", "chat", "Café", "Cafeine"];
 
-    const [value, setvalue] = useState("");
+    const [value, setvalue] = useState("  ");
 
     function handleChange (event) {
         setvalue(event.target.value)
     }
-
-    const url = process.env.REACT_APP_NGINX_LINK;
 
     return (
 
@@ -22,13 +23,12 @@ function Search() {
         <nav className="recherche">
             <div className="Navsearch">
 
-                <a className="logo" href="/" target="" rel="">
-                    <img src={url + 'logo/logo_codingtub.png'} alt="Logo CodingTube" className="icon_title" width="100" />
+                <a className="logo" href="#" target="" rel="">
+                    <img src="assets/img_header/Project_title_picture.png" alt="Logo CodingTube" class="icon_title" width="100" />  
                 </a>
 
                 <div className="search" action="submit">
-                    <input className="searchBar" placeholder="Rechercher" type="text" value={value} onChange={handleChange}/> 
-                    <button className="lanchsubmit" onClick={() => console.log(value)} >Envoyer</button>
+                    <Search2/>
                 </div>
 
                 <div className="connect">
@@ -45,17 +45,8 @@ function Search() {
             </div>
 
             <div className="Navid">
-                <div className="hashtag"><a href="">#Vilebrequin</a></div>
-                <div className="hashtag"><a href="">#Wankil</a></div>
-                <div className="hashtag"><a href="">#Anas</a></div>
-                <div className="hashtag"><a href="">#Squeezie</a></div>
-                <div className="hashtag"><a href="">#Pokimane</a></div>
-                <div className="hashtag"><a href="">#Amouranth</a></div>
-                <div className="hashtag"><a href="">#FuzeIII</a></div>
-                <div className="hashtag"><a href="">#LeBouzeuh</a></div>
-                <div className="hashtag"><a href="">#Louis-san</a></div>
-                <div className="hashtag"><a href="">#Locklear</a></div>
 
+                
             </div>
         </nav>
 
