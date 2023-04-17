@@ -87,7 +87,7 @@ function Connexion() {
 
 		//console.log(localStorage.getItem('user_id'));
 
-		window.location.href = '/';
+		//window.location.href = '/';
 	};
 
 	const showPass = (event) => {
