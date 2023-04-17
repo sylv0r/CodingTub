@@ -7,22 +7,18 @@ function History(props) {
   const [videoHistory, setVideoHistory] = useState([]);
 
   const handleVideoClick = (video) => {
-// Check if the video is in the history    
-
-const index = videoHistory.indexOf(video);
+    // Check if the video is in the history
+    const index = videoHistory.indexOf(video);
 
     if (index !== -1) {
-  
       const updatedHistory = [...videoHistory];
       updatedHistory.splice(index, 1);
 
       // video at the top of the history
       setVideoHistory([video, ...updatedHistory]);
     } else {
-
-// Add the video to the beginning of the history
-
-  const updatedHistory = [video, ...videoHistory];
+      // Add the video to the beginning of the history
+      const updatedHistory = [video, ...videoHistory];
       setVideoHistory(updatedHistory);
     }
 
@@ -31,15 +27,22 @@ const index = videoHistory.indexOf(video);
   };
 
   const handleHistoryClick = (video) => {
+    // Get the video ID from the URL parameter
+    const params = new URLSearchParams(window.location.search);
+    const videoId = params.get('v');
 
-// Modify the URL to include the video id
-
+    // Update the URL with the new video ID
     window.history.pushState(null, null, `?v=${video}`);
-    
+
+    // Play the video if it's different from the previous one
+    if (video !== videoId) {
+      
+      // TODO: Play the video with the given ID
+      console.log(`Playing video with ID ${video}`);
+    }
   };
 
-// Load saved history
-
+  // Load saved history
   useEffect(() => {
     const savedHistory = localStorage.getItem('videoHistory');
     if (savedHistory) {
