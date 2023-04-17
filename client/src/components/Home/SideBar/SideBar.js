@@ -15,7 +15,7 @@ export default function SideBar() {
                 return response.json()
             })
             .then((json) => {
-                console.log(json)
+                //console.log(json)
                 setChannels(json)
             })
             .catch(error => {

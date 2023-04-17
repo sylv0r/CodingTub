@@ -3,11 +3,30 @@ import ReactPlayer from 'react-player'
 import './video.scss';
 import './listDroite.scss';
 
-import { useSearchParams  } from 'react-router-dom'
+import { json, useSearchParams  } from 'react-router-dom'
 import VideoListRight from './VideoListRight';
 import Likes from './likes/Likes';
 function Video() {
-    
+
+        const [videoHistory, setVideoHistory] = useState([localStorage.getItem("videoHistory")]);
+
+    const handleVideoClick = async (video, inHistory) => {
+        
+        console.log(video)
+
+        await fetch(`http://localhost:3001/videos/addHistory/`, {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                user : localStorage.getItem('user_id'),
+                video : id,
+                inHistory : inHistory
+            })
+            
+        });
+
+    };
+
     
     let [searchParams, setSearchParams] = useSearchParams();
     const id = searchParams.get('id'); // send
@@ -51,10 +70,68 @@ function Video() {
 
     const url = process.env.REACT_APP_NGINX_LINK;
 
+    /*window.addEventListener('load', function() {
+        let player = document.getElementById('video-play')
+        console.log(player)
+        player.firstChild.addEventListener("play", function() {
+        handleVideoClick(id)
+        })
+    })*/
+
+    function waitForElement() {
+        return new Promise(function(resolve, reject) {
+          var element = document.getElementById('video-play');
+          if (element) {
+            resolve(element);
+          } else {
+            var interval = setInterval(function() {
+              var element = document.getElementById('video-play');
+              if (element) {
+                clearInterval(interval);
+                resolve(element);
+              }
+            }, 100);
+          }
+        });
+      }
+      
+      waitForElement().then(function(element) {
+        
+        if (!element.firstChild.playEventListenerAdded) {
+            element.firstChild.addEventListener("play", async function() {
+                console.log("Video started playing");
+                await fetch(`http://localhost:3001/videos/videoInHistory/`, {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    user : localStorage.getItem('user_id'),
+                    video : id
+                })
+                
+            })
+            .then((response) => response.json())
+            .then((json) => {
+                if(json == "") {
+                    handleVideoClick(id, false)
+                }
+                else {
+                    handleVideoClick(id, true)
+                }
+            })
+            });
+            element.firstChild.playEventListenerAdded = true;
+            }
+        
+        
+        });
     
+    
+
 
     useEffect(()=>{
         getVideosInfo();
+        //console.log(id)
+        //handleVideoClick(id)
     }, []) 
 
 
@@ -68,6 +145,7 @@ function Video() {
                     url={url + videos[0].video_link}
                     controls
                     className='player'
+                    id="video-play"
                     width='50%'
                     height='50%'
                     />
