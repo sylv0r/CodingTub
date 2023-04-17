@@ -1,11 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import io from 'socket.io-client';
 import './creerLive.scss';
-
-import { Link } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 function App() {
   const videoRef = useRef();
+
+
+  
+  
 
   
 
@@ -17,31 +21,37 @@ function App() {
 
 
   //OUVERT\\
-  const liveOuvert = () => {
-    const titre = document.getElementById("creer_form_titre").value;
-    const description = document.getElementById("creer_form_description").value;
-    setInputTitre(titre);
-    setInputDescription(description);
+    const liveOuvert = () => {
 
-    setLiveEnCours(true);
-    localStorage.setItem("liveEnCours", true);
-    localStorage.setItem("inputTitre", titre);
-    localStorage.setItem("inputDescription", description);
+      
+      const titre = document.getElementById("creer_form_titre").value;
+      const description = document.getElementById("creer_form_description").value;
+      setInputTitre(titre);
+      setInputDescription(description);
 
-  
-    const liveData1 = { url: 'http://localhost:3000/affichageLive', title: titre, description: description};
-  
-    fetch('http://localhost:3008/api/postLives', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(liveData1)
-    })
-    .then(response => response.json())
-    .then(data => console.log("requete sql : " + data))
-    .catch(error => console.error(error));
-  };
+      setLiveEnCours(true);
+      localStorage.setItem("liveEnCours", true);
+      localStorage.setItem("inputTitre", titre);
+      localStorage.setItem("inputDescription", description);
+
+      // Générer la chaîne aléatoire et modifier l'URL
+      const liveURL = uuidv4();
+      const liveData1 = { url: `http://localhost:3000/affichageLive?url=${liveURL}`, title: titre, description: description};
+      window.history.pushState(null,"fg" ,`/creerLive?url=${liveURL}`);
+
+
+
+      fetch('http://localhost:3008/api/postLives', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(liveData1)
+      })
+      .then(response => response.json())
+      .then(data => console.log("requete sql : " + data))
+      .catch(error => console.error(error));
+    };
   //------\\
 
 
@@ -63,6 +73,8 @@ function App() {
     .then(response => response.json())
     .then(data => console.log("requete sql : " + data))
     .catch(error => console.error(error));
+    navigator.mediaDevices.getUserMedia({ video: false, audio: false })
+
   };
   //-----\\
 

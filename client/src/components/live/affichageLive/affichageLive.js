@@ -43,6 +43,7 @@ function App() {
     if (!liveEnCours) {
       return;
     }
+    
     // Configuration des sockets pour relier le serveur au client
     const socket = io.connect('http://localhost:3005');
     // Configuration des sockets pour relier le serveur au client
@@ -82,6 +83,7 @@ function App() {
       pc.addIceCandidate(candidate);
     });
   }, [liveEnCours]);
+  const liveEnCoursData = lives.find(live => live.URL === window.location.href);
 
 
   return (
@@ -101,10 +103,10 @@ function App() {
                   <button className="Accueil-button">Retourner à l'accueil</button>
                 </Link>
                 {Array.isArray(lives) && lives.map(live => (
-                  <li key={live.id}>
-                    <a href={live.URL}>{live.title}</a>
-                  </li>
-                ))}
+                <li key={live.id}>
+                  <a href={live.URL}>{live.title}</a>
+                </li>
+              ))}
               </div>
               <div id="creer_live_description">
                 <video ref={videoRef} autoPlay playsInline id="creer_live"></video>

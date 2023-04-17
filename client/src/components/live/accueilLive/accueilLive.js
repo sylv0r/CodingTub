@@ -5,6 +5,8 @@ function AffichageLive() {
   const [lives, setLives] = useState([]);
   const [videoURL, setVideoURL] = useState('');
 
+  
+
   useEffect(() => {
     const fetchLives = () => {
       fetch('http://localhost:3009/api/getLives')
