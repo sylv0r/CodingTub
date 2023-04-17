@@ -10,6 +10,8 @@ const Short = () => {
   const [displayedVideos, setDisplayedVideos] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(1);
   const [showComments, setShowComments] = useState(false);
+  const userId = localStorage.getItem('user_id');
+ 
 
   const fetchVideos = async () => {
     try {
@@ -19,10 +21,14 @@ const Short = () => {
       console.error("Error fetching videos:", error);
     }
   };
+  
 
-  const handleLike = async (videoId) => {
+  const handleLike = async (videoId )  => {
+    
+      console.log('Video ID:', videoId); // Vérifiez l'ID de la vidéo
+  
     try {
-      await axios.post(`http://localhost:3001/shorts/like/${videoId}`);
+      await axios.post(`http://localhost:3001/shorts/like/${videoId}` ,  { user_id: 1 });
       fetchVideos();
     } catch (error) {
       console.error("Error liking video:", error);
@@ -97,7 +103,7 @@ const Short = () => {
           <button className="comment-button" onClick={() => setShowComments(!showComments)}>
             <FaComment />
           </button>
-          <Link to="/UploadShorts">
+          <Link to="/Uploadshort">
             <button className="upload-button">
               <FaUpload />
             </button>

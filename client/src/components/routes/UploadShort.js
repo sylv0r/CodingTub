@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../style/videoUploadForm.css";
+import { Link } from "react-router-dom";
 
 const VideoUploadForm = () => {
   const [videoDescription, setVideoDescription] = useState("");
@@ -95,6 +96,9 @@ const VideoUploadForm = () => {
           )}
           <br />
           <button type="submit">Upload</button>
+          <Link to="/Short">
+            <button type="button">Cancel</button>
+          </Link>
         </form>
       </div>
       {submitStatus && (

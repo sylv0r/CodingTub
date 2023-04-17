@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     element: <Short />,
   },
   {
-    path: "/UploadShort",
+    path: "/Uploadshort",
     element: <UploadShort />,
   }
 ]);
