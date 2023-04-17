@@ -1,10 +1,22 @@
-#codingLogoInscription {
-  width: 50%;
-  margin: 5% 0;
+.pageInscriptionSize {
+  height: 100vh;
+  background-color: rgb(250, 249, 250);
 }
 
-#showPassBtnInscription {
+#codingLogoInscription {
+  width: 50%;
+}
+
+#showPassBtnInscription, #showPassBtnInscription2 {
   margin-left: 2%;
+  background-color: rgb(145, 29, 52);
+  width: 48px;
+  color: #fff;
+  font-size: 14px;
+  padding: 6px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 
@@ -27,25 +39,27 @@
       align-items: center;
       margin: 10px;
       
-      &.a {
-        margin-left: 0;
-      }
+     
       
-      &.b {
-        margin-right: 0;
-        margin-left: auto;
-      }
-      
-      label {
-        width: 100px;
+      .inscriptionLabel {
+        width: 40%;
         text-align: right;
         margin-right: 10px;
       }
-      
-      input[type="text"], input[type="email"], input[type="password"] {
+
+      .inputInscriptionSize {
         width: 200px;
         height: 30px;
-        border-radius: 5px;
+        border-radius: 5px !important;
+        border: 1px solid gray;
+        padding: 5px;
+        font-size: 16px;
+      }
+      
+      .inputInscriptionSize[type="text"], .inputInscriptionSize[type="email"], .inputInscriptionSize[type="password"] {
+        width: 200px;
+        height: 30px;
+        border-radius: 5px !important;
         border: 1px solid gray;
         padding: 5px;
         font-size: 16px;
@@ -59,13 +73,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(250, 249, 250);
 }
 
 .form-group {
   display: flex;
   width: 100%;
-
 }
 
 .button-container-profile {
@@ -88,12 +100,11 @@
 
 
 
-#showPassBtnInscription {
-  background-color: rgb(145, 29, 52);
+#showPassBtnInscription, #showPassBtnInscription2 {
   background-color: rgb(145, 29, 52);
   border: none;
   color: white;
-  padding: 2px 9px;
+  padding: 3px 9px !important;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
