@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import io from 'socket.io-client';
 import './affichageLive.scss';
 import { Link } from 'react-router-dom';
+var tkt=0;
 
 function App() {
   const videoRef = useRef();
@@ -85,6 +86,15 @@ function App() {
   }, [liveEnCours]);
   // envoie au meme url que celui dans la bdd
   const liveEnCoursData = lives.find(live => live.URL === window.location.href); 
+  if (liveEnCoursData === undefined && tkt > 3){ // Rediriger les fausses urls
+    tkt =+1;
+    console.log("tkt"+tkt);
+    window.location.href = "http://localhost:3000/accueilLive";
+  } else {
+    tkt = tkt+1;
+    //console.log("tkt"+tkt);
+    console.log("URL existant");
+  }
 
 
   return (
@@ -119,7 +129,7 @@ function App() {
                         <p>{live.description}</p>
                       </div>
                     )
-                  }
+                  } 
                   return null;
                 })}
               </div>
