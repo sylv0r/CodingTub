@@ -50,10 +50,10 @@ export default function Search2() {
 
   return (
     <div id="search">
-      <div className="searchBar">
+      <form method="post" className="searchBar">
         <input type="text" name="search" id="search" placeholder="Rechercher" value={searchTerm} ref={searchRef} onChange={handleSearchTerm} className="search"/>
-        <button type="submit" className="search_button">Rechercher</button>
-      </div>
+        <button name="submit" type="submit" className="search_button">Rechercher</button>
+      </form>
       <div className={`search__results ${searchTerm.length > 0 ? "active" : ""}`}>
         {searchTerm.length > 0 &&
           filteredData.map((item, index) => (
