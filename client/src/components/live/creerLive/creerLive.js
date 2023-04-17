@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import io from 'socket.io-client';
 import './creerLive.scss';
 
+import { Link } from 'react-router-dom';
 
 function App() {
   const videoRef = useRef();
@@ -131,9 +132,9 @@ function App() {
         <div id="global_creer_live">
           {liveEnCours ? ( //Si liveEnCours = false alors rien ne s'affiche
               <>
-                <div id="option_creer_live">
+                <div id="option_creer_live_body">
                   <h1 id="connecté">CONNECTÉ</h1>
-                  <button onClick={liveFermé}>Fermer le live</button>
+                  <button id="bouton_fermerLive" onClick={liveFermé}>Fermer le live</button>
                 </div>
                 <div id="creer_live_description">
                   <video ref={videoRef} autoPlay playsInline id="creer_live"></video>
@@ -145,9 +146,14 @@ function App() {
               </>
           ) : (
               <>
-                <div id="option_creer_live">
+                <div id="option_creer_live_body">
                   <h1 id="déconnecté">DÉCONNECTÉ</h1>
-                  <button onClick={liveOuvert}>Ouvrir le live</button>
+                  <div id="option_creer_live">
+                      <button id="bouton_ouvrirLive" onClick={liveOuvert}>Ouvrir le live</button>
+                    <Link to="/accueilLive">
+                      <button id="bouton_accueilLive" className="Accueil-button">Retourner à l'accueil</button>
+                    </Link>
+                  </div>
                 </div>
                 <div id="creer_live_description">
                     <div id="emplacement_live"></div>

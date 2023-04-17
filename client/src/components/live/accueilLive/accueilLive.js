@@ -37,7 +37,7 @@ function AffichageLive() {
 
 
   return (
-    <div>
+    <div id="accueilLive_body">
       <h1>Liste des lives en cours</h1>
       <ul>
       {Array.isArray(lives) && lives.map(live => (
@@ -49,6 +49,7 @@ function AffichageLive() {
       <Link to="/creerLive">
         <button className="Accueil-button">Créer le live</button>
       </Link>
+
     </div>
   );
 }

@@ -15,11 +15,49 @@
         display: flex;
     }
 
-    #option_creer_live{
+    #option_creer_live_body{
       flex: 1;
       display: block;
       border: solid;
-      border-color: rgb(86, 84, 84);
+      border-color: #565454;
+      background-color: #B2BEBF;
+    }
+
+    #déconnecté, #connecté{
+      display: block;
+      background-color: #B2BEBF;
+    }
+
+    #bouton_ouvrirLive{
+      padding-bottom: 2%;
+      padding-top: 2%;
+      margin-bottom: 4%;
+    }
+    #bouton_fermerLive{
+      padding-bottom: 2%;
+      padding-top: 2%;
+      margin-bottom: 4%;
+      padding-right: 29%;
+      padding-left: 29.5%;
+
+    }
+
+    #bouton_accueilLive{
+      padding-right: 22%;
+      padding-left: 22%;
+      padding-bottom: 2%;
+      padding-top: 2%;
+      margin-bottom: 4%;
+    }
+
+    #option_creer_live{
+      flex: 1;
+      display: flex;
+      background-color: #B2BEBF;
+      flex-direction: column;
+      padding-top: 15%;
+      padding-bottom: 74%;
+
     }
     #creer_live {
         width:100%;
@@ -34,7 +72,7 @@
       display: flex;
       justify-content: space-around;
       padding-top: 2%;
-      background-color: #9e9595;
+      background-color: #B2BEBF;
       padding-bottom: 55%;
     }
 
@@ -46,11 +84,14 @@
       flex: 1;
       color: #FFF;
       font-weight: bold;
-      background-color: #2d2d2d;
+      background-color: #B2BEBF;
       display: flex;
       align-items: center;
       justify-content: center;
       padding-bottom: 55%;
+      display: block;
+      border: solid;
+      border-color: #565454;
     }
 }
   

@@ -3,12 +3,14 @@
     #global{
         display: flex;
     }
+
+
   
     #autre_live {
       flex: 1;
       color: #FFF;
       font-weight: bold;
-      background-color: #2d2d2d;
+      background-color: #B2BEBF;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -27,7 +29,7 @@
     }
     #description {
         padding-top: 15%;
-        background-color: #9e9595;
+        background-color: #B2BEBF;
         padding-bottom: 55%;
     }
     
@@ -37,7 +39,7 @@
       flex: 1;
       color: #FFF;
       font-weight: bold;
-      background-color: #2d2d2d;
+      background-color: #B2BEBF;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -45,4 +47,8 @@
     }
 }
   
-  
+#accueilLive_body{
+  border: solid;
+  border-color: #9e9595;
+  border-radius: 5%;
+}
