@@ -11,6 +11,24 @@ function validatePassword(password) {
   return regex.test(password);
 }
 
+const createErrorInscription = (message) => {
+
+  document.getElementById('errorInscription').innerHTML = message;
+
+  document.getElementById('errorInscription').animate([
+    { transform: 'translateX(0px)' },
+    { transform: 'translateX(10px)' },
+    { transform: 'translateX(-10px)' },
+    { transform: 'translateX(0px)' },
+    { transform: 'translateX(5px)' },
+    { transform: 'translateX(0px)' }
+  ], {
+    duration: 400,
+    iterations: 1
+  });
+
+};
+
 function Inscription() {
     // state (état, donné)
   const [formData, setFormData] = useState({
@@ -22,30 +40,32 @@ function Inscription() {
   cpassword: ''
 });
 
-const [passwordError ,setPasswordError] = useState(false);
-
 const handleSubmit = (event) => {
   event.preventDefault();
   console.log(formData);
 
   if (formData.nom === '' || formData.prenom === '' || formData.prenom === '' || formData.email === '' || formData.password === '' || formData.cpassword === '') {
-    alert('Veuillez remplir tous les champs');
+    createErrorInscription('Veuillez remplir tous les champs');
     return;
   }
 
   if (formData.password !== formData.cpassword) {
-    alert('Les mots de passe doivent être identiques');
+    createErrorInscription('Les mots de passe doivent être identiques');
     return;
   }
-  
+
   if (!validatePassword(formData.password)) {
-    setPasswordError(true);
+    createErrorInscription('Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial');
     return;
   }
 
   axios(options)
     .then(response => {
-        console.log(response.status);
+        console.log(response);
+
+        localStorage.setItem('user_id', JSON.stringify(response.data.userId));
+
+        window.location.href = '/';
     })
     .catch(error => {
         if (error.response) {
@@ -53,16 +73,17 @@ const handleSubmit = (event) => {
             console.log(error.response.data);
             console.log(error.response.status);
             console.log(error.response.headers);
+            return;
         } else if (error.request) {
             // The request was made but no response was received
             console.log(error.request);
+            return;
         } else {
             // Something happened in setting up the request that triggered an Error
             console.log('Error :', error.message);
+            return;
         }
     });
-  
-  window.location.href = '/connexion';
 };
 
 const handleChange = (event) => {
@@ -71,10 +92,6 @@ const handleChange = (event) => {
     ...formData,
     [name]: value
   });
-
-  if (name === 'password') {
-    setPasswordError(!validatePassword(value));
-  }
 };
 
 const options = {
@@ -91,9 +108,8 @@ const options = {
     email: formData.email,
     password: formData.password,
     cpassword: formData.cpassword
-
   }
-};
+  };
   
 	const showPass1 = (event) => {
     event.preventDefault();
@@ -178,9 +194,9 @@ const options = {
             </div>
         </form>
 
-    </div>
-    
+        <a href="/connexion" className='linkToConnexion'>Déja inscrit ?</a>
 
+    </div>
   );
 }
 export default Inscription;

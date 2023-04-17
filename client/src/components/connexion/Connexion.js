@@ -134,7 +134,7 @@ function Connexion() {
      	</form>
 
 		<div>
-			<a href='/inscription' id='connexionVersInsc'>Pas encore inscrit ?</a>
+			<a href='/Inscription' id='connexionVersInsc'>Pas encore inscrit ?</a>
 		</div>
     </div>
   );

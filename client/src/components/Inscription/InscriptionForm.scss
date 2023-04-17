@@ -91,14 +91,7 @@
   font-weight: bold;
   border-radius: 3px;
   cursor: pointer;
-  transition: all 0.3s ease;
 }
-
-.button-container-profile:hover{
-    background-color: #cc4100;
-}
-
-
 
 #showPassBtnInscription, #showPassBtnInscription2 {
   background-color: rgb(145, 29, 52);
@@ -112,4 +105,16 @@
   border-radius: 3px;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+#errorInscription {
+  display: flex;
+  width: 50%;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.linkToConnexion {
+  display: flex;
+  justify-content: center;
 }
