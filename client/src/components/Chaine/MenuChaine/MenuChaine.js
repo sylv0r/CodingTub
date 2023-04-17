@@ -13,6 +13,12 @@ import Profile from '../../Profile/Profile'
 export default function MenuChaine() {
     // state
     const [sectionAffichee, setSectionAffichee] = useState(<SectionAccueil />);
+
+    var currentUrl = window.location.href
+    
+    var split = currentUrl.split('/')
+    var name = split [split.length-1]
+    console.log(name)
     
     // comportements
     const handleSectionChange = (section) => {
@@ -49,7 +55,7 @@ export default function MenuChaine() {
     // affichage (render)
     return (
     <div className='body_menu_chaine'>
-    <Profile />
+    <Profile action={`getUserBis/${name}`}/>
     <div id="buttons">
     <button className='sections_menu' onClick={() => handleSectionChange('Accueil')}>Accueil</button>
     <button className='sections_menu' onClick={() => handleSectionChange('Vidéos')}>Vidéos</button>

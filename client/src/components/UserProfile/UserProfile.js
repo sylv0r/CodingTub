@@ -5,12 +5,18 @@ import profilePhoto from './chat.jpg';
 
 function UserProfile() {
 
+    const localId = localStorage.getItem('user_id');
+
+    if (!localId){
+        window.location.href= '/connexion';
+    }
+
     const [users, setUsers] = useState([]);
 
     const action = () => {
 
         axios.post('http://localhost:3001/users/getUserBis', {
-            id:23
+            id:localId
         })
         .then(response => {
 

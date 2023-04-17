@@ -3,31 +3,37 @@ import './Profile.scss';
 import axios from 'axios';
 import profilePhoto from './chat.jpg';
 
-function Profile() {
+export default function Profile({ action }) {
+
+    const localId = localStorage.getItem('user_id');
+
+    if (!localId){
+        window.location.href= '/connexion';
+    }
 
     const [users, setUsers] = useState([]);
 
-    const action = () => {
+    const getProfile = async () => {
 
-        axios.post('http://localhost:3001/users/getUserBis', {
-            id:23
-        })
+        await fetch(`http://localhost:3001/users/${action}`, {method:"GET", headers: { "Content-Type": "application/json"}})
         .then(response => {
-
-            setUsers(response.data);
-            console.log(response.data);
-
-        } ).catch(error => {
+            return response.json()
+        })
+        .then((json) => {
+            console.log(json)
+            setUsers(json)
+        })
+        .catch(error => {
 
             console.log(error);
 
-        } );
+        });
 
     };
 
     useEffect(() => {
 
-        action();
+        getProfile()
 
     }, []);
 
@@ -68,5 +74,3 @@ function Profile() {
     );
 
 };
-
-export default Profile;
