@@ -24,9 +24,16 @@ const upload = multer({ storage });
 const router = Router()
 
 //lance la fonction createChannel lorsqu'un post est effecté à /channels/createChannel
+<<<<<<<<< Temporary merge branch 1
+router.post('/createChannel', createChannel)
+router.get('/showNamePp/:id', showNamePp)
+router.post('/addContent', addContent)
+=========
 router.post('/createChannel', upload.single('image'), createChannel)
 router.get('/showNamePp/:id', getName)
 router.post('/postCommunaute', postCommunaute)
+router.post('/uploadMiniature', upload.single('image'), uploadMiniature);
+>>>>>>>>> Temporary merge branch 2
 
 const cpUpload = upload.fields([{ name: 'video', maxCount: 1 }, { name: 'miniature', maxCount: 1 }])
 router.post('/uploadVideo', cpUpload, uploadVideo)
