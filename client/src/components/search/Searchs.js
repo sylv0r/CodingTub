@@ -15,7 +15,7 @@ function Search() {
             <div className="Navsearch">
 
                 <a className="logo" href="#" target="" rel="">
-                    <img src="assets/img_header/Project_title_picture.png" alt="Logo CodingTube" class="icon_title" width="100" />  
+                    <img src="assets/img_header/Project_title_picture.png" alt="Logo CodingTube" className="icon_title" width="100" />  
                 </a>
 
                 <div className="search" action="submit">
@@ -29,7 +29,7 @@ function Search() {
                     </a>
                     
                     <a className="pp" href="/connexion" target="" rel="">
-                        <i class="fa-solid fa-user fa-2x"></i>
+                        <i className="fa-solid fa-user fa-2x"></i>
                     </a>
                 </div>
                 
