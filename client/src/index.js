@@ -17,10 +17,9 @@ import Short from './components/routes/Short';
 import UploadShort from './components/routes/UploadShort';
 import Search from './components/search/Searchs';
 import Search2 from './components/search/searchbar';
-import Connexion from './components/usersManagement/Connexion/Connexion';
+import Connexion from './components/connexion/Connexion';
 import Profile from './components/Profile/Profile';
 import UserProfile from './components/UserProfile/UserProfile';
-import Connexion from './components/connexion/Connexion';
 import Inscription from './components/Inscription/InscriptionForm.js';
 import SideBar from './components/Home/SideBar/SideBar';
 

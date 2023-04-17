@@ -4,7 +4,6 @@ import ControlledCarousel from "./hashtag";
 import Search2 from './searchbar';
 import Hashtag from "./hashtag";
 import SideBar from '../Home/SideBar/SideBar';
-import Search2 from './searchbar';
 //import './Header.scss';
 
 function Search() {

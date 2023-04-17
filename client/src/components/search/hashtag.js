@@ -1,124 +1,41 @@
-import "./hashtag.scss";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
+import "./hashtag.scss";
 
-
-async function getHashtag(setHashtags) {
-
-    const response = await fetch(`http://localhost:3001/search/hashtag`, {
-        method: "GET",
-        headers: { 'Content-Type': 'application/json' },
-    });
-
-    const data = await response.json();
-    setHashtags(data);
-}
-
-function ControlledCarousel() {
+const Hashtag = () => {
+    // Declare state variables
+    const [names, setNames] = useState([]);
     const [index, setIndex] = useState(0);
-    const [hashtags, setHashtags] = useState();
 
-  
-    const handleSelect = (selectedIndex, e) => {
-      setIndex(selectedIndex);
-    }
+    // Fetch data from the server when component mounts
+    useEffect(() => {
+        fetch(`http://localhost:3001/search/hashtag`)
+            .then(response => response.json())
+            .then(data => {
+                setNames(data.map(item => item.nom)); // set the names state with an array of names
+            })
+            .catch(error => console.log(error));
+    }, []);
+
+    // Handle carousel item selection
+    const handleSelect = (selectedIndex) => {
+        setIndex(selectedIndex);
+    };
+
+    console.log(names)
 
     return (
-    <Carousel activeIndex={index} onSelect={handleSelect}>
-        <Carousel.Item>
-            <div id="hashtag">
-    
-                <div>
-                    <a href={getHashtag(setHashtags)}>{hashtags}</a>
+        <Carousel activeIndex={index} onSelect={handleSelect}>
+            <Carousel.Item>
+                <div className="hashtag-list" id='hashtag'>
+                    {names.map((name, i) => (
+                        <div key={i}>{name}
+                        </div>
+                    ))}
                 </div>
-                <div>
-                    <a href={getHashtag(setHashtags)}>{hashtags}</a>
-                </div>
-                <div>
-                    <a href={getHashtag(setHashtags)}>{hashtags}</a>
-                </div>
-                <div>
-                    <a href={getHashtag(setHashtags)}>{hashtags}</a>
-                </div>
-                <div>
-                    <a href={getHashtag(setHashtags)}>{hashtags}</a>
-                </div>
-                <div>
-                    <a href={getHashtag(setHashtags)}>{hashtags}</a>
-                </div>
-                <div>
-                    <a href={getHashtag(setHashtags)}>{hashtags}</a>
-                </div>
-                <div>
-                    <a href={getHashtag(setHashtags)}>{hashtags}</a>
-                </div>
-
-            </div>
-            
-        </Carousel.Item>
-        <Carousel.Item>
-            <div id="hashtag">
-    
-                <div>
-                    <a href={getHashtag(setHashtags)}>{hashtags}</a>
-                </div>
-                <div>
-                    <a href={getHashtag(setHashtags)}>{hashtags}</a>
-                </div>
-                <div>
-                    <a href={getHashtag(setHashtags)}>{hashtags}</a>
-                </div>
-                <div>
-                    <a href={getHashtag(setHashtags)}>{hashtags}</a>
-                </div>
-                <div>
-                    <a href={getHashtag(setHashtags)}>{hashtags}</a>
-                </div>
-                <div>
-                    <a href={getHashtag(setHashtags)}>{hashtags}</a>
-                </div>
-                <div>
-                    <a href={getHashtag(setHashtags)}>{hashtags}</a>
-                </div>
-                <div>
-                    <a href={getHashtag(setHashtags)}>{hashtags}</a>
-                </div>
-
-            </div>
-            
-        </Carousel.Item>
-        <Carousel.Item>
-            <div id="hashtag">
-    
-                <div>
-                    <a href={getHashtag(setHashtags)}>{hashtags}</a>
-                </div>
-                <div>
-                    <a href={getHashtag(setHashtags)}>{hashtags}</a>
-                </div>
-                <div>
-                    <a href={getHashtag(setHashtags)}>{hashtags}</a>
-                </div>
-                <div>
-                    <a href={getHashtag(setHashtags)}>{hashtags}</a>
-                </div>
-                <div>
-                    <a href={getHashtag(setHashtags)}>{hashtags}</a>
-                </div>
-                <div>
-                    <a href={getHashtag(setHashtags)}>{hashtags}</a>
-                </div>
-                <div>
-                    <a href={getHashtag(setHashtags)}>{hashtags}</a>
-                </div>
-                <div>
-                    <a href={getHashtag(setHashtags)}>{hashtags}</a>
-                </div>
-
-            </div>
-            
-        </Carousel.Item>
-    </Carousel>
+            </Carousel.Item>
+        </Carousel>
     );
-}
-export default ControlledCarousel;
+};
+
+export default Hashtag;
