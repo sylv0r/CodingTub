@@ -3,7 +3,10 @@ import './../style/ListPlaylist.scss';
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 //import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
 
-export default function ListPlaylist(){
+export default function ListPlaylist({ action }){
+
+    //state
+    const [videos, setVideos] = useState([])
 
     return(
 
