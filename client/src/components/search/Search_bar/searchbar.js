@@ -16,6 +16,7 @@ export default function Search2() {
     } else {
       setSearchTerm("");
       setSelectedResult(null);
+      
     }
   };
 

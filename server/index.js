@@ -26,7 +26,7 @@ app.use(function (req, res, next) { // Empeche les erreur de CORS
 app.use("/channels", channelsMiddleware.routes)
 app.use("/videos", videoMiddleware.routes)
 app.use("/shorts", shortsMiddleware.routes)
-app.use("/search", searchMiddleware.routes)
+app.use("/searchBar", searchMiddleware.routes)
 app.use("/ResultHashtag", searchMiddleware.routes)
 //utilise le middleware des channels lorsque la requête commence par /channels
 app.use("/users", usersMiddleware.routes)
