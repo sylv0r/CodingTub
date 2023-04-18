@@ -18,7 +18,7 @@ module.exports = async (req, res) => {
             if (!alreadyExist[0]) {
               const imagePath = path.join(__dirname, '../uploads', req.file.filename);
               const fileStream = fs.createReadStream(imagePath);
-              const url = `${process.env.NGROK_PATH}/miniatures/` + req.file.filename;
+              const url = `${process.env.NGROK_PATH}channel_pictures/` + req.file.filename;
 
               await axios.put(url, fileStream, {
                 headers: {

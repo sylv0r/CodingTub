@@ -9,8 +9,8 @@ export default function Channel() {
   const [message, setMessage] = useState("")
   const [responseType, setResponseType] = useState(null)
 
-  useEffect(async () => {
-    await checkConnection()
+  useEffect(() => {
+    checkConnection()
   }, [])
 
   return (

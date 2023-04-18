@@ -18,8 +18,8 @@ module.exports = async (req, res) => {
     const fileStreamMinia = fs.createReadStream(miniaturePath);
     const fileStreamVideo = fs.createReadStream(videoPath);
 
-    const urlVideo = `${process.env.NGROK_PATH}/videos/`+ video.originalname;
-    const urlMiniature = `${process.env.NGROK_PATH}/miniatures/` + miniature.originalname;
+    const urlVideo = `${process.env.NGROK_PATH}videos/`+ video.originalname;
+    const urlMiniature = `${process.env.NGROK_PATH}miniatures/` + miniature.originalname;
 
     await axios.put(urlVideo, fileStreamVideo, {
       headers: {

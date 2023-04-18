@@ -28,7 +28,11 @@ export default function ChannelForm({state}) {
         const json = await response.json();
         if (json.error) {
           state.setResponseType("danger")
-          state.setMessage(json.error)
+          if (typeof json.err === "string") {
+            state.setMessage(json.error)
+          } else {
+            state.setMessage("Erreur du serveur, veuillez réésayer plus tard")
+          }
           state.setAlert(true)
         } else {
           state.setResponseType("success")
