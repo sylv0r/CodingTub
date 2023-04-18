@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import "./searchresult.scss";
+import "./SearchResult.scss";
 
 export default function SearchResults() {
   const [datas, setDatas] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const url = process.env.REACT_APP_NGINX_LINK;
-    
+
   useEffect(() => {
     const query = new URLSearchParams(window.location.search).get("query");
     setSearchTerm(query);
@@ -23,7 +23,7 @@ export default function SearchResults() {
     return (
       (item.videoTitle && item.videoTitle.toLowerCase().includes(searchTerm.toLowerCase())) ||
       (item.userPseudo && item.userPseudo.toLowerCase().includes(searchTerm.toLowerCase())) ||
-      (item.channelName && item.channelName.toLowerCase().includes(searchTerm.toLowerCase())) 
+      (item.channelName && item.channelName.toLowerCase().includes(searchTerm.toLowerCase()))
     );
   });
 

@@ -37,7 +37,6 @@ function Search() {
                     {Hashtag}
                     <ControlledCarousel />
 
-
                 </div>
 
             </nav>
