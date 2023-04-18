@@ -1,7 +1,7 @@
 import { useState } from "react";
 import './Searchs.scss';
 import ControlledCarousel from "./hashtag";
-import Search2 from './searchbar';
+import Search2 from './Search_bar/searchbar';
 import Hashtag from "./hashtag";
 import SideBar from '../Home/SideBar/SideBar';
 //import './Header.scss';
