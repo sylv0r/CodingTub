@@ -17,6 +17,7 @@ module.exports = async (req, res) => {
           const fileStream = fs.createReadStream(imagePath);
           const url = `${process.env.NGROK_PATH}/miniatures/` + req.file.filename;
 
+
           await axios.put(url, fileStream, {
             headers: {
               'Content-Type': req.file.mimetype,

@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 //import axios
 import axios from 'axios';
+import SelectTagsUpload from './SelectTagsUpload';
 
 const UploadForm = () => {
     const [selectedVideo, setSelectedVideo] = useState(null);
     const [selectedMiniature, setSelectedMiniature] = useState(null);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [tags, setTags] = useState('');
+    const [tags, setTags] = useState([]);
+    const [selectedTags, setSelectedTags] = useState([]);
+
 
 
 
@@ -27,9 +30,7 @@ const UploadForm = () => {
         setDescription(event.target.value);
     };
 
-    const handleTagsInputChange = (event) => {
-        setTags(event.target.value);
-    };
+
     // Gestionnaire de soumission du formulaire
     const handleSubmit = (event) => {
         const baseURL = "http://localhost:3001/channels/uploadVideo";
@@ -74,8 +75,9 @@ const UploadForm = () => {
                 <div className="formInfosUpload">
                     <input type="text" id="titleVideo" placeholder='titre' required onChange={handleTitleInputChange} />
                     <input type="text" id="descriptionVideo" placeholder='description' required onChange={handleDescriptionInputChange} />
-                    <input type="text" id="tagsVideo" placeholder='tags' required onChange={handleTagsInputChange} />
+                    <SelectTagsUpload tags={tags} setTags={setTags} selectedTags={selectedTags} setSelectedTags={setSelectedTags}/>
                 </div>
+                
                 <div className="miniatureUpload">
                     <input onChange={handleMiniatureInputChange} type="file" id="fileMiniature" accept="image/*" placeholder='minia' />
                 </div>
