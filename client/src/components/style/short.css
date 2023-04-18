@@ -51,7 +51,7 @@
   justify-content: center;
   position: absolute;
   bottom: 10%;
-  right: 37.4%;
+  right: 46.5%;
   transform: translateX(50%);
   opacity: 1;
 }
@@ -88,17 +88,7 @@ border-radius: 20px;
   top: -100px;
 }
 
-.comments-sidebar {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 300px;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 20px;
-  overflow-y: auto;
-  border-left: 1px solid #ccc;
-}
+
 
 .prev-video-button,
 .next-video-button {
@@ -115,15 +105,57 @@ border-radius: 20px;
 
 }
 .prev-video-button {
-  left: 35.3%;
+  left: 20.3%;
   
   transform: translateY(-50%);
 }
 
 .next-video-button {
-  right: 35.9%;
+  right: 44.9%;
   transform: translateY(-50%);
 
 }
 
 
+
+.comments-sidebar {
+  position: relative;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 365px; /* empêche la sidebar de devenir trop grande sur les grands écrans */
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  overflow-y: auto;
+  border-left: 1px solid #ccc;
+}
+
+.comment-input {
+  position: fixed;
+  bottom: 0;
+  right: 150px;
+  width: 100%;
+  max-width: 200px; /* empêche l'input de devenir trop grand sur les grands écrans */
+}
+.submit-comment {
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  width: 100%;
+  max-width: 100px; /* empêche l'input de devenir trop grand sur les grands écrans */
+}
+
+/* Media Queries pour les écrans plus petits */
+@media only screen and (max-width: 768px) {
+  .comments-sidebar {
+    width: 100%;
+    max-width: none;
+  }
+
+  .comment-input {
+    position: relative;
+    width: 100%;
+    max-width: none;
+  }
+}
