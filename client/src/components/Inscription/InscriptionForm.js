@@ -69,6 +69,7 @@ const handleSubmit = (event) => {
     return;
   }
 
+  //création de la playlist WatchLater et Likes lors de l'inscription
   axios(options)
     .then(response => {
         console.log(response);
