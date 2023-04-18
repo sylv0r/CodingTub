@@ -22,6 +22,7 @@ import UserProfile from './components/UserProfile/UserProfile';
 import Connexion from './components/connexion/Connexion';
 import Inscription from './components/Inscription/InscriptionForm.js';
 import SideBar from './components/Home/SideBar/SideBar';
+import NavbarDarkExample from './components/search/dropbutton/dropbutton';
 
 import {
   createBrowserRouter,
@@ -113,6 +114,10 @@ const router = createBrowserRouter([
   {
     path:"/SerchResult",
     element : <SearchResults />
+  },
+  {
+    path: "/dropbutton",
+    element : <NavbarDarkExample/>
   }
 ]);
 
