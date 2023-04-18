@@ -107,12 +107,11 @@
   transition: all 0.3s ease;
 }
 
-#errorInscription {
+p #errorInscription {
   display: flex;
   width: 50%;
   text-align: center !important;
   word-wrap: break-word;
-  margin: 0px;
 }
 
 .linkToConnexion {
