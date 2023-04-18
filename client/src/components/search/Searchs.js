@@ -9,7 +9,7 @@ import Search2 from './searchbar';
 function Search() {
 
     const logout = () => {
-        localStorage.removeItem("user_id");
+        localStorage.removeItem("hashed_user_id");
         window.location.href = "/connexion";
     }
 
