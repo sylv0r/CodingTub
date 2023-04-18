@@ -4,7 +4,17 @@ import './description.scss'
 export default function Description(props) {
   const [showMore, setShowMore] = useState(false)
   const video_info_desc = props.video[0].description
-  const video_info_date = new Date(props.video[0].published_at)
+  const video_info_date = props.video[0].published_at
+
+  const formatDate = (date) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(date).toLocaleDateString('fr-FR', options);
+  };
+
+  const formatTime = (date) => {
+    const options = { hour: 'numeric', minute: 'numeric', hour12: false };
+    return new Date(date).toLocaleTimeString('fr-FR', options);
+  };
 
   const handleShowMore = () => {
     setShowMore(true)
@@ -20,9 +30,10 @@ export default function Description(props) {
       <p id="description" className={showMore ? 'show-more' : ''}>
         {video_info_desc}
       </p>
-      <p id="published_date">
-        Publiée le {video_info_date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
-      </p>
+      <p id="published_date_desc">
+        {formatDate(video_info_date) + " à " + formatTime(video_info_date)}
+     </p>
+      
       {!showMore && (
         <p className="read-more" onClick={handleShowMore}>
           Afficher plus

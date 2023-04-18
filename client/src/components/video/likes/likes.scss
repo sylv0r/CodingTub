@@ -6,3 +6,21 @@
 #likes{
     margin-right: 5px;
 }
+
+.like-button {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .like-button.active {
+    background-color: #e74c3c;
+    border-color: #c0392b;
+    color: #fff;
+  }
+  

@@ -7,6 +7,7 @@ import { useSearchParams  } from 'react-router-dom'
 import VideoListRight from './VideoListRight';
 import Likes from './likes/Likes';
 import Description from './description/Description';
+import InfoChanel from './info_channel/InfoChanel';
 function Video() {
     
     
@@ -80,12 +81,15 @@ function Video() {
                     <h2 id='title_video'>
                         {videos[0].title}
                     </h2>
+                    <div id='div_infochannel_videostats'>
+                        <InfoChanel video={videos} />
                         <div id='video_stats'>
                             <Likes video={videos} />
                             <span id='vues'>
                             {videos[0].vues} vues
                             </span>
                         </div>
+                    </div>
                         <Description video={videos} />
        
                         </div>
