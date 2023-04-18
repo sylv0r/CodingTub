@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import './UserProfile.scss';
+import './UserChannel.scss';
 import axios from 'axios';
 import profilePhoto from './chat.jpg';
 
-function UserProfile() {
+function UserChannel() {
 
     const localId = localStorage.getItem('user_id');
 
@@ -78,4 +78,4 @@ function UserProfile() {
 
 };
 
-export default UserProfile;
+export default UserChannel;

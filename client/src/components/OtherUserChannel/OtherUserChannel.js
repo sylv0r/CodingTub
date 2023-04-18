@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './Profile.scss';
+import './OtherUserChannel.scss';
 
-export default function Profile({ action }) {
+export default function OtherUserChannel({ action }) {
 
     const localId = localStorage.getItem('user_id');
 
@@ -15,7 +15,7 @@ export default function Profile({ action }) {
     const [buttonText, setButtonText] = useState(localStorage.getItem("buttonText") || "S'abonner");
     const [buttonColor, setButtonColor] = useState(localStorage.getItem("buttonColor") || "black");
 
-    const getProfile = async() => {
+    const getOtherUserChannel = async() => {
 
         await fetch(`http://localhost:3001/users/${action}`, {method:"GET", headers: {"Content-Type": "application/json"}}).then(response => {
 
@@ -36,7 +36,7 @@ export default function Profile({ action }) {
 
     useEffect(() => {
 
-        getProfile();
+        getOtherUserChannel();
 
     }, []);
 
