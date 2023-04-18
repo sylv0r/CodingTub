@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
       if (user.length > 0) {
         const canCreateChannel = await con.query2("SELECT id FROM channels WHERE user_id = ?",[user_id])
         if (canCreateChannel.length < 5) {
-          if (name && description && name.length >= 4 && description.length >= 10) {
+          if (name && description && name.length >= 4 && name.length <= 30 && description.length >= 10 && description.length <= 254) {
             if (image && (image.mimetype == "image/jpeg" || image.mimetype == "image/jpg" || image.mimetype == "image/png")) {
               const imageAlreadyExist = await con.query2("SELECT id FROM channels WHERE image_link = ?",[`channel_pictures/${image.filename}`]) 
               if (imageAlreadyExist.length === 0) {
