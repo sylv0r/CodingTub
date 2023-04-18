@@ -4,7 +4,7 @@ import axios from 'axios';
 import logo from './codingTub.png'
 
 let vision1 = false;
-
+let vision2 = false;
 
 function validatePassword(password) {
   const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -44,17 +44,27 @@ const handleSubmit = (event) => {
   event.preventDefault();
   console.log(formData);
 
-  if (formData.nom === '' || formData.prenom === '' || formData.prenom === '' || formData.email === '' || formData.password === '' || formData.cpassword === '') {
+  if (formData.nom.trim() === '' || formData.prenom.trim() === '' || formData.prenom.trim() === '' || formData.email.trim() === '' || formData.password.trim() === '' || formData.cpassword.trim() === '') {
     createErrorInscription('Veuillez remplir tous les champs');
     return;
   }
 
-  if (formData.password !== formData.cpassword) {
+  if (formData.nom.trim().length > 30 || formData.nom.trim().length < 2 || formData.prenom.trim().length > 30 || formData.prenom.trim().length < 2 || formData.pseudo.trim().length > 30 || formData.pseudo.trim().length < 2) {
+    createErrorInscription('Le nom / prenom / pseudo doit contenir entre 2 et 30 caractères');
+    return;
+  }
+
+  if (!/^\S+@\S+\.\S+$/.test(formData.email.trim())) {
+    createErrorInscription("L'email n'est pas valide");
+    return;
+  }
+
+  if (formData.password.trim() !== formData.cpassword.trim()) {
     createErrorInscription('Les mots de passe doivent être identiques');
     return;
   }
 
-  if (!validatePassword(formData.password)) {
+  if (!validatePassword(formData.password.trim())) {
     createErrorInscription('Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial');
     return;
   }
@@ -63,14 +73,15 @@ const handleSubmit = (event) => {
     .then(response => {
         console.log(response);
 
-        localStorage.setItem('user_id', JSON.stringify(response.data.userId));
+        localStorage.setItem('hashed_user_id', JSON.stringify(response.data.hashedUserId));
 
         window.location.href = '/';
     })
     .catch(error => {
         if (error.response) {
             // Request made and server responded
-            console.log(error.response.data);
+            console.log(error.response.data.message);
+            createErrorInscription(error.response.data.message);
             console.log(error.response.status);
             console.log(error.response.headers);
             return;
@@ -146,15 +157,15 @@ const options = {
   const showPass2 = (event) => {
     event.preventDefault();
 
-    if (vision1 === false) {
+    if (vision2 === false) {
       document.getElementById('PassInput2').type = 'text';
       document.getElementById('showPassBtnInscription2').innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
-      vision1 = true;
+      vision2 = true;
       
       } else {
 			document.getElementById('PassInput2').type = 'password';
 			document.getElementById('showPassBtnInscription2').innerHTML = '<i class="fa-regular fa-eye"></i>';
-			vision1 = false;
+			vision2 = false;
     }
   }
 

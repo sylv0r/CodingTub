@@ -87,7 +87,7 @@ function Connexion() {
 
 		/* console.log("connected") */
 
-		localStorage.setItem('user_id', JSON.stringify(data));
+		localStorage.setItem('hashed_user_id', JSON.stringify(data));
 
 		//console.log(localStorage.getItem('user_id'));
 

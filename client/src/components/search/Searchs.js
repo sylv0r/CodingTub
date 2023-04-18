@@ -8,6 +8,11 @@ import Search2 from './searchbar';
 
 function Search() {
 
+    const logout = () => {
+        localStorage.removeItem("hashed_user_id");
+        window.location.href = "/connexion";
+    }
+
     const data = [/*{chaine}, {profil}, {hashtag}, {video},*/"Chocolat", "Chien", "chat", "Café", "Cafeine"];
 
     const [value, setvalue] = useState("  ");
@@ -40,6 +45,9 @@ function Search() {
                     <a className="pp" href="/connexion" target="" rel="">
                         <i class="fa-solid fa-user fa-2x"></i>
                     </a>
+
+                    <p onClick={logout} className='logoutBtn'>Logout</p>
+
                 </div>
                 
             </div>

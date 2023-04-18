@@ -110,8 +110,9 @@
 #errorInscription {
   display: flex;
   width: 50%;
-  text-align: center;
+  text-align: center !important;
   word-wrap: break-word;
+  margin: 0px;
 }
 
 .linkToConnexion {

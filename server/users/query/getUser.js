@@ -18,9 +18,9 @@ module.exports = async (req, res) => {
 
     const isMatch = bcrypt.compare(Password, result[0].password);
 
-    if(result.length === 0) {
+    if(result.length === 0 || result[0].hashedUserId === "") {
         return res.status(400).json({ message: 'Email ou mot de passe incorrect' });
     } else if (isMatch) {
-        res.json(result[0].id).status(200);
+        res.json(result[0].hashedUserId).status(200);
     }
 }
