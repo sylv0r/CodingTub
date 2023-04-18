@@ -7,27 +7,30 @@ function UserProfile() {
 
     const localId = localStorage.getItem('user_id');
 
-    if (!localId){
+    if (!localId) {
+
         window.location.href= '/connexion';
-    }
+
+    };
 
     const [users, setUsers] = useState([]);
 
     const action = () => {
 
         axios.post('http://localhost:3001/users/getUserBis', {
+
             id:localId
-        })
-        .then(response => {
+
+        }).then(response => {
 
             setUsers(response.data);
             console.log(response.data);
 
-        } ).catch(error => {
+        }).catch(error => {
 
             console.log(error);
 
-        } );
+        });
 
     };
 
@@ -59,7 +62,7 @@ function UserProfile() {
 
                     </div>
 
-                )) }
+                ))}
 
             </div>
 
