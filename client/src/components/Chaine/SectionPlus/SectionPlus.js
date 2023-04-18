@@ -22,7 +22,7 @@ export default function SectionPlus({ infos }){
         <div className='section_a_propos'>
             <div className='section_a_propos_description'>
                 <h3 className='infos_description'>Description</h3>
-                <p className='description_channel'>{infos.descriptionChannel.description}</p>
+                <p className='description_channel'>{infos.descriptionChannel.description_channel}</p>
             </div>
             <div className='section_a_propos_statistiques'>
                 <h3 className='infos_stats'>Statistiques</h3>

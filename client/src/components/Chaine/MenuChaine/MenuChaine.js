@@ -13,11 +13,13 @@ import Profile from '../../Profile/Profile'
 export default function MenuChaine() {
     // state
     const [idChaine, setIdChaine] = useState([])
+    const [imageLink, setImageLink] = useState([])
     const [idUserChaine, setIdUserChaine] = useState([])
     const [descriptionChannel, setDescriptionChannel] = useState([])
     const [creationChannel, setCreationChannel] = useState([])
     const [subscribersChannel, setSubscribersChannel] = useState([])
     const [nbVideosChannel, setNbVideosChannel] = useState([])
+
     const [sectionAffichee, setSectionAffichee] = useState(<SectionAccueil />);
 
     var currentUrl = window.location.href
@@ -33,6 +35,7 @@ export default function MenuChaine() {
         })
         .then((json) => {
             setIdChaine(json[0])
+            setImageLink(json[0])
             setIdUserChaine(json[0])
             setDescriptionChannel(json[0])
             setCreationChannel(json[0])
