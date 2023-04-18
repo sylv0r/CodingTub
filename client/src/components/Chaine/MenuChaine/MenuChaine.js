@@ -8,7 +8,7 @@ import SectionPlaylists from '../SectionPlaylists/SectionPlaylists'
 import SectionCommunaute from '../SectionCommunaute/SectionCommunaute'
 import SectionChaines from '../SectionChaines/SectionChaines'
 import SectionPlus from '../SectionPlus/SectionPlus'
-import Profile from '../../OtherUserChannel/OtherUserChannel'
+import Profile from '../../UpProfile/OtherUserChannel/OtherUserChannel'
 
 export default function MenuChaine() {
     // state
