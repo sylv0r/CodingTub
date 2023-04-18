@@ -1,5 +1,5 @@
 import './Searchs.scss';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 //import ControlledCarousel from "./hashtag"
 //import Hashtag from "./hashtag"
 import SideBar from '../Home/SideBar/SideBar';
@@ -7,6 +7,20 @@ import Search2 from './searchbar';
 //import './Header.scss';
 
 function Search() {
+
+    useEffect(() => {
+        if(localStorage.getItem("hashed_user_id") === null) {
+            document.getElementsByClassName("logoutBtn")[0].innerHTML = "Login";
+        } else {
+            document.getElementsByClassName("logoutBtn")[0].innerHTML = "Logout";
+        }
+    }, []);
+
+
+    const logout = () => {
+        localStorage.removeItem("hashed_user_id");
+        window.location.href = "/connexion";
+    }
 
     const data = [/*{chaine}, {profil}, {hashtag}, {video},*/"Chocolat", "Chien", "chat", "Café", "Cafeine"];
 
@@ -40,6 +54,9 @@ function Search() {
                     <a className="pp" href="/connexion" target="" rel="">
                         <i class="fa-solid fa-user fa-2x"></i>
                     </a>
+
+                    <p onClick={logout} className='logoutBtn'>Logout</p>
+
                 </div>
                 
             </div>

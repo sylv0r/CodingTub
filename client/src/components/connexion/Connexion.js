@@ -15,8 +15,6 @@ function Connexion() {
   	const handleSubmit = (event) => {
    	 	event.preventDefault();
 
-		/* console.log('formData', formData); */
-
 		if (formData.email === '' || formData.password === '') {
 			document.getElementById('errorConnexion').innerHTML = 'Email ou mot de passe pas rempli';
 
@@ -43,7 +41,8 @@ function Connexion() {
 			createSession(response.data);
 		})
 		.catch(error => {
-			console.log(error);
+			console.log('error', error.response.data)
+			createError(error.response.data);
 		});
 		
   	};
@@ -56,33 +55,29 @@ function Connexion() {
 		});
   	};
 
+	const createError = (data) => {
+
+		document.getElementById('errorConnexion').innerHTML = data.message;
+
+		document.getElementById('errorConnexion').animate([
+			{ transform: 'translateX(0px)' },
+			{ transform: 'translateX(10px)' },
+			{ transform: 'translateX(-10px)' },
+			{ transform: 'translateX(0px)' },
+			{ transform: 'translateX(5px)' },
+			{ transform: 'translateX(0px)' }
+		], {
+			duration: 400,
+			iterations: 1
+		});
+
+	};
+
   	const createSession = (data) => {
 
-		if(data == 0) {
+		localStorage.setItem('hashed_user_id', JSON.stringify(data));
 
-			document.getElementById('errorConnexion').innerHTML = 'Email ou mot de passe incorrect';
-
-			document.getElementById('errorConnexion').animate([
-				{ transform: 'translateX(0px)' },
-				{ transform: 'translateX(10px)' },
-				{ transform: 'translateX(-10px)' },
-				{ transform: 'translateX(0px)' },
-				{ transform: 'translateX(5px)' },
-				{ transform: 'translateX(0px)' }
-			], {
-				duration: 400,
-				iterations: 1
-			});
-
-		} else {
-			/* console.log("connected") */
-
-			localStorage.setItem('user_id', JSON.stringify(data[0].id));
-
-			/* console.log(localStorage.getItem('user_id')); */
-
-			window.location.href = '/';
-		};
+		window.location.href = '/';
 	};
 
 	const showPass = (event) => {
@@ -103,7 +98,7 @@ function Connexion() {
   return (
     <div className="UsersConnexion">
 
-		<img src={logo} id='codingLogoConnexion' alt='logo'/>
+		<a href="/" className='linkCodingLogoConnexion'><img src={logo} id='codingLogoConnexion' alt='logo'/></a>
 
       	<h1>Connexion</h1>
 
@@ -125,7 +120,7 @@ function Connexion() {
      	</form>
 
 		<div>
-			<a href='/inscription' id='connexionVersInsc'>Pas encore inscrit ?</a>
+			<a href='/Inscription' id='connexionVersInsc'>Pas encore inscrit ?</a>
 		</div>
     </div>
   );
