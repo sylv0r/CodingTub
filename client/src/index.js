@@ -16,7 +16,7 @@ import MenuChaine from './components/Chaine/MenuChaine/MenuChaine';
 import Short from './components/routes/Short';
 import UploadShort from './components/routes/UploadShort';
 import Search from './components/search/Searchs';
-import Search2 from './components/search/search_bar/SearchBar';
+import Search2 from './components/search/Search_bar/searchbar';
 import Connexion from './components/connexion/Connexion';
 import Profile from './components/Profile/Profile';
 import UserProfile from './components/UserProfile/UserProfile';

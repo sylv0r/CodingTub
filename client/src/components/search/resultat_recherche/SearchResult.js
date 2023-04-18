@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./SearchResult.scss";
+import "./searchresult.scss";
 
 export default function SearchResults() {
   const [datas, setDatas] = useState([]);
