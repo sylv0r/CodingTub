@@ -3,31 +3,38 @@ import AddContent from './addContent/AddContent';
 import ShowContent from './showContent/ShowContent';
 import './SectionCommunaute.scss'
 
-export default function SectionCommunaute(){
+export default function SectionCommunaute({ name }){
 
     // state
     const [userChannel, setUserChannel] = useState([]);
 
-    var currentUrl = window.location.href
-
-    var split = currentUrl.split('/')
-    var name = split[split.length-1]
-    console.log(name)
-
     // comportements   
-    const showNamePp = async () => {
-        await fetch(`http://localhost:3001/channels/showNamePp/${name}`, {method: "GET", headers: { "Content-Type": "appplication/json"}})
+    const getNamePpChaine = async () => {
+        await fetch(`http://localhost:3001/channels/getNamePpChaine/${name}`, {method: "GET", headers: { "Content-Type": "appplication/json"}})
         .then(response => {
             return response.json()
         })
         .then((json) => {
-            console.log(json)
-            setUserChannel(json)
+            setUserChannel(json[0])
         })
+        .catch(error => {
+            if (error.response) {
+                // Request made and server responded
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+            } else if (error.request) {
+                // The request was made but no response was received
+                console.log(error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log('Error :', error);
+            }
+        }) 
     }
 
     useEffect(() => {
-        showNamePp()
+        getNamePpChaine()
     }, [])
 
     // affichage (render)
@@ -35,12 +42,12 @@ export default function SectionCommunaute(){
         <div>
             <div className='div_section_communaute'>
                 <div className='pdp_name'>
-                    <img src='{userChannel.image_link}' alt="pdp_utilisateur" className='pdp_utilisateur'></img>
-                    <p>{userChannel.name}Sequoia</p>
+                    <img src={process.env.REACT_APP_NGINX_LINK+userChannel.image_link} alt="pdp_utilisateur" className='pdp_utilisateur'></img>
+                    <p>{userChannel.name}</p>
                 </div>
                 <AddContent />
             </div>
-            <ShowContent />
+            <ShowContent action={`getContent/${name}`}/>
         </div>
     );
 }

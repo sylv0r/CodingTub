@@ -10,7 +10,6 @@ export default function SectionAccueil(){
     return (
     <div>
         <AccueilVideos />
-        <p>Mettre le composant des playlists</p>
         <p>Mettre le composant de Chaine</p>
     </div>
     );

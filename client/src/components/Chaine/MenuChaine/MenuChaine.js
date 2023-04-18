@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; // importez useState pour gérer l'état
+import React, { useState, useEffect } from 'react'; // importez useState pour gérer l'état
 import './MenuChaine.scss'
 import SectionAccueil from '../SectionAccueil/SectionAccueil'
 import SectionVideos from '../SectionVideos/SectionVideos'
@@ -13,15 +13,50 @@ import Profile from '../../Profile/Profile'
 export default function MenuChaine() {
     // state
     const [sectionAffichee, setSectionAffichee] = useState(<SectionAccueil />);
+    const [idChaine, setIdChaine] = useState([])
+
+    var currentUrl = window.location.href
+
+    var split = currentUrl.split('/')
+    var name = split[split.length-1]
     
     // comportements
+    const getChannelId = async () => {
+        await fetch(`http://localhost:3001/channels/getChannelId/${name}`, {method: "GET", headers: { "Content-Type": "appplication/json"}})
+        .then(response => {
+            return response.json()
+        })
+        .then((json) => {
+            setIdChaine(json[0])
+        })
+        .catch(error => {
+            if (error.response) {
+                // Request made and server responded
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+            } else if (error.request) {
+                // The request was made but no response was received
+                console.log(error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log('Error :', error);
+            }
+        }) 
+    }
+
+    useEffect(() => {
+        getChannelId()
+    }, [])
+
+
     const handleSectionChange = (section) => {
     switch (section) {
     case 'Accueil':
     setSectionAffichee(<SectionAccueil />);
     break;
     case 'Vidéos':
-    setSectionAffichee(<SectionVideos />);
+    setSectionAffichee(<SectionVideos name={name} />);
     break;
     case 'Shorts':
     setSectionAffichee(<SectionShorts />);
@@ -33,10 +68,10 @@ export default function MenuChaine() {
     setSectionAffichee(<SectionPlaylists />);
     break;
     case 'Communauté':
-    setSectionAffichee(<SectionCommunaute />);
+    setSectionAffichee(<SectionCommunaute name={name}/>);
     break;
     case 'Chaînes':
-    setSectionAffichee(<SectionChaines />);
+    setSectionAffichee(<SectionChaines channel_user_id={idChaine.id}/>);
     break;
     case 'À Propos':
     setSectionAffichee(<SectionPlus />);

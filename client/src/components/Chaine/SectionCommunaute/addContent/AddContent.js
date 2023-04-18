@@ -5,7 +5,9 @@ import Button from 'react-bootstrap/Button';
 function AddContent(props) {
 
     const content = useRef();
-    const [value, setValue] = useState([""]);
+    const [value, setValue] = useState();
+
+    const id = localStorage.getItem('user_id');
 
     const handleChange = (event) => {
       setValue(event.target.value);
@@ -14,23 +16,23 @@ function AddContent(props) {
     };
 
     async function contentSubmit(e) {
-        e.preventDefault();
-        fetch("http://localhost:3001/channels/addContent", {
-          method: "POST",
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            content: content.current.value,
-            id_channel: 1
-          })
+      e.preventDefault();
+      fetch("http://localhost:3001/channels/addContent", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          id_channel: id,
+          content: content.current.value,
         })
-        .then((response) => {
-          props.onContentSubmit();
-          return response.json()
-        })
-        .then((json) => {
-          console.log(json);
-        });
-        setValue("")
+      })
+      .then((response) => {
+        console.log(response.json())
+        // return response.json()
+      })
+      .then((json) => {
+        // setValue(json)
+        console.log(setValue(json));
+      });
     }
 
     return (

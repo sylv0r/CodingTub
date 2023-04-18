@@ -27,7 +27,7 @@
     width: 100%;
     margin-left: 1%;
     margin-top: 1%;
-    font-size: 16px;
+    font-size: 17px;
 }
 
 .form_submit_community {
@@ -70,6 +70,19 @@
 
 .submit_content:hover {
     cursor: pointer;
+}
+
+
+
+
+
+
+
+
+.show_all_content_communaute {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2%;
 }
 
 /*.div_section_communaute {

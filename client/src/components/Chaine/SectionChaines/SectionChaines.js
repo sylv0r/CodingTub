@@ -1,12 +1,50 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import './SectionChaines.scss'
 
-export default function SectionChaines(){
+
+export default function SectionChaines({ channel_user_id }){
     // state
+    const [channels, setChannels] = useState([])
 
+    console.log(`http://localhost:3001/channels/showAllChannels/${channel_user_id}`)
     // comportements 
+    const getChannels = () => {
+        fetch(`http://localhost:3001/channels/showAllChannels/${channel_user_id}`, {method: "GET", headers: { "Content-Type": "application/json"}})
+            .then(response => {
+                return response.json()
+            })
+            .then((json) => {
+                setChannels(json)
+            })
+            .catch(error => {
+                if (error.response) {
+                    // Request made and server responded
+                    console.log(error.response.data);
+                    console.log(error.response.status);
+                    console.log(error.response.headers);
+                } else if (error.request) {
+                    // The request was made but no response was received
+                    console.log(error.request);
+                } else {
+                    // Something happened in setting up the request that triggered an Error
+                    console.log('Error :', error);
+                }
+            })    
+    }
+
+    useEffect(() => {
+        getChannels()
+    }, [])
 
     // affichage (render)
-    return <div>
-        <p>Afficher seulement les chaines de l'utilisateur</p>
-    </div>
+    return (
+        <div className='section_chaine'>
+            {channels.map((channel) => (
+                <div className='bloc_pdp_name_chaine'>
+                    <img src={process.env.REACT_APP_NGINX_LINK + channel.image_link} className='pdp_chaine'></img>
+                    <p>{channel.name}</p>
+                </div>
+            ))}
+        </div>
+    );
 }
