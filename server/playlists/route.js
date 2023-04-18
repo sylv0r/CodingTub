@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const playlist = require('./query/getPlaylists');
-const playlist_videos = require('./query.getPlaylistsVideos');
+const playlist_videos = require('./query/getPlaylistsVideos');
 
 const router = Router()
 

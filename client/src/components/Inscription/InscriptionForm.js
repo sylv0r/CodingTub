@@ -96,6 +96,7 @@ const handleSubmit = (event) => {
         }
     });
 
+    createPlaylists();
     
 };
 
