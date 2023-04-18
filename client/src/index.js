@@ -16,12 +16,13 @@ import MenuChaine from './components/Chaine/MenuChaine/MenuChaine';
 import Short from './components/routes/Short';
 import UploadShort from './components/routes/UploadShort';
 import Search from './components/search/Searchs';
-import Search2 from './components/search/searchbar';
+import Search2 from './components/search/Searchbar';
 import Connexion from './components/connexion/Connexion';
 import Profile from './components/Profile/Profile';
 import UserProfile from './components/UserProfile/UserProfile';
 import Inscription from './components/Inscription/InscriptionForm.js';
 import SideBar from './components/Home/SideBar/SideBar';
+import ResultHashtag from './components/search/hashtag/ResultHashtag';
 
 import {
   createBrowserRouter,
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
 
   {
     path: "/",
-    element: <Home/>
+    element: <Home />
   },
   {
     path: "/playlist",
@@ -51,7 +52,7 @@ const router = createBrowserRouter([
     path: "/search2",
     element: <Search2 />
   },
-   {
+  {
     path: "/Inscription",
     element: <Inscription />
   },
@@ -80,7 +81,7 @@ const router = createBrowserRouter([
     path: "/Short",
     element: <Short />,
   },
-  
+
   {
     path: "/UploadShort",
     element: <UploadShort />,
@@ -111,8 +112,12 @@ const router = createBrowserRouter([
     element: <UserProfile />
   },
   {
-    path:"/SerchResult",
-    element : <SearchResults />
+    path: "/SerchResult",
+    element: <SearchResults />
+  },
+  {
+    path: '/resulthashtag',
+    element: <ResultHashtag />
   }
 ]);
 
@@ -121,11 +126,11 @@ root.render(
   <React.StrictMode>
     <nav className='side'><SideBar /></nav>
     <section id="main-search">
-    <Search />
-    <main id="main">
-    <RouterProvider router={router} />
-    </main>
-    
+      <Search />
+      <main id="main">
+        <RouterProvider router={router} />
+      </main>
+
     </section>
   </React.StrictMode>
 );

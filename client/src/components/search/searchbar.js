@@ -56,7 +56,7 @@ export default function Search2() {
   return (
     <div id="search">
       <div className="searchBar">
-        <input type="text" name="search" id="search" placeholder="Rechercher" value={searchTerm} ref={searchRef} onChange={handleSearchTerm} className="search"/>
+        <input type="text" name="search" id="search" placeholder="Rechercher" value={searchTerm} ref={searchRef} onChange={handleSearchTerm} className="search" />
         <button type="submit" className="search_button" onClick={handleSearch}>Rechercher</button>
       </div>
       <div className={`search__results ${searchTerm.length > 0 ? "active" : ""}`}>
@@ -74,7 +74,7 @@ export default function Search2() {
         <div className="selectedResult">
           <div>{selectedResult.videoTitle || selectedResult.userPseudo || selectedResult.channelName || selectedResult.liveTitle}</div>
         </div>
-      )}    
+      )}
     </div>
   );
 }

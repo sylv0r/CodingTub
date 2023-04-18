@@ -1,7 +1,8 @@
 import './Searchs.scss';
-import ControlledCarousel from "./hashtag";
-import Search2 from './searchbar';
-import Hashtag from "./hashtag";
+import ControlledCarousel from "./hashtag/Hashtag";
+import Search2 from './Searchbar';
+import Hashtag from "./hashtag/Hashtag";
+import React from 'react';
 
 function Search() {
     return (
@@ -34,8 +35,9 @@ function Search() {
 
                 <div className="Navid">
                     {Hashtag}
-
                     <ControlledCarousel />
+
+
                 </div>
 
             </nav>
