@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import "./hashtag.scss";
+import "./Hashtag.scss";
+import ResultHashtag from './ResultHashtag';
 
 const Hashtag = () => {
     // Declare state variables
@@ -40,14 +41,15 @@ const Hashtag = () => {
                     <div className="hashtag-list" id='hashtag'>
                         {chunk.map((name, j) => (
                             <div key={j}>
-                                <a href={'/search-result?query=' + name}>{name}
+                                <a href={'/resulthashtag/' + name}>{name}
                                 </a>
                             </div>
                         ))}
                     </div>
                 </Carousel.Item>
-            ))}
-        </Carousel>
+            ))
+            }
+        </Carousel >
     );
 };
 

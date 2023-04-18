@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import './searchbar.scss';
+import './Searchbar.scss';
 
 //import "./Searchs.scss";
 
