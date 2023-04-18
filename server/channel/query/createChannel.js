@@ -30,7 +30,7 @@ module.exports = async (req, res) => {
                 console.log("Image deleted successfully")
               });
             
-              await con.query2('INSERT INTO channels (name, description, image_link, user_id) VALUES (?,?,?,?)', [name, description, `miniatures/${image.filename}`, user_id]);
+              await con.query2('INSERT INTO channels (name, description, image_link, user_id) VALUES (?,?,?,?)', [name, description, `channel_pictures/${image.filename}`, user_id]);
               res.status(201).json({
                 message: "Chaîne créée avec succès"
               })
