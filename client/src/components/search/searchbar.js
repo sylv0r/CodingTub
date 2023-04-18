@@ -49,7 +49,7 @@ export default function Search2() {
   });
 
   const handleSearch = () => {
-    const link = `/search-results?query=${searchTerm}`;
+    const link = `/SerchResult?query=${searchTerm}`;
     window.location.href = link;
   };
 
