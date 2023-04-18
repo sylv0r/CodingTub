@@ -37,7 +37,7 @@ function Search() {
                         <i class="fa-solid fa-bell fa-2x"></i>
                     </a>
                     
-                    <a className="pp" href="/ModifyProfile" target="" rel="">
+                    <a className="pp" href="/connexion" target="" rel="">
                         <i class="fa-solid fa-user fa-2x"></i>
                     </a>
                 </div>

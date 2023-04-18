@@ -21,7 +21,6 @@ import UserChannel from './components/UpProfile/UserChannel/UserChannel';
 import Connexion from './components/connexion/Connexion';
 import Inscription from './components/Inscription/InscriptionForm.js';
 import SideBar from './components/Home/SideBar/SideBar';
-import ModifyProfile from './components/UpProfile/ModifyProfile/ModifyProfile';
 
 import {
   createBrowserRouter,
@@ -105,10 +104,6 @@ const router = createBrowserRouter([
   {
     path: "/UserChannel",
     element: <UserChannel />
-  },
-  {
-    path: "/ModifyProfile",
-    element: <ModifyProfile />
   }
 ]);
 
