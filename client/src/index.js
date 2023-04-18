@@ -9,7 +9,7 @@ import Playlists from './components/Playlist/Playlists';
 import History from './components/History/History';
 import Abonnements from './components/Abonnements/Abonnements';
 import CreateChannel from './components/createChannel/CreateChannel';
-
+import SearchResults from './components/search/search-results';
 import UploadForm from './components/chaine_upload/UploadForm';
 import Video from './components/show_video/ShowVideo.js';
 import MenuChaine from './components/Chaine/MenuChaine/MenuChaine';
@@ -109,6 +109,10 @@ const router = createBrowserRouter([
   {
     path: "/UserProfile",
     element: <UserProfile />
+  },
+  {
+    path:"/SerchResult",
+    element : <SearchResults />
   }
 ]);
 
