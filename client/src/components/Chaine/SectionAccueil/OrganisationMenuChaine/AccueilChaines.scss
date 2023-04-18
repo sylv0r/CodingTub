@@ -1,11 +1,10 @@
-.section_chaine {
+.accueil_chaine {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     height: 45%;
 }
 
-.bloc_pdp_name_chaine {
+.bloc_pdp_name_chaine_accueil {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -15,7 +14,7 @@
     margin-top: 2%;
 }
 
-.pdp_chaine {
+.pdp_chaine_accueil {
     width: 100px;
     height: 100px;
     border-radius: 100%;

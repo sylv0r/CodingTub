@@ -12,8 +12,9 @@ import Profile from '../../Profile/Profile'
 
 export default function MenuChaine() {
     // state
-    const [sectionAffichee, setSectionAffichee] = useState(<SectionAccueil />);
     const [idChaine, setIdChaine] = useState([])
+    const [idUserChaine, setIdUserChaine] = useState([])
+    const [sectionAffichee, setSectionAffichee] = useState(<SectionAccueil />);
 
     var currentUrl = window.location.href
 
@@ -21,13 +22,14 @@ export default function MenuChaine() {
     var name = split[split.length-1]
     
     // comportements
-    const getChannelId = async () => {
-        await fetch(`http://localhost:3001/channels/getChannelId/${name}`, {method: "GET", headers: { "Content-Type": "appplication/json"}})
+    const getChannelUserId = () => {
+        fetch(`http://localhost:3001/channels/getIdChannelUser/${name}`, {method: "GET", headers: { "Content-Type": "appplication/json"}})
         .then(response => {
             return response.json()
         })
         .then((json) => {
             setIdChaine(json[0])
+            setIdUserChaine(json[0])
         })
         .catch(error => {
             if (error.response) {
@@ -46,14 +48,13 @@ export default function MenuChaine() {
     }
 
     useEffect(() => {
-        getChannelId()
+        getChannelUserId()
     }, [])
-
 
     const handleSectionChange = (section) => {
     switch (section) {
     case 'Accueil':
-    setSectionAffichee(<SectionAccueil />);
+    setSectionAffichee(<SectionAccueil channel_user_id={idUserChaine.user_id}/>);
     break;
     case 'Vidéos':
     setSectionAffichee(<SectionVideos name={name} />);
@@ -71,20 +72,20 @@ export default function MenuChaine() {
     setSectionAffichee(<SectionCommunaute name={name}/>);
     break;
     case 'Chaînes':
-    setSectionAffichee(<SectionChaines channel_user_id={idChaine.id}/>);
+    setSectionAffichee(<SectionChaines channel_user_id={idUserChaine.user_id}/>);
     break;
     case 'À Propos':
     setSectionAffichee(<SectionPlus />);
     break;
     default:
-    setSectionAffichee(<SectionAccueil />);
+    setSectionAffichee(<SectionAccueil channel_user_id={idUserChaine.user_id}/>);
     }
     };
 
     // affichage (render)
     return (
     <div className='body_menu_chaine'>
-    <Profile />
+    <Profile action={name}/>
     <div id="buttons">
     <button className='sections_menu' onClick={() => handleSectionChange('Accueil')}>Accueil</button>
     <button className='sections_menu' onClick={() => handleSectionChange('Vidéos')}>Vidéos</button>

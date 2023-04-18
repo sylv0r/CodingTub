@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import './SectionChaines.scss'
+import './AccueilChaines.scss'
 
 
-export default function SectionChaines({ channel_user_id }){
+export default function AccueilChaines({ chaine_user_id }){
     // state
-    const [channels, setChannels] = useState([])
+    const [channelsAccueil, setChannelsAccueil] = useState([])
 
     // comportements 
-    const getChannels = () => {
-        fetch(`http://localhost:3001/channels/showAllChannels/${channel_user_id}`, {method: "GET", headers: { "Content-Type": "application/json"}})
+    const getChannelsAccueil = async () => {
+        await fetch(`http://localhost:3001/channels/showAllChannels/${chaine_user_id}`, {method: "GET", headers: { "Content-Type": "application/json"}})
             .then(response => {
                 return response.json()
             })
             .then((json) => {
-                setChannels(json)
+                setChannelsAccueil(json)
             })
             .catch(error => {
                 if (error.response) {
@@ -32,16 +32,16 @@ export default function SectionChaines({ channel_user_id }){
     }
 
     useEffect(() => {
-        getChannels()
+        getChannelsAccueil()
     }, [])
 
     // affichage (render)
     return (
-        <div className='section_chaine'>
-            {channels.map((channel) => (
-                <div className='bloc_pdp_name_chaine'>
-                    <img src={process.env.REACT_APP_NGINX_LINK + channel.image_link} className='pdp_chaine'></img>
-                    <p>{channel.name}</p>
+        <div className='accueil_chaine'>
+            {channelsAccueil.map((channelAccueil) => (
+                <div className='bloc_pdp_name_chaine_accueil'>
+                    <img src={process.env.REACT_APP_NGINX_LINK + channelAccueil.image_link} className='pdp_chaine_accueil'></img>
+                    <p>{channelAccueil.name}</p>
                 </div>
             ))}
         </div>

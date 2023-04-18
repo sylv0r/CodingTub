@@ -33,6 +33,7 @@ function AddContent(props) {
         // setValue(json)
         console.log(setValue(json));
       });
+      setValue(''); 
     }
 
     return (
