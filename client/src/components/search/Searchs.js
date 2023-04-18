@@ -1,6 +1,6 @@
 import './Searchs.scss';
 import ControlledCarousel from "./hashtag/Hashtag";
-import Search2 from './Searchbar';
+import Search2 from './SearchBar';
 import Hashtag from "./hashtag/Hashtag";
 import React from 'react';
 

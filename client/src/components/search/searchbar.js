@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import './Searchbar.scss';
+import './SearchBar.scss';
 
 //import "./Searchs.scss";
 
@@ -28,7 +28,7 @@ export default function Search2() {
     setDatas(data);
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     getSearch();
   }, []);
 
