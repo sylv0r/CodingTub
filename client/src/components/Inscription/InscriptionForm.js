@@ -7,7 +7,7 @@ let vision1 = false;
 let vision2 = false;
 
 function validatePassword(password) {
-  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_\.\\-])[A-Za-z\d@$!%*?&_\.\\-]{8,}$/;
   return regex.test(password);
 }
 
@@ -176,7 +176,7 @@ const options = {
         <form onSubmit={handleSubmit}>
             <div className='container-profile-inscription'>
         
-                <img src={logo} id='codingLogoInscription' alt='logo' />
+                <a href="/" className='linkCodingLogoInscription'><img src={logo} id='codingLogoInscription' alt='logo' /></a>
 			          <h2>Inscription</h2>
                 <div className='grid-profil-inscription'>
                   
