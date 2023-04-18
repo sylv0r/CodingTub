@@ -48,11 +48,16 @@ export default function Search2() {
     );
   });
 
+  const handleSearch = () => {
+    const link = `/SerchResult?query=${searchTerm}`;
+    window.location.href = link;
+  };
+
   return (
     <div id="search">
       <div className="searchBar">
         <input type="text" name="search" id="search" placeholder="Rechercher" value={searchTerm} ref={searchRef} onChange={handleSearchTerm} className="search"/>
-        <button type="submit" className="search_button">Rechercher</button>
+        <button type="submit" className="search_button" onClick={handleSearch}>Rechercher</button>
       </div>
       <div className={`search__results ${searchTerm.length > 0 ? "active" : ""}`}>
         {searchTerm.length > 0 &&
