@@ -47,7 +47,9 @@ function Likes(props) {
                     {video_info} 
                 </span>
                 <div className="placement">
-                    <div className={`heart ${isActive ? 'is-active' : ''}`} onClick={() => {toggleActive();handleLikeClick();}}></div>
+                    <button onClick={handleLikeClick}>like</button>
+
+                    {/* <div className={`heart ${isActive ? 'is-active' : ''}`} onClick={() => {toggleActive();handleLikeClick();}}></div> */}
                 </div>
             </div>
     );
