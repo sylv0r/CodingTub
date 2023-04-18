@@ -1,6 +1,5 @@
-body, html, #root {
+body {
   margin: 0;
-  height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -11,22 +10,4 @@ body, html, #root {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-#main-search {
-  width: 85%;
-  margin-left: 15%;
-  position: relative;
-  height: 100vh;
-}
-
-.side {
-  width: 15%;
-  position: fixed;
-}
-
-#main {
-  position: absolute;
-  top: 20%;
-  width: 100%;
 }

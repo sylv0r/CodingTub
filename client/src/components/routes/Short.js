@@ -1,101 +1,102 @@
-import React, { useState } from 'react';
-import ReactPlayer from 'react-player';
-import '../style/short.css';
-import Like from './Like.png';
-import Dislike from './Dislike.png';
-import Comment from './Comment.png';
-import Other from './Other.png';
+import React, { useState, useEffect } from "react";
+import ReactPlayer from "react-player";
+import axios from "axios";
+import "../style/short.css";
+import { FaThumbsUp, FaComment, FaUpload } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-import axios from 'axios';
+const Short = () => {
+  const [videos, setVideos] = useState([]);
+  const [showComments, setShowComments] = useState(false);
 
-const videoUrls = [
-  'https://www.youtube.com/watch?v=sySgyi7KDSE&ab_channel=Swiptype%E2%80%A2',
-  'https://www.youtube.com/watch?v=cFBKinVCjVA&ab_channel=Leboncot%C3%A9deschauves',
-  'https://www.youtube.com/watch?v=70y_OWTol9U&ab_channel=wlistlinks',
-];
-
-function Short() {
-  const [text, setText] = useState('');
-
-  const addItem = async (e) => {
-    e.preventDefault();
-    console.log(text)
+  const fetchVideos = async () => {
     try {
-      const response = await axios.post('http://localhost:3001/shorts/video', {
-        text: text,
-      });
-
-      console.log('Text added successfully:', response.data);
-      setText('');
+      const response = await axios.get("http://localhost:3001/shorts/fetch");
+      setVideos(response.data);
     } catch (error) {
-      console.error('Error adding text:', error);
+      console.error("Error fetching videos:", error);
     }
   };
 
- 
+  const handleLike = async (videoId) => {
+    try {
+      await axios.post(`http://localhost:3001/shorts/like/${videoId}`);
+      fetchVideos(); 
+    } catch (error) {
+      console.error("Error liking video:", error);
+    }
+  };
+
+  useEffect(() => {
+    const searchQuery = 'chat';
+    const API_KEY = 'oMZIXIvlIyN7dlfYApReIKBP24KDsi87mM5UULxIEYAwe16hwNgc8AhM'
+    axios.get(`https://api.pexels.com/v1/search?query=${searchQuery}`, {
+       headers: {
+         Authorization: API_KEY,
+       },
+     })
+     .then(response => {
+       this.setState({ videoUrl: response.data.videoUrl });
+     })
+     .catch(error => {
+       console.log(error);
+     });
+    fetchVideos();
+  }, []);
 
   return (
-    <>
-      
+    <div className="body">
       <div className="player-container">
-        <div className="player-small" id="gap">
+        <div className="player-past">
           <ReactPlayer
-            url={videoUrls[0]}
-            controls={true}
-            height="500px"
-            width="250px"
-            className="player"
-          />
-        </div>
-        <div className="player-large">
-          <ReactPlayer
-            url={videoUrls[1]}
+            url={videos[0]?.shorturl}
             controls={true}
             height="600px"
-            width="330px"
-            className="player"
-          />
-          <div class="buttons">
-          <div class="gap"> 
-            <p class="liking">J'aime</p> 
-            <img src={Like} class="like"/> 
-          </div> 
-
-          <div class="gap"> 
-            <p class="liking">Je n'aime pas</p> 
-            <img src={Dislike} class="dislike"/> 
-          </div>
-
-
-          <div class="gap"> 
-            <p class="liking">Commentaires</p> 
-              <img src={Comment} class="comment"/> 
-          </div>
-
-          <div class="gap"> 
-            <p class="liking">Autres</p> 
-            <img src={Other} class="comment"/> 
-          </div>
-
-        </div>
-        </div>
-
-        
-        <div className="player-small">
-          <ReactPlayer
-            url={videoUrls[2]}
-            controls={true}
-            height="500px"
             width="250px"
             className="player"
           />
+          <p>{videos[0]?.description}</p>
         </div>
-        <div>
-          <button> Suivant </button>
+        <div className="player-current">
+          <ReactPlayer
+            url={videos[1]?.shorturl}
+            controls={true}
+            height="750px"
+            width="380px"
+            className="player"
+          />
+          <p>{videos[1]?.description}</p>
+          <div className="like-comment-container">
+            <button className="like-button" onClick={() => handleLike(videos[1]?.id)}>
+              <FaThumbsUp />
+            </button>
+            <button className="comment-button" onClick={() => setShowComments(!showComments)}>
+              <FaComment />
+            </button>
+            <Link to="/UploadShorts">
+              <button className="upload-button">
+                <FaUpload />
+              </button>
+            </Link>
+          </div>
+        </div>
+        <div className="player-next">
+          <ReactPlayer
+            url={videos[2]?.shorturl}
+            controls={true}
+            height="600px"
+            width="250px"
+            className="player"
+          />
+          <p className="descriptionShort">{videos[2]?.description}</p>
         </div>
       </div>
-    </>
-  );
-}
+      {showComments && (
+        <div className="comments-sidebar">
+          </div>
+)}
+</div>
+);
+};
 
 export default Short;
