@@ -10,7 +10,7 @@ export default function Playlists(){
         <div className="container">
 
             <PreviewPlaylist />
-            <ListPlaylist action="getPlaylists"/>
+            <ListPlaylist video action="getPlaylists"/>
 
         </div>
     );

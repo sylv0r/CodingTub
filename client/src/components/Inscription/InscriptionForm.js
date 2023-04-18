@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './InscriptionForm.scss';
 import axios from 'axios';
 import logo from './codingTub.png'
@@ -84,7 +84,23 @@ const handleSubmit = (event) => {
             return;
         }
     });
+
+    
 };
+
+async function createPlaylists(nom, id_user) {
+  await fetch("http://localhost:3001/playlists/createPlaylist", {
+    method: "POST",
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      nom: nom,
+      id_user: id_user
+    })
+  })
+  .then((response) => {
+    return response
+  })
+}
 
 const handleChange = (event) => {
   const { name, value } = event.target;
