@@ -7,7 +7,7 @@ const getSubscriptions = require('./query/getSubscriptions');
 const getContent = require('./query/getContent');
 const getNamePpChaine = require('./query/getNamePpChaine');
 const showAllChannels = require('./query/showAllChannels');
-const getIdChannelUser = require('./query/getIdChannelUser');
+const getInfosChannel = require('./query/getInfosChannel');
 
 const path = require('path');
 const multer = require('multer');
@@ -33,7 +33,7 @@ router.post('/addContent', addContent)
 router.get('/getContent/:name', getContent)
 router.get('/getNamePpChaine/:name', getNamePpChaine)
 router.get('/showAllChannels/:channel_user_id', showAllChannels)
-router.get('/getIdChannelUser/:name', getIdChannelUser)
+router.get('/getInfosChannel/:name', getInfosChannel)
 
 router.post('/createChannel', upload.single('image'), createChannel)
 
