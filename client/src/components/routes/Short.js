@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import ReactPlayer from 'react-player';
 import '../style/short.css';
+import Like from './Like.png';
+import Dislike from './Dislike.png';
+import Comment from './Comment.png';
+import Other from './Other.png';
 
 import axios from 'axios';
 
@@ -32,25 +36,13 @@ function Short() {
 
   return (
     <>
-      <div className="form-container" >
-        
-        <form className="form-short" onSubmit={addItem}>
-          <input
-            type="text"
-            placeholder="Text content"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          />
-          <button type="submit">Add Text</button>
-          <button id="likeButton">J'aime</button>
-        </form>
-      </div>
+      
       <div className="player-container">
-        <div className="player-small">
+        <div className="player-small" id="gap">
           <ReactPlayer
             url={videoUrls[0]}
             controls={true}
-            height="600px"
+            height="500px"
             width="250px"
             className="player"
           />
@@ -59,8 +51,8 @@ function Short() {
           <ReactPlayer
             url={videoUrls[1]}
             controls={true}
-            height="750px"
-            width="380px"
+            height="600px"
+            width="330px"
             className="player"
           />
           <div class="buttons">
@@ -93,7 +85,7 @@ function Short() {
           <ReactPlayer
             url={videoUrls[2]}
             controls={true}
-            height="600px"
+            height="500px"
             width="250px"
             className="player"
           />

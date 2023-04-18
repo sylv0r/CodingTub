@@ -5,7 +5,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 30px;
+    padding-right: 50px;
+  }
+
+  #gap{
+    padding-right: 90px ;
   }
   
   .player {
@@ -73,7 +77,6 @@
 .gap{
     padding-bottom: 50px;
 }
-
 
 .like, 
 .dislike,
