@@ -2,7 +2,7 @@ import './Searchs.scss';
 import ControlledCarousel from "./hashtag/Hashtag";
 import Hashtag from "./hashtag/Hashtag";
 import React from 'react';
-import Search2 from './Search_bar/searchbar';
+import Search2 from './search_bar/SearchBar';
 
 function Search() {
     return (

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./searchbar.scss";
+import "./SearchBar.scss";
 
 export default function Search2() {
   const [datas, setDatas] = useState([]);
@@ -16,7 +16,7 @@ export default function Search2() {
     } else {
       setSearchTerm("");
       setSelectedResult(null);
-      
+
     }
   };
 
