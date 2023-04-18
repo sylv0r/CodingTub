@@ -42,7 +42,6 @@ function Inscription() {
 
 const handleSubmit = (event) => {
   event.preventDefault();
-  console.log(formData);
 
   if (formData.nom.trim() === '' || formData.prenom.trim() === '' || formData.prenom.trim() === '' || formData.email.trim() === '' || formData.password.trim() === '' || formData.cpassword.trim() === '') {
     createErrorInscription('Veuillez remplir tous les champs');
@@ -71,7 +70,6 @@ const handleSubmit = (event) => {
 
   axios(options)
     .then(response => {
-        console.log(response);
 
         localStorage.setItem('hashed_user_id', JSON.stringify(response.data.hashedUserId));
 
@@ -80,18 +78,18 @@ const handleSubmit = (event) => {
     .catch(error => {
         if (error.response) {
             // Request made and server responded
-            console.log(error.response.data.message);
+            //console.log(error.response.data.message);
             createErrorInscription(error.response.data.message);
-            console.log(error.response.status);
-            console.log(error.response.headers);
+            //console.log(error.response.status);
+            //console.log(error.response.headers);
             return;
         } else if (error.request) {
             // The request was made but no response was received
-            console.log(error.request);
+            //console.log(error.request);
             return;
         } else {
             // Something happened in setting up the request that triggered an Error
-            console.log('Error :', error.message);
+            //console.log('Error :', error.message);
             return;
         }
     });

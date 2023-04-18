@@ -3,10 +3,6 @@ import './Connexion.css';
 import axios from 'axios';
 import logo from './codingTub.png'
 
-/* if (localStorage.getItem('user_id')) {
-	window.location.href = '/connexion';
-} */
-
 function Connexion() {
 
 	let vision = false;
@@ -18,8 +14,6 @@ function Connexion() {
 
   	const handleSubmit = (event) => {
    	 	event.preventDefault();
-
-		/* console.log('formData', formData); */
 
 		if (formData.email === '' || formData.password === '') {
 			document.getElementById('errorConnexion').innerHTML = 'Email ou mot de passe pas rempli';
@@ -63,8 +57,6 @@ function Connexion() {
 
 	const createError = (data) => {
 
-		console.log('data', data.message);
-
 		document.getElementById('errorConnexion').innerHTML = data.message;
 
 		document.getElementById('errorConnexion').animate([
@@ -83,13 +75,7 @@ function Connexion() {
 
   	const createSession = (data) => {
 
-		console.log('data', data);
-
-		/* console.log("connected") */
-
 		localStorage.setItem('hashed_user_id', JSON.stringify(data));
-
-		//console.log(localStorage.getItem('user_id'));
 
 		window.location.href = '/';
 	};

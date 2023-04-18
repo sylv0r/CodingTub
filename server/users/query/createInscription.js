@@ -3,7 +3,6 @@ const { con } = require('../../db/connection');
 const bcrypt = require('bcrypt');
 
 module.exports = async (req, res) => {
-  console.log(req.body)
   const { nom, prenom, pseudo, email, password } = req.body;
 
   // Vérifier si l'utilisateur existe déjà
@@ -17,7 +16,6 @@ module.exports = async (req, res) => {
   const salt = bcrypt.genSaltSync(10); // "10" représente le nombre de "salt rounds"
   const hashedPassword = bcrypt.hashSync(password, salt);
 
-  console.log(req.body)
 
   // Insérer les données dans la base de données
   const result = await con.query2('INSERT INTO users (nom, prenom, pseudo, email, password, hashedUserId) VALUES (?,?,?,?,?,?)', [nom, prenom, pseudo, email, hashedPassword, 'NULL']);
@@ -27,8 +25,6 @@ module.exports = async (req, res) => {
   const hashedUserId = bcrypt.hashSync(userId.toString(), salt);
 
   await con.query2('UPDATE users SET hashedUserId = ? WHERE id = ?', [hashedUserId, userId]);
-
-  console.log('hashedUserId', hashedUserId);
 
   // Répondre à la requête
   res.status(200).json({ hashedUserId }); 
