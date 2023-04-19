@@ -82,7 +82,7 @@ export default function MenuChaine() {
     setSectionAffichee(<SectionPlaylists />);
     break;
     case 'Communauté':
-    setSectionAffichee(<SectionCommunaute infos_communaute={{idChaine, name, imageLink}}/>);
+    setSectionAffichee(<SectionCommunaute infos_communaute={{idChaine, name, imageLink, idUserChaine}}/>);
     break;
     case 'Chaînes':
     setSectionAffichee(<SectionChaines channel_user_id={idUserChaine.user_id}/>);
