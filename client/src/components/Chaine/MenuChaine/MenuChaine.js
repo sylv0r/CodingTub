@@ -8,7 +8,7 @@ import SectionPlaylists from '../SectionPlaylists/SectionPlaylists'
 import SectionCommunaute from '../SectionCommunaute/SectionCommunaute'
 import SectionChaines from '../SectionChaines/SectionChaines'
 import SectionPlus from '../SectionPlus/SectionPlus'
-import Profile from '../../Profile/Profile'
+import Profile from '../../UpProfile/UserChannel/UserChannel'
 
 export default function MenuChaine() {
     // state
@@ -98,7 +98,7 @@ export default function MenuChaine() {
     // affichage (render)
     return (
     <div className='body_menu_chaine'>
-    <Profile />
+    <Profile action={`getUserBis/${name}`}/>
     <div id="buttons">
     <button className='sections_menu' onClick={() => handleSectionChange('Accueil')}>Accueil</button>
     <button className='sections_menu' onClick={() => handleSectionChange('Vidéos')}>Vidéos</button>
