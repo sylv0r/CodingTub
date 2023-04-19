@@ -98,7 +98,7 @@ export default function MenuChaine() {
     // affichage (render)
     return (
     <div className='body_menu_chaine'>
-    <Profile action={`getUserBis/${name}`}/>
+    <Profile action={{imageLink, name, subscribersChannel, descriptionChannel, nbVideosChannel}}/>
     <div id="buttons">
     <button className='sections_menu' onClick={() => handleSectionChange('Accueil')}>Accueil</button>
     <button className='sections_menu' onClick={() => handleSectionChange('Vidéos')}>Vidéos</button>
