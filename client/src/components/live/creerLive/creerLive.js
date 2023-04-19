@@ -49,7 +49,7 @@ function App() {
         body: JSON.stringify(liveData1)
       })
       .then(response => response.json())
-      .then(data => console.log("requete sql : " + data))
+      .then(data => console.log("requete sql : " + data))  
       .catch(error => console.error(error));
     };
 

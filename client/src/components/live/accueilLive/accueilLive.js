@@ -30,20 +30,40 @@ function AffichageLive() {
     };
   }, []);
 
-  const handleVideoClick = (event, url) => {
-    event.preventDefault();
-    setVideoURL(url);
+  const handleVideoClick = (event, url, live) => {
+    updateViewer(live);
   };
+  
+  const updateViewer = (live) => {
+    console.log("updateviewer");
+    fetch('http://localhost:3011/api/updateLivesViewer', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ 
+        title: live.title,
+        description: live.description,
+        url: live.URL
+      })
+    })
+    .catch(error => {
+      console.error('Erreur dans la mise à jour du nombre de spectateurs :', error);
+    });
+  };
+
 
   return (
     <div id="accueilLive_body">
       <h1>Liste des lives en cours</h1>
       <ul>
-        {Array.isArray(lives) && lives.map(live => (
-          <li key={live.id}>
-            <a href={live.URL}>{live.title}</a>
-          </li>
-        ))}
+      {Array.isArray(lives) && lives.map(live => (
+            <li key={live.id}>
+              <a href={live.URL} onClick={(event) => handleVideoClick(event, live.URL, live)}>
+                {live.title}
+              </a>
+            </li>
+          ))}
       </ul>
       <Link to="/creerLive">
         <button className="Accueil-button">Créer le live</button>
@@ -61,7 +81,7 @@ function AffichageLive() {
         <ul>
           {Array.isArray(lives) && lives.map(live => (
             <li key={live.id}>
-              <a href="#" onClick={(event) => handleVideoClick(event, live.videoURL)}>
+              <a href="#" onClick={(event) => handleVideoClick(event, live.URL, live)}>
                 {live.title}
               </a>
             </li>
