@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player'
 import './video.scss';
-import './ListRight.scss';
+import './list_right.scss';
 
 import { json, useSearchParams  } from 'react-router-dom'
 //import SingleVideoRight from './Home/Video/SingleVideoRight';

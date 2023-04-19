@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import './ListRight.scss'
+import './list_right.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios'
 
