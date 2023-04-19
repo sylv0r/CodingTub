@@ -39,7 +39,7 @@ export default function UserChannel({ action, name }) {
         const nom = split[split.length-1];
         
         try {
-            const reponse = await axios.get(`http://localhost:3001/users/getChannel/${nom}`)
+            const reponse = await axios.post(`http://localhost:3001/users/getChannel/${nom}`)
             setUser(reponse.data[0]);
         } catch (e) {
             console.log(e)
