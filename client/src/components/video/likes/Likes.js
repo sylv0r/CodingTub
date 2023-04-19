@@ -5,16 +5,10 @@ import { useSearchParams } from 'react-router-dom';
 
 function Likes(props) {
   const [userId, setUserId] = useState(localStorage.getItem('user_id'));
-
   let [searchParams, setSearchParams] = useSearchParams();
   const video_id = searchParams.get('id');
-
   const video_info = props.video[0].likes;
-
-  
   const [isActive, setIsActive] = useState(false);
-  
-  
 
 const toggleActive = () => {
     setIsActive(!isActive);
