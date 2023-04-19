@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player'
 import './video.scss';
-import './listDroite.scss';
+import './ListRight.scss';
 
 import { json, useSearchParams  } from 'react-router-dom'
-import VideoListRight from './VideoListRight';
+//import SingleVideoRight from './Home/Video/SingleVideoRight';
 import Likes from './likes/Likes';
+import ListRight from './ListRight';
 function Video() {
 
         const [videoHistory, setVideoHistory] = useState([localStorage.getItem("videoHistory")]);
@@ -180,7 +181,7 @@ function Video() {
                         </div>
             }
 
-            <VideoListRight />
+            <ListRight action="getVideos" />
 
 
                 
