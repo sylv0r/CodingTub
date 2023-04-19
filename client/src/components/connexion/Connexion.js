@@ -73,7 +73,7 @@ function Connexion() {
 
 	};
 
-  	const createSession = (data) => {
+		const createSession = (data) => {
 
 		localStorage.setItem('hashed_user_id', JSON.stringify(data));
 

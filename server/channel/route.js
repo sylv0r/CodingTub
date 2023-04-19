@@ -26,10 +26,7 @@ const router = Router()
 
 router.get('/showNamePp/:id', showNamePp)
 router.post('/addContent', addContent)
-
 router.post('/createChannel', upload.single('image'), createChannel)
-
-
 const cpUpload = upload.fields([{ name: 'video', maxCount: 1 }, { name: 'miniature', maxCount: 1 }])
 router.post('/uploadVideo', cpUpload, uploadVideo)
 router.get('/getSubscriptions', getSubscriptions)

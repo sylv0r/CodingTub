@@ -70,8 +70,12 @@ const handleSubmit = (event) => {
 
   axios(options)
     .then(response => {
-
+        console.log(response.data.token)
         localStorage.setItem('hashed_user_id', JSON.stringify(response.data.hashedUserId));
+        if (localStorage.getItem("jwt")) {
+          localStorage.removeItem("jwt");
+        }
+        localStorage.setItem("jwt", response.data.token)
 
         window.location.href = '/';
     })
