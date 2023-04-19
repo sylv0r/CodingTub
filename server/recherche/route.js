@@ -8,7 +8,6 @@ const ResultHashtag = require('./query/hashtag/ResultHashtag');
 const router = Router()
 
 //lance la fonction newSearch lorsqu'un post est effecté à /recherche/newSearch
-router.post('/search', newSearch)
 router.get('/hashtag', hashtag)
 router.get('/search_bar', SearchBar)
 router.get('/resulthashtag/:id_tag', ResultHashtag)
