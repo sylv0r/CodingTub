@@ -27,29 +27,53 @@ export default function SearchResults() {
     );
   });
 
+  function formatDuration(duration) {
+    const seconds = Math.floor(duration % 60);
+    const minutes = Math.floor(duration / 60) % 60;
+    const hours = Math.floor(duration / (60 * 60)) % 24;
+    const days = Math.floor(duration / (60 * 60 * 24)) % 365;
+    const years = Math.floor(duration / (60 * 60 * 24 * 365));
+
+    if (years > 0) {
+      return `Publiée il y a ${years} ${years > 1 ? "ans" : "an"}`;
+    } else if (days > 0) {
+      return `Publiée il y a ${days} ${days > 1 ? "jours" : "jour"}`;
+    } else if (hours > 0) {
+      return `Publiée il y a ${hours} ${hours > 1 ? "heures" : "heure"}`;
+    } else if (minutes > 0) {
+      return `Publiée il y a ${minutes} ${minutes > 1 ? "minutes" : "minute"}`;
+    } else {
+      return `Publiée il y a ${seconds} ${seconds > 1 ? "secondes" : "seconde"}`;
+    }
+  }
 
   console.log(filteredData);
 
   return (
     <div className="search-results">
-
-      {filteredData.map((filteredData) => (
-        <div key={filteredData.id} className="search-item">
-          <a href={`/video?id=${filteredData.videoId}`} >
-            <img className="search-item-thumbnail" src={url + filteredData.videoMiniature} alt={filteredData.title} />
-            <div className="search-item-info">
-              <h2 className="search-item-title">{filteredData.videoTitle}</h2>
-              <p className="search-item-channel">{filteredData.channelName}</p>
-              <div className="search-item-details">
-                <i className="fa fa-calendar search-item-details-icon"></i>
-                <p>{filteredData.videoPublishedAt}</p>
-                <p className="search-item-views">{filteredData.videoViews}</p>
+      {filteredData.map((filteredData) => {
+        const datePublished = new Date(filteredData.videoPublishedAt);
+        const now = new Date();
+        const duration = Math.floor((now.getTime() - datePublished.getTime()) / 1000);
+        return (
+          <div key={filteredData.id} className="search-item">
+            <a href={`/video?id=${filteredData.videoId}`} >
+              <img className="search-item-thumbnail" src={url + filteredData.videoMiniature} alt={filteredData.title} />
+              <div className="search-item-info">
+                <h2 className="search-item-title">{filteredData.videoTitle}</h2>
+                <p className="search-item-views">{filteredData.videoViews} vues</p>
+                <p className="search-item-published">{formatDuration(duration)}</p>
+                <div className="search-item-details">
+                  <a href={`/channel/${filteredData.channelName}`}><img className="search-item-channel-logo" src={url + filteredData.channelImageLink}/>
+                  <p className="search-item-channel-name">{filteredData.channelName}</p></a>
+                </div>
               </div>
-            </div>
-          </a>
-          <hr />
-        </div>
-      ))}
+            </a>
+            <hr />
+          </div>
+        );
+      })}
     </div>
+
   );
 }

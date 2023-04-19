@@ -1,72 +1,76 @@
 .search-results {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 20px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px;
+
   .search-item {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  
-  .search-item a {
     display: flex;
-    text-decoration: none;
-    color: #212121;
-  }
-  
-  .search-item-thumbnail {
-    width: 336px;
-    height: 188px;
-  }
-  
-  .search-item-info {
-    margin-left: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .search-item-title {
-    font-size: 18px;
-    margin-top: 0;
-    margin-bottom: 8px;
-    max-width: 80%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  
-  .search-item-channel {
-    font-size: 14px;
-    font-weight: bold;
-    margin: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  
-  .search-item-details {
-    display: flex;
+    flex-direction: row;
     align-items: center;
-    font-size: 14px;
-    color: #606060;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 20px;
+    
+    &:last-child {
+      margin-bottom: 0;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    a {
+      display: flex;
+      text-decoration: none;
+      color: #000;
+      width: 100%;
+    }
+
+    .search-item-thumbnail {
+      display: block;
+      width: calc(200px * 16 / 9);
+      margin-right: 20px;
+      margin-left: 150px;
+    }
+
+    .search-item-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: calc((100% - 220px) * 16 / 9);
+
+      .search-item-details {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        font-size: 14px;
+        color: #606060;
+
+        img {
+          display: block;
+          width: 18px;
+          height: 18px;
+          margin-right: 5px;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    .search-item-title {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.3;
+    }
+
+    .search-item-views {
+      margin: 10px 0;
+      font-size: 14px;
+      color: #606060;
+    }
+
+    .search-item-published {
+      margin: 0;
+      font-size: 14px;
+      color: #606060;
+    }
   }
-  
-  .search-item-details-icon {
-    font-size: 16px;
-    margin-right: 4px;
-  }
-  
-  .search-item-views {
-    margin-left: 8px;
-  }
-  
-  hr {
-    border: 0;
-    height: 1px;
-    background: #E0E0E0;
-    margin-top: 16px;
-  }
-  
+}
