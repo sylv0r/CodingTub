@@ -19,7 +19,7 @@ import Search from './components/search/Searchs';
 import Profile from './components/Profile/Profile';
 import UserProfile from './components/UserProfile/UserProfile';
 import Connexion from './components/connexion/Connexion';
-import Inscription from './components/Inscription/InscriptionForm.js';
+import Inscription from './components/Inscription/InscriptionForm';
 import SideBar from './components/Home/SideBar/SideBar';
 
 import {
