@@ -1,7 +1,8 @@
 import React from 'react'
 import AccueilVideos from './OrganisationMenuChaine/AccueilVideos';
+import AccueilChaines from './OrganisationMenuChaine/AccueilChaines';
 
-export default function SectionAccueil(){
+export default function SectionAccueil({ channel_user_id }){
     // state
 
     // comportements 
@@ -10,8 +11,7 @@ export default function SectionAccueil(){
     return (
     <div>
         <AccueilVideos />
-        <p>Mettre le composant des playlists</p>
-        <p>Mettre le composant de Chaine</p>
+        <AccueilChaines chaine_user_id={channel_user_id}/>
     </div>
     );
 }

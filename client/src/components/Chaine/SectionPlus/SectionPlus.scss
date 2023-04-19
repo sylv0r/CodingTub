@@ -1,0 +1,35 @@
+.section_a_propos {
+    display: flex;
+    flex-direction: row;
+}
+
+.section_a_propos_description {
+    margin-left: 2%;
+    width: 58%;
+    margin-right: 10%;
+}
+
+.section_a_propos_statistiques {
+    width: 30%;
+}
+
+.infos_description {
+    margin-bottom: 3%;
+}
+
+.description_channel {
+    padding: 2%;
+    border: 1px solid rgb(75, 75, 75);
+    border-radius: 5px;
+    box-shadow: 6px 6px 30px #dedede;
+}
+.infos_date_creation {
+    padding-top: 1%;
+    padding-bottom: 3%;
+    border-bottom: 1px solid rgb(75, 75, 75);
+}
+
+.infos_stats {
+    padding-bottom: 3%;
+    border-bottom: 1px solid rgb(75, 75, 75);
+}

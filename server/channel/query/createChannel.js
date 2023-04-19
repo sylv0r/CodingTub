@@ -6,6 +6,7 @@ const axios = require('axios')
 require('dotenv').config()
 
 module.exports = async (req, res) => {
+  console.log(req.body)
   const { name, description, user_id } = req.body
   const image = req.file
   try {
