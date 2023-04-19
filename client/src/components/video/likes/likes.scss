@@ -1,39 +1,26 @@
-.heart {
-    width: 50px;
-    height: 50px;
-    background: url("https://cssanimation.rocks/images/posts/steps/heart.png") no-repeat;
+#all_like{
+    display: flex;
+
+}
+
+#likes{
+    margin-right: 5px;
+}
+
+.like-button {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #333;
     cursor: pointer;
-    transition: background-position 1s steps(28);
-    transition-duration: 0s;
-    transform: scale(0.5); /* reduce the size to half */
-    
-    &.is-active {
-      transition-duration: 1s;
-      background-position: -1400px 0;
-    }
+    font-size: 16px;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   
-  .placement {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    background-color: red;
-    margin-left: 10px;
-  }
-  
-  #likes {
-    display: flex;
-    flex-direction: row;
-    margin-right: 10px;
-  }
-  
-  #all_likes {
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
-    align-items: center;
-    margin-top: 10px;
-    width: 50%;
+  .like-button.active {
+    background-color: #e74c3c;
+    border-color: #c0392b;
+    color: #fff;
   }
   

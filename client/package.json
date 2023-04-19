@@ -19,7 +19,7 @@
     "react-dom": "^18.2.0",
     "react-player": "^2.12.0",
     "react-responsive-carousel": "^3.2.23",
-    "react-router-dom": "^6.9.0",
+    "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
     "redux": "^4.2.1",
     "sass": "^1.59.3",
