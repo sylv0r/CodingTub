@@ -18,21 +18,18 @@ const VideoUploadForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const videoData = isFileUpload
-      ? new FormData()
-      : {
-          description: videoDescription,
-          url: videoURL,
-        };
+    const videoData = new FormData();
+    videoData.append("description", videoDescription);
 
-    if (isFileUpload) {
-      videoData.append("description", videoDescription);
+    if (isFileUpload && videoFile) {
       videoData.append("video", videoFile);
+    } else {
+      videoData.append("url", videoURL);
     }
 
     try {
       const response = await axios.post("http://localhost:3001/shorts/video", videoData, {
-        headers: isFileUpload ? { "Content-Type": "multipart/form-data" } : {},
+        headers: { "Content-Type": "multipart/form-data" },
       });
       console.log("Video added successfully:", response.data);
       setVideoDescription("");

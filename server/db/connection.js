@@ -1,14 +1,17 @@
 const mysql = require('mysql');
 const initDb = require('./initDb.js');
-const { promisify } = require('util')
+const { promisify } = require('util');
 
 var con = mysql.createConnection(initDb);
-  
-con.connect(function(err) {
+
+con.connect(function (err) {
   if (err) throw err;
-  console.log("=> Connecté à la BDD");
+  console.log('=> Connecté à la BDD');
 });
 
-con.query2 = promisify(con.query)
+const conWithPromisifiedQuery = {
+  con: con,
+  query: promisify(con.query).bind(con),
+};
 
-module.exports.con = con
+module.exports = conWithPromisifiedQuery;

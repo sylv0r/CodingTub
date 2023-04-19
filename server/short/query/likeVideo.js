@@ -17,9 +17,26 @@ module.exports = (req, res) => {
     }
 
     if (result.length > 0) {
-      return res.status(400).json({ message: 'Vous avez déjà liké cette vidéo.' });
+      const deleteLike = 'DELETE FROM user_likes WHERE user_id = ? AND video_id = ?';
+      dbConnection.query(deleteLike, [user_id, id], (err, result) => {
+        if (err) {
+          console.error('Error deleting like from the database:', err);
+          return res.status(500).json({ message: 'Erreur lors de la suppression du like dans la base de données.' });
+        }
+    
+        const query = 'UPDATE shorts SET `like` = `like` - 1 WHERE id = ?';
+        dbConnection.query(query, [id], (err, result) => {
+          if (err) {
+            console.error('Error updating likes in the database:', err);
+            return res.status(500).json({ message: 'Erreur lors de la mise à jour des likes dans la base de données.' });
+          }
+    
+          res.status(200).json({ message: 'Like retiré avec succès.' });
+        });
+      });
+    
+      return;
     }
-
     const query = 'UPDATE shorts SET `like` = `like` + 1 WHERE id = ?';
     dbConnection.query(query, [id], (err, result) => {
       if (err) {
