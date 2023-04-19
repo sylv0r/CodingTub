@@ -1,7 +1,10 @@
 const { con } = require('../../db/connection')
+const { getDecodedId } = require("../../methods/token")
 
 module.exports = async (req, res) => {
-  const { user_id, lastname, firstname, pseudo } = req.body
+  const token = req.headers.authorization
+  const { lastname, firstname, pseudo } = req.body
+  const user_id = await getDecodedId(token)
   if (user_id) {
     const user = await con.query2('SELECT id FROM users WHERE id = ?', [user_id]);
     if (user.length === 1) {
@@ -10,7 +13,7 @@ module.exports = async (req, res) => {
           try {
             await con.query2("UPDATE users SET prenom = ?, nom = ?, pseudo = ? WHERE id = ?", [firstname, lastname, pseudo, user_id])
             res.status(200).json({
-              message: "Modification faites"
+              message: "Profil modifié avec succès"
             })
           } catch (e) {
             res.status(406).json({

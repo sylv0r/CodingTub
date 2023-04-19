@@ -13,8 +13,11 @@ export default function ProfileForm({state}) {
   const confirmPassword = useRef();
 
   useEffect(() => {
-    console.log(localStorage.getItem("user_id"))
-    fetch(`http://localhost:3001/users/getProfile/${localStorage.getItem("user_id")}`)
+    fetch(`http://localhost:3001/users/getProfile`, {
+      headers: {
+        authorization: localStorage.getItem("jwt")
+      }
+    })
     .then((response) => {
       return response.json()
     })
@@ -31,11 +34,14 @@ export default function ProfileForm({state}) {
   async function handleSubmit(e) {
     e.preventDefault()
     state.setAlert(false)
-    if (localStorage.getItem("user_id")) {
+    if (localStorage.getItem("jwt")) {
       try {
         const response = await fetch('http://localhost:3001/users/modifyProfile', {
           method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 
+            'Content-Type': 'application/json',
+            authorization: localStorage.getItem("jwt")
+          },
           body: JSON.stringify({
             user_id: localStorage.getItem("user_id"),
             lastname: lastname.current.value,
@@ -53,11 +59,9 @@ export default function ProfileForm({state}) {
           } else {
             state.setMessage("Erreur du serveur, veuillez réésayer plus tard")
           }
-          state.setAlert(true)
         } else {
           state.setResponseType("success")
           state.setMessage(json.message)
-          state.setAlert(true)
         }
       } catch (error) {
         console.error("error");
@@ -66,7 +70,10 @@ export default function ProfileForm({state}) {
         if (formerPassword.current.value.length > 0) {
           const response = await fetch('http://localhost:3001/users/modifyPassword', {
             method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 
+              'Content-Type': 'application/json',
+              authorization: localStorage.getItem("jwt")
+            },
             body: JSON.stringify({
               user_id: localStorage.getItem("user_id"),
               formerPassword: formerPassword.current.value,
@@ -76,7 +83,22 @@ export default function ProfileForm({state}) {
           });
           const json = await response.json()
           console.log(json)
+          if (json.error) {
+            state.setResponseType("danger")
+            if (typeof json.error === "string") {
+              state.setMessage(json.error)
+            } else {
+              state.setMessage("Erreur du serveur, veuillez réésayer plus tard")
+            }
+          } else {
+            state.setResponseType("success")
+            state.setMessage(json.message)
+            formerPassword.current.value = ""
+            newPassword.current.value = ""
+            confirmPassword.current.value = ""
+          }
         }
+        state.setAlert(true)
       }
     } else {
       state.setResponseType("danger")

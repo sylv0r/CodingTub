@@ -1,7 +1,9 @@
 const { con } = require("../../db/connection")
+const { getDecodedId } = require("../../methods/token")
 
 module.exports = async (req, res) => {
-  const { user_id } = req.params
+  const token = req.headers.authorization
+  const user_id = await getDecodedId(token)
   if (user_id) {
     try {
       const user = await con.query2("SELECT * FROM users WHERE id = ?", [user_id])

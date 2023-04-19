@@ -16,7 +16,7 @@ const modifyPassword = require("./query/modifyPassword")
 //router.post('/createChannel', createChannel)
 
 router.use(cors());
-router.get("/getProfile/:user_id", getProfile)
+router.get("/getProfile", getProfile)
 router.post('/getUsers', getUsers)
 router.post('/getUserBis', getUserBis)
 router.post('/createInscription', createInscription)
