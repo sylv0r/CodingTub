@@ -124,7 +124,6 @@ export default function ListPlaylist({ video, action }){
                             </a>
                             <div class="playlist-item-icon">
                                 <i className="fa-solid fa-ellipsis-vertical" style={{color: "#ffffff"}} id="threedoticon"></i>
-                                {/*<FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>*/}
                             </div>
                         </li>
                     ))}
