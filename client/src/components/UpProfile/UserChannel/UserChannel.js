@@ -37,18 +37,21 @@ export default function UserChannel({ action, name }) {
         var currentUrl = window.location.href
         var split = currentUrl.split('/')
         const nom = split[split.length-1];
-
-        console.log(nom)
+        
         try {
-            const reponse = await axios.get(`http://localhost:3001/users/getUserBis/${nom}`)
+            const reponse = await axios.get(`http://localhost:3001/users/getChannel/${nom}`)
             setUser(reponse.data[0]);
         } catch (e) {
             console.log(e)
         }
     };
 
-    useEffect(() => {
+    function userProfileSub () {
         getUserChannel();
+    }
+
+    useEffect(() => {
+        userProfileSub();
     }, []);
 
     // Concerne le bouton "s'abonner"
@@ -78,19 +81,11 @@ export default function UserChannel({ action, name }) {
                 <p>{users.subscribers} abonnés {users.number_videos} vidéos</p>
                 <p>{users.description_channel}</p>
             </div>
-            {action ? (
-                <div className='profileUserBis'>
-                    <button className='updateUserProfile' type='submit' onClick={subscribed} style={{ backgroundColor: buttonColor }}>
-                        {buttonText}
-                    </button>
-                </div>
-            ) : (
-                <div className='profileUserBis'>
-                    <button className='updateUserProfile' type='submit'>
-                        Personnaliser sa chaîne
-                    </button>
-                </div>
-            )}
+            <div className='profileUserBis'>
+                <button className='updateUserProfile' type='submit' onClick={subscribed} style={{ backgroundColor: buttonColor }}>
+                    {buttonText}
+                </button>
+            </div>
         </div>
     );
 };
