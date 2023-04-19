@@ -5,6 +5,7 @@ const requetePostLive = express()
 const cors = require('cors');
 const server = require('http').Server(requetePostLive);
 
+
 const io = require('socket.io')(server, {
     cors: {
         origin: "http://localhost:3000",
@@ -138,7 +139,7 @@ const requeteUpdateLiveViewer = express()
 requeteUpdateLiveViewer.use(express.json());
 requeteUpdateLiveViewer.use(cors());
 
-requeteUpdateLiveViewer.post('/api/updateLivesViewer+', (req, res) => {
+requeteUpdateLiveViewer.post('/api/updateLivesViewer', (req, res) => {
     const { url, title, description } = req.body;
     const sql = `UPDATE lives SET viewer = viewer + 1 WHERE title='${title}'`;
     con.query(sql, (error, results) => {
@@ -153,6 +154,30 @@ requeteUpdateLiveViewer.post('/api/updateLivesViewer+', (req, res) => {
 });
 
 requeteUpdateLiveViewer.listen(3011, () => { // Serveur Node
-    console.log('--> Requete UPDATE LIVE VIEWER sur 3011');
+    console.log('--> Requete UPDATE LIVE VIEWER + sur 3011');
+});
+
+
+
+const requeteUpdateLiveViewerEnlevé = express()
+requeteUpdateLiveViewerEnlevé.use(express.json());
+requeteUpdateLiveViewerEnlevé.use(cors());
+
+requeteUpdateLiveViewerEnlevé.post('/api/updateLivesViewerEnlever', (req, res) => {
+    const { title, description } = req.body;
+    const sql = `UPDATE lives SET viewer = viewer - 1 WHERE title='${title}'`;
+    con.query(sql, (error, results) => {
+      if (error) {
+        console.error(`Error executing SQL query: ${error.stack}`);
+        res.status(500).json({ error: "Une erreur s'est produite lors de l'exécution de la requête SQL" });
+      } else {
+        res.json(results);
+        console.log("Requete UPDATE LIVE  VIEWER envoyé")
+      }
+    });
+});
+
+requeteUpdateLiveViewerEnlevé.listen(3012, () => { // Serveur Node
+    console.log('--> Requete UPDATE LIVE VIEWER - sur 3012');
 });
 //----------------------------------\\

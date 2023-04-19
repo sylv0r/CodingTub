@@ -84,6 +84,28 @@ function App() {
       pc.addIceCandidate(candidate);
     });
   }, [liveEnCours]);
+
+  //FERMÉ\\
+  const quitterViewer = () => {
+    setLiveEnCours(false);
+    localStorage.removeItem("liveEnCours");
+
+    const liveData2 = {title: inputTitre, description: inputDescription};
+  
+    fetch('http://localhost:3012/api/updateLivesViewerEnlever', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(liveData2)
+    })
+    .then(response => response.json())
+    .then(data => console.log("requete sql : " + data))
+    .catch(error => console.error(error));
+    navigator.mediaDevices.getUserMedia({ video: false, audio: false });
+  }    
+  //-----\\
+  
   // envoie au meme url que celui dans la bdd
   const liveEnCoursData = lives.find(live => live.URL === window.location.href); 
   if (liveEnCoursData === undefined && tkt > 3){ // Rediriger les fausses urls
@@ -140,7 +162,7 @@ function App() {
               <div id="option_creer_live">
                 <h2>Lives en cours</h2>
                 <Link to="/accueilLive">
-                  <button className="Accueil-button">Retourner à l'accueil</button>
+                  <button className="Accueil-button" onClick={quitterViewer}>Retourner à l'accueil</button>
                 </Link>
                 {Array.isArray(lives) && lives.map(live => (
                   <li key={live.id}>
