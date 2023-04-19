@@ -4,6 +4,40 @@ import { useState, useEffect } from 'react'
 export default function ShowContent({ action }) {
     // state
     const [contents, setContents] = useState([])
+    const [timeContent, setTimeContent] = useState([])
+
+    let currentdate = new Date(); 
+    let contentPublicationDate = new Date(timeContent);
+
+    let difference = (currentdate.getTime() - contentPublicationDate.getTime()) / 1000
+
+    if (difference < 60) {
+        difference = Math.round(difference)
+        difference === 1 ? difference += " seconde" : difference += " secondes"
+    }
+    else if (difference < 3600) {
+        difference = Math.round(difference / 60)
+        difference === 1 ? difference += " minute" : difference += " minutes"
+    }
+    else if (difference < 86400) {
+        difference = Math.round(difference / 60 / 60)
+        difference === 1 ? difference += " heure" : difference += " heures"
+    }
+    else if (difference < 604800) {
+        difference = Math.round(difference / 60 / 60 / 24)
+        difference === 1 ? difference += " jour" : difference += " jours"
+    }
+    else if (difference < 2592000) {
+        difference = Math.round(difference / 60 / 60 / 24 / 7)
+        difference === 1 ? difference += " semaine" : difference += " semaines"
+    }
+    else if (difference < 31104000) {
+        difference = Math.round(difference / 60 / 60 / 24 / 30) + " mois"
+    }
+    else {
+        difference = Math.round(difference / 60 / 60 / 24 / 30 / 12)
+        difference === 1 ? difference += " an" : difference += " ans"
+    }
 
     //comportements
     const getContents = () => {
@@ -13,6 +47,7 @@ export default function ShowContent({ action }) {
             })
             .then((json) => {
                 setContents(json)
+                setTimeContent(json[0].published_at)
             })
             .catch(error => {
                 if (error.response) {
@@ -40,7 +75,7 @@ export default function ShowContent({ action }) {
             {contents.map((content) => (
                 <div className='bloc_content_date_communaute'>
                     <p>{content.content}</p>
-                    <p>{content.published_at}</p>
+                    <p>il y a {difference}</p>
                 </div>
             ))}
         </div>
