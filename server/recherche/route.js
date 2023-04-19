@@ -2,6 +2,7 @@ const { Router } = require("express");
 const newSearch = require('./query/search');
 const hashtag = require('./query/hashtag');
 const searchBar =  require('./query/search_bar');
+const dateajout =  require('./query/filtre/dateajout');
 
 const router = Router()
 
@@ -9,4 +10,5 @@ const router = Router()
 router.post('/search', newSearch)
 router.get('/hashtag', hashtag)
 router.get('/search_bar', searchBar)
+router.get('/dateajout', dateajout)
 module.exports.routes = router

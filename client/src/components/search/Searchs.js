@@ -3,7 +3,7 @@ import './Searchs.scss';
 import ControlledCarousel from "./hashtag";
 import Search2 from './searchbar';
 import Hashtag from "./hashtag";
-import SideBar from '../Home/SideBar/SideBar';
+import Filtre from './dropbutton/dropbutton';
 //import './Header.scss';
 
 function Search() {
@@ -51,6 +51,10 @@ function Search() {
 
                 <ControlledCarousel />
             </div>
+            <div className="dropbutton">
+                <Filtre/>
+            </div>
+            
             
         </nav>
 

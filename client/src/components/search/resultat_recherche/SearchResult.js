@@ -7,10 +7,7 @@ const id = searchParams.get('id'); // send
 
 export default function SearchResult (){
     
-    <div>
-      <NavbarDarkExample/>
-    </div>
-      
+
 
     const string = +"%";
     if ($_POST['submit'] == video) {

@@ -5,6 +5,10 @@ import { useState, useEffect } from "react";
 export default function Search() {
   const [datas, setDatas] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  
+  
+
+  
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts")
