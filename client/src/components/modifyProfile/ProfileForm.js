@@ -88,6 +88,7 @@ export default function ProfileForm({state}) {
             if (typeof json.error === "string") {
               state.setMessage(json.error)
             } else {
+              console.log(json.error)
               state.setMessage("Erreur du serveur, veuillez réésayer plus tard")
             }
           } else {

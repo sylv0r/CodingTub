@@ -3,11 +3,14 @@ const { channelAlreadyExist } = require('../methods/channelAlreadyExist')
 const path = require("path")
 const fs = require('fs');
 const axios = require('axios')
+const { getDecodedId } = require("../../methods/token")
 require('dotenv').config()
 
 module.exports = async (req, res) => {
-  const { name, description, user_id } = req.body
+  const token = req.headers.authorization
+  const { name, description } = req.body
   const image = req.file
+  const user_id = await getDecodedId(token)
   try {
     if (user_id) {
       const user = await con.query2('SELECT id FROM users WHERE id = ?', [user_id]);
@@ -34,7 +37,7 @@ module.exports = async (req, res) => {
                     console.log("Image deleted successfully")
                   });
                 
-                  await con.query2('INSERT INTO channels (name, description, image_link, user_id) VALUES (?,?,?,?)', [name, description, `channel_pictures/${image.filename}`, user_id]);
+                  await con.query2('INSERT INTO channels (name, description_channel, image_link, user_id) VALUES (?,?,?,?)', [name, description, `channel_pictures/${image.filename}`, user_id]);
                   res.status(201).json({
                     message: "Chaîne créée avec succès"
                   })
@@ -75,6 +78,7 @@ module.exports = async (req, res) => {
     }
   }
   catch(e) {
+    console.log(e)
     res.status(403).json({
       error: e
     })

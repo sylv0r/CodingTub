@@ -12,7 +12,7 @@ export default function ChannelForm({state}) {
   async function handleSubmit(e) {
     state.setAlert(false)
     e.preventDefault()
-    if (localStorage.getItem("user_id")) {
+    if (localStorage.getItem("jwt")) {
       const formData = new FormData();
       formData.append('description', description.current.value);
       formData.append('user_id', localStorage.getItem("user_id"));
@@ -23,6 +23,9 @@ export default function ChannelForm({state}) {
         const response = await fetch('http://localhost:3001/channels/createChannel', {
           method: 'POST',
           body: formData,
+          headers: {
+            authorization: localStorage.getItem("jwt")
+          }
         });
     
         const json = await response.json();
