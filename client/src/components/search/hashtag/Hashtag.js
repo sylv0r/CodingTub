@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import "./Hashtag.scss";
-import ResultHashtag from './ResultHashtag';
 
 const Hashtag = () => {
     // Declare state variables
@@ -13,12 +12,12 @@ const Hashtag = () => {
         fetch(`http://localhost:3001/search/hashtag`)
             .then(response => response.json())
             .then(data => {
-                setNames(data.map(item => item.nom)); // set the names state with an array of names
+                setNames(data); // set the names state with an array of objects containing both the ID and name
             })
             .catch(error => console.log(error));
     }, []);
 
-    // Divide the names array into chunks of 8 names each
+    // Divide the names array into chunks of 6 names each
     const chunkSize = 6;
     const nameChunks = names.reduce((resultArray, item, index) => {
         const chunkIndex = Math.floor(index / chunkSize);
@@ -41,14 +40,12 @@ const Hashtag = () => {
                     <div className="hashtag-list" id='hashtag'>
                         {chunk.map((name, j) => (
                             <div key={j}>
-                                <a href={'/resulthashtag/' + name}>{name}
-                                </a>
+                                <a href={`/resulthashtag?id=${name.id}`}>{name.nom}</a>
                             </div>
                         ))}
                     </div>
                 </Carousel.Item>
-            ))
-            }
+            ))}
         </Carousel >
     );
 };

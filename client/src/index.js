@@ -22,7 +22,7 @@ import Profile from './components/Profile/Profile';
 import UserProfile from './components/UserProfile/UserProfile';
 import Inscription from './components/Inscription/InscriptionForm.js';
 import SideBar from './components/Home/SideBar/SideBar';
-import ResultHashtag from './components/search/hashtag/ResultHashtag';
+import ResultHashtag from './components/search/hashtag/resulthashtag/ResultHashtag';
 
 import {
   createBrowserRouter,

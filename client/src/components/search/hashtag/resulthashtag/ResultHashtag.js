@@ -1,5 +1,8 @@
+/* eslint-disable no-undef */
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from "react-router-dom";
+import ReactPlayer from 'react-player'
+import SingleVideoHashtag from './SingleVideoHashtag';
 
 const ResultHashtag = () => {
 
@@ -22,6 +25,8 @@ const ResultHashtag = () => {
     }
 
 
+
+
     useEffect(() => {
         getVideosInfo();
     }, [])
@@ -29,11 +34,23 @@ const ResultHashtag = () => {
 
     console.log(videos)
 
-    return (
-        <div>
 
+
+    //render
+    return (
+        <div id="videos">
+            {/*<button onClick={getVideos}>Get Videos</button>*/}
+            {videos.map((videos) => (
+                <SingleVideoHashtag video={videos} key={videos.id} />
+            ))}
         </div>
     )
+
 }
 
 export default ResultHashtag;
+
+
+
+
+

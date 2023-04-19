@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const newSearch = require('./query/search');
-const hashtag = require('./query/hashtag/hashtag');
+const hashtag = require('./query/hashtag/Hashtag');
 const SearchBar = require('./query/search_bar');
 const ResultHashtag = require('./query/hashtag/ResultHashtag');
 

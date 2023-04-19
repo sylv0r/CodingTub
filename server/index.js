@@ -16,10 +16,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({ origin: "http://localhost:3000" }));
 
 app.use(function (req, res, next) { // Empeche les erreur de CORS
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader('Access-Control-Allow-Methods', '');
-  res.setHeader("Access-Control-Allow-Headers", "*");
-  next();
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader('Access-Control-Allow-Methods', '');
+    res.setHeader("Access-Control-Allow-Headers", "*");
+    next();
 });
 
 //utilise le middleware des channels lorsque la requête commence par /channels
@@ -33,5 +33,5 @@ app.use("/ResultHashtag", searchMiddleware.routes)
 app.use("/users", usersMiddleware.routes)
 
 app.listen(port, () => {
-  console.log(`--> Requete site sur ${port}`)
+    console.log(`--> Requete site sur ${port}`)
 })
