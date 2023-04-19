@@ -16,7 +16,7 @@ function SearchPage() {
             <div className="Navsearch">
 
                 <a className="logo" href="#" target="" rel="">
-                    <img src={Logo_Tube} alt="Logo CodingTube" class="icon_title" />  
+                    <img src={Logo_Tube} alt="Logo CodingTube" className="icon_title" />  
                 </a>
 
                 <form className="search" action="submit">
@@ -33,13 +33,13 @@ function SearchPage() {
                     
                     <a className="not"href="" target="" rel="">
                         
-                        <img src={Logo_Notif} alt="Notifications" class="icon_notification"/>
+                        <img src={Logo_Notif} alt="Notifications" className="icon_notification"/>
                         
                     </a>
                     
                     <a className="pp" href="" target="" rel="">
                         
-                        <img src={Logo_profil} alt="Profil" class="icon_profile"/>
+                        <img src={Logo_profil} alt="Profil" className="icon_profile"/>
                         
                     </a>
                 </div>

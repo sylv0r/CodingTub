@@ -4,7 +4,6 @@ module.exports = (req, res) => {
     const { text } = req.body;
   
     if (!text) {
-      console.log(req.body);
       return res.status(400).json({ message: 'Texte manquant dans la requête.' });
     }
   

@@ -4,7 +4,6 @@ const { con } = require('../../db/connection')
     
 module.exports = async (req, res) => {
   result = await con.query2('SELECT * FROM videos Where id = ?',[req.params.id])
-  console.log(result)
   res.json(result).status(200)
 }
 

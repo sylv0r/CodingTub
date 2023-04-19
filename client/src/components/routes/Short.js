@@ -15,7 +15,6 @@ function Short() {
 
   const addItem = async (e) => {
     e.preventDefault();
-    console.log(text)
     try {
       const response = await axios.post('http://localhost:3001/shorts/video', {
         text: text,

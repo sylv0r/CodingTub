@@ -27,7 +27,6 @@ function Video() {
     
         const data = await response.json();
         setVideos(data);
-        console.log(data);
     }
     async function handleLikeClick() {
   
