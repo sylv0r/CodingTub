@@ -15,6 +15,10 @@
         /*height: inherit;*/
         height: 140px;
         background-color: #000;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
     
         img {
             max-width: 270px;
