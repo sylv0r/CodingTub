@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 import './affichageLive.scss';
 import { Link } from 'react-router-dom';
 
-function App() {
+function AffichageLive() {
   const videoRef = useRef();
 
   // Pour commencer ou finir le live
@@ -11,6 +11,9 @@ function App() {
   const [inputTitre, setInputTitre] = useState('');
   const [inputDescription, setInputDescription] = useState('');
   const [lives, setLives] = useState([]);
+  const [socket, setSocket] = useState(null);
+  const [message, setMessage] = useState('');
+  const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     // AFFICHE LES LIVES EN COURS SUR LA PAGE D'ACCUEIL
@@ -44,7 +47,7 @@ function App() {
       return;
     }
     // Configuration des sockets pour relier le serveur au client
-    const socket = io.connect('http://localhost:3005');
+    const newSocket = io.connect('http://localhost:3005');
     // Configuration des sockets pour relier le serveur au client
 
     // Configuration des Peer to Peer
@@ -63,97 +66,150 @@ function App() {
         pc.createOffer().then(offer => {
           console.log("CLIENT <<<<< OFFER");
           pc.setLocalDescription(offer);
-          socket.emit('offer', offer);
+          newSocket.emit('offer', offer);
         });
 
         // Affiche le flux vidéo en direct dans la balise video HTML5
-        videoRef.current.srcObject = stream;
+        videoRef.current.srcObject = stream; 
       });
 
     // Reçois la réponse du serveur
-    socket.on('answer', answer => {
+    newSocket.on('answer', answer => {
       console.log("CLIENT <<<<< ANSWER");
       pc.setRemoteDescription(answer);
     });
 
     // Reçois un ICE candidat du serveur
-    socket.on('candidate', candidate => {
+    newSocket.on('candidate', candidate => {
       console.log("CLIENT <<<<< CANDIDATE");
       pc.addIceCandidate(candidate);
     });
+
+    setSocket(newSocket);
+
+    return () => newSocket.disconnect();
   }, [liveEnCours]);
 
+  const handleKeyDown = e => {
+    if (!socket || e.key !== 'Enter') {
+      return;
+    }
 
-  return (
-    <div className="App">
-      <head>
-        <style>
-          <link src=""></link>
-        </style>
-      </head>
-      <body id="body_creer_live">
-        <div id="global_creer_live">
-          {liveEnCours ? (
-            <>
-              <div id="option_creer_live">
-                <h1>Lives en cours</h1>
-                <Link to="/accueilLive">
-                  <button className="Accueil-button">Retourner à l'accueil</button>
-                </Link>
-                {Array.isArray(lives) && lives.map(live => (
-                  <li key={live.id}>
-                    <a href={live.URL}>{live.title}</a>
-                  </li>
-                ))}
-              </div>
-              <div id="creer_live_description">
-                <video ref={videoRef} autoPlay playsInline id="creer_live"></video>
-                {Array.isArray(lives) && lives.map(live => {
-                  if (live.id === live.id) {
-                    return (
-                      <div id="description" key={live.id}>
-                        <h2>{live.title}</h2>
-                        <p>{live.description}</p>
-                      </div>
-                    )
-                  }
-                  return null;
-                })}
-              </div>
-            </>
-          ) : (
-            <>
-              <div id="option_creer_live">
-                <h2>Lives en cours</h2>
-                <Link to="/accueilLive">
-                  <button className="Accueil-button">Retourner à l'accueil</button>
-                </Link>
-                {Array.isArray(lives) && lives.map(live => (
-                  <li key={live.id}>
-                    <a href={live.URL}>{live.title}</a>
-                  </li>
-                ))}
-              </div>
-              <div id="creer_live_description">
-                <div id="emplacement_live"><h2>FIN DU LIVE</h2></div>
-                <div id="creer_description">
-                  <form id="creer_form">
-                  </form>
-                </div>
-              </div>
-            </>
-          )}
-  
-          <div id="creer_chat_live">
-            <h2>Salon textuelle</h2>
-          </div>
-        </div>
+    e.preventDefault();
+    console. log("log")
+    socket.emit('chat-message', message);
+    setMessage('');
+    console. log(message)
+
+  };
+
+  useEffect(() => {
+    if (!socket) {
+      console.log("socket non initialisé");
+      return;
+    }
   
   
-      </body>
+    socket.on('chat-message', message => {
+      setMessages(messages => [...messages, message]);
+    });
+  
+    return () => {
+      console.log("Déconnexion de la socket");
+      socket.disconnect();
+    };
+  }, [socket, message]);
+  
+  const handleInputChange = e => {
+    if (e.target.name === 'titre') {
+    setInputTitre(e.target.value);
+    localStorage.setItem('inputTitre', e.target.value);
+    } else {
+    setInputDescription(e.target.value);
+    localStorage.setItem('inputDescription', e.target.value);
+    }
+    };
+    
+    const handleStartStopClick = () => {
+    if (liveEnCours) {
+    localStorage.setItem('liveEnCours', false);
+    setLiveEnCours(false);
+    socket.disconnect();
+    } else {
+    localStorage.setItem('liveEnCours', true);
+    setLiveEnCours(true);
+    }
+    };
+
+    
+    
+    return (
+    <div className="affichageLive">
+    <div className="video-container">
+    <video className="video" autoPlay ref={videoRef}></video>
+    <div className="chat-container">
+    <div className="messages-container">
+  {messages.map((message, index) => (
+    <div key={index}>{message}</div>
+  ))}
+</div>
+
+  <div className="input-container">
+    <input
+      type="text"
+      placeholder="Tapez votre message"
+      value={message}
+      onChange={e => setMessage(e.target.value)}
+      onKeyDown={handleKeyDown}
+    />
+  </div>
+</div>
+
     </div>
-  );
-  
-}  
+    <div className="infos-container">
+    {liveEnCours ? (
+      <>
+        <h2>Titre : {inputTitre}</h2>
+        <p>Description : {inputDescription}</p>
+      </>
+    ) : (
+      <div className="form-container">
+        <form>
+          <label>
+            Titre :
+            <input
+              type="text"
+              name="titre"
+              value={inputTitre}
+              onChange={handleInputChange}
+            />
+          </label>
+          <label>
+            Description :
+            <textarea
+              name="description"
+              value={inputDescription}
+              onChange={handleInputChange}
+            />
+          </label>
+        </form>
+      </div>
+    )}
 
-export default App;
+    <div className="buttons-container">
+      {liveEnCours ? (
+        <button onClick={handleStartStopClick}>Stop</button>
+      ) : (
+        <button onClick={handleStartStopClick}>Start</button>
+      )}
+      <Link to="/">Retour à l'accueil</Link>
+    </div>
+  </div>
+</div>
+);
+}
+
+export default AffichageLive;
+
+
+

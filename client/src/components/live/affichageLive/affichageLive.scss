@@ -1,48 +1,39 @@
 .App {
 
-    #global{
+    .global{
         display: flex;
     }
-  
-    #autre_live {
-      flex: 1;
-      color: #FFF;
-      font-weight: bold;
-      background-color: #2d2d2d;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-bottom: 55%;
-    }
-  
-    #actuel_live {
-      flex: 3;
-      justify-content: center;
-      align-items: center;
-      }
-    #live {
-        width:100%;
-        border: solid;
-        border-color: red;
-    }
-    #description {
+
+    .description {
         padding-top: 15%;
-        background-color: #9e9595;
+        background-color: #B2BEBF;
         padding-bottom: 55%;
     }
-    
+  }
 
-  
-    #chat_live {
-      flex: 1;
-      color: #FFF;
-      font-weight: bold;
-      background-color: #2d2d2d;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-bottom: 55%;
-    }
+  .affichageLive {
+
+  }
+
+  .video-container {
+  }
+
+  .video {
+width: 110vh;
+height: 90vh;
+  }
+
+
+  .chat-container{
+    display:flex;
+    justify-content: space-between; 
+  }
+
+  .input-container{
+    padding-right: 1%;
 }
-  
-  
+
+.messages-container{
+  padding: 10%;
+  color: black;
+}
