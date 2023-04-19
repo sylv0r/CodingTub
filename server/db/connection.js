@@ -14,4 +14,7 @@ const conWithPromisifiedQuery = {
   query: promisify(con.query).bind(con),
 };
 
+con.query2 = promisify(con.query)
+
+module.exports.con = con
 module.exports = conWithPromisifiedQuery;
