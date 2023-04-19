@@ -3,7 +3,7 @@ import './ListRight.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios'
 
-import SingleVideo from '../Home/VideoList/SingleVideo'
+import SingleVideoRight from '../Home/VideoList/singleVideoRight';
 
 export default function VideoListRight({ action }) {
 
@@ -47,7 +47,7 @@ export default function VideoListRight({ action }) {
             <ul class="playlist-right-list">
             {/*<button onClick={getVideos}>Get Videos</button>*/}
             {videos.map((vid) => (
-                <SingleVideo video={vid} key={vid.id}/>
+                <SingleVideoRight video={vid} key={vid.id}/>
             ))}
             </ul>
         </div>

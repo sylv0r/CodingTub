@@ -6,7 +6,7 @@ import './ListRight.scss';
 import { json, useSearchParams  } from 'react-router-dom'
 //import SingleVideoRight from './Home/Video/SingleVideoRight';
 import Likes from './likes/Likes';
-import VideoListRight from './VideoListRight';
+import ListRight from './ListRight';
 function Video() {
 
         const [videoHistory, setVideoHistory] = useState([localStorage.getItem("videoHistory")]);
@@ -181,7 +181,7 @@ function Video() {
                         </div>
             }
 
-            < VideoListRight action="getVideos" />
+            <ListRight action="getVideos" />
 
 
                 
