@@ -6,6 +6,8 @@ import './listDroite.scss';
 import { useSearchParams  } from 'react-router-dom'
 import VideoListRight from './VideoListRight';
 import Likes from './likes/Likes';
+import Description from './description/Description';
+import InfoChanel from './info_channel/InfoChanel';
 function Video() {
     
     
@@ -79,26 +81,17 @@ function Video() {
                     <h2 id='title_video'>
                         {videos[0].title}
                     </h2>
+                    <div id='div_infochannel_videostats'>
+                        <InfoChanel video={videos} />
                         <div id='video_stats'>
                             <Likes video={videos} />
                             <span id='vues'>
                             {videos[0].vues} vues
                             </span>
                         </div>
-
-                        <div id='video-description'>
-                            <p>
-                                description :
-                            </p>
-                            <p id='description'>
-                                {videos[0].description}
-                            </p>
-                        </div>
-                        <div id='published'>
-                            <span>
-                                {videos[0].published_at}
-                            </span>
-                        </div>
+                    </div>
+                        <Description video={videos} />
+       
                         </div>
             }
 
