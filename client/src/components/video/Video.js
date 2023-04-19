@@ -107,25 +107,30 @@ function Video() {
         if (!element.firstChild.playEventListenerAdded) {
             element.firstChild.addEventListener("play", async function() {
                 console.log("Video started playing");
-                await fetch(`http://localhost:3001/videos/videoInHistory/`, {
-                method: "POST",
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    user : localStorage.getItem('user_id'),
-                    video : id
+                axios.post('http://localhost:3001/users/getUserId', {
+                    hashedUserId : JSON.parse(localStorage.getItem('hashed_user_id'))
+                    })
+                    .then(async (response) => {
+                        await fetch(`http://localhost:3001/videos/videoInHistory/`, {
+                        method: "POST",
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            user : response.data,
+                            video : id
+                        })
+                    })
+                    .then((response) => response.json())
+                    .then((json) => {
+                        if(json == "") {
+                            handleVideoClick(id, false)
+                        }
+                        else {
+                            handleVideoClick(id, true)
+                        }
+                    })
+                });
                 })
                 
-            })
-            .then((response) => response.json())
-            .then((json) => {
-                if(json == "") {
-                    handleVideoClick(id, false)
-                }
-                else {
-                    handleVideoClick(id, true)
-                }
-            })
-            });
             element.firstChild.playEventListenerAdded = true;
             }
         

@@ -18,7 +18,7 @@ export default function Search2() {
     }
   };
 
-  async function getSearch() {
+  /*async function getSearch() {
     const response = await fetch(`http://localhost:3001/searchbarreur/search_bar`, {
       method: "GET",
       headers: { 'Content-Type': 'application/json' },
@@ -30,7 +30,7 @@ export default function Search2() {
 
   useEffect(()=>{
     getSearch();
-  }, []);
+  }, []);*/
 
   const filteredData = datas.filter(item => {
     return (
