@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './UserChannel.scss';
+import axios from 'axios';
 
 export default function UserChannel({ action }) {
 
@@ -32,14 +33,26 @@ export default function UserChannel({ action }) {
 
     const subscribed = () => {
         if (buttonText === "S'abonner") {
+            handleSubscription(action.id_channel, localId, "subscribe");
+        } else {
+            handleSubscription(action.id_channel, localId, "unsubscribe");
+        }
+    };
+
+    const handleSubscription = async (channelId, userId, action) => {
+        try {
+            if (action === "subscribe") {
+            await axios.post('/api/subscribe', { channelId, userId });
             setButtonText("Se désabonner");
             setButtonColor("blue");
-        } else {
+            } else if (action === "unsubscribe") {
+            await axios.post('/api/unsubscribe', { channelId, userId });
             setButtonText("S'abonner");
             setButtonColor("black");
+            }
+        } catch (error) {
+          console.log(error);
         }
-        localStorage.setItem("buttonText", buttonText);
-        localStorage.setItem("buttonColor", buttonColor);
     };
 
     // Partie HTML
