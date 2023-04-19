@@ -1,17 +1,31 @@
+const { NULL } = require('mysql/lib/protocol/constants/types');
 const { con } = require('../../db/connection');
+const bcrypt = require('bcrypt');
 
 module.exports = async (req, res) => {
-  console.log(req.body)
   const { nom, prenom, pseudo, email, password } = req.body;
 
-  // Hasher le mot de passe avec bcrypt
-  //const hashedPassword = await bcrypt.hash(password, 10); // "10" représente le nombre de "salt rounds"
+  // Vérifier si l'utilisateur existe déjà
+  const verif = await con.query2('SELECT * FROM users WHERE users.email = ?', [email]);
 
-  console.log(req.body)
+  if (verif.length > 0) {
+    return res.status(400).json({ message: 'Cet email est déjà utilisé' });
+  }
+
+  // Hasher le mot de passe avec bcrypt
+  const salt = bcrypt.genSaltSync(10); // "10" représente le nombre de "salt rounds"
+  const hashedPassword = bcrypt.hashSync(password, salt);
+
 
   // Insérer les données dans la base de données
-  await con.query2('INSERT INTO users (nom, prenom, pseudo, email, password) VALUES (?,?,?,?,?)', [nom, prenom, pseudo, email, password]);
+  const result = await con.query2('INSERT INTO users (nom, prenom, pseudo, email, password, hashedUserId) VALUES (?,?,?,?,?,?)', [nom, prenom, pseudo, email, hashedPassword, 'NULL']);
+
+  const userId = result.insertId;
+
+  const hashedUserId = bcrypt.hashSync(userId.toString(), salt);
+
+  await con.query2('UPDATE users SET hashedUserId = ? WHERE id = ?', [hashedUserId, userId]);
 
   // Répondre à la requête
-  res.status(201).json({ message: 'Utilisateur créé avec succès.' });
+  res.status(200).json({ hashedUserId }); 
 }
