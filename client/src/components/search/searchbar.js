@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import Filtre from "./dropbutton/dropbutton";
 import "./searchbar.scss";
 
 export default function Search2() {
@@ -24,6 +25,7 @@ export default function Search2() {
     setSearchTerm(result.videoTitle || result.userPseudo || result.channelName || result.liveTitle);
     setSelectedResult(result);
     searchRef.current.focus();
+    
   };
 
   async function getSearch() {
@@ -75,7 +77,8 @@ export default function Search2() {
         <div className="selectedResult">
           <div>{selectedResult.videoTitle || selectedResult.userPseudo || selectedResult.channelName || selectedResult.liveTitle}</div>
         </div>
-      )}    
+      )} 
+         
     </div>
   );
 }

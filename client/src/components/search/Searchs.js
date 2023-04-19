@@ -51,8 +51,10 @@ function Search() {
 
                 <ControlledCarousel />
             </div>
+
             <div className="dropbutton">
-                <Filtre/>
+           
+                
             </div>
             
             

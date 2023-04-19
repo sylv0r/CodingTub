@@ -2,9 +2,8 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import SplitButton from 'react-bootstrap/SplitButton';
 import "./dropbutton.scss";
-import data from "../../../../../server/recherche/query/filtre/dateajout";
+
 
 function Filtre() {
   return (
@@ -18,10 +17,9 @@ function Filtre() {
             <NavDropdown id="filtre" title="Filtre" menuVariant="dark">
 
               <NavDropdown id="date" title="date" menuVariant='dark'>
-                
-
-                <NavDropdown.Item href={data}>plus récente</NavDropdown.Item>
-                <NavDropdown.Item href={data}>moins récente</NavDropdown.Item>
+              
+                <NavDropdown.Item href="">plus récente</NavDropdown.Item>
+                <NavDropdown.Item href="">moins récente</NavDropdown.Item>
 
               </NavDropdown>
 
