@@ -73,7 +73,7 @@ export default function MenuChaine() {
     setSectionAffichee(<SectionVideos name={name} />);
     break;
     case 'Shorts':
-    setSectionAffichee(<SectionShorts />);
+    setSectionAffichee(<SectionShorts infos_short={{idChaine, idUserChaine}}/>);
     break;
     case 'Lives':
     setSectionAffichee(<SectionLives />);
