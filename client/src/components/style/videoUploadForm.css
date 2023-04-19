@@ -62,11 +62,6 @@ button {
   font-size: 16px;
 }
 
-button:hover {
-  background-color: #B3D292
-  ;
-}
-
 .message-banner {
   position: absolute; /* Ajout de cette propriété */
   bottom: 280px; /* Ajout de cette propriété */
