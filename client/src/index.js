@@ -9,18 +9,20 @@ import Playlists from './components/Playlist/Playlists';
 import History from './components/History/History';
 import Abonnements from './components/Abonnements/Abonnements';
 import CreateChannel from './components/createChannel/CreateChannel';
-
+import SearchResults from './components/search/resultat_recherche/SearchResult';
 import UploadForm from './components/chaine_upload/UploadForm';
 import Video from './components/show_video/ShowVideo.js';
 import MenuChaine from './components/Chaine/MenuChaine/MenuChaine';
 import Short from './components/routes/Short';
 import UploadShort from './components/routes/UploadShort';
 import Search from './components/search/Searchs';
+import Search2 from './components/search/Search_bar/searchbar';
+import Connexion from './components/connexion/Connexion';
 import Profile from './components/Profile/Profile';
 import UserProfile from './components/UserProfile/UserProfile';
-import Connexion from './components/connexion/Connexion';
 import Inscription from './components/Inscription/InscriptionForm.js';
 import SideBar from './components/Home/SideBar/SideBar';
+import ResultHashtag from './components/search/hashtag/resulthashtag/ResultHashtag';
 
 import {
   createBrowserRouter,
@@ -33,7 +35,7 @@ const router = createBrowserRouter([
 
   {
     path: "/",
-    element: <Home/>
+    element: <Home />
   },
   {
     path: "/playlist",
@@ -47,7 +49,11 @@ const router = createBrowserRouter([
     path: "/connexion",
     element: <Connexion />
   },
-   {
+  {
+    path: "/search2",
+    element: <Search2 />
+  },
+  {
     path: "/Inscription",
     element: <Inscription />
   },
@@ -76,7 +82,7 @@ const router = createBrowserRouter([
     path: "/Short",
     element: <Short />,
   },
-  
+
   {
     path: "/Uploadshort",
     element: <UploadShort />,
@@ -105,6 +111,14 @@ const router = createBrowserRouter([
   {
     path: "/UserProfile",
     element: <UserProfile />
+  },
+  {
+    path: "/SerchResult",
+    element: <SearchResults />
+  },
+  {
+    path: '/resulthashtag',
+    element: <ResultHashtag />
   }
 ]);
 
@@ -114,22 +128,30 @@ let connRegiPage = !url.includes('/connexion') && !url.includes('/Inscription')
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <nav className='side'><SideBar /></nav>
+    <section id="main-search">
+      <Search />
+      <main id="main">
+        <RouterProvider router={router} />
+      </main>
+
+    </section>
     {
-      connRegiPage ? 
-      <>
-        <nav className='side'><SideBar /></nav>
-        <section id="main-search">
-          <BrowserRouter>
-          <Search />
-          </BrowserRouter>
-          <main id="main">
-            <RouterProvider router={router} />
-          </main>
-        </section>
-      </>
-      :
-      <RouterProvider router={router} />
+      connRegiPage ?
+        <>
+          <nav className='side'><SideBar /></nav>
+          <section id="main-search">
+            <BrowserRouter>
+              <Search />
+            </BrowserRouter>
+            <main id="main">
+              <RouterProvider router={router} />
+            </main>
+          </section>
+        </>
+        :
+        <RouterProvider router={router} />
     }
-    
+
   </React.StrictMode>
 );
