@@ -21,6 +21,7 @@
 .pdp_name {
     width: 100%;
     display: flex;
+    margin-left: 1%;
 }
 
 .pdp_name p {
@@ -58,6 +59,7 @@
     resize: none;
     max-height: 54vh;
     overflow-y: auto;
+    margin-left: 1%;
 }
 
 .content:focus{
