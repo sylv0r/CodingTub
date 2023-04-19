@@ -11,7 +11,7 @@ export default function SearchResults() {
     setSearchTerm(query);
 
     async function fetchData() {
-      const response = await fetch("http://localhost:3001/search/search_bar");
+      const response = await fetch("http://localhost:3001/searchBar/search_bar");
       const data = await response.json();
       setDatas(data);
     }

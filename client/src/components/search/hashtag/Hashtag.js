@@ -10,7 +10,7 @@ const Hashtag = () => {
 
     // Fetch data from the server when component mounts
     useEffect(() => {
-        fetch(`http://localhost:3001/search/hashtag`)
+        fetch(`http://localhost:3001/searchBar/hashtag`)
             .then(response => response.json())
             .then(data => {
                 setNames(data.map(item => item.nom)); // set the names state with an array of names

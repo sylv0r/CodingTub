@@ -11,7 +11,7 @@ const ResultHashtag = () => {
 
 
     async function getVideosInfo() {
-        const response = await fetch(`http://localhost:3001/search/resulthashtag/${id}`, {
+        const response = await fetch(`http://localhost:3001/searchBar/resulthashtag/${id}`, {
             method: "GET",
             headers: { 'Content-Type': 'application/json' },
         })
