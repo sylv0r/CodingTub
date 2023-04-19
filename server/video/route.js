@@ -7,7 +7,8 @@ const getSubscriptionsVideos = require('./query/getSubscriptionsVideos');
 const getChannelVideos = require("./query/getChannelVideos");
 const getChannelVideosAccueil = require("./query/getChannelVideosAccueil");
 const postLike = require('./query/postLike')
-
+const verifLike = require('./query/verifLike')
+const deleLike = require('./query/deleteLike')
 const router = Router()
 
 //lance la fonction createChannel lorsqu'un post est effecté à /channels/createChannel
@@ -21,6 +22,8 @@ router.get('/getSubscriptionsVideos', getSubscriptionsVideos)
 router.get('/getChannelVideos/:name', getChannelVideos)
 router.get('/getChannelVideosAccueil/:name', getChannelVideosAccueil)
 router.post('/likes', postLike)
+router.get('/verifLike', verifLike)
+router.delete('/deleteLike', deleLike)
 
 
 
