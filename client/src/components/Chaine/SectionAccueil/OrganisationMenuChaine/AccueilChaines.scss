@@ -1,0 +1,36 @@
+.accueil_chaine {
+    display: flex;
+    flex-direction: row;
+    height: 45%;
+    margin-left: 2%;
+}
+
+.bloc_pdp_name_chaine_accueil {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 4%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    padding: 1%;
+}
+
+.bloc_pdp_name_chaine_accueil:hover {
+    box-shadow: 6px 6px 30px #dedede;
+}
+
+.pdp_chaine_accueil {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+
+.nom_chaine_accueil {
+    text-decoration: none;
+    color: black;
+}
+
+.nom_chaine_accueil:hover {
+    color: black;
+}

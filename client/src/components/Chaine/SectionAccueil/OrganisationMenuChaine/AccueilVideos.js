@@ -8,7 +8,6 @@ export default function AccueilVideos() {
 
     var split = currentUrl.split('/')
     var name = split[split.length-1]
-    console.log(name)
     //comportement
 
     //render

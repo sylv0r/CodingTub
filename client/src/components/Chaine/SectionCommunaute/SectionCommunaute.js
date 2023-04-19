@@ -3,44 +3,25 @@ import AddContent from './addContent/AddContent';
 import ShowContent from './showContent/ShowContent';
 import './SectionCommunaute.scss'
 
-export default function SectionCommunaute(){
+export default function SectionCommunaute({ infos_communaute }){
 
     // state
-    const [userChannel, setUserChannel] = useState([]);
 
-    var currentUrl = window.location.href
+    const [linksSectionCommu, setLinksSectionCommu] = useState([`/channel/${infos_communaute.name}`])
 
-    var split = currentUrl.split('/')
-    var name = split[split.length-1]
-    console.log(name)
-
-    // comportements   
-    const showNamePp = async () => {
-        await fetch(`http://localhost:3001/channels/showNamePp/${name}`, {method: "GET", headers: { "Content-Type": "appplication/json"}})
-        .then(response => {
-            return response.json()
-        })
-        .then((json) => {
-            console.log(json)
-            setUserChannel(json)
-        })
-    }
-
-    useEffect(() => {
-        showNamePp()
-    }, [])
+    // comportements
 
     // affichage (render)
     return (
         <div>
             <div className='div_section_communaute'>
                 <div className='pdp_name'>
-                    <img src='{userChannel.image_link}' alt="pdp_utilisateur" className='pdp_utilisateur'></img>
-                    <p>{userChannel.name}Sequoia</p>
+                    <a href={linksSectionCommu}><img src={process.env.REACT_APP_NGINX_LINK+infos_communaute.imageLink.image_link} alt="pdp_utilisateur" className='pdp_utilisateur'></img></a>
+                    <a href={linksSectionCommu} className='nom_chaine_section_commu'><p>{infos_communaute.name}</p></a>
                 </div>
-                <AddContent />
+                <AddContent pre_infos_commu={infos_communaute.idChaine.id}/>
             </div>
-            <ShowContent />
+            <ShowContent action={`getContent/${infos_communaute.name}`} infos_show_comu={{infos_communaute}}/>
         </div>
     );
 }

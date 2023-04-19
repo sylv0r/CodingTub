@@ -16,5 +16,5 @@ module.exports = async (req, res) => {
                 con.query('SELECT videos.*, channels.name, channels.image_link FROM videos INNER JOIN channels ON videos.channel_id = channels.id WHERE videos.channel_id IN (?) ORDER BY videos.id DESC', [allChannels], function (err, results) {
                     if (err) throw err
                     res.send(results)
-                }) 
+                })
 })}
