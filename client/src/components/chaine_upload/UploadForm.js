@@ -67,6 +67,10 @@ const UploadForm = () => {
                     'Content-Type': 'multipart/form-data'
                 }
             });
+            videoRef.current.value = "";
+            miniatureRef.current.value = "";
+            titleRef.current.value = "";
+            descriptionRef.current.value = "";
 
         } catch (error) {
             console.log(error);
