@@ -5,7 +5,7 @@ import './SectionChaines.scss'
 export default function SectionChaines({ channel_user_id }){
     // state
     const [channels, setChannels] = useState([])
-    const [links, setLinks] = useState([])
+    const [links, setLinks] = useState(['/channel/'])
 
     // comportements 
     const getChannels = () => {
@@ -15,7 +15,6 @@ export default function SectionChaines({ channel_user_id }){
             })
             .then((json) => {
                 setChannels(json)
-                setLinks(`/channel/${json[0].name}`)
             })
             .catch(error => {
                 if (error.response) {
@@ -42,8 +41,8 @@ export default function SectionChaines({ channel_user_id }){
         <div className='section_chaine'>
             {channels.map((channel) => (
                 <div className='bloc_pdp_name_chaine'>
-                    <a href={links}><img src={process.env.REACT_APP_NGINX_LINK + channel.image_link} className='pdp_chaine'></img></a>
-                    <a href={links} className='nom_chaine'><p>{channel.name}</p></a>
+                    <a href={links + channel.name}><img src={process.env.REACT_APP_NGINX_LINK + channel.image_link} className='pdp_chaine'></img></a>
+                    <a href={links + channel.name} className='nom_chaine'><p>{channel.name}</p></a>
                 </div>
             ))}
         </div>
