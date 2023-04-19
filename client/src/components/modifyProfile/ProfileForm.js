@@ -13,6 +13,7 @@ export default function ProfileForm({state}) {
   const confirmPassword = useRef();
 
   useEffect(() => {
+    console.log(localStorage.getItem("user_id"))
     fetch(`http://localhost:3001/users/getProfile/${localStorage.getItem("user_id")}`)
     .then((response) => {
       return response.json()
@@ -28,11 +29,9 @@ export default function ProfileForm({state}) {
   }, [])
 
   async function handleSubmit(e) {
-    console.log("click")
     e.preventDefault()
     state.setAlert(false)
     if (localStorage.getItem("user_id")) {
-      console.log("connected")
       try {
         const response = await fetch('http://localhost:3001/users/modifyProfile', {
           method: 'PUT',
@@ -63,6 +62,22 @@ export default function ProfileForm({state}) {
       } catch (error) {
         console.error("error");
       }
+      finally {
+        if (formerPassword.current.value.length > 0) {
+          const response = await fetch('http://localhost:3001/users/modifyPassword', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              user_id: localStorage.getItem("user_id"),
+              formerPassword: formerPassword.current.value,
+              newPassword: newPassword.current.value,
+              confirmPassword: confirmPassword.current.value,
+            }),
+          });
+          const json = await response.json()
+          console.log(json)
+        }
+      }
     } else {
       state.setResponseType("danger")
       state.setMessage("Vous devez être connecté à un compte pour vous créer une chaîne")
@@ -72,7 +87,7 @@ export default function ProfileForm({state}) {
 
   return (
     <Form className='form' method='put'>
-      <h3>Modification du profile CodingTub</h3>
+      <h3>Modification du profil CodingTub</h3>
       <Form.Group className="mb-3" controlId="form-title">
         <Form.Label>Nom :</Form.Label>
         <InputGroup>
@@ -129,7 +144,7 @@ export default function ProfileForm({state}) {
         <InputGroup>
           <Form.Control
             ref={formerPassword}
-            type="text"
+            type="password"
             placeholder="Au moins 8 charactères"
             style={{ marginRight: "0px" }}
           />
