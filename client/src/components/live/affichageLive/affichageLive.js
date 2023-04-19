@@ -127,6 +127,7 @@ function App() {
                       <div id="description" key={live.id}>
                         <h2>{live.title}</h2>
                         <p>{live.description}</p>
+                        <p>{live.viewer}</p>
                       </div>
                     )
                   } 

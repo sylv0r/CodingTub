@@ -52,6 +52,7 @@ function App() {
       .then(data => console.log("requete sql : " + data))
       .catch(error => console.error(error));
     };
+
   //------\\
 
 
@@ -152,11 +153,17 @@ function App() {
                 </div>
                 <div id="creer_live_description">
                   <video ref={videoRef} autoPlay playsInline id="creer_live"></video>
-                <div id="description">
-                  <h2>{inputTitre}</h2>
-                  <h2>{inputDescription}</h2>
+                  <div id="description">
+                    <div id="description_gauche">
+                      <h2>{inputTitre}</h2>
+                      <h2>{inputDescription}</h2>
+                    </div>
+                    
+                    <div id="description_viewer">              
+                    </div>
                   </div>
-                </div>
+                  </div>
+
               </>
           ) : (
               <>
