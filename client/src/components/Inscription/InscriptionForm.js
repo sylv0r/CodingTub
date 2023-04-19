@@ -100,12 +100,12 @@ const options = {
 
     if (vision1 === false) {
       document.getElementById('PassInput1').type = 'text';
-      document.getElementById('showPassBtnInscription').innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
+      document.getElementById('showPassBtnInscription').innerHTML = '<i className="fa-regular fa-eye-slash"></i>';
       vision1 = true;
       
       } else {
 			document.getElementById('PassInput1').type = 'password';
-			document.getElementById('showPassBtnInscription').innerHTML = '<i class="fa-regular fa-eye"></i>';
+			document.getElementById('showPassBtnInscription').innerHTML = '<i className="fa-regular fa-eye"></i>';
 			vision1 = false;
     }
   }
@@ -116,12 +116,12 @@ const options = {
 
     if (vision1 === false) {
       document.getElementById('PassInput2').type = 'text';
-      document.getElementById('showPassBtnInscription').innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
+      document.getElementById('showPassBtnInscription').innerHTML = '<i className="fa-regular fa-eye-slash"></i>';
       vision1 = true;
       
       } else {
 			document.getElementById('PassInput2').type = 'password';
-			document.getElementById('showPassBtnInscription').innerHTML = '<i class="fa-regular fa-eye"></i>';
+			document.getElementById('showPassBtnInscription').innerHTML = '<i className="fa-regular fa-eye"></i>';
 			vision1 = false;
     }
   }
@@ -160,13 +160,13 @@ const options = {
                   <div className='form-group'>
                       <label>Mot de passe :</label>
                       <input type="password" id='PassInput1' name="password" value={formData.password} onChange={handleChange} />
-                      <button onClick={showPass1} id='showPassBtnInscription'><i class="fa-regular fa-eye"></i></button>
+                      <button onClick={showPass1} id='showPassBtnInscription'><i className="fa-regular fa-eye"></i></button>
                   </div>
 
                   <div className='form-group'>
                       <label>Confirmez le mot de passe :</label>
                       <input type="password" id='PassInput2' name="cpassword" value={formData.cpassword} onChange={handleChange} />
-                      <button onClick={showPass2} id='showPassBtnInscription'><i class="fa-regular fa-eye"></i></button>
+                      <button onClick={showPass2} id='showPassBtnInscription'><i className="fa-regular fa-eye"></i></button>
                   </div>
                   
                   <p id='errorConnexion'></p>

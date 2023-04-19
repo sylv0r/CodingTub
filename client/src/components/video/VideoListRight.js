@@ -4,25 +4,25 @@ export default function VideoListRight() {
 
         
         <div className="list-right-videos">
-        <div class="list-right-container">
-            <ul class="playlist-right-list">
-                <li class="playlist-right-item">
+        <div className="list-right-container">
+            <ul className="playlist-right-list">
+                <li className="playlist-right-item">
                     <a href="#">
                     <img src="" alt="" />
-                    <div class="playlist-right-item-info">
-                        <h3 class="playlist-right-video-title">Nom de la vidéo</h3>
-                        <p class="playlist-right-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
-                        <span class="playlist-right-item-duration">00:00</span>
+                    <div className="playlist-right-item-info">
+                        <h3 className="playlist-right-video-title">Nom de la vidéo</h3>
+                        <p className="playlist-right-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
+                        <span className="playlist-right-item-duration">00:00</span>
                     </div>
                     </a>
                 </li>
-                <li class="playlist-right-item">
+                <li className="playlist-right-item">
                     <a href="#">
                     <img src="" alt="" />
-                    <div class="playlist-right-item-info">
-                        <h3 class="playlist-right-video-title">Nom de la vidéo</h3>
-                        <p class="playlist-right-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
-                        <span class="playlist-right-item-duration">00:00</span>
+                    <div className="playlist-right-item-info">
+                        <h3 className="playlist-right-video-title">Nom de la vidéo</h3>
+                        <p className="playlist-right-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
+                        <span className="playlist-right-item-duration">00:00</span>
                     </div>
                     </a>
                 </li>

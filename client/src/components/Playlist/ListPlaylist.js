@@ -8,102 +8,102 @@ export default function ListPlaylist(){
     return(
 
         <div className="list-videos">
-            <div class="playlist-container">
-                <ul class="playlist-list">
-                    <li class="playlist-item">
+            <div className="playlist-container">
+                <ul className="playlist-list">
+                    <li className="playlist-item">
                         <a href="#">
                         <img src="" alt="" />
-                        <div class="playlist-item-info">
-                            <h3 class="playlist-video-title">Nom de la vidéo</h3>
-                            <p class="playlist-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
-                            <span class="playlist-item-duration">00:00</span>
+                        <div className="playlist-item-info">
+                            <h3 className="playlist-video-title">Nom de la vidéo</h3>
+                            <p className="playlist-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
+                            <span className="playlist-item-duration">00:00</span>
                         </div>
                         </a>
-                        <div class="playlist-item-icon">
+                        <div className="playlist-item-icon">
                             <i className="fa-solid fa-ellipsis-vertical" style={{color: "#ffffff"}} id="threedoticon"></i>
                             {/*<FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>*/}
                         </div>
                     </li>
-                    <li class="playlist-item">
+                    <li className="playlist-item">
                         <a href="#">
                         <img src="" alt="" />
-                        <div class="playlist-item-info">
-                            <h3 class="playlist-video-title">Nom de la vidéo</h3>
-                            <p class="playlist-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
-                            <span class="playlist-item-duration">00:00</span>
+                        <div className="playlist-item-info">
+                            <h3 className="playlist-video-title">Nom de la vidéo</h3>
+                            <p className="playlist-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
+                            <span className="playlist-item-duration">00:00</span>
                         </div>
                         </a>
-                        <div class="playlist-item-icon">
+                        <div className="playlist-item-icon">
                             <i className="fa-solid fa-ellipsis-vertical" style={{color: "#ffffff"}} id="threedoticon"></i>
                             {/*<FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>*/}
                         </div>
                     </li>
-                    <li class="playlist-item">
+                    <li className="playlist-item">
                         <a href="#">
                         <img src="" alt="" />
-                        <div class="playlist-item-info">
-                            <h3 class="playlist-video-title">Nom de la vidéo</h3>
-                            <p class="playlist-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
-                            <span class="playlist-item-duration">00:00</span>
+                        <div className="playlist-item-info">
+                            <h3 className="playlist-video-title">Nom de la vidéo</h3>
+                            <p className="playlist-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
+                            <span className="playlist-item-duration">00:00</span>
                         </div>
                         </a>
-                        <div class="playlist-item-icon">
+                        <div className="playlist-item-icon">
                             <i className="fa-solid fa-ellipsis-vertical" style={{color: "#ffffff"}} id="threedoticon"></i>
                             {/*<FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>*/}
                         </div>
                     </li>
-                    <li class="playlist-item">
+                    <li className="playlist-item">
                         <a href="#">
                         <img src="" alt="" />
-                        <div class="playlist-item-info">
-                            <h3 class="playlist-video-title">Nom de la vidéo</h3>
-                            <p class="playlist-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
-                            <span class="playlist-item-duration">00:00</span>
+                        <div className="playlist-item-info">
+                            <h3 className="playlist-video-title">Nom de la vidéo</h3>
+                            <p className="playlist-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
+                            <span className="playlist-item-duration">00:00</span>
                         </div>
                         </a>
-                        <div class="playlist-item-icon">
+                        <div className="playlist-item-icon">
                             <i className="fa-solid fa-ellipsis-vertical" style={{color: "#ffffff"}} id="threedoticon"></i>
                             {/*<FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>*/}
                         </div>
                     </li>
-                    <li class="playlist-item">
+                    <li className="playlist-item">
                         <a href="#">
                         <img src="" alt="" />
-                        <div class="playlist-item-info">
-                            <h3 class="playlist-video-title">Nom de la vidéo</h3>
-                            <p class="playlist-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
-                            <span class="playlist-item-duration">00:00</span>
+                        <div className="playlist-item-info">
+                            <h3 className="playlist-video-title">Nom de la vidéo</h3>
+                            <p className="playlist-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
+                            <span className="playlist-item-duration">00:00</span>
                         </div>
                         </a>
-                        <div class="playlist-item-icon">
+                        <div className="playlist-item-icon">
                             <i className="fa-solid fa-ellipsis-vertical" style={{color: "#ffffff"}} id="threedoticon"></i>
                             {/*<FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>*/}
                         </div>
                     </li>
-                    <li class="playlist-item">
+                    <li className="playlist-item">
                         <a href="#">
                         <img src="" alt="" />
-                        <div class="playlist-item-info">
-                            <h3 class="playlist-video-title">Nom de la vidéo</h3>
-                            <p class="playlist-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
-                            <span class="playlist-item-duration">00:00</span>
+                        <div className="playlist-item-info">
+                            <h3 className="playlist-video-title">Nom de la vidéo</h3>
+                            <p className="playlist-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
+                            <span className="playlist-item-duration">00:00</span>
                         </div>
                         </a>
-                        <div class="playlist-item-icon">
+                        <div className="playlist-item-icon">
                             <i className="fa-solid fa-ellipsis-vertical" style={{color: "#ffffff"}} id="threedoticon"></i>
                             {/*<FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>*/}
                         </div>
                     </li>
-                    <li class="playlist-item">
+                    <li className="playlist-item">
                         <a href="#">
                         <img src="" alt="" />
-                        <div class="playlist-item-info">
-                            <h3 class="playlist-video-title">Nom de la vidéo</h3>
-                            <p class="playlist-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
-                            <span class="playlist-item-duration">00:00</span>
+                        <div className="playlist-item-info">
+                            <h3 className="playlist-video-title">Nom de la vidéo</h3>
+                            <p className="playlist-item-infos"><a href='#'>Nom de la chaine</a> nombre de vues - il y a x heures </p>
+                            <span className="playlist-item-duration">00:00</span>
                         </div>
                         </a>
-                        <div class="playlist-item-icon">
+                        <div className="playlist-item-icon">
                             <i className="fa-solid fa-ellipsis-vertical" style={{color: "#ffffff"}} id="threedoticon"></i>
                             {/*<FontAwesomeIcon icon={faEllipsisVertical} style={{color: "#ffffff"}} id="threedoticon"/>*/}
                         </div>
