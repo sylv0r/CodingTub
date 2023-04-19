@@ -12,7 +12,6 @@ const getSubs = require("./query/getSubs");
 //router.post('/createChannel', createChannel)
 
 router.use(cors());
-router.get("/getProfile", getProfile)
 router.post('/getUsers', getUsers)
 router.post('/getChannel/:name', getChannel)
 router.post('/createInscription', createInscription)
