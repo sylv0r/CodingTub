@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 function App() {
   const videoRef = useRef();
+  const [lives, setLives] = useState([]);
 
 
   
@@ -52,6 +53,15 @@ function App() {
       .then(data => console.log("requete sql : " + data))
       .catch(error => console.error(error));
     };
+
+    fetch('http://localhost:3009/api/getLives')
+    .then(response => response.json())
+    .then(data => {
+      setLives(data);
+    })
+    .catch(error => {
+      console.error('Erreur dans la recherche de lives en cours :', error);
+    });
   //------\\
 
 
@@ -152,11 +162,27 @@ function App() {
                 </div>
                 <div id="creer_live_description">
                   <video ref={videoRef} autoPlay playsInline id="creer_live"></video>
-                <div id="description">
-                  <h2>{inputTitre}</h2>
-                  <h2>{inputDescription}</h2>
+                  <div id="description">
+                    <div id="description_gauche">
+                      <h2>{inputTitre}</h2>
+                      <h2>{inputDescription}</h2>
+                    </div>
+                    
+                    <div id="description_viewer">
+                    {Array.isArray(lives) && lives.map(live => {
+                        if (live.URL === window.location.href) {
+                          return (
+                            <div id="viewer" key={live.id}>
+                              <p>{live.viewer}</p>
+                            </div>
+                          )
+                        } 
+                        return null;
+                      })}               
+                    </div>
                   </div>
-                </div>
+                  </div>
+
               </>
           ) : (
               <>

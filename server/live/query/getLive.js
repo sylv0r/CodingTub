@@ -65,7 +65,7 @@ requetePostLive.use(cors());
 
 requetePostLive.post('/api/postLives', (req, res) => {
     const { url, title, description } = req.body;
-    const sql = `INSERT INTO lives (url, title, description, statut) VALUES ('${url}', '${title}', '${description}', '1')`;
+    const sql = `INSERT INTO lives (url, title, description, viewer, statut) VALUES ('${url}', '${title}', '${description}', "0", '1')`;
     con.query(sql, (error, results) => {
       if (error) {
         console.error(`Error executing SQL query: ${error.stack}`);
