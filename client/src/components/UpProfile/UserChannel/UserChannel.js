@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './UserChannel.scss';
-import './OtherUserChannel.scss';
 import axios from 'axios';
 import profilePhoto from './chat.jpg';
 
@@ -50,11 +49,11 @@ export default function UserChannel({ action, name }) {
 
     return (
         <>
-            <div className='wrapperProfile'>
-                <div className='profileUser'>
-                    <img id='pictureUser' src={users.image_link || profilePhoto} alt='profile' />
+            <div className='wrapperUserProfile'>
+                <div className='profileUserBis'>
+                    <img id='pictureUserBis' src={users.image_link || profilePhoto} alt='profile' />
                 </div>
-                <div className='profileUser'>
+                <div className='profileUserBis'>
                     {users.map((user, index) => (
                         <div key={index}>
                             <p className='pseudoUsername'>{user.name}</p>
@@ -64,14 +63,14 @@ export default function UserChannel({ action, name }) {
                     ))}
                 </div>
                 {action ? (
-                    <div className='profileUser'>
-                        <button id='subscribeButton' type='submit' onClick={subscribed} style={{ backgroundColor: buttonColor }}>
+                    <div className='profileUserBis'>
+                        <button className='updateUserProfile' type='submit' onClick={subscribed} style={{ backgroundColor: buttonColor }}>
                             {buttonText}
                         </button>
                     </div>
                 ) : (
-                    <div className='profileUser'>
-                        <button id='updateUserProfile' type='submit'>
+                    <div className='profileUserBis'>
+                        <button className='updateUserProfile' type='submit'>
                             Personnaliser sa chaîne
                         </button>
                     </div>
