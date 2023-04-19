@@ -5,7 +5,6 @@ const addContent = require("./query/addContent");
 const uploadVideo = require('./query/uploadVideo');
 const getSubscriptions = require('./query/getSubscriptions');
 const getContent = require('./query/getContent');
-const getNamePpChaine = require('./query/getNamePpChaine');
 const showAllChannels = require('./query/showAllChannels');
 const getInfosChannel = require('./query/getInfosChannel');
 
@@ -31,7 +30,6 @@ const router = Router()
 router.get('/showNamePp/:id', showNamePp)
 router.post('/addContent', addContent)
 router.get('/getContent/:name', getContent)
-router.get('/getNamePpChaine/:name', getNamePpChaine)
 router.get('/showAllChannels/:channel_user_id', showAllChannels)
 router.get('/getInfosChannel/:name', getInfosChannel)
 
