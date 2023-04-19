@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player'
 import './video.scss';
 import './list_right.scss';
+import axios from 'axios'
 
 import { json, useSearchParams  } from 'react-router-dom'
 //import SingleVideoRight from './Home/Video/SingleVideoRight';
@@ -15,16 +16,21 @@ function Video() {
         
         console.log(video)
 
-        await fetch(`http://localhost:3001/videos/addHistory/`, {
+        axios.post('http://localhost:3001/users/getUserId', {
+          hashedUserId : JSON.parse(localStorage.getItem('hashed_user_id'))
+        })
+        .then(async (response) => {
+            await fetch(`http://localhost:3001/videos/addHistory/`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                user : localStorage.getItem('user_id'),
+                user : response.data,
                 video : id,
                 inHistory : inHistory
             })
             
         });
+        })
 
     };
 

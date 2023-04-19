@@ -17,9 +17,13 @@ module.exports = async (req, res) => {
                 console.log(req.body.description)
                 console.log(allChannels)
 
-                con.query('SELECT videos.*, channels.name, channels.image_link FROM videos INNER JOIN channels ON videos.channel_id = channels.id WHERE videos.channel_id IN (?) ORDER BY videos.id DESC', [allChannels], function (err, results) {
-                    if (err) throw err
-                    //console.log(allChannels)
-                    res.send(results)
-                }) 
+                if(allChannels != 0) {
+                    con.query('SELECT videos.*, channels.name, channels.image_link FROM videos INNER JOIN channels ON videos.channel_id = channels.id WHERE videos.channel_id IN (?) ORDER BY videos.id DESC', [allChannels], function (err, results) {
+                        if (err) throw err
+                        //console.log(allChannels)
+                        res.send(results)
+                    })
+                }
+
+                 
 })}
