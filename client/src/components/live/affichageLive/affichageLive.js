@@ -111,7 +111,7 @@ function App() {
               <div id="option_creer_live">
                 <h1>Lives en cours</h1>
                 <Link to="/accueilLive">
-                  <button className="Accueil-button">Retourner à l'accueil</button>
+                  <button className="Accueil-button" >Retourner à l'accueil</button>
                 </Link>
                 {Array.isArray(lives) && lives.map(live => (
                 <li key={live.id}>

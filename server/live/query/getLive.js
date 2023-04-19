@@ -112,7 +112,7 @@ requeteGetLive.listen(3009, () => { // Serveur Node
 
 
 
-//REQUETE UPDATE LIVE VERS BDD => 3010\\
+//REQUETE UPDATE LIVE VERS BDD => 3010, 3011, 3012\\
 const requeteUpdateLive = express()
 requeteUpdateLive.use(express.json());
 requeteUpdateLive.use(cors());
@@ -138,7 +138,7 @@ const requeteUpdateLiveViewer = express()
 requeteUpdateLiveViewer.use(express.json());
 requeteUpdateLiveViewer.use(cors());
 
-requeteUpdateLiveViewer.post('/api/updateLivesViewer', (req, res) => {
+requeteUpdateLiveViewer.post('/api/updateLivesViewer+', (req, res) => {
     const { url, title, description } = req.body;
     const sql = `UPDATE lives SET viewer = viewer + 1 WHERE title='${title}'`;
     con.query(sql, (error, results) => {
@@ -153,6 +153,6 @@ requeteUpdateLiveViewer.post('/api/updateLivesViewer', (req, res) => {
 });
 
 requeteUpdateLiveViewer.listen(3011, () => { // Serveur Node
-    console.log('--> Requete UPDATE LIVE  VIEWER sur 3011');
+    console.log('--> Requete UPDATE LIVE VIEWER sur 3011');
 });
 //----------------------------------\\
