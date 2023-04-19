@@ -60,7 +60,7 @@ function Likes(props) {
       <span id="likes">{videoLikes}</span>
       <div id="placement_button_like">
         <button 
-          className={`like-button ${isActive ? 'active' : ''}`}
+          className={`like_button_video ${isActive ? 'active' : ''}`}
           onClick={handleLikeClick}
         >
           Like

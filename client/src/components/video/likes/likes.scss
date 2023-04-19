@@ -8,17 +8,12 @@
     margin-right: 5px;
 }
 
-#placement_button_like{
-    width: 50%;
-    text-align: center;
-}
 
-.like-button {
+
+.like_button_video {
   background-color: white;
   color: black;
-  border: 1px solid black;
   border-radius: 5px;
-  padding: 5px 5px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 
@@ -32,11 +27,11 @@
   
   
 }
-.like-button:hover {
+.like_button_video:hover {
   background-color: rgb(145, 29, 52);
   color: white;
 }
-.like-button.active {
+.like_button_video.active {
   background-color: rgb(145, 29, 52);
   color: white;
 }

@@ -62,16 +62,20 @@ function Video() {
 
     
     return (
-                 
+        
         <div id='player-wrapper'>
             {videos.length > 0 &&
-            <div className='video'>
+            <div id='video_lecteur'>
                 <ReactPlayer 
                     url={url + videos[0].video_link}
                     controls
                     className='player'
                     width='50%'
                     height='50%'
+                    // playing
+                    //muted
+               
+            
                     />
                     </div>
             }
@@ -96,9 +100,6 @@ function Video() {
             }
 
             <VideoListRight />
-
-
-                
             
         </div>
 

@@ -136,7 +136,7 @@ root.render(
       </main>
 
     </section>
-    {
+   {/*  {
       connRegiPage ?
         <>
           <nav className='side'><SideBar /></nav>
@@ -151,7 +151,7 @@ root.render(
         </>
         :
         <RouterProvider router={router} />
-    }
+    } */}
 
   </React.StrictMode>
 );
