@@ -90,7 +90,7 @@ export default function SingleVideo({video}) {
         hashedUserId : JSON.parse(localStorage.getItem('hashed_user_id'))
         })
         .then(async (response) => {
-            await addVid("Watch Later", response.data, video.id);
+            await addVid("WL", response.data, video.id);
         })
             
         async function addVid(playlist_name, id_user, id_video) {

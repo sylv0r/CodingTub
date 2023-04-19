@@ -81,8 +81,8 @@ const handleSubmit = (event) => {
         })
         .then(async (response) => {
           console.log('user Id', response.data);
-          await createPlaylists("Liked Videos", response.data);
-          await createPlaylists("Watch Later", response.data);
+          await createPlaylists("LL", response.data);
+          await createPlaylists("WL", response.data);
           window.location.href = '/';
         })
         .catch(error => {
