@@ -7,6 +7,8 @@ export default function SectionCommunaute({ infos_communaute }){
 
     // state
 
+    const [linksSectionCommu, setLinksSectionCommu] = useState([`/channel/${infos_communaute.name}`])
+
     // comportements
 
     // affichage (render)
@@ -14,12 +16,12 @@ export default function SectionCommunaute({ infos_communaute }){
         <div>
             <div className='div_section_communaute'>
                 <div className='pdp_name'>
-                    <img src={process.env.REACT_APP_NGINX_LINK+infos_communaute.imageLink.image_link} alt="pdp_utilisateur" className='pdp_utilisateur'></img>
-                    <p>{infos_communaute.name}</p>
+                    <a href={linksSectionCommu}><img src={process.env.REACT_APP_NGINX_LINK+infos_communaute.imageLink.image_link} alt="pdp_utilisateur" className='pdp_utilisateur'></img></a>
+                    <a href={linksSectionCommu} className='nom_chaine_section_commu'><p>{infos_communaute.name}</p></a>
                 </div>
-                <AddContent />
+                <AddContent pre_infos_commu={infos_communaute.idChaine.id}/>
             </div>
-            <ShowContent action={`getContent/${infos_communaute.name}`}/>
+            <ShowContent action={`getContent/${infos_communaute.name}`} infos_show_comu={{infos_communaute}}/>
         </div>
     );
 }

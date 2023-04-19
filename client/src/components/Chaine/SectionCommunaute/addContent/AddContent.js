@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
@@ -6,8 +6,6 @@ function AddContent(props) {
 
     const content = useRef();
     const [value, setValue] = useState();
-
-    const id = localStorage.getItem('user_id');
 
     const handleChange = (event) => {
       setValue(event.target.value);
@@ -21,7 +19,7 @@ function AddContent(props) {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          id_channel: id,
+          id_channel: props.pre_infos_commu,
           content: content.current.value,
         })
       })

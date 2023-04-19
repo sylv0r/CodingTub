@@ -82,7 +82,7 @@ export default function MenuChaine() {
     setSectionAffichee(<SectionPlaylists />);
     break;
     case 'Communauté':
-    setSectionAffichee(<SectionCommunaute infos_communaute={{name, imageLink}}/>);
+    setSectionAffichee(<SectionCommunaute infos_communaute={{idChaine, name, imageLink}}/>);
     break;
     case 'Chaînes':
     setSectionAffichee(<SectionChaines channel_user_id={idUserChaine.user_id}/>);
@@ -98,7 +98,7 @@ export default function MenuChaine() {
     // affichage (render)
     return (
     <div className='body_menu_chaine'>
-    <Profile action={name}/>
+    <Profile />
     <div id="buttons">
     <button className='sections_menu' onClick={() => handleSectionChange('Accueil')}>Accueil</button>
     <button className='sections_menu' onClick={() => handleSectionChange('Vidéos')}>Vidéos</button>

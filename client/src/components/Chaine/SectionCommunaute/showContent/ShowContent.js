@@ -5,6 +5,7 @@ export default function ShowContent({ action }) {
     // state
     const [contents, setContents] = useState([])
     const [timeContent, setTimeContent] = useState([])
+    const [links, setLinks] = useState([])
 
     let currentdate = new Date(); 
     let contentPublicationDate = new Date(timeContent);
@@ -48,6 +49,7 @@ export default function ShowContent({ action }) {
             .then((json) => {
                 setContents(json)
                 setTimeContent(json[0].published_at)
+                setLinks(`/channel/${json[0].name}`)
             })
             .catch(error => {
                 if (error.response) {
@@ -71,11 +73,19 @@ export default function ShowContent({ action }) {
 
     // affichage
     return (
-        <div className='show_all_content_communaute'>
+        <div>
             {contents.map((content) => (
-                <div className='bloc_content_date_communaute'>
-                    <p>{content.content}</p>
-                    <p>il y a {difference}</p>
+                <div className='show_all_content_communaute'>
+                    <div className='pdp_name_time_commu'>
+                        <div className='pdp_chaine_name_commu'>
+                            <a href={links}><img src={process.env.REACT_APP_NGINX_LINK + content.image_link} className='pdp_chaine_commu'></img></a>
+                            <a href={links} className='nom_chaine_commu'><p>{content.name}</p></a>
+                        </div>
+                        <p>il y a {difference}</p>
+                    </div>
+                    <div className='bloc_content_communaute'>
+                        <p>{content.content}</p>
+                    </div>
                 </div>
             ))}
         </div>
