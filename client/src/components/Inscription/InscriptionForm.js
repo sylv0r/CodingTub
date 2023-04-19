@@ -157,7 +157,7 @@ const options = {
         <form onSubmit={handleSubmit}>
             <div className='container-profile-inscription'>
         
-                {/* <a href="/" className='linkCodingLogoInscription'><img src={logo} id='codingLogoInscription' alt='logo' /></a> */}
+                <a href="/" className='linkCodingLogoInscription'><img src={"https://149a-80-70-44-4.ngrok-free.app/logo/logo_codingtub.png"} id='codingLogoInscription' alt='logo' /></a>
 			          <h2>Inscription</h2>
                 <div className='grid-profil-inscription'>
                   
