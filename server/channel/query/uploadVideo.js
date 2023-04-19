@@ -5,7 +5,6 @@ const axios = require('axios');
 require('dotenv').config();
 
 module.exports = async (req, res) => {
-  console.log('in the back');
   try {
     const video = req.files.video[0];
     const miniature = req.files.miniature[0];
