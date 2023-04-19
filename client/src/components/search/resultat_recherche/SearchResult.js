@@ -64,8 +64,8 @@ export default function SearchResults() {
                 <p className="search-item-views">{filteredData.videoViews} vues</p>
                 <p className="search-item-published">{formatDuration(duration)}</p>
                 <div className="search-item-details">
-                  <a href={`/channel/${filteredData.channelName}`}><img className="search-item-channel-logo" src={url + filteredData.channelImageLink}/>
-                  <p className="search-item-channel-name">{filteredData.channelName}</p></a>
+                  <a href={`/channel/${filteredData.channelName}`}><img className="search-item-channel-logo" src={url + filteredData.channelImageLink} />
+                    <p className="search-item-channel-name">{filteredData.channelName}</p></a>
                 </div>
               </div>
             </a>
