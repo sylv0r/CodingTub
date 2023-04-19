@@ -1,21 +1,52 @@
-const dbConnection = require('../../db/connection');
+const { con } = require("../../db/connection");
 
-module.exports = (req, res) => {
-    const { text } = req.body;
+const path = require('path');
+const fs = require('fs');
+const axios = require('axios');
+require('dotenv').config();
+
+module.exports = async (req, res) => {
+  try {
+    const video = req.file;
+    const description = req.body.description;
+    const videoPath = path.join(__dirname, '../uploads', video.filename);
+
+    const fileStreamVideo = fs.createReadStream(videoPath);
+
+    const urlVideo = `${process.env.NGROK_PATH}shorts/` + video.filename;
+    console.log("log")
+    console.log(urlVideo)
+
   
-    if (!text) {
-      console.log(req.body);
-      return res.status(400).json({ message: 'Texte manquant dans la requête.' });
-    }
-  
-    const query = 'INSERT INTO shorts (description,`like`, `deslike`, shorturl, channel_id) VALUES (?, ?, ?, ?, ?)';
-  
-    dbConnection.query(query, [text, 1, 1, text, 1], (err, result) => {
+    await axios
+      .put(urlVideo, fileStreamVideo, {
+        
+        headers: {
+          'Content-Type': video.mimetype,
+        },
+      })
+  .catch((error) => {
+    console.error('Axios error:', error);
+  });
+
+    fs.unlink(videoPath, async (err) => {
       if (err) {
-        console.error('Error inserting text into database:', err);
-        return res.status(500).json({ message: 'Erreur lors de l\'ajout du texte à la base de données.' });
+        res.status(500).json({ message: 'Error uploading video', err });
+      } else {
+        const query =
+          "INSERT INTO shorts (description, shorturl, channel_id, `like`) VALUES (?, ?, ?, ?)";
+
+        con.query(query, [description, urlVideo, 1, 0], (err, result) => {
+          if (err) {
+            console.error("Error inserting video into database:", err);
+            return res.status(500).json({ message: "Erreur lors de l'ajout de la vidéo à la base de données." });
+          }
+          res.status(201).json({ message: "Vidéo ajoutée avec succès à la base de données." });
+        });
       }
-      res.status(201).json({ message: 'Texte ajouté avec succès à la base de données.' });
     });
-  };
-  
+
+  } catch (error) {
+    res.status(500).json({ message: 'Error uploading video', error });
+  }
+};

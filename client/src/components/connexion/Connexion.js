@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './Connexion.css';
 import axios from 'axios';
-import logo from './codingTub.png'
+/* import logo from './codingTub.png' */
 
 function Connexion() {
 
@@ -98,7 +98,7 @@ function Connexion() {
   return (
     <div className="UsersConnexion">
 
-		<a href="/" className='linkCodingLogoConnexion'><img src={logo} id='codingLogoConnexion' alt='logo'/></a>
+		{/* <a href="/" className='linkCodingLogoConnexion'><img src={logo} id='codingLogoConnexion' alt='logo'/></a> */}
 
       	<h1>Connexion</h1>
 
