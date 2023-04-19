@@ -3,7 +3,8 @@ const { con } = require('../../db/connection')
 
 
 module.exports = async (req, res) => {
-    await fetch(`http://localhost:3001/channels/getSubscriptions`, {method: "GET", headers: { "Content-Type": "application/json"}})
+    const user = req.params.user
+    await fetch(`http://localhost:3001/channels/getSubscriptions/${user}`, {method: "GET", headers: { "Content-Type": "application/json"}})
             .then(response => {
                 return response.json()
             })

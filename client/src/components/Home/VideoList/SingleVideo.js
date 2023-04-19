@@ -107,10 +107,12 @@ export default function SingleVideo({video}) {
     //render
     return (
         <div className="singleVid">
+            <a href={`/video?id=${video.id}`}>
             <div className="thumbnail">
-                <a href={`/video?id=${video.id}`}><img src={url + video.miniature} alt="" onError={(e) => handleThumbnailError(e)} /></a> <br />
+                <img src={url + video.miniature} alt="" onError={(e) => handleThumbnailError(e)} /> <br />
                 <h6 className="video-duration">{video.duree}</h6>
             </div>
+            </a>
 
             <div className="informations" onMouseOver={handleHover} onMouseLeave={handleEndHover}>
 
