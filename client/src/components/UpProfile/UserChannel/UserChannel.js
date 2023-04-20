@@ -3,26 +3,7 @@ import './UserChannel.scss';
 
 export default function UserChannel({ action }) {
 
-    // Déclare la variable local pour la connexion
-
-    /* axios.post('http://localhost:3001/users/getUserId', {
-        hashedUserId : JSON.parse(localStorage.getItem('hashed_user_id'))
-    })
-    .then(response => {
-        console.log('user Id', response.data);
-        const localId = response.data;
-    })
-    .catch(error => {
-        console.log('error', error.response.data)
-    }); */
-
-    const localId = localStorage.getItem('user_id');
-
-    // Si on n'est pas connecté, renvoie vers la page connexion
-
-    if (!localId) {
-        window.location.href= '/connexion';
-    };
+    
 
     // Déclare les variables
     const [buttonText, setButtonText] = useState(localStorage.getItem("buttonText") || "S'abonner");

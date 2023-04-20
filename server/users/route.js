@@ -5,9 +5,7 @@ const router = Router()
 //lance la fonction createChannel lorsqu'un post est effecté à /channels/createChannel
 const cors = require("cors");
 const getUsers = require("./query/getUser");
-const getUserBis = require("./query/getUserBis");
 const modifyProfile = require('./query/modifyProfile')
-const getProfile = require('./query/getProfile')
 const getUserId = require("./query/getUserId");
 const modifyPassword = require("./query/modifyPassword")
 const verifyToken = require("./query/verifyConnexion")
