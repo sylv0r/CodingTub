@@ -62,13 +62,6 @@ const router = createBrowserRouter([
     element: <ModifyProfile />
   },
   {
-<<<<<<< HEAD
-    path: "/uploadVideo",
-    element: <UploadVideo />
-  },
-  {
-=======
->>>>>>> origin/chaine_alexandre
     path: "/video",
     element: <Video />,
   },
