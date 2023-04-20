@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './UserChannel.scss';
 import axios from 'axios';
 
@@ -95,6 +95,13 @@ export default function UserChannel({ action }) {
           console.log(error);
         }
     };
+
+    useEffect(() => {
+        const checkConnectionAsync = async () => {
+          const id = await checkConnection()
+        }
+        checkConnectionAsync()
+    }, [])
  
     // Partie HTML
 

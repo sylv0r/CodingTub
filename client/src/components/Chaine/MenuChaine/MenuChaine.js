@@ -65,6 +65,13 @@ export default function MenuChaine() {
         getChannelUserId()
     }, [])
 
+    useEffect(() => {
+        const checkConnectionAsync = async () => {
+          const id = await checkConnection()
+        }
+        checkConnectionAsync()
+    }, [])
+
 
 
     const handleSectionChange = (section) => {
