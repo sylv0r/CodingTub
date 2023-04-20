@@ -32,10 +32,10 @@ export default function ListPlaylist(){
                 return response.json()
             })
             .then((json) => {
-                console.log(json)
+                //console.log(json)
                 setVideos(json)
                 vids = json
-                console.log(vids)
+                //console.log(vids)
             })
             .catch(error => {
                 if (error.response) {
