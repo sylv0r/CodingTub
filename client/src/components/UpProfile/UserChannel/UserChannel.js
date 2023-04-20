@@ -19,6 +19,10 @@ export default function UserChannel({ action }) {
 
     const localId = localStorage.getItem('user_id');
 
+    localStorage.setItem("localChannelId", action.idChaine.id)
+
+    const localChannelId = localStorage.getItem('localChannelId')
+
     // Si on n'est pas connecté, renvoie vers la page connexion
 
     if (!localId) {
@@ -26,32 +30,29 @@ export default function UserChannel({ action }) {
     };
 
     // Déclare les variables
-    const [buttonText, setButtonText] = useState(localStorage.getItem("buttonText") || "S'abonner");
-    const [buttonColor, setButtonColor] = useState(localStorage.getItem("buttonColor") || "black");
+    const [isSubscribed, setIsSubscribed] = useState(localStorage.getItem("isSubscribed") === "true");
+    const buttonText = isSubscribed ? "Se désabonner" : "S'abonner";
+    const buttonColor = isSubscribed ? "blue" : "black";
 
     // Concerne le bouton "s'abonner"
 
     const subscribed = () => {
-        if (buttonText === "S'abonner") {
-            handleSubscription(action.id_channel, localId, "subscribe");
-        } else {
-            handleSubscription(action.id_channel, localId, "unsubscribe");
-        }
+        handleSubscription(localChannelId, localId, isSubscribed ? "unsubscribe" : "subscribe");
     };
 
-    const handleSubscription = async (channelId, userId, action) => {
+    const handleSubscription = async (channelId, localId, act) => {
         try {
-            if (action === "subscribe") {
-            await axios.post('/api/subscribe', { channelId, userId });
-            setButtonText("Se désabonner");
-            setButtonColor("blue");
-            } else if (action === "unsubscribe") {
-            await axios.post('/api/unsubscribe', { channelId, userId });
-            setButtonText("S'abonner");
-            setButtonColor("black");
+            if (act === "subscribe") {
+                axios.post('http://localhost:3001/users/getSubs', { channelId, localId});
+                setIsSubscribed(true);
+                localStorage.setItem("isSubscribed", "true");
+            } else if (act === "unsubscribe") {
+                axios.post('http://localhost:3001/users/getUnsubs', { channelId, localId});
+                setIsSubscribed(false);
+                localStorage.setItem("isSubscribed", "false");
             }
         } catch (error) {
-          console.log(error);
+        console.log(error);
         }
     };
 
