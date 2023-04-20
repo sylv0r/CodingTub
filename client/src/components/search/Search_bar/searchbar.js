@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import Filtre from "./dropbutton/dropbutton";
 import "./searchbar.scss";
 
 export default function Search2() {
