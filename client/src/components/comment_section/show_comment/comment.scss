@@ -1,0 +1,37 @@
+.comment_all {
+    width: 50%;
+
+}
+
+.comment_unique{
+    margin: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.datetime_comment {
+    color: gray;
+    margin-left: 10px;
+}
+.pseudo_comment{
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.datetime_comment::before {
+    content: attr(data-date) " ";
+}
+
+.datetime_comment{
+
+}
+
+.content_comment {
+    margin-left: 5px;
+}
+
+#pseudo_datetime_comment{
+    display: flex;
+}

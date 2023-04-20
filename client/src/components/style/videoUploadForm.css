@@ -34,7 +34,7 @@
   justify-content: space-between;
 }
 
-h2 {
+/* h2 {
   text-align: center;
   margin-bottom: 30px;
 }
@@ -66,7 +66,7 @@ button:hover {
   background-color: #B3D292
   ;
 }
-
+ */
 .message-banner {
   position: absolute; /* Ajout de cette propriété */
   bottom: 280px; /* Ajout de cette propriété */

@@ -12,33 +12,46 @@ export default function ChannelForm({state}) {
   async function handleSubmit(e) {
     state.setAlert(false)
     e.preventDefault()
-    const formData = new FormData();
-    formData.append('description', description.current.value);
-    formData.append('user_id', "1");
-    formData.append('name', name.current.value);
-    formData.append('image', image.current.files[0]);
-  
-    try {
-      const response = await fetch('http://localhost:3001/channels/createChannel', {
-        method: 'POST',
-        body: formData,
-      });
-  
-      const json = await response.json();
-      if (json.error) {
-        state.setResponseType("danger")
-        state.setMessage(json.error)
-        state.setAlert(true)
-      } else {
-        state.setResponseType("success")
-        state.setMessage(json.message)
-        state.setAlert(true)
-        name.current.value = ""
-        description.current.value = ""
-        image.current.value = ""
+    if (localStorage.getItem("jwt")) {
+      const formData = new FormData();
+      formData.append('description', description.current.value);
+      formData.append('user_id', localStorage.getItem("user_id"));
+      formData.append('name', name.current.value);
+      formData.append('image', image.current.files[0]);
+    
+      try {
+        const response = await fetch('http://localhost:3001/channels/createChannel', {
+          method: 'POST',
+          body: formData,
+          headers: {
+            authorization: localStorage.getItem("jwt")
+          }
+        });
+    
+        const json = await response.json();
+        if (json.error) {
+          state.setResponseType("danger")
+          if (typeof json.error === "string") {
+            state.setMessage(json.error)
+          } else {
+            state.setMessage("Erreur du serveur, veuillez réésayer plus tard")
+          }
+          state.setAlert(true)
+        } else {
+          state.setResponseType("success")
+          state.setMessage(json.message)
+          state.setAlert(true)
+          name.current.value = ""
+          description.current.value = ""
+          image.current.value = ""
+        }
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
+    } else {
+      state.setResponseType("danger")
+      state.setMessage("Vous devez être connecté à un compte pour vous créer une chaîne")
+      state.setAlert(true)
     }
   }
 
@@ -72,6 +85,7 @@ export default function ChannelForm({state}) {
           as="textarea"
           className="form-description"
           placeholder="Entrer la description (min 10 caractères)"
+          style={{ width: "100%" }}
         />
         <Form.Text className="text-muted">
           Utilisez uniquement des mots corrects.

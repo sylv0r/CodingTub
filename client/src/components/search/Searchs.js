@@ -1,15 +1,18 @@
 import './Searchs.scss';
 import React, { useState, useEffect } from 'react';
-//import ControlledCarousel from "./hashtag"
-//import Hashtag from "./hashtag"
-import SideBar from '../Home/SideBar/SideBar';
-import Search2 from './searchbar';
+import ControlledCarousel from "./hashtag/Hashtag"
+import Hashtag from "./hashtag/Hashtag"
+import Search2 from './Search_bar/searchbar';
+import { useLocation } from 'react-router-dom';
 //import './Header.scss';
 
 function Search() {
 
+    let location = useLocation()
+    let homePage = location.pathname === '/'
+
     useEffect(() => {
-        if(localStorage.getItem("hashed_user_id") === null) {
+        if(localStorage.getItem("jwt") === null) {
             document.getElementsByClassName("logoutBtn")[0].innerHTML = "Login";
         } else {
             document.getElementsByClassName("logoutBtn")[0].innerHTML = "Logout";
@@ -18,7 +21,7 @@ function Search() {
 
 
     const logout = () => {
-        localStorage.removeItem("hashed_user_id");
+        localStorage.removeItem("jwt");
         window.location.href = "/connexion";
     }
 
@@ -32,18 +35,18 @@ function Search() {
 
     return (
 
-    <header className="body">
+        <header className="body">
 
-        <nav className="recherche">
-            <div className="Navsearch">
+            <nav className="recherche">
+                <div className="Navsearch">
 
-                <a className="logo" href="#" target="" rel="">
-                    <img src="assets/img_header/Project_title_picture.png" alt="Logo CodingTube" class="icon_title" width="100" />  
-                </a>
+                    <a className="logo" href=" " rel="">
+                        <img src="assets/img_header/Project_title_picture.png" alt="Logo CodingTube" className="icon_title" width="100" />
+                    </a>
 
-                <div className="search" action="submit">
-                    <Search2/>
-                </div>
+                    <div className="search" action="submit">
+                        <Search2 />
+                    </div>
 
                 <div className="connect">
 
@@ -61,13 +64,16 @@ function Search() {
                 
             </div>
 
-            <div className="Navid">
+                {homePage &&
+                    <div className="Navid">
+                    {Hashtag}
+                    <ControlledCarousel />
 
-                
-            </div>
-        </nav>
+                </div>}
 
-    </header>
+            </nav>
+
+        </header>
     );
 }
 
