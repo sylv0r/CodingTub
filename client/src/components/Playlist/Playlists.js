@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './../style/Playlist.scss';
+import './Playlist.scss';
 import PreviewPlaylist from './PreviewPlaylist';
 import ListPlaylist from './ListPlaylist';
 import ListRight from '../video/ListRight'
@@ -37,10 +37,13 @@ export default function Playlists(){
 
     return(
 
-        <div className="container">
+        <div className="playlists-container">
 
             <PreviewPlaylist />
-            <ListPlaylist />
+            <div className='playlists-container2'>
+                <ListPlaylist />
+            </div>
+
             {/*<ListRight action={`getPlaylistsVideos/${playlist_name}/${username}`}/>*/}
 
         </div>

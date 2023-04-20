@@ -1,0 +1,16 @@
+.playlists-container{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.playlists-container2{
+    width: 100%;
+    height: 80vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    overflow: scroll;
+}
