@@ -2,16 +2,11 @@ const { con } = require('../../db/connection.js');
 
 module.exports = async (req, res) => {
 
-    console.log(req.body)
-
     const result = await con.query2('SELECT id FROM users WHERE users.hashedUserId = ?', [req.body.hashedUserId])
-    console.log('result', result);
 
     if(result.length === 0) {
         return res.status(400).json({ message: 'USER ID NOT FOUND' });
     }
-
-    console.log(result[0].id)
     
     res.json(result[0].id).status(200);
 }
