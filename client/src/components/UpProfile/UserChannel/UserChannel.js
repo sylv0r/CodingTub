@@ -110,11 +110,6 @@ export default function UserChannel({ action }) {
                     <p>{action.subscribersChannel.subscribers} abonnés {action.nbVideosChannel.number_videos} vidéos</p>
                     <p>{action.descriptionChannel.description_channel}</p>
                 </div>
-                <div className='profileUserBis'>
-                    <button className='updateUserProfile' type='submit' onClick={subscribed} style={{ backgroundColor: buttonColor }}>
-                        Modifier le profile
-                    </button>
-                </div>
             </div>
         );
     }
