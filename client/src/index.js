@@ -61,10 +61,6 @@ const router = createBrowserRouter([
     element: <ModifyProfile />
   },
   {
-    path: "/uploadVideo",
-    element: <UploadForm />
-  },
-  {
     path: "/video",
     element: <Video />,
   },

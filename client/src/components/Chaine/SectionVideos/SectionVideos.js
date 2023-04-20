@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import VideoList from '../../Home/VideoList/VideoList'
 
-export default function SectionVideos({ name }) {
-
+export default function SectionVideos({ infos_video }) {
     //state
 
     //comportement
@@ -10,7 +9,7 @@ export default function SectionVideos({ name }) {
     //render
     return (
         <div>
-            <VideoList action={`getChannelVideos/${name}`} />
+            <VideoList action={`getChannelVideos/${infos_video.name}`} />
         </div>
     );
 }
