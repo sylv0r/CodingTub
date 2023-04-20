@@ -73,7 +73,6 @@ module.exports = async (req, res) => {
       }
     });
   } catch (err) {
-    console.error(err);
     res.status(500).json({ message: 'Error uploading video and miniature', err });
   }
 };
