@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './../style/Playlist.scss';
 import PreviewPlaylist from './PreviewPlaylist';
 import ListPlaylist from './ListPlaylist';
-import ListRight from '../video/ListRight'
+import ListRight from '../video/ListRight';
+import DeleteVidPlay from './DeleteVidPlay';
 import axios from 'axios';
 
 import { useSearchParams } from 'react-router-dom';
@@ -42,8 +43,8 @@ export default function Playlists(){
             <PreviewPlaylist />
             <ListPlaylist />
             {/*<ListRight action={`getPlaylistsVideos/${playlist_name}/${username}`}/>*/}
-
-        </div>
+            
+        </div>   
     );
 
 

@@ -3,6 +3,7 @@ import './../style/ListPlaylist.scss';
 import { useSearchParams } from 'react-router-dom';
 import SingleVideoRight from '../Home/VideoList/singleVideoRight'
 import axios from 'axios'
+import DeleteVidPlay from './DeleteVidPlay';
 
 export default function ListPlaylist(){
 
@@ -72,7 +73,12 @@ export default function ListPlaylist(){
 
         <div id="videos_right">
         {videos.map((video) => {
-            return <SingleVideoRight video={video} />
+            return ( 
+            <>
+                <SingleVideoRight video={video} />
+                <DeleteVidPlay id_video={video.id} playlist_name={playlist_name} />
+            </>
+            )
         })}
     </div>
 
