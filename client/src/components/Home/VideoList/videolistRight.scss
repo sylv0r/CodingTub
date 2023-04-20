@@ -4,6 +4,14 @@
     justify-content: center;
 }
 
+.vid-right {
+    display: flex;
+
+    i {
+        cursor: pointer;
+    }
+}
+
 .singleVidR {
     padding: 2%;
 

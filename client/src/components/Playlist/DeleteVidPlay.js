@@ -13,11 +13,12 @@ function DeleteVidPlay({id_video, playlist_name}) {
             id_video: id_video
             })
         })
+        window.location.reload()
   };
 
   return (
     <div>
-        <button onClick={handleDelete}>Supprimer</button>
+        <i className="fa-solid fa-xmark" onClick={handleDelete}></i>
     </div>
   );
 }

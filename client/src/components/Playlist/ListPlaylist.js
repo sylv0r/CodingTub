@@ -65,10 +65,10 @@ export default function ListPlaylist(){
         <div id="videos_right">
         {videos.map((video) => {
             return ( 
-            <>
+            <div className='vid-right'>
                 <SingleVideoRight video={video} />
                 <DeleteVidPlay id_video={video.id} playlist_name={playlist_name} />
-            </>
+            </div>
             )
         })}
     </div>
