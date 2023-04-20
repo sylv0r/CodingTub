@@ -34,7 +34,7 @@
   justify-content: space-between;
 }
 
-h2 {
+/* h2 {
   text-align: center;
   margin-bottom: 30px;
 }
@@ -62,6 +62,14 @@ button {
   font-size: 16px;
 }
 
+<<<<<<< HEAD
+=======
+button:hover {
+  background-color: #B3D292
+  ;
+}
+ */
+>>>>>>> origin/pre_main
 .message-banner {
   position: absolute; /* Ajout de cette propriété */
   bottom: 280px; /* Ajout de cette propriété */

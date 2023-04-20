@@ -36,6 +36,6 @@ router.get('/getInfosChannel/:name', getInfosChannel)
 router.post('/createChannel', upload.single('image'), createChannel)
 const cpUpload = upload.fields([{ name: 'video', maxCount: 1 }, { name: 'miniature', maxCount: 1 }])
 router.post('/uploadVideo', cpUpload, uploadVideo)
-router.get('/getSubscriptions', getSubscriptions)
+router.get('/getSubscriptions/:user', getSubscriptions)
 
 module.exports.routes = router

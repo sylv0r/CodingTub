@@ -10,6 +10,7 @@ import Playlists from './components/Playlist/Playlists';
 import History from './components/History/History';
 import Abonnements from './components/Abonnements/Abonnements';
 import CreateChannel from './components/createChannel/CreateChannel';
+import SearchResults from './components/search/resultat_recherche/SearchResult';
 import UploadVideo from './components/chaine_upload/UploadForm';
 import Video from './components/show_video/ShowVideo.js';
 import MenuChaine from './components/Chaine/MenuChaine/MenuChaine';
@@ -18,8 +19,13 @@ import UploadShort from './components/routes/UploadShort';
 import Search from './components/search/Searchs';
 import UserChannel from './components/UpProfile/UserChannel/UserChannel';
 import Connexion from './components/connexion/Connexion';
+import Search2 from './components/search/Search_bar/searchbar';
+import Connexion from './components/connexion/Connexion';
+import Profile from './components/Profile/Profile';
+import UserProfile from './components/UserProfile/UserProfile';
 import Inscription from './components/Inscription/InscriptionForm.js';
 import SideBar from './components/Home/SideBar/SideBar';
+import ResultHashtag from './components/search/hashtag/resulthashtag/ResultHashtag';
 import ModifyProfile from './components/modifyProfile/ModifyProfile';
 
 import {
@@ -31,7 +37,7 @@ import {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home/>
+    element: <Home />
   },
   {
     path: "/playlist",
@@ -45,7 +51,11 @@ const router = createBrowserRouter([
     path: "/connexion",
     element: <Connexion />
   },
-   {
+  {
+    path: "/search2",
+    element: <Search2 />
+  },
+  {
     path: "/Inscription",
     element: <Inscription />
   },
@@ -73,7 +83,7 @@ const router = createBrowserRouter([
     path: "/Short",
     element: <Short />,
   },
-  
+
   {
     path: "/Uploadshort",
     element: <UploadShort />,
@@ -98,6 +108,22 @@ const router = createBrowserRouter([
   {
     path: "/UserChannel",
     element: <UserChannel />
+  },
+  {
+    path: "/Profile",
+    element: <Profile />
+  },
+  {
+    path: "/UserProfile",
+    element: <UserProfile />
+  },
+  {
+    path: "/SerchResult",
+    element: <SearchResults />
+  },
+  {
+    path: '/resulthashtag',
+    element: <ResultHashtag />
   }
 ]);
 

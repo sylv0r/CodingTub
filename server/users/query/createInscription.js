@@ -1,3 +1,4 @@
+const { NULL } = require('mysql/lib/protocol/constants/types');
 const { con } = require('../../db/connection');
 const bcrypt = require('bcrypt');
 const { sign } = require("jsonwebtoken")
@@ -23,9 +24,9 @@ module.exports = async (req, res) => {
 
   const userId = result.insertId;
 
-  const hashedUserId = bcrypt.hashSync(userId.toString(), salt);
+  /* const hashedUserId = bcrypt.hashSync(userId.toString(), salt); */
 
-  await con.query2('UPDATE users SET hashedUserId = ? WHERE id = ?', [hashedUserId, userId]);
+  /* await con.query2('UPDATE users SET hashedUserId = ? WHERE id = ?', [hashedUserId, userId]); */
   const token = sign({ userId }, process.env.JWT_SECRET, { expiresIn: "1h" })
 
   // Répondre à la requête

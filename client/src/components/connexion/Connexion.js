@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import './Connexion.css';
 import axios from 'axios';
-import logo from './codingTub.png'
 
 function Connexion() {
 
@@ -75,7 +74,10 @@ function Connexion() {
 
 		const createSession = (data) => {
 
-		localStorage.setItem('hashed_user_id', JSON.stringify(data));
+		if (localStorage.getItem('jwt') !== null) {
+			localStorage.removeItem('jwt');
+		}
+		localStorage.setItem('jwt', data.token);
 
 		window.location.href = '/';
 	};
@@ -98,7 +100,7 @@ function Connexion() {
   return (
     <div className="UsersConnexion">
 
-		<a href="/" className='linkCodingLogoConnexion'><img src={logo} id='codingLogoConnexion' alt='logo'/></a>
+		<a href="/" className='linkCodingLogoConnexion'><img src={"https://149a-80-70-44-4.ngrok-free.app/logo/logo_codingtub.png"} id='codingLogoConnexion' alt='logo'/></a>
 
       	<h1>Connexion</h1>
 

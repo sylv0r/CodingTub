@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './InscriptionForm.scss';
 import axios from 'axios';
-import logo from './codingTub.png'
 
 let vision1 = false;
 let vision2 = false;
@@ -68,16 +67,19 @@ const handleSubmit = (event) => {
     return;
   }
 
+  //création de la playlist WatchLater et Likes lors de l'inscription
   axios(options)
     .then(response => {
         console.log(response.data.token)
-        localStorage.setItem('hashed_user_id', JSON.stringify(response.data.hashedUserId));
-        if (localStorage.getItem("jwt")) {
+        /* localStorage.setItem('hashed_user_id', JSON.stringify(response.data.hashedUserId)); */
+        if (localStorage.getItem("jwt") !== null) {
           localStorage.removeItem("jwt");
         }
         localStorage.setItem("jwt", response.data.token)
 
-        window.location.href = '/';
+          createPlaylists("LL");
+          createPlaylists("WL");
+          window.location.href = '/';
     })
     .catch(error => {
         if (error.response) {
@@ -98,6 +100,19 @@ const handleSubmit = (event) => {
         }
     });
 };
+
+async function createPlaylists(nom) {
+  await fetch("http://localhost:3001/playlists/createPlaylists", {
+    method: "POST",
+    headers: { 'Content-Type': 'application/json', 'authorization' : localStorage.getItem('jwt') },
+    body: JSON.stringify({
+      nom: nom
+    })
+  })
+  .then((response) => {
+    return response
+  })
+}
 
 const handleChange = (event) => {
   const { name, value } = event.target;
@@ -161,7 +176,7 @@ const options = {
         <form onSubmit={handleSubmit}>
             <div className='container-profile-inscription'>
         
-                <a href="/" className='linkCodingLogoInscription'><img src={logo} id='codingLogoInscription' alt='logo' /></a>
+                <a href="/" className='linkCodingLogoInscription'><img src={"https://149a-80-70-44-4.ngrok-free.app/logo/logo_codingtub.png"} id='codingLogoInscription' alt='logo' /></a>
 			          <h2>Inscription</h2>
                 <div className='grid-profil-inscription'>
                   
