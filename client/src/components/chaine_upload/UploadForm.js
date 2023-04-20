@@ -64,6 +64,8 @@ const UploadForm = () => {
         formData.append('tags', tags);
         formData.append('miniature', selectedMiniature);
         formData.append('selectedTags', selectedTags);
+        formData.append('chaineId', id_chaine);
+
 
         // Envoi des données du formulaire au serveur
         try {

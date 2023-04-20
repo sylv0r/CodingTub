@@ -11,6 +11,9 @@ module.exports = async (req, res) => {
     const title = req.body.title;
     const description = req.body.description;
     const tags = req.body.selectedTags;
+    const id_chaine = req.body.chaineId;
+
+    console.log(typeof id_chaine)
 
     const videoPath = path.join(__dirname, '../uploads', video.originalname);
     const miniaturePath = path.join(__dirname, '../uploads', miniature.originalname);
