@@ -19,6 +19,7 @@ function Search() {
 
     const logout = () => {
         localStorage.removeItem("hashed_user_id");
+        localStorage.removeItem("jwt");
         window.location.href = "/connexion";
     }
 
