@@ -23,6 +23,8 @@ export default function MenuChaine() {
 
     const [sectionAffichee, setSectionAffichee] = useState(<SectionAccueil />);
 
+    const user_id = localStorage.getItem("user_id")
+
     var currentUrl = window.location.href
 
     var split = currentUrl.split('/')
@@ -99,24 +101,42 @@ export default function MenuChaine() {
     }
     };
 
-    console.log(idChaine.id)
-
     // affichage (render)
-    return (
-    <div className='body_menu_chaine'>
-    <Profile action={{imageLink, name, subscribersChannel, descriptionChannel, nbVideosChannel, idUserChaine}}/>
-    <div id="buttons">
-    <button className='sections_menu' onClick={() => handleSectionChange('Accueil')}>Accueil</button>
-    <button className='sections_menu' onClick={() => handleSectionChange('Vidéos')}>Vidéos</button>
-    <button className='sections_menu' onClick={() => handleSectionChange('Shorts')}>Shorts</button>
-    <button className='sections_menu' onClick={() => handleSectionChange('Lives')}>Lives</button>
-    <button className='sections_menu' onClick={() => handleSectionChange('Playlists')}>Playlists</button>
-    <button className='sections_menu' onClick={() => handleSectionChange('Communauté')}>Communauté</button>
-    <button className='sections_menu' onClick={() => handleSectionChange('Chaînes')}>Chaînes</button>
-    <button className='sections_menu' onClick={() => handleSectionChange('UploadVideo')}>Upload</button>
-    <button className='sections_menu' onClick={() => handleSectionChange('À Propos')}>À Propos</button>
-    </div>
-    {sectionAffichee}
-    </div>
-    );
+    if (user_id == idUserChaine.user_id) {
+        return (
+            <div className='body_menu_chaine'>
+            <Profile action={{imageLink, name, subscribersChannel, descriptionChannel, nbVideosChannel, idUserChaine}}/>
+            <div id="buttons">
+            <button className='sections_menu' onClick={() => handleSectionChange('Accueil')}>Accueil</button>
+            <button className='sections_menu' onClick={() => handleSectionChange('Vidéos')}>Vidéos</button>
+            <button className='sections_menu' onClick={() => handleSectionChange('Shorts')}>Shorts</button>
+            <button className='sections_menu' onClick={() => handleSectionChange('Lives')}>Lives</button>
+            <button className='sections_menu' onClick={() => handleSectionChange('Playlists')}>Playlists</button>
+            <button className='sections_menu' onClick={() => handleSectionChange('Communauté')}>Communauté</button>
+            <button className='sections_menu' onClick={() => handleSectionChange('Chaînes')}>Chaînes</button>
+            <button className='sections_menu' onClick={() => handleSectionChange('UploadVideo')}>Upload</button>
+            <button className='sections_menu' onClick={() => handleSectionChange('À Propos')}>À Propos</button>
+            </div>
+            {sectionAffichee}
+            </div>
+        );
+    }
+    else {
+        return (
+            <div className='body_menu_chaine'>
+            <Profile action={{imageLink, name, subscribersChannel, descriptionChannel, nbVideosChannel, idUserChaine}}/>
+            <div id="buttons">
+            <button className='sections_menu' onClick={() => handleSectionChange('Accueil')}>Accueil</button>
+            <button className='sections_menu' onClick={() => handleSectionChange('Vidéos')}>Vidéos</button>
+            <button className='sections_menu' onClick={() => handleSectionChange('Shorts')}>Shorts</button>
+            <button className='sections_menu' onClick={() => handleSectionChange('Lives')}>Lives</button>
+            <button className='sections_menu' onClick={() => handleSectionChange('Playlists')}>Playlists</button>
+            <button className='sections_menu' onClick={() => handleSectionChange('Communauté')}>Communauté</button>
+            <button className='sections_menu' onClick={() => handleSectionChange('Chaînes')}>Chaînes</button>
+            <button className='sections_menu' onClick={() => handleSectionChange('À Propos')}>À Propos</button>
+            </div>
+            {sectionAffichee}
+            </div>
+        );
+    }
 }
