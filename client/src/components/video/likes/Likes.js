@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './likes.scss';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 
 function Likes(props) {
-  const [userId, setUserId] = useState(localStorage.getItem('user_id'));
   const [videoLikes, setVideoLikes] = useState(props.video[0].likes);
+  const navigate = useNavigate();
 
   let [searchParams, setSearchParams] = useSearchParams();
   const video_id = searchParams.get('id');
@@ -12,9 +12,9 @@ function Likes(props) {
   const [isActive, setIsActive] = useState(false);
 
   async function verifyLike() {
-    const response = await fetch(`http://localhost:3001/videos/verifLike?video_id=${video_id}&user_id=${userId}`, {
+    const response = await fetch(`http://localhost:3001/videos/verifLike?video_id=${video_id}`, {
       method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { authorization: localStorage.getItem("jwt"), 'Content-Type': 'application/json' },
     });
     const result = await response.json();
     var count = Object.keys(result).length;
@@ -27,24 +27,28 @@ function Likes(props) {
     verifyLike();
   }, []);
 
+
+
   async function handleLikeClick() {
+    if (!localStorage.getItem("jwt")) {
+      navigate('/connexion');
+      return null;
+  }
     if (isActive) {
       await fetch(`http://localhost:3001/videos/deleteLike/`, {
         method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { authorization: localStorage.getItem("jwt"), 'Content-Type': 'application/json' },
         body: JSON.stringify({
           video_id: video_id,
-          user_id: userId,
         }),
       });
       setVideoLikes(videoLikes - 1);
     } else {
       await fetch(`http://localhost:3001/videos/likes/`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { authorization: localStorage.getItem("jwt"), 'Content-Type': 'application/json' },
         body: JSON.stringify({
           video_id: video_id,
-          user_id: userId,
         }),
       });
       setVideoLikes(videoLikes + 1);

@@ -1,4 +1,3 @@
-.env
 initDb.js
 package-lock.json
 .DS_STORE

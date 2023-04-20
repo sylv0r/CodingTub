@@ -11,34 +11,47 @@ function AddComment(props) {
     const navigate = useNavigate();
     const [userId, setUserId] = useState(localStorage.getItem('user_id'));
     // Aller sur une autre page
-
+    
     let [searchParams, setSearchParams] = useSearchParams();
     const id = searchParams.get('id'); // send
-
+    
     const comment = useRef();
 
+    
     const commentSubmit = async (e) => {
         e.preventDefault();
         if (!comment.current.value) {
             setErrorMsg('Le commentaire ne peut pas être vide');
             return;
         }
-
+        
         try {
-            if (!userId) {
+            if (!localStorage.getItem("jwt")) {
                 navigate('/connexion');
                 return null;
             }
 
+           
+
+        
+
             const response = await fetch('http://localhost:3001/videos/postComment', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    comment: comment.current.value,
-                    id_users: parseInt(userId),
-                    id_video: id,
-                }),
+                headers: { authorization: localStorage.getItem("jwt"), 'Content-Type': 'application/json' },
+                body: JSON.stringify({comment: comment.current.value, id_video: id})
             });
+            
+             
+
+
+            /*             const response = await fetch('http://localhost:3001/channels/createChannel', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    authorization: localStorage.getItem("jwt")
+                }
+              }); */
+
 
             if (response.ok) {
                 props.onCommentSubmit();

@@ -1,18 +1,20 @@
 const { con } = require('../../db/connection')
+const { getDecodedId } = require("../../methods/token")
 
 
 
 
 
 module.exports = async (req, res) => {
-  const {video_id, user_id} = req.body
-  console.log(req.body)
-  const result = await con.query2('UPDATE videos SET likes = likes + 1 WHERE id =?', [video_id]);
-  console.log(result)
-  await con.query2('INSERT INTO `likes_verrif` (`video_id`, `user_id`) VALUES (?,?);',[ video_id, user_id ]);
-  res.sendStatus(200)
-  console.log(req.body)
-
-
+  const token = req.headers.authorization
+  const user_id = await getDecodedId(token)
+  const {video_id} = req.body
+  if (user_id) {
+    const result = await con.query2('UPDATE videos SET likes = likes + 1 WHERE id =?', [video_id]);
+    await con.query2('INSERT INTO `likes_verrif` (`video_id`, `user_id`) VALUES (?,?);',[ video_id, user_id ]);
+    res.sendStatus(200)
+} else {
+  res.sendStatus(401)
+}
 } 
 
