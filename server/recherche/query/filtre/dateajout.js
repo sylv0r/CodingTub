@@ -3,14 +3,14 @@ const { con } = require('../../../db/connection')
 module.exports = async (req, res) => {
     let dateACS = []
     let dateDESC = []
-    con.query('SELECT * FROM videos WHERE ? ORDER BY DATE ASC;', function (err, results) {
+    con.query('SELECT * FROM videos WHERE ? ORDER BY data ASC;', function (err, results) {
         if (err) throw err;
         results.forEach(result => {
             dateACS.push(result.title)
             console.log(dateACS)
         })
 
-        con.query('SELECT * FROM videos WHERE ? ORDER BY DATE DESC;', function (err, results) {
+        con.query('SELECT * FROM videos WHERE ? ORDER BY date DESC;', function (err, results) {
             if (err) throw err;
             results.forEach(result => {
                 dateDESC.push(result.pseudo)
