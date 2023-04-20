@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './InscriptionForm.scss';
 import axios from 'axios';
-/* import logo from './codingTub.png' */
 
 let vision1 = false;
 let vision2 = false;
@@ -71,8 +70,8 @@ const handleSubmit = (event) => {
   axios(options)
     .then(response => {
         console.log(response.data.token)
-        localStorage.setItem('hashed_user_id', JSON.stringify(response.data.hashedUserId));
-        if (localStorage.getItem("jwt")) {
+        /* localStorage.setItem('hashed_user_id', JSON.stringify(response.data.hashedUserId)); */
+        if (localStorage.getItem("jwt") !== null) {
           localStorage.removeItem("jwt");
         }
         localStorage.setItem("jwt", response.data.token)

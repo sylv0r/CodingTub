@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import './Connexion.css';
 import axios from 'axios';
-/* import logo from './codingTub.png' */
 
 function Connexion() {
 
@@ -75,7 +74,11 @@ function Connexion() {
 
 		const createSession = (data) => {
 
-		localStorage.setItem('hashed_user_id', JSON.stringify(data));
+		if (localStorage.getItem('jwt') !== null) {
+			localStorage.removeItem('jwt');
+		}
+
+		localStorage.setItem('jwt', data);
 
 		window.location.href = '/';
 	};
