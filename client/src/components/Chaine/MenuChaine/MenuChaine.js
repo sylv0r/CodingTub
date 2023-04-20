@@ -9,7 +9,8 @@ import SectionCommunaute from '../SectionCommunaute/SectionCommunaute'
 import SectionChaines from '../SectionChaines/SectionChaines'
 import SectionPlus from '../SectionPlus/SectionPlus'
 import Profile from '../../UpProfile/UserChannel/UserChannel'
-import UploadForm from '../../chaine_upload/UploadForm';
+import UploadForm from '../../chaine_upload/UploadForm'
+import checkConnection from '../../../methods/checkConnection';
 
 export default function MenuChaine() {
     // state
@@ -23,7 +24,7 @@ export default function MenuChaine() {
 
     const [sectionAffichee, setSectionAffichee] = useState(<SectionAccueil />);
 
-    const user_id = localStorage.getItem("user_id")
+    const [userId, setUserId] = useState(null)
 
     var currentUrl = window.location.href
 
@@ -68,6 +69,7 @@ export default function MenuChaine() {
     useEffect(() => {
         const checkConnectionAsync = async () => {
           const id = await checkConnection()
+          setUserId(id)
         }
         checkConnectionAsync()
     }, [])
@@ -109,7 +111,7 @@ export default function MenuChaine() {
     };
 
     // affichage (render)
-    if (user_id == idUserChaine.user_id) {
+    if (userId == idUserChaine.user_id) {
         return (
             <div className='body_menu_chaine'>
             <Profile action={{imageLink, name, subscribersChannel, descriptionChannel, nbVideosChannel, idUserChaine, idChaine}}/>

@@ -1,36 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import checkConnection from '../../../methods/checkConnection';
 import './UserChannel.scss';
 import axios from 'axios';
 
 export default function UserChannel({ action }) {
 
-    // Déclare la variable local pour la connexion
-
-    /* axios.post('http://localhost:3001/users/getUserId', {
-        hashedUserId : JSON.parse(localStorage.getItem('hashed_user_id'))
-    })
-    .then(response => {
-        console.log('user Id', response.data);
-        const localId = response.data;
-    })
-    .catch(error => {
-        console.log('error', error.response.data)
-    }); */
-
-    const localId = localStorage.getItem('user_id');
-
+    const [userId, setUserId] = useState(null)
     const localChannelId = action.idChaine.id;
 
-    console.log(localChannelId)
-
-    // Si on n'est pas connecté, renvoie vers la page connexion
-
-    if (!localId) {
-        window.location.href= '/connexion';
-    };
 
     axios.post('http://localhost:3001/users/getIfSubbed', {
-        localId,
+        userId,
         localChannelId
     })
     .then(response => {
@@ -52,43 +32,33 @@ export default function UserChannel({ action }) {
 
     const subscribed = () => {
         axios.post('http://localhost:3001/users/getIfSubbed', {
-			localId,
+			userId,
 			localChannelId
 		})
 		.then(response => {
 			console.log(response.data[0])
 
             if (response.data[0] === 0 || response.data[0] === undefined) {
-                handleSubscription(localChannelId, localId, "subscribe");
+                handleSubscription(localChannelId, userId, "subscribe");
                 window.location.reload();
             } else {
-                handleSubscription(localChannelId, localId, "unsubscribe");
+                handleSubscription(localChannelId, userId, "unsubscribe");
                 window.location.reload();
             }
 		})
 		.catch(error => {
 			console.log(error);
 		});
-
-
-
-        /* if (buttonText === "S'abonner") {
-            handleSubscription(localChannelId, localId, "subscribe");
-        }
-        
-        if (buttonText === "") {
-            handleSubscription(localChannelId, localId, "unsubscribe");
-        } */
     };
 
-    const handleSubscription = async (channelId, localId, act) => {
+    const handleSubscription = async (channelId, userId, act) => {
         try {
 
             if (act === "subscribe") {
-            axios.post('http://localhost:3001/users/getSubs', { channelId, localId});
+            axios.post('http://localhost:3001/users/getSubs', { channelId, userId});
 
             } else if (act === "unsubscribe") {
-            axios.post('http://localhost:3001/users/getUnsubs', { channelId, localId});
+            axios.post('http://localhost:3001/users/getUnsubs', { channelId, userId});
             }
 
         } catch (error) {
@@ -99,13 +69,15 @@ export default function UserChannel({ action }) {
     useEffect(() => {
         const checkConnectionAsync = async () => {
           const id = await checkConnection()
+          console.log("id :",id)
+          setUserId(id)
         }
         checkConnectionAsync()
     }, [])
  
     // Partie HTML
 
-    if (localId == action.idUserChaine.user_id) {
+    if (userId == action.idUserChaine.user_id) {
         return (
             <div className='wrapperUserProfile'>
                 <div className='profileUserBis'>

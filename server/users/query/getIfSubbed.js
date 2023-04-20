@@ -1,7 +1,7 @@
 const { con } = require('../../db/connection.js');
 
 module.exports = async (req, res) => {
-    const userId = req.body.localId;
+    const userId = req.body.userId;
     const channelId = req.body.localChannelId;
 
     console.log(userId)
