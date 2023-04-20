@@ -19,10 +19,10 @@ exports.getDecodedId = async (token) => {
 }
 
 exports.verifyToken = async (token) => {
-  const response = await new Promise((resolve) => {
+  const response = await new Promise(async(resolve) => {
     try {
-      jwt.verify(token, process.env.JWT_SECRET)
-      resolve(true)
+      const data = jwt.verify(token, process.env.JWT_SECRET)
+      resolve(data.userId)
     } catch (e) {
       console.log(e)
       resolve(false)
