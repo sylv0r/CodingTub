@@ -1,12 +1,8 @@
 const { Router } = require("express");
-<<<<<<< HEAD
-=======
 const createInscription = require('./query/createInscription')
->>>>>>> origin/pre_main
 const router = Router()
 
 //lance la fonction createChannel lorsqu'un post est effecté à /channels/createChannel
-const createInscription = require('./query/createInscription')
 const cors = require("cors");
 const getUsers = require("./query/getUser");
 const getChannel = require("./query/getChannel");

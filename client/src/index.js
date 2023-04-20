@@ -11,7 +11,6 @@ import History from './components/History/History';
 import Abonnements from './components/Abonnements/Abonnements';
 import CreateChannel from './components/createChannel/CreateChannel';
 import SearchResults from './components/search/resultat_recherche/SearchResult';
-import UploadVideo from './components/chaine_upload/UploadForm';
 import Video from './components/show_video/ShowVideo.js';
 import MenuChaine from './components/Chaine/MenuChaine/MenuChaine';
 import Short from './components/routes/Short';
@@ -20,9 +19,6 @@ import Search from './components/search/Searchs';
 import UserChannel from './components/UpProfile/UserChannel/UserChannel';
 import Connexion from './components/connexion/Connexion';
 import Search2 from './components/search/Search_bar/searchbar';
-import Connexion from './components/connexion/Connexion';
-import Profile from './components/Profile/Profile';
-import UserProfile from './components/UserProfile/UserProfile';
 import Inscription from './components/Inscription/InscriptionForm.js';
 import SideBar from './components/Home/SideBar/SideBar';
 import ResultHashtag from './components/search/hashtag/resulthashtag/ResultHashtag';
@@ -109,14 +105,7 @@ const router = createBrowserRouter([
     path: "/UserChannel",
     element: <UserChannel />
   },
-  {
-    path: "/Profile",
-    element: <Profile />
-  },
-  {
-    path: "/UserProfile",
-    element: <UserProfile />
-  },
+
   {
     path: "/SerchResult",
     element: <SearchResults />
@@ -134,21 +123,21 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {
-      connRegiPage ? 
-      <>
-        <nav className='side'><SideBar /></nav>
-        <section id="main-search">
-          <BrowserRouter>
-          <Search />
-          </BrowserRouter>
-          <main id="main">
-            <RouterProvider router={router} />
-          </main>
-        </section>
-      </>
-      :
-      <RouterProvider router={router} />
+      connRegiPage ?
+        <>
+          <nav className='side'><SideBar /></nav>
+          <section id="main-search">
+            <BrowserRouter>
+              <Search />
+            </BrowserRouter>
+            <main id="main">
+              <RouterProvider router={router} />
+            </main>
+          </section>
+        </>
+        :
+        <RouterProvider router={router} />
     }
-    
+
   </React.StrictMode>
 );

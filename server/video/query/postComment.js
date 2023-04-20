@@ -5,11 +5,6 @@ const { getDecodedId } = require("../../methods/token")
 
 
 module.exports = async (req, res) => {
-<<<<<<< HEAD
-  const { comment, id_users, id_video} = req.body
-  await con.query2('INSERT INTO comment (comment, id_user, id_video) VALUES (?,?,?)', [comment, id_users, id_video]);
-  res.sendStatus(200)
-=======
   const token = req.headers.authorization
   const { comment, id_video} = req.body
   const user_id = await getDecodedId(token)
@@ -20,7 +15,6 @@ module.exports = async (req, res) => {
   } else {
     res.sendStatus(401)
   }
->>>>>>> origin/pre_main
 
 
 }

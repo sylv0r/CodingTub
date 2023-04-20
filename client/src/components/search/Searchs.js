@@ -12,7 +12,7 @@ function Search() {
     let homePage = location.pathname === '/'
 
     useEffect(() => {
-        if(localStorage.getItem("jwt") === null) {
+        if (localStorage.getItem("jwt") === null) {
             document.getElementsByClassName("logoutBtn")[0].innerHTML = "Login";
         } else {
             document.getElementsByClassName("logoutBtn")[0].innerHTML = "Logout";
@@ -29,7 +29,7 @@ function Search() {
 
     const [value, setvalue] = useState("  ");
 
-    function handleChange (event) {
+    function handleChange(event) {
         setvalue(event.target.value)
     }
 
@@ -40,42 +40,36 @@ function Search() {
             <nav className="recherche">
                 <div className="Navsearch">
 
-<<<<<<< HEAD
-                <a className="logo" href="#" target="" rel="">
-                    <img src="assets/img_header/Project_title_picture.png" alt="Logo CodingTube" className="icon_title" width="100" />  
-                </a>
-=======
                     <a className="logo" href=" " rel="">
                         <img src="assets/img_header/Project_title_picture.png" alt="Logo CodingTube" className="icon_title" width="100" />
                     </a>
->>>>>>> origin/pre_main
 
                     <div className="search" action="submit">
                         <Search2 />
                     </div>
 
-                <div className="connect">
+                    <div className="connect">
 
-                    <a className="not"href="" target="" rel="">
-                        <i className="fa-solid fa-bell fa-2x"></i>
-                    </a>
-                    
-                    <a className="pp" href="/connexion" target="" rel="">
-                        <i className="fa-solid fa-user fa-2x"></i>
-                    </a>
+                        <a className="not" href="" target="" rel="">
+                            <i className="fa-solid fa-bell fa-2x"></i>
+                        </a>
 
-                    <p onClick={logout} className='logoutBtn'>Logout</p>
+                        <a className="pp" href="/connexion" target="" rel="">
+                            <i className="fa-solid fa-user fa-2x"></i>
+                        </a>
+
+                        <p onClick={logout} className='logoutBtn'>Logout</p>
+
+                    </div>
 
                 </div>
-                
-            </div>
 
                 {homePage &&
                     <div className="Navid">
-                    {Hashtag}
-                    <ControlledCarousel />
+                        {Hashtag}
+                        <ControlledCarousel />
 
-                </div>}
+                    </div>}
 
             </nav>
 

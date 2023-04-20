@@ -17,12 +17,6 @@ module.exports = async (req, res) => {
                     allChannels.push(json[i]['id_channel'])
                 }
 
-<<<<<<< HEAD
-                con.query('SELECT videos.*, channels.name, channels.image_link FROM videos INNER JOIN channels ON videos.channel_id = channels.id WHERE videos.channel_id IN (?) ORDER BY videos.id DESC', [allChannels], function (err, results) {
-                    if (err) throw err
-                    res.send(results)
-                })
-=======
                 if(allChannels != 0) {
                     con.query('SELECT videos.*, channels.name, channels.image_link FROM videos INNER JOIN channels ON videos.channel_id = channels.id WHERE videos.channel_id IN (?) ORDER BY videos.id DESC', [allChannels], function (err, results) {
                         if (err) throw err
@@ -32,5 +26,4 @@ module.exports = async (req, res) => {
                 }
 
                  
->>>>>>> origin/pre_main
 })}
