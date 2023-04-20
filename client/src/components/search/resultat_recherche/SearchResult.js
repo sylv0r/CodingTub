@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./searchresult.scss";
+improt
 
 export default function SearchResults() {
   const [datas, setDatas] = useState([]);
@@ -71,8 +72,12 @@ export default function SearchResults() {
             </a>
             <hr />
           </div>
+          
         );
       })}
+      <div>
+        <Filtre/>
+      </div>
     </div>
 
   );
