@@ -1,7 +1,7 @@
 .accueil_chaine {
     display: flex;
     flex-direction: row;
-    height: 45%;
+    flex-wrap: wrap;
     margin-left: 2%;
 }
 
