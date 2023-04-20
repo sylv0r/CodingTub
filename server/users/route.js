@@ -11,6 +11,7 @@ const modifyProfile = require('./query/modifyProfile')
 const getProfile = require('./query/getProfile')
 const getUserId = require("./query/getUserId");
 const modifyPassword = require("./query/modifyPassword")
+const verifyToken = require("./query/verifyConnexion")
 
 //lance la fonction createChannel lorsqu'un post est effecté à /channels/createChannel
 //router.post('/createChannel', createChannel)
@@ -23,5 +24,6 @@ router.post('/createInscription', createInscription)
 router.put('/modifyProfile', modifyProfile)
 router.put('/modifyPassword', modifyPassword)
 router.post('/getUserId', getUserId)
+router.get('/verifyToken', verifyToken)
 
 module.exports.routes = router
