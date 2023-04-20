@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './UserChannel.scss';
+import axios from 'axios';
 
 export default function UserChannel({ action }) {
 
@@ -18,11 +19,30 @@ export default function UserChannel({ action }) {
 
     const localId = localStorage.getItem('user_id');
 
+    const localChannelId = action.idChaine.id;
+
+    console.log(localChannelId)
+
     // Si on n'est pas connecté, renvoie vers la page connexion
 
     if (!localId) {
         window.location.href= '/connexion';
     };
+
+    axios.post('http://localhost:3001/users/getIfSubbed', {
+        localId,
+        localChannelId
+    })
+    .then(response => {
+        if (response.data[0] === 0 || response.data[0] === undefined) {
+            document.getElementsByClassName("updateUserProfile")[0].innerHTML = "Subscribe"
+        } else {
+            document.getElementsByClassName("updateUserProfile")[0].innerHTML = "Unsubscribe"
+        }
+    })
+    .catch(error => {
+        console.log(error);
+    });
 
     // Déclare les variables
     const [buttonText, setButtonText] = useState(localStorage.getItem("buttonText") || "S'abonner");
@@ -31,15 +51,49 @@ export default function UserChannel({ action }) {
     // Concerne le bouton "s'abonner"
 
     const subscribed = () => {
-        if (buttonText === "S'abonner") {
-            setButtonText("Se désabonner");
-            setButtonColor("blue");
-        } else {
-            setButtonText("S'abonner");
-            setButtonColor("black");
+        axios.post('http://localhost:3001/users/getIfSubbed', {
+			localId,
+			localChannelId
+		})
+		.then(response => {
+			console.log(response.data[0])
+
+            if (response.data[0] === 0 || response.data[0] === undefined) {
+                handleSubscription(localChannelId, localId, "subscribe");
+                window.location.reload();
+            } else {
+                handleSubscription(localChannelId, localId, "unsubscribe");
+                window.location.reload();
+            }
+		})
+		.catch(error => {
+			console.log(error);
+		});
+
+
+
+        /* if (buttonText === "S'abonner") {
+            handleSubscription(localChannelId, localId, "subscribe");
         }
-        localStorage.setItem("buttonText", buttonText);
-        localStorage.setItem("buttonColor", buttonColor);
+        
+        if (buttonText === "") {
+            handleSubscription(localChannelId, localId, "unsubscribe");
+        } */
+    };
+
+    const handleSubscription = async (channelId, localId, act) => {
+        try {
+
+            if (act === "subscribe") {
+            axios.post('http://localhost:3001/users/getSubs', { channelId, localId});
+
+            } else if (act === "unsubscribe") {
+            axios.post('http://localhost:3001/users/getUnsubs', { channelId, localId});
+            }
+
+        } catch (error) {
+          console.log(error);
+        }
     };
  
     // Partie HTML
@@ -78,7 +132,6 @@ export default function UserChannel({ action }) {
                 </div>
                 <div className='profileUserBis'>
                     <button className='updateUserProfile' type='submit' onClick={subscribed} style={{ backgroundColor: buttonColor }}>
-                        {buttonText}
                     </button>
                 </div>
             </div>
