@@ -50,10 +50,17 @@ function Search() {
                     <a className="not"href="" target="" rel="">
                         <i className="fa-solid fa-bell fa-2x"></i>
                     </a>
-                    
+
+                    {localStorage.getItem("jwt") ?
+                        <a className="pp" href="/modifyProfile" target="" rel="">
+                            <i className="fa-solid fa-user fa-2x"></i>
+                        </a>
+                    : 
                     <a className="pp" href="/connexion" target="" rel="">
-                        <i className="fa-solid fa-user fa-2x"></i>
-                    </a>
+                            <i className="fa-solid fa-user fa-2x"></i>
+                        </a>
+                    }
+                        
 
                     <p onClick={logout} className='logoutBtn'>Logout</p>
 

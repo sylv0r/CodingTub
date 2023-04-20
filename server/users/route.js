@@ -10,6 +10,7 @@ const getSubs = require("./query/getSubs");
 const verifyToken = require("./query/verifyConnexion")
 const getUnsubs = require("./query/getUnsubs");
 const getIfSubbed = require("./query/getIfSubbed")
+const getProfile = require("./query/getProfile")
 
 //lance la fonction createChannel lorsqu'un post est effecté à /channels/createChannel
 //router.post('/createChannel', createChannel)
@@ -22,5 +23,6 @@ router.get('/verifyToken', verifyToken)
 router.post('/getSubs', getSubs)
 router.post('/getUnsubs', getUnsubs)
 router.post('/getIfSubbed', getIfSubbed)
+router.get("/getProfile", getProfile)
 
 module.exports.routes = router
