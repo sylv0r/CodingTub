@@ -29,6 +29,6 @@ module.exports = async (req, res) => {
     if (isMatch) {
         const userId = result[0].id;
         const token = sign({ userId }, process.env.JWT_SECRET, { expiresIn: "1h" })
-        res.json(token).status(200);
+        res.status(200).json({token});
     }
 }

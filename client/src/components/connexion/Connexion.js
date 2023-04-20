@@ -77,8 +77,7 @@ function Connexion() {
 		if (localStorage.getItem('jwt') !== null) {
 			localStorage.removeItem('jwt');
 		}
-
-		localStorage.setItem('jwt', data);
+		localStorage.setItem('jwt', data.token);
 
 		window.location.href = '/';
 	};
