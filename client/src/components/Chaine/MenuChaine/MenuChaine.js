@@ -9,6 +9,7 @@ import SectionCommunaute from '../SectionCommunaute/SectionCommunaute'
 import SectionChaines from '../SectionChaines/SectionChaines'
 import SectionPlus from '../SectionPlus/SectionPlus'
 import Profile from '../../UpProfile/UserChannel/UserChannel'
+import UploadForm from '../../chaine_upload/UploadForm';
 
 export default function MenuChaine() {
     // state
@@ -67,10 +68,10 @@ export default function MenuChaine() {
     const handleSectionChange = (section) => {
     switch (section) {
     case 'Accueil':
-    setSectionAffichee(<SectionAccueil channel_user_id={idUserChaine.user_id}/>);
+    setSectionAffichee(<SectionAccueil />);
     break;
     case 'Vidéos':
-    setSectionAffichee(<SectionVideos name={name} />);
+    setSectionAffichee(<SectionVideos infos_video={{name, idChaine}} />);
     break;
     case 'Shorts':
     setSectionAffichee(<SectionShorts infos_short={{idChaine, idUserChaine}}/>);
@@ -82,7 +83,7 @@ export default function MenuChaine() {
     setSectionAffichee(<SectionPlaylists />);
     break;
     case 'Communauté':
-    setSectionAffichee(<SectionCommunaute infos_communaute={{idChaine, name, imageLink}}/>);
+    setSectionAffichee(<SectionCommunaute infos_communaute={{idChaine, name, imageLink, idUserChaine}}/>);
     break;
     case 'Chaînes':
     setSectionAffichee(<SectionChaines channel_user_id={idUserChaine.user_id}/>);
@@ -90,15 +91,20 @@ export default function MenuChaine() {
     case 'À Propos':
     setSectionAffichee(<SectionPlus infos={{descriptionChannel, creationChannel, subscribersChannel, nbVideosChannel}}/>);
     break;
+    case 'UploadVideo':
+    setSectionAffichee(<UploadForm id_chaine={idChaine.id}/>)
+    break;
     default:
-    setSectionAffichee(<SectionAccueil channel_user_id={idUserChaine.user_id}/>);
+    setSectionAffichee(<SectionAccueil/>);
     }
     };
+
+    console.log(idChaine.id)
 
     // affichage (render)
     return (
     <div className='body_menu_chaine'>
-    <Profile action={{imageLink, name, subscribersChannel, descriptionChannel, nbVideosChannel}}/>
+    <Profile action={{imageLink, name, subscribersChannel, descriptionChannel, nbVideosChannel, idUserChaine}}/>
     <div id="buttons">
     <button className='sections_menu' onClick={() => handleSectionChange('Accueil')}>Accueil</button>
     <button className='sections_menu' onClick={() => handleSectionChange('Vidéos')}>Vidéos</button>
@@ -107,6 +113,7 @@ export default function MenuChaine() {
     <button className='sections_menu' onClick={() => handleSectionChange('Playlists')}>Playlists</button>
     <button className='sections_menu' onClick={() => handleSectionChange('Communauté')}>Communauté</button>
     <button className='sections_menu' onClick={() => handleSectionChange('Chaînes')}>Chaînes</button>
+    <button className='sections_menu' onClick={() => handleSectionChange('UploadVideo')}>Upload</button>
     <button className='sections_menu' onClick={() => handleSectionChange('À Propos')}>À Propos</button>
     </div>
     {sectionAffichee}

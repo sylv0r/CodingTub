@@ -21,12 +21,13 @@
 .pdp_name {
     width: 100%;
     display: flex;
+    margin-left: 1%;
 }
 
 .pdp_name p {
     width: 100%;
-    margin-left: 1%;
-    margin-top: 1%;
+    margin-left: 15%;
+    margin-top: 15%;
     font-size: 17px;
 }
 
@@ -58,6 +59,7 @@
     resize: none;
     max-height: 54vh;
     overflow-y: auto;
+    margin-left: 1%;
 }
 
 .content:focus{

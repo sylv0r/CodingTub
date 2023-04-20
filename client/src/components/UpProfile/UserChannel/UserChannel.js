@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './UserChannel.scss';
 
 export default function UserChannel({ action }) {
@@ -41,25 +41,47 @@ export default function UserChannel({ action }) {
         localStorage.setItem("buttonText", buttonText);
         localStorage.setItem("buttonColor", buttonColor);
     };
-
+ 
     // Partie HTML
 
-    return (
-        <div className='wrapperUserProfile'>
-            <div className='profileUserBis'>
-                <img id='pictureUserBis' src={process.env.REACT_APP_NGINX_LINK + action.imageLink.image_link} alt='profile' />
+    if (localId == action.idUserChaine.user_id) {
+        return (
+            <div className='wrapperUserProfile'>
+                <div className='profileUserBis'>
+                    <img id='pictureUserBis' src={process.env.REACT_APP_NGINX_LINK + action.imageLink.image_link} alt='profile' />
+                </div>
+                <div className='profileUserBis'>
+                    {/* Récupère les données de la base de données grâce à la requête SQL */}
+                    <p className='pseudoUsername'>{action.name}</p>
+                    <p>{action.subscribersChannel.subscribers} abonnés {action.nbVideosChannel.number_videos} vidéos</p>
+                    <p>{action.descriptionChannel.description_channel}</p>
+                </div>
+                <div className='profileUserBis'>
+                    <button className='updateUserProfile' type='submit' onClick={subscribed} style={{ backgroundColor: buttonColor }}>
+                        Modifier le profile
+                    </button>
+                </div>
             </div>
-            <div className='profileUserBis'>
-                {/* Récupère les données de la base de données grâce à la requête SQL */}
-                <p className='pseudoUsername'>{action.name}</p>
-                <p>{action.subscribersChannel.subscribers} abonnés {action.nbVideosChannel.number_videos} vidéos</p>
-                <p>{action.descriptionChannel.description_channel}</p>
+        );
+    }
+    else {
+        return (
+            <div className='wrapperUserProfile'>
+                <div className='profileUserBis'>
+                    <img id='pictureUserBis' src={process.env.REACT_APP_NGINX_LINK + action.imageLink.image_link} alt='profile' />
+                </div>
+                <div className='profileUserBis'>
+                    {/* Récupère les données de la base de données grâce à la requête SQL */}
+                    <p className='pseudoUsername'>{action.name}</p>
+                    <p>{action.subscribersChannel.subscribers} abonnés {action.nbVideosChannel.number_videos} vidéos</p>
+                    <p>{action.descriptionChannel.description_channel}</p>
+                </div>
+                <div className='profileUserBis'>
+                    <button className='updateUserProfile' type='submit' onClick={subscribed} style={{ backgroundColor: buttonColor }}>
+                        {buttonText}
+                    </button>
+                </div>
             </div>
-            <div className='profileUserBis'>
-                <button className='updateUserProfile' type='submit' onClick={subscribed} style={{ backgroundColor: buttonColor }}>
-                    {buttonText}
-                </button>
-            </div>
-        </div>
-    );
+        );
+    }
 };

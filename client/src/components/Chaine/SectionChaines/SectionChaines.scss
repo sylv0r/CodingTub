@@ -2,14 +2,13 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    height: 45%;
     margin-left: 2%;
 }
 
 .bloc_pdp_name_chaine {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin-right: 3%;
     padding: 1%;
@@ -26,6 +25,7 @@
 }
 
 .nom_chaine {
+    margin-top: 10%;
     text-decoration: none;
     color: black;
 }

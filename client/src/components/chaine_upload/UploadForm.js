@@ -8,7 +8,7 @@ import SelectTagsUpload from './SelectTagsUpload';
 import "./UploadForm.scss"
 
 
-const UploadForm = () => {
+const UploadForm = ({ id_chaine }) => {
     const [selectedVideo, setSelectedVideo] = useState(null);
     const [selectedMiniature, setSelectedMiniature] = useState(null);
     const [title, setTitle] = useState('');
@@ -65,7 +65,6 @@ const UploadForm = () => {
         formData.append('miniature', selectedMiniature);
         formData.append('selectedTags', selectedTags);
         formData.append('chaineId', id_chaine);
-
 
         // Envoi des données du formulaire au serveur
         try {
