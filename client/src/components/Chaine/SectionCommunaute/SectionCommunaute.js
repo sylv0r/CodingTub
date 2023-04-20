@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AddContent from './addContent/AddContent';
 import ShowContent from './showContent/ShowContent';
+import checkConnection from '../../../methods/checkConnection';
 import './SectionCommunaute.scss'
 
 export default function SectionCommunaute({ infos_communaute }){
@@ -8,12 +9,20 @@ export default function SectionCommunaute({ infos_communaute }){
     // state
 
     const [linksSectionCommu, setLinksSectionCommu] = useState([`/channel/${infos_communaute.name}`])
-    const user_id = localStorage.getItem("user_id");
+    const [userId, setUserId] = useState(null)
 
     // comportements
 
+    useEffect(() => {
+        const checkConnectionAsync = async () => {
+          const id = await checkConnection()
+          setUserId(id)
+        }
+        checkConnectionAsync()
+    }, [])
+
     // affichage (render)
-    if(user_id == infos_communaute.idUserChaine.user_id) {
+    if(userId == infos_communaute.idUserChaine.user_id) {
         return (
             <div>
                 <div className='div_section_communaute'>

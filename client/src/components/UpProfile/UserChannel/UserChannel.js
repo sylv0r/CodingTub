@@ -69,7 +69,6 @@ export default function UserChannel({ action }) {
     useEffect(() => {
         const checkConnectionAsync = async () => {
           const id = await checkConnection()
-          console.log("id :",id)
           setUserId(id)
         }
         checkConnectionAsync()
@@ -77,7 +76,7 @@ export default function UserChannel({ action }) {
  
     // Partie HTML
 
-    if (userId == action.idUserChaine.user_id) {
+    if (userId === action.idUserChaine.user_id) {
         return (
             <div className='wrapperUserProfile'>
                 <div className='profileUserBis'>
