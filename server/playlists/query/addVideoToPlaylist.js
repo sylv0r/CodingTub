@@ -4,7 +4,7 @@ module.exports = async (req, res) => {
 
     const { playlist_name, id_user, id_video } = req.body
 
-    console.log("trying addition")
+    //console.log("trying addition")
 
      await fetch(`http://localhost:3001/playlists/getPlaylistId`, {
                 method: "POST",
@@ -18,8 +18,8 @@ module.exports = async (req, res) => {
                 return response.json()
             })
             .then((json) => {
-                console.log(req.body)
-                console.log(req.body.description)
+                //console.log(req.body)
+                //console.log(req.body.description)
                 let playlist_id = json
 
 
