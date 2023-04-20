@@ -10,6 +10,10 @@ module.exports = async (req, res) => {
 
     const result = await con.query2('SELECT * FROM users WHERE users.email = ?', [req.body.email])
 
+    if(result.length === 0) {
+        return res.status(400).json({ message: 'Email existe pas dans notre serveur' });
+    }
+
     const isMatch = await bcrypt.compare(Password, result[0].password);
 
     console.log(isMatch)
@@ -17,10 +21,6 @@ module.exports = async (req, res) => {
     console.log(Password)
     console.log(result[0].password)
     console.log('result for user data', result)
-
-    if(result.length === 0) {
-        return res.status(400).json({ message: 'Email ou mot de passe incorrect' });
-    }
 
     if(!isMatch){
         return res.status(400).json({ message: 'Email ou mot de passe incorrect' });
