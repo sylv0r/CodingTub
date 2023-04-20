@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './InscriptionForm.scss';
 import axios from 'axios';
-/* import logo from './codingTub.png' */
 
 let vision1 = false;
 let vision2 = false;
@@ -71,9 +70,12 @@ const handleSubmit = (event) => {
   //création de la playlist WatchLater et Likes lors de l'inscription
   axios(options)
     .then(response => {
-        console.log(response);
-
-        localStorage.setItem('hashed_user_id', JSON.stringify(response.data.hashedUserId));
+        console.log(response.data.token)
+        /* localStorage.setItem('hashed_user_id', JSON.stringify(response.data.hashedUserId)); */
+        if (localStorage.getItem("jwt") !== null) {
+          localStorage.removeItem("jwt");
+        }
+        localStorage.setItem("jwt", response.data.token)
 
         axios.post('http://localhost:3001/users/getUserId', {
           hashedUserId : JSON.parse(localStorage.getItem('hashed_user_id'))
@@ -184,7 +186,7 @@ const options = {
         <form onSubmit={handleSubmit}>
             <div className='container-profile-inscription'>
         
-                {/* <a href="/" className='linkCodingLogoInscription'><img src={logo} id='codingLogoInscription' alt='logo' /></a> */}
+                <a href="/" className='linkCodingLogoInscription'><img src={"https://149a-80-70-44-4.ngrok-free.app/logo/logo_codingtub.png"} id='codingLogoInscription' alt='logo' /></a>
 			          <h2>Inscription</h2>
                 <div className='grid-profil-inscription'>
                   

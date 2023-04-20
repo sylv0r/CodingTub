@@ -28,17 +28,15 @@
   align-items: center;
 }
 
-#showPassBtnConnexion {
-  margin-left: 2%;
-}
-
 #formP2Connexion {
   display: flex;
   width: 100%;
-  justify-content: center;
+  justify-content: center !important;
+  align-items: center;
 }
 
 .submitConnexion {
+  margin: 0px !important;
   background-color: rgb(145, 29, 52);
   color: #FFF;
   font-size: 14px;
@@ -48,7 +46,13 @@
   cursor: pointer;
 }
 
+.submitConnexion:hover {
+  background-color: rgb(145, 29, 52) !important;
+}
+
 #showPassBtnConnexion {
+  margin-left: 2%;
+  margin-top: 0px !important;
   background-color: rgb(145, 29, 52);
   width: 48px;
   color: #fff;
@@ -66,6 +70,7 @@
   font-size: 15px;
   border: 1px solid rgb(146, 146, 146);
   border-radius: 2px !important;
+  margin: 0px;
 }
 
 .inputSizeConnexion[type='text'] {
