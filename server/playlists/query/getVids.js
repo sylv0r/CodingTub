@@ -33,4 +33,5 @@ module.exports = async (req, res) => {
         con.query('SELECT videos.*, channels.name, channels.image_link FROM videos INNER JOIN channels ON videos.channel_id = channels.id WHERE videos.id IN (?)', [video_list], function (err, results) {
             if (err) throw err
             res.send(results)
-        }) })}
+        });
+    })}

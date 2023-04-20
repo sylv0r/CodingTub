@@ -5,7 +5,7 @@ import './videolistRight.scss'
 
 export default function SingleVideoRight({video}) {
 
-    console.log("I AM A VIDEO")
+    //console.log("I AM A VIDEO")
 
     //state
     let currentdate = new Date(); 
