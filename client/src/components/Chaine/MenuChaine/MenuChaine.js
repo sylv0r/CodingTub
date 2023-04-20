@@ -8,7 +8,7 @@ import SectionPlaylists from '../SectionPlaylists/SectionPlaylists'
 import SectionCommunaute from '../SectionCommunaute/SectionCommunaute'
 import SectionChaines from '../SectionChaines/SectionChaines'
 import SectionPlus from '../SectionPlus/SectionPlus'
-import Profile from '../../Profile/Profile'
+import Profile from '../../UpProfile/UserChannel/UserChannel'
 
 export default function MenuChaine() {
     // state
@@ -73,7 +73,7 @@ export default function MenuChaine() {
     setSectionAffichee(<SectionVideos name={name} />);
     break;
     case 'Shorts':
-    setSectionAffichee(<SectionShorts />);
+    setSectionAffichee(<SectionShorts infos_short={{idChaine, idUserChaine}}/>);
     break;
     case 'Lives':
     setSectionAffichee(<SectionLives />);
@@ -98,7 +98,7 @@ export default function MenuChaine() {
     // affichage (render)
     return (
     <div className='body_menu_chaine'>
-    <Profile />
+    <Profile action={{imageLink, name, subscribersChannel, descriptionChannel, nbVideosChannel}}/>
     <div id="buttons">
     <button className='sections_menu' onClick={() => handleSectionChange('Accueil')}>Accueil</button>
     <button className='sections_menu' onClick={() => handleSectionChange('Vidéos')}>Vidéos</button>

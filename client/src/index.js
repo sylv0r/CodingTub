@@ -15,8 +15,7 @@ import MenuChaine from './components/Chaine/MenuChaine/MenuChaine';
 import Short from './components/routes/Short';
 import UploadShort from './components/routes/UploadShort';
 import Search from './components/search/Searchs';
-import Profile from './components/Profile/Profile';
-import UserProfile from './components/UserProfile/UserProfile';
+import UserChannel from './components/UpProfile/UserChannel/UserChannel';
 import Connexion from './components/connexion/Connexion';
 import Inscription from './components/Inscription/InscriptionForm.js';
 import SideBar from './components/Home/SideBar/SideBar';
@@ -78,7 +77,7 @@ const router = createBrowserRouter([
   },
   
   {
-    path: "/UploadShort",
+    path: "/Uploadshort",
     element: <UploadShort />,
   },
   {
@@ -99,12 +98,8 @@ const router = createBrowserRouter([
     element: <AffichageLive />,
   },
   {
-    path: "/Profile",
-    element: <Profile />
-  },
-  {
-    path: "/UserProfile",
-    element: <UserProfile />
+    path: "/UserChannel",
+    element: <UserChannel />
   }
 ]);
 

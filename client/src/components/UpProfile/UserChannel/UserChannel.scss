@@ -1,0 +1,41 @@
+.wrapperUserProfile {
+
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+.profileUserBis {
+
+    margin-left: 50px;
+    margin-top: 20px;
+    color: black;
+
+}
+
+#pictureUserBis {
+
+    margin-top: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+
+}
+
+.pseudoUsername {
+
+    font-size: 35px;
+
+}
+
+.updateUserProfile {
+
+    background-color: black;
+    text-align: center;
+    color: white;
+    padding: 5px;
+    border-radius: 25px;
+    margin-left: 350px;
+    margin-top: 40px;
+
+}
