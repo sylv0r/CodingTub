@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./searchresult.scss";
+import Filtre from "../dropbutton/dropbutton"
 
 export default function SearchResults() {
   const [datas, setDatas] = useState([]);
@@ -49,7 +50,9 @@ export default function SearchResults() {
 
   console.log(filteredData);
 
-  return (
+  return (  
+    <div>
+    <Filtre/>
     <div className="search-results">
       {filteredData.map((filteredData) => {
         const datePublished = new Date(filteredData.videoPublishedAt);
@@ -73,6 +76,7 @@ export default function SearchResults() {
           </div>
         );
       })}
+    </div>
     </div>
 
   );

@@ -1,6 +1,5 @@
 const { Router } = require("express");
 const newSearch = require('./query/search');
-const hashtag = require('./query/hashtag');
 const searchBar =  require('./query/search_bar');
 const dateajout =  require('./query/filtre/dateajout');
 const hashtag = require('./query/hashtag/Hashtag');
