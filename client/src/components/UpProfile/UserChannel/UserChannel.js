@@ -1,14 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect,   } from 'react';
 import './UserChannel.scss';
+import checkConnection from '../../../methods/checkConnection';
 
 export default function UserChannel({ action }) {
-
-    
 
     // Déclare les variables
     const [buttonText, setButtonText] = useState(localStorage.getItem("buttonText") || "S'abonner");
     const [buttonColor, setButtonColor] = useState(localStorage.getItem("buttonColor") || "black");
+    const [localId, setLocalId] = useState(null);
 
+    useEffect(() => {
+        const checkConnectionAsync = async () => {
+            const id = await checkConnection()
+            setLocalId(id)
+        }
+        checkConnectionAsync()
+    }, [])
     // Concerne le bouton "s'abonner"
 
     const subscribed = () => {
@@ -22,7 +29,7 @@ export default function UserChannel({ action }) {
         localStorage.setItem("buttonText", buttonText);
         localStorage.setItem("buttonColor", buttonColor);
     };
- 
+
     // Partie HTML
 
     if (localId == action.idUserChaine.user_id) {

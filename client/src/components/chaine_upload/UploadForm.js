@@ -20,7 +20,6 @@ const UploadForm = ({ id_chaine }) => {
     const [alert, setAlert] = useState(false)
 
 
-
     const videoRef = useRef();
     const miniatureRef = useRef();
     const titleRef = useRef();
@@ -31,7 +30,6 @@ const UploadForm = ({ id_chaine }) => {
 
     const handleVideoInputChange = (event) => {
         setSelectedVideo(event.target.files[0]);
-        console.log(event.target.files[0])
     };
 
     const handleMiniatureInputChange = (event) => {
@@ -50,6 +48,7 @@ const UploadForm = ({ id_chaine }) => {
     // Gestionnaire de soumission du formulaire
     const handleSubmit = async (event) => {
         setAlert(false);
+
         const baseURL = "http://localhost:3001/channels/uploadVideo";
 
 

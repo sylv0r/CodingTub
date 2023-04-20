@@ -13,7 +13,6 @@ module.exports = async (req, res) => {
     const tags = req.body.selectedTags;
     const id_chaine = req.body.chaineId;
 
-    console.log(typeof id_chaine)
 
     const videoPath = path.join(__dirname, '../uploads', video.originalname);
     const miniaturePath = path.join(__dirname, '../uploads', miniature.originalname);
@@ -45,7 +44,7 @@ module.exports = async (req, res) => {
           if (err) {
             res.status(500).json({ message: 'Error uploading miniature', err });
           } else {
-            con.query(`INSERT INTO videos (id, title, video_link, description, miniature, channel_id, published_at) VALUES (null, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP);`, [title, `videos/${video.originalname}`, description, `miniatures/${miniature.originalname}`, 1], (err, result, fields) => {
+            con.query(`INSERT INTO videos (id, title, video_link, description, miniature, channel_id, published_at) VALUES (null, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP);`, [title, `videos/${video.originalname}`, description, `miniatures/${miniature.originalname}`, id_chaine], (err, result, fields) => {
               if (err) {
                 //console.error(err);
                 res.status(500).send(err);
