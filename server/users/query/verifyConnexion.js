@@ -7,7 +7,8 @@ module.exports = async (req, res) => {
     const isTokenValid = await verifyToken(token)
     if (isTokenValid) {
       res.status(200).json({
-        message: "Vous êtes connecté"
+        message: "Vous êtes connecté",
+        user_id: isTokenValid
       })
     } else {
       res.status(404).json({
