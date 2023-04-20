@@ -15,7 +15,6 @@ export default function ChannelForm({state}) {
     if (localStorage.getItem("jwt")) {
       const formData = new FormData();
       formData.append('description', description.current.value);
-      formData.append('user_id', localStorage.getItem("user_id"));
       formData.append('name', name.current.value);
       formData.append('image', image.current.files[0]);
     
