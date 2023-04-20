@@ -12,15 +12,15 @@ module.exports = async (req, res) => {
 
     const isMatch = await bcrypt.compare(Password, result[0].password);
 
+    if(result.length === 0) {
+        return res.status(400).json({ message: 'Email ou mot de passe incorrect' });
+    }
+
     console.log(isMatch)
 
     console.log(Password)
     console.log(result[0].password)
     console.log('result for user data', result)
-
-    if(result.length === 0) {
-        return res.status(400).json({ message: 'Email ou mot de passe incorrect' });
-    }
 
     if(!isMatch){
         return res.status(400).json({ message: 'Email ou mot de passe incorrect' });

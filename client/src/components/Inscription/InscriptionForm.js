@@ -144,13 +144,13 @@ const options = {
 
     if (vision1 === false) {
       document.getElementById('PassInput1').type = 'text';
-      document.getElementById('showPassBtnInscription').innerHTML = '<i className="fa-regular fa-eye-slash"></i>';
+      document.getElementById('showPassBtnInscription').innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
       vision1 = true;
       
       } else {
-			document.getElementById('PassInput1').type = 'password';
-			document.getElementById('showPassBtnInscription').innerHTML = '<i className="fa-regular fa-eye"></i>';
-			vision1 = false;
+            document.getElementById('PassInput1').type = 'password';
+            document.getElementById('showPassBtnInscription').innerHTML = '<i class="fa-regular fa-eye"></i>';
+            vision1 = false;
     }
   }
 
@@ -160,13 +160,13 @@ const options = {
 
     if (vision2 === false) {
       document.getElementById('PassInput2').type = 'text';
-      document.getElementById('showPassBtnInscription').innerHTML = '<i className="fa-regular fa-eye-slash"></i>';
-      vision1 = true;
+      document.getElementById('showPassBtnInscription2').innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
+      vision2 = true;
       
       } else {
-			document.getElementById('PassInput2').type = 'password';
-			document.getElementById('showPassBtnInscription').innerHTML = '<i className="fa-regular fa-eye"></i>';
-			vision1 = false;
+            document.getElementById('PassInput2').type = 'password';
+            document.getElementById('showPassBtnInscription2').innerHTML = '<i class="fa-regular fa-eye"></i>';
+            vision2 = false;
     }
   }
 
@@ -203,15 +203,15 @@ const options = {
                   </div>
 
                   <div className='form-group'>
-                      <label>Mot de passe :</label>
-                      <input type="password" id='PassInput1' name="password" value={formData.password} onChange={handleChange} />
-                      <button onClick={showPass1} id='showPassBtnInscription'><i className="fa-regular fa-eye"></i></button>
+                      <label className='inscriptionLabel'>Mot de passe :</label>
+                      <input className='inputInscriptionSize' type="password" placeholder='password' id='PassInput1' name="password" value={formData.password} onChange={handleChange} />
+                      <button onClick={showPass1} id='showPassBtnInscription'><i class="fa-regular fa-eye"></i></button>
                   </div>
 
                   <div className='form-group'>
-                      <label>Confirmez le mot de passe :</label>
-                      <input type="password" id='PassInput2' name="cpassword" value={formData.cpassword} onChange={handleChange} />
-                      <button onClick={showPass2} id='showPassBtnInscription'><i className="fa-regular fa-eye"></i></button>
+                      <label className='inscriptionLabel'>Confirmez le mot de passe :</label>
+                      <input className='inputInscriptionSize' type="password" placeholder='confirm password' id='PassInput2' name="cpassword" value={formData.cpassword} onChange={handleChange} />
+                      <button onClick={showPass2} id='showPassBtnInscription2'><i class="fa-regular fa-eye"></i></button>
                   </div>
                   
                   <p id='errorInscription'></p>

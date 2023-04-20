@@ -87,12 +87,12 @@ function Connexion() {
 
 		if (vision === false) {
 			document.getElementById('PassInputConnexion').type = 'text';
-			document.getElementById('showPassBtnConnexion').innerHTML = '<i className="fa-regular fa-eye-slash"></i>';
+			document.getElementById('showPassBtnConnexion').innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
 			vision = true;
 
 		} else {
 			document.getElementById('PassInputConnexion').type = 'password';
-			document.getElementById('showPassBtnConnexion').innerHTML = '<i className="fa-regular fa-eye"></i>';
+			document.getElementById('showPassBtnConnexion').innerHTML = '<i class="fa-regular fa-eye"></i>';
 			vision = false;
 		}
 	}
@@ -112,7 +112,7 @@ function Connexion() {
           	<label>Mot de passe :</label>
 			<div id='formP2Connexion'>
 				<input type="password" id='PassInputConnexion' className='inputSizeConnexion' placeholder='Password' name="password" value={formData.password} onChange={handleChange} />
-				<button onClick={showPass} id='showPassBtnConnexion'><i className="fa-regular fa-eye"></i></button>
+				<button onClick={showPass} id='showPassBtnConnexion'><i class="fa-regular fa-eye"></i></button>
 			</div>
 
 			<p id='errorConnexion'></p>
