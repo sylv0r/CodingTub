@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./searchresult.scss";
+import Filtre from "../dropbutton/dropbutton"
 
 export default function SearchResults() {
     const [datas, setDatas] = useState([]);
@@ -49,32 +50,33 @@ export default function SearchResults() {
 
     console.log(filteredData);
 
-
-
     return (
-        <div className="search-results">
-            {filteredData.map((filteredData) => {
-                const datePublished = new Date(filteredData.videoPublishedAt);
-                const now = new Date();
-                const duration = Math.floor((now.getTime() - datePublished.getTime()) / 1000);
-                return (
-                    <div key={filteredData.id} className="search-item">
-                        <a href={`/video?id=${filteredData.videoId}`} >
-                            <img className="search-item-thumbnail" src={url + filteredData.videoMiniature} alt={filteredData.title} />
-                            <div className="search-item-info">
-                                <h2 className="search-item-title">{filteredData.videoTitle}</h2>
-                                <p className="search-item-views">{filteredData.videoViews} vues</p>
-                                <p className="search-item-published">{formatDuration(duration)}</p>
-                                <div className="search-item-details">
-                                    <a href={`/channel/${filteredData.channelName}`}><img className="search-item-channel-logo" src={url + filteredData.channelImageLink} />
-                                        <p className="search-item-channel-name">{filteredData.channelName}</p></a>
+        <div>
+            <Filtre />
+            <div className="search-results">
+                {filteredData.map((filteredData) => {
+                    const datePublished = new Date(filteredData.videoPublishedAt);
+                    const now = new Date();
+                    const duration = Math.floor((now.getTime() - datePublished.getTime()) / 1000);
+                    return (
+                        <div key={filteredData.id} className="search-item">
+                            <a href={`/video?id=${filteredData.videoId}`} >
+                                <img className="search-item-thumbnail" src={url + filteredData.videoMiniature} alt={filteredData.title} />
+                                <div className="search-item-info">
+                                    <h2 className="search-item-title">{filteredData.videoTitle}</h2>
+                                    <p className="search-item-views">{filteredData.videoViews} vues</p>
+                                    <p className="search-item-published">{formatDuration(duration)}</p>
+                                    <div className="search-item-details">
+                                        <a href={`/channel/${filteredData.channelName}`}><img className="search-item-channel-logo" src={url + filteredData.channelImageLink} />
+                                            <p className="search-item-channel-name">{filteredData.channelName}</p></a>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                        <hr />
-                    </div>
-                );
-            })}
+                            </a>
+                            <hr />
+                        </div>
+                    );
+                })}
+            </div>
         </div>
 
     );
