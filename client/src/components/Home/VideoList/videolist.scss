@@ -1,7 +1,7 @@
 #videos {
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: center;
 }
 
 .singleVid {
@@ -15,9 +15,14 @@
         /*height: inherit;*/
         height: 196.85px;
         background-color: #000;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
     
         img {
             max-width: 350px;
+            max-height: 196.85px;
         }
     
         .video-duration {
@@ -108,3 +113,4 @@
     }
 
 }
+

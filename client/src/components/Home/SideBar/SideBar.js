@@ -8,14 +8,15 @@ export default function SideBar() {
     //state
     const [channels, setChannels] = useState([])
 
+    let user = localStorage.getItem('user_id')
+
     //comportement
     const getChannels = async () => {
-        await fetch(`http://localhost:3001/channels/getSubscriptions`, {method: "GET", headers: { "Content-Type": "application/json"}})
+        await fetch(`http://localhost:3001/channels/getSubscriptions/${user}`, {method: "GET", headers: { "Content-Type": "application/json"}})
             .then(response => {
                 return response.json()
             })
             .then((json) => {
-                console.log(json)
                 setChannels(json)
             })
             .catch(error => {
