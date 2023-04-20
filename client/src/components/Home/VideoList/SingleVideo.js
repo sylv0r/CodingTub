@@ -86,20 +86,15 @@ export default function SingleVideo({video}) {
 
     const addToWL = async () => {
 
-        axios.post('http://localhost:3001/users/getUserId', {
-        hashedUserId : JSON.parse(localStorage.getItem('hashed_user_id'))
-        })
-        .then(async (response) => {
-            await addVid("WL", response.data, video.id);
-        })
+        await addVid("WL", video.id);
             
-        async function addVid(playlist_name, id_user, id_video) {
+        async function addVid(playlist_name, id_video) {
+            if (localStorage.getItem('jwt')) {
             await fetch("http://localhost:3001/playlists/addVideo", {
                 method: "POST",
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'application/json', 'authorization' : localStorage.getItem('jwt') },
                 body: JSON.stringify({
                     playlist_name : playlist_name,
-                    id_user : id_user,
                     id_video : id_video
                 })
             })
@@ -107,6 +102,7 @@ export default function SingleVideo({video}) {
                 return response
             })
         }
+    }
 
     }
  

@@ -16,22 +16,14 @@ function Video() {
 
     const handleVideoClick = async (video, inHistory) => {
         
-        console.log(video)
-
-        axios.post('http://localhost:3001/users/getUserId', {
-          hashedUserId : JSON.parse(localStorage.getItem('hashed_user_id'))
+        await fetch(`http://localhost:3001/videos/addHistory/`, {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json', 'authorization' : localStorage.getItem('jwt') },
+        body: JSON.stringify({
+            video : video,
+            inHistory : inHistory
         })
-        .then(async (response) => {
-            await fetch(`http://localhost:3001/videos/addHistory/`, {
-            method: "POST",
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                user : response.data,
-                video : id,
-                inHistory : inHistory
-            })
             
-        });
         })
 
     };
@@ -79,14 +71,6 @@ function Video() {
 
     const url = process.env.REACT_APP_NGINX_LINK;
 
-    /*window.addEventListener('load', function() {
-        let player = document.getElementById('video-play')
-        console.log(player)
-        player.firstChild.addEventListener("play", function() {
-        handleVideoClick(id)
-        })
-    })*/
-
     function waitForElement() {
         return new Promise(function(resolve, reject) {
           var element = document.getElementById('video-play');
@@ -106,19 +90,16 @@ function Video() {
       
       waitForElement().then(function(element) {
         
+        if(element) {
         if (!element.firstChild.playEventListenerAdded) {
             element.firstChild.addEventListener("play", async function() {
                 console.log("Video started playing");
-                axios.post('http://localhost:3001/users/getUserId', {
-                    hashedUserId : JSON.parse(localStorage.getItem('hashed_user_id'))
-                    })
-                    .then(async (response) => {
-                        await fetch(`http://localhost:3001/videos/videoInHistory/`, {
-                        method: "POST",
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            user : response.data,
-                            video : id
+                
+                    await fetch(`http://localhost:3001/videos/videoInHistory/`, {
+                    method: "POST",
+                    headers: { 'Content-Type': 'application/json', 'authorization' : localStorage.getItem('jwt') },
+                    body: JSON.stringify({
+                        video : id
                         })
                     })
                     .then((response) => response.json())
@@ -131,10 +112,10 @@ function Video() {
                         }
                     })
                 });
-                })
                 
             element.firstChild.playEventListenerAdded = true;
             }
+        }
         
         
         });

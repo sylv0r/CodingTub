@@ -77,18 +77,9 @@ const handleSubmit = (event) => {
         }
         localStorage.setItem("jwt", response.data.token)
 
-        axios.post('http://localhost:3001/users/getUserId', {
-          hashedUserId : JSON.parse(localStorage.getItem('hashed_user_id'))
-        })
-        .then(async (response) => {
-          console.log('user Id', response.data);
-          await createPlaylists("LL", response.data);
-          await createPlaylists("WL", response.data);
+          createPlaylists("LL");
+          createPlaylists("WL");
           window.location.href = '/';
-        })
-        .catch(error => {
-          console.log('error', error.response.data)
-        });
     })
     .catch(error => {
         if (error.response) {
@@ -110,13 +101,12 @@ const handleSubmit = (event) => {
     });
 };
 
-async function createPlaylists(nom, id_user) {
+async function createPlaylists(nom) {
   await fetch("http://localhost:3001/playlists/createPlaylists", {
     method: "POST",
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', 'authorization' : localStorage.getItem('jwt') },
     body: JSON.stringify({
-      nom: nom,
-      id_user: id_user
+      nom: nom
     })
   })
   .then((response) => {

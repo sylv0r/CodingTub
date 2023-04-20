@@ -1,8 +1,10 @@
 const { con } = require('../../db/connection')
+const { getDecodedId } = require('../../methods/token')
 
 module.exports = async (req, res) => {
+    console.log("addToHistory")
 console.log(req.body)
-const { user, video, inHistory } = req.body
+const { video, inHistory } = req.body
 console.log(req.body.description)
 const now = new Date();
 const year = now.getFullYear();
@@ -12,6 +14,9 @@ const hours = String(now.getHours()).padStart(2, '0');
 const minutes = String(now.getMinutes()).padStart(2, '0');
 const seconds = String(now.getSeconds()).padStart(2, '0');
 const sqlDatetime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+
+const token = req.headers.authorization
+const user = await getDecodedId(token)
 
 console.log(sqlDatetime);
 

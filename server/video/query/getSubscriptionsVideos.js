@@ -1,9 +1,12 @@
 const { con } = require('../../db/connection')
+const { getDecodedId } = require('../../methods/token')
 
 
 
 module.exports = async (req, res) => {
-    const user = req.params.user
+    const token = req.headers.authorization
+    const user = await getDecodedId(token)
+    
     await fetch(`http://localhost:3001/channels/getSubscriptions/${user}`, {method: "GET", headers: { "Content-Type": "application/json"}})
             .then(response => {
                 return response.json()

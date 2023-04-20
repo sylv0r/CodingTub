@@ -1,8 +1,11 @@
 const { con } = require('../../db/connection')
+const { getDecodedId } = require('../../methods/token')
 
 module.exports = async (req, res) => {
 
-    const { playlist_name, id_user, id_video } = req.body
+    const { playlist_name, id_video } = req.body
+    const token = req.headers.authorization
+    const id_user = await getDecodedId(token)
 
     console.log("trying addition")
 

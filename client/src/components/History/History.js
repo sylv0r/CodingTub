@@ -12,7 +12,8 @@ function History() {
 
 	useEffect(() => {
 		axios.post('http://localhost:3001/users/getUserId', {
-			hashedUserId : JSON.parse(localStorage.getItem('hashed_user_id'))
+			method: "POST",
+        	headers: { "Content-Type": "application/json", "authorization" : localStorage.getItem('jwt')},
 			})
 			.then(async (response) => {
 			setUser(response.data)
@@ -20,7 +21,7 @@ function History() {
 	}, [])
 	
 	return (
-		user !== null ? <VideoList action={`getHistory/${user}`} /> : null
+		<VideoList action={`getHistory`} />
 	);
 }
 

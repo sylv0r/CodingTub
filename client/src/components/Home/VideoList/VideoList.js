@@ -12,7 +12,8 @@ export default function VideoList({ action }) {
 
     //comportement
     const getVideos = async () => {
-        await fetch(`http://localhost:3001/videos/${action}`, {method: "GET", headers: {"Content-Type": "application/json"}})
+        await fetch(`http://localhost:3001/videos/${action}`, 
+        {method: "GET", headers: {"Content-Type": "application/json", 'authorization' : localStorage.getItem('jwt')}})
             .then(response => { 
                 return response.json()
             })

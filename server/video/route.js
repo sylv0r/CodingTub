@@ -30,7 +30,7 @@ router.get('/verifLike', verifLike)
 router.delete('/deleteLike', deleteLike)
 router.post('/addHistory', addToHistory)
 router.post('/videoInHistory', videoInHistory)
-router.get('/getHistory/:user', getHistory )
+router.get('/getHistory', getHistory )
 
 
 
