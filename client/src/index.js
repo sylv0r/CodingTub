@@ -20,15 +20,14 @@ import UserProfile from './components/UserProfile/UserProfile';
 import Connexion from './components/connexion/Connexion';
 import Inscription from './components/Inscription/InscriptionForm.js';
 import SideBar from './components/Home/SideBar/SideBar';
-
+import ModifyProfile from './components/modifyProfile/ModifyProfile';
 import {
   createBrowserRouter,
-  RouterProvider
+  RouterProvider,
+  BrowserRouter
 } from "react-router-dom";
 
 const router = createBrowserRouter([
-
-
   {
     path: "/",
     element: <Home/>
@@ -54,9 +53,12 @@ const router = createBrowserRouter([
     element: <Abonnements />
   },
   {
-
     path: "/createChannel",
     element: <CreateChannel />,
+  },
+  {
+    path: "/modifyProfile",
+    element: <ModifyProfile />
   },
   {
     path: "/uploadVideo",
@@ -106,16 +108,28 @@ const router = createBrowserRouter([
   }
 ]);
 
+let url = window.location.href
+let connRegiPage = !url.includes('/connexion') && !url.includes('/Inscription')
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <nav className='side'><SideBar /></nav>
-    <section id="main-search">
-    <Search />
-    <main id="main">
-    <RouterProvider router={router} />
-    </main>
+    {
+      connRegiPage ? 
+      <>
+        <nav className='side'><SideBar /></nav>
+        <section id="main-search">
+          <BrowserRouter>
+          <Search />
+          </BrowserRouter>
+          <main id="main">
+            <RouterProvider router={router} />
+          </main>
+        </section>
+      </>
+      :
+      <RouterProvider router={router} />
+    }
     
-    </section>
   </React.StrictMode>
 );
