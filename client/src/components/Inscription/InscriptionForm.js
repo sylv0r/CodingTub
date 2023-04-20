@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './InscriptionForm.scss';
 import axios from 'axios';
-import logo from './codingTub.png'
 
 let vision1 = false;
 let vision2 = false;
@@ -161,7 +160,7 @@ const options = {
         <form onSubmit={handleSubmit}>
             <div className='container-profile-inscription'>
         
-                <a href="/" className='linkCodingLogoInscription'><img src={logo} id='codingLogoInscription' alt='logo' /></a>
+                <a href="/" className='linkCodingLogoInscription'><img id='codingLogoInscription' alt='logo' /></a>
 			          <h2>Inscription</h2>
                 <div className='grid-profil-inscription'>
                   
