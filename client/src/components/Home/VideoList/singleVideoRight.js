@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom';
-import axios from 'axios';
 
-export default function SingleVideo({video}) {
+import './videolistRight.scss'
+
+export default function SingleVideoRight({video}) {
+
+    //console.log("I AM A VIDEO")
 
     //state
     let currentdate = new Date(); 
@@ -84,32 +87,6 @@ export default function SingleVideo({video}) {
         setOptionsVisibility('visible')
     }
 
-    const addToWL = async () => {
-
-        axios.post('http://localhost:3001/users/getUserId', {
-        hashedUserId : JSON.parse(localStorage.getItem('hashed_user_id'))
-        })
-        .then(async (response) => {
-            await addVid("WL", response.data, video.id);
-        })
-            
-        async function addVid(playlist_name, id_user, id_video) {
-            await fetch("http://localhost:3001/playlists/addVideo", {
-                method: "POST",
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    playlist_name : playlist_name,
-                    id_user : id_user,
-                    id_video : id_video
-                })
-            })
-            .then((response) => {
-                return response
-            })
-        }
-
-    }
- 
     const handleThumbnailError = (e) => {
         //console.error('error')
         //console.log(e.target)
@@ -133,13 +110,11 @@ export default function SingleVideo({video}) {
 
     //render
     return (
-        <div className="singleVid">
-            <a href={`/video?id=${video.id}`}>
+        <div className="singleVidR">
             <div className="thumbnail">
-                <img src={url + video.miniature} alt="" onError={(e) => handleThumbnailError(e)} /> <br />
+                <a href={`/video?id=${video.id}`}><img src={url + video.miniature} alt="" onError={(e) => handleThumbnailError(e)} /></a> <br />
                 <h6 className="video-duration">{video.duree}</h6>
             </div>
-            </a>
 
             <div className="informations" onMouseOver={handleHover} onMouseLeave={handleEndHover}>
 
@@ -156,7 +131,7 @@ export default function SingleVideo({video}) {
                     <div className="dotsCircle" style={{visibility:visibility}} onClick={handleClick}>
                         <i className="fa-solid fa-ellipsis-vertical threeDots"></i>
                         <ul className="options" style={{visibility:optionsVisibility}}>
-                            <li onClick={addToWL}><i className="fa-solid fa-clock"></i> A regarder plus tard</li>
+                            <li><i className="fa-solid fa-clock"></i> A regarder plus tard</li>
                         </ul>
                     </div>
                     

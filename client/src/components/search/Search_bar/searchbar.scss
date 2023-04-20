@@ -30,15 +30,16 @@
   }
 }
 .search_button{
-  width: 50%;
-    padding: 12px 20px;
+    width: 20%;
+    
     margin: 8px 0;
     box-sizing: border-box;
     border: 2px solid #ccc;
+    border-left: none;
     border-radius: 0 12px 12px 0;
     font-size: 16px;
     outline: none;
-    height:3vh;
+    height:100%;
 
 
 }

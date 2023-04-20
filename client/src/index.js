@@ -128,30 +128,22 @@ let connRegiPage = !url.includes('/connexion') && !url.includes('/Inscription')
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <nav className='side'><SideBar /></nav>
-    <section id="main-search">
-      <Search />
-      <main id="main">
-        <RouterProvider router={router} />
-      </main>
-
-    </section>
-   {/*  {
-      connRegiPage ?
-        <>
-          <nav className='side'><SideBar /></nav>
-          <section id="main-search">
-            <BrowserRouter>
-              <Search />
-            </BrowserRouter>
-            <main id="main">
-              <RouterProvider router={router} />
-            </main>
-          </section>
-        </>
-        :
-        <RouterProvider router={router} />
-    } */}
-
+    {
+      connRegiPage ? 
+      <>
+        <nav className='side'><SideBar /></nav>
+        <section id="main-search">
+          <BrowserRouter>
+          <Search />
+          </BrowserRouter>
+          <main id="main">
+            <RouterProvider router={router} />
+          </main>
+        </section>
+      </>
+      :
+      <RouterProvider router={router} />
+    }
+    
   </React.StrictMode>
 );

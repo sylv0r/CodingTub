@@ -1,15 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player'
 import './video.scss';
-import './listDroite.scss';
+import './list_right.scss';
+import axios from 'axios'
 
-import { useSearchParams  } from 'react-router-dom'
-import VideoListRight from './VideoListRight';
+import { json, useSearchParams  } from 'react-router-dom'
+//import SingleVideoRight from './Home/Video/SingleVideoRight';
 import Likes from './likes/Likes';
 import Description from './description/Description';
 import InfoChanel from './info_channel/InfoChanel';
+import ListRight from './ListRight';
 function Video() {
-    
+
+        const [videoHistory, setVideoHistory] = useState([localStorage.getItem("videoHistory")]);
+
+    const handleVideoClick = async (video, inHistory) => {
+        
+        console.log(video)
+
+        axios.post('http://localhost:3001/users/getUserId', {
+          hashedUserId : JSON.parse(localStorage.getItem('hashed_user_id'))
+        })
+        .then(async (response) => {
+            await fetch(`http://localhost:3001/videos/addHistory/`, {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                user : response.data,
+                video : id,
+                inHistory : inHistory
+            })
+            
+        });
+        })
+
+    };
+
     
     let [searchParams, setSearchParams] = useSearchParams();
     const id = searchParams.get('id'); // send
@@ -53,10 +79,73 @@ function Video() {
 
     const url = process.env.REACT_APP_NGINX_LINK;
 
+    /*window.addEventListener('load', function() {
+        let player = document.getElementById('video-play')
+        console.log(player)
+        player.firstChild.addEventListener("play", function() {
+        handleVideoClick(id)
+        })
+    })*/
+
+    function waitForElement() {
+        return new Promise(function(resolve, reject) {
+          var element = document.getElementById('video-play');
+          if (element) {
+            resolve(element);
+          } else {
+            var interval = setInterval(function() {
+              var element = document.getElementById('video-play');
+              if (element) {
+                clearInterval(interval);
+                resolve(element);
+              }
+            }, 100);
+          }
+        });
+      }
+      
+      waitForElement().then(function(element) {
+        
+        if (!element.firstChild.playEventListenerAdded) {
+            element.firstChild.addEventListener("play", async function() {
+                console.log("Video started playing");
+                axios.post('http://localhost:3001/users/getUserId', {
+                    hashedUserId : JSON.parse(localStorage.getItem('hashed_user_id'))
+                    })
+                    .then(async (response) => {
+                        await fetch(`http://localhost:3001/videos/videoInHistory/`, {
+                        method: "POST",
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            user : response.data,
+                            video : id
+                        })
+                    })
+                    .then((response) => response.json())
+                    .then((json) => {
+                        if(json == "") {
+                            handleVideoClick(id, false)
+                        }
+                        else {
+                            handleVideoClick(id, true)
+                        }
+                    })
+                });
+                })
+                
+            element.firstChild.playEventListenerAdded = true;
+            }
+        
+        
+        });
     
+    
+
 
     useEffect(()=>{
         getVideosInfo();
+        //console.log(id)
+        //handleVideoClick(id)
     }, []) 
 
 
@@ -70,6 +159,7 @@ function Video() {
                     url={url + videos[0].video_link}
                     controls
                     className='player'
+                    id="video-play"
                     width='50%'
                     height='50%'
                     // playing
@@ -99,7 +189,10 @@ function Video() {
                         </div>
             }
 
-            <VideoListRight />
+            <ListRight action="getVideos" />
+
+
+                
             
         </div>
 

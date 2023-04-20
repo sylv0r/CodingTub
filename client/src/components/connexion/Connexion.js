@@ -3,6 +3,10 @@ import './Connexion.css';
 import axios from 'axios';
 /* import logo from './codingTub.png' */
 
+/* if (localStorage.getItem('user_id')) {
+	window.location.href = '/connexion';
+} */
+
 function Connexion() {
 
 	let vision = false;

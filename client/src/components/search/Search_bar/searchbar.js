@@ -58,7 +58,7 @@ export default function Search2() {
     <div id="search">
       <div className="searchBar">
         <input type="text" name="search" id="search" placeholder="Rechercher" value={searchTerm} ref={searchRef} onChange={handleSearchTerm} className="search" />
-        <button type="submit" className="search_button" onClick={handleSearch}>Rechercher</button>
+        <button type="submit" className="search_button" onClick={handleSearch}><i class="fa-solid fa-magnifying-glass"></i></button>
       </div>
       <div className={`search__results ${searchTerm.length > 0 ? "active" : ""}`}>
         {searchTerm.length > 0 &&

@@ -4,25 +4,25 @@
     justify-content: center;
 }
 
-.singleVid {
+.singleVidR {
     padding: 2%;
 
     .thumbnail {
 
         position: relative;
         /*width: 100%;*/
-        width: 350px;
+        width: 270px;
         /*height: inherit;*/
-        height: 196.85px;
+        height: 140px;
         background-color: #000;
-
+        
         display: flex;
         justify-content: center;
         align-items: center;
     
         img {
-            max-width: 350px;
-            max-height: 196.85px;
+            max-width: 270px;
+            max-height: 140px;
         }
     
         .video-duration {
@@ -42,7 +42,7 @@
     .informations {
 
         display: flex;
-        max-width: 350px;
+        max-width: 255px;
         margin-top: 2%;
         position: relative;
 

@@ -1,22 +1,23 @@
 import { useState, useEffect } from 'react'
-import './videolist.scss'
+import './list_right.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios'
 
-import SingleVideo from './SingleVideo'
+import SingleVideoRight from '../Home/VideoList/singleVideoRight';
 
-export default function VideoList({ action }) {
+export default function VideoListRight({ action }) {
 
     //state
      const [videos, setVideos] = useState([])
 
     //comportement
     const getVideos = async () => {
-        await fetch(`http://localhost:3001/videos/${action}`, {method: "GET", headers: {"Content-Type": "application/json"}})
-            .then(response => { 
+        await fetch(`http://localhost:3001/videos/${action}`, {method: "GET", headers: { "Content-Type": "application/json"}})
+            .then(response => {
                 return response.json()
             })
             .then((json) => {
+                //console.log(json)
                 setVideos(json)
             })
             .catch(error => {
@@ -41,11 +42,15 @@ export default function VideoList({ action }) {
 
     //render
     return (
-        <div id="videos">
+        <div className="list-right-videos">
+        <div class="list-right-container">
+            <ul class="playlist-right-list">
             {/*<button onClick={getVideos}>Get Videos</button>*/}
             {videos.map((vid) => (
-                <SingleVideo video={vid} key={vid.id}/>
+                <SingleVideoRight video={vid} key={vid.id}/>
             ))}
+            </ul>
+        </div>
         </div>
     )
 
