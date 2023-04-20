@@ -5,6 +5,7 @@ const likeVideo = require('../short/query/likeVideo');
 const fetchVideo = require('../short/query/fetchVideo');
 const addComment = require('../short/query/commentVideo'); 
 const fetchComments = require('../short/query/fetchComment')
+const getShortChaine = require('./query/getShortChaine');
 
 const multer = require("multer");
 
@@ -28,5 +29,6 @@ router.post('/like/:id', likeVideo)
 router.get('/fetch', fetchVideo)
 router.post('/setcomment/:id', addComment) 
 router.get('/fetchcomments/:id', fetchComments)
+router.get('/getShortChaine/:channel_id', getShortChaine)
 
 module.exports.routes = router;

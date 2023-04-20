@@ -17,3 +17,17 @@ exports.getDecodedId = async (token) => {
 
   return response
 }
+
+exports.verifyToken = async (token) => {
+  const response = await new Promise(async(resolve) => {
+    try {
+      const data = jwt.verify(token, process.env.JWT_SECRET)
+      resolve(data.userId)
+    } catch (e) {
+      console.log(e)
+      resolve(false)
+    }
+  })
+
+  return response
+}

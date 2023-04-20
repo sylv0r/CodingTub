@@ -27,7 +27,6 @@ export default function ProfileForm({state}) {
         firstname.current.value = json.user[0].prenom
         pseudo.current.value = json.user[0].pseudo
       }
-      console.log(json)
     })
   }, [])
 

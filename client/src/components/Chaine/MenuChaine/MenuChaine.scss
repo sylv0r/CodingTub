@@ -9,6 +9,7 @@
     padding: 1% 2%;
     font-size: 110%;
     margin-bottom: 3%;
+    margin-left: 2%;
     cursor: pointer;
 }
 
@@ -19,5 +20,5 @@
 #buttons {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }

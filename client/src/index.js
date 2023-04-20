@@ -18,8 +18,7 @@ import UploadShort from './components/routes/UploadShort';
 import Search from './components/search/Searchs';
 import Search2 from './components/search/Search_bar/searchbar';
 import Connexion from './components/connexion/Connexion';
-import Profile from './components/Profile/Profile';
-import UserProfile from './components/UserProfile/UserProfile';
+import UserChannel from './components/UpProfile/UserChannel/UserChannel';
 import Inscription from './components/Inscription/InscriptionForm.js';
 import SideBar from './components/Home/SideBar/SideBar';
 import ResultHashtag from './components/search/hashtag/resulthashtag/ResultHashtag';
@@ -68,10 +67,6 @@ const router = createBrowserRouter([
     element: <ModifyProfile />
   },
   {
-    path: "/uploadVideo",
-    element: <UploadForm />
-  },
-  {
     path: "/video",
     element: <Video />,
   },
@@ -106,12 +101,8 @@ const router = createBrowserRouter([
     element: <AffichageLive />,
   },
   {
-    path: "/Profile",
-    element: <Profile />
-  },
-  {
-    path: "/UserProfile",
-    element: <UserProfile />
+    path: "/UserChannel",
+    element: <UserChannel />
   },
   {
     path: "/SerchResult",

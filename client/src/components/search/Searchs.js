@@ -21,6 +21,7 @@ function Search() {
 
 
     const logout = () => {
+        localStorage.removeItem("hashed_user_id");
         localStorage.removeItem("jwt");
         window.location.href = "/connexion";
     }
@@ -51,12 +52,19 @@ function Search() {
                 <div className="connect">
 
                     <a className="not"href="" target="" rel="">
-                        <i class="fa-solid fa-bell fa-2x"></i>
+                        <i className="fa-solid fa-bell fa-2x"></i>
                     </a>
-                    
+
+                    {localStorage.getItem("jwt") ?
+                        <a className="pp" href="/modifyProfile" target="" rel="">
+                            <i className="fa-solid fa-user fa-2x"></i>
+                        </a>
+                    : 
                     <a className="pp" href="/connexion" target="" rel="">
-                        <i class="fa-solid fa-user fa-2x"></i>
-                    </a>
+                            <i className="fa-solid fa-user fa-2x"></i>
+                        </a>
+                    }
+                        
 
                     <p onClick={logout} className='logoutBtn'>Logout</p>
 

@@ -8,10 +8,8 @@ export default function SectionAccueil(){
 
     // affichage (render)
     return (
-    <div>
-        <AccueilVideos />
-        <p>Mettre le composant des playlists</p>
-        <p>Mettre le composant de Chaine</p>
-    </div>
+        <div>
+            <AccueilVideos />
+        </div>
     );
 }
