@@ -7,8 +7,8 @@ module.exports = async (req, res) => {
     const token = req.headers.authorization
     const id_user = await getDecodedId(token)
 
-    console.log(playlist_name)
-    console.log(id_user)
+    //console.log(playlist_name)
+    //console.log(id_user)
     
     await fetch(`http://localhost:3001/playlists/getPlaylistsVideos`, {
         method: "POST",
@@ -29,7 +29,7 @@ module.exports = async (req, res) => {
             video_list.push(json[i]['id'])
         }
 
-        console.log(video_list)
+        //console.log(video_list)
         
         //console.log(req.body.description)
 

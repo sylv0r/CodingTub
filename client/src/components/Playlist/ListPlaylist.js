@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react';
-import './../style/ListPlaylist.scss';
+import './ListPlaylist.scss';
 import { useSearchParams } from 'react-router-dom';
 import SingleVideoRight from '../Home/VideoList/singleVideoRight'
 import axios from 'axios'

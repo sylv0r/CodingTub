@@ -1,5 +1,5 @@
 import React from 'react';
-import './../style/PreviewPlaylist.scss';
+import './PreviewPlaylist.scss';
 
 export default function PreviewPlaylist(){
 

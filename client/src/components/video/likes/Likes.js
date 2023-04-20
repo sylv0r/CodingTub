@@ -27,6 +27,21 @@ function Likes(props) {
     verifyLike();
   }, []);
 
+    async function handlePlaylistLLClick(){
+            
+       await fetch("http://localhost:3001/playlists/addVideo", {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json', "authorization" : localStorage.getItem('jwt') },
+            body: JSON.stringify({
+                playlist_name : "LL",
+                id_video : video_id
+            })
+        })
+        .then((response) => {
+            return response
+        })
+    }
+
 
 
   async function handleLikeClick() {
@@ -65,7 +80,7 @@ function Likes(props) {
       <div id="placement_button_like">
         <button 
           className={`like_button_video ${isActive ? 'active' : ''}`}
-          onClick={handleLikeClick}
+          onClick={() => {handleLikeClick();handlePlaylistLLClick()}}
         >
           Like
         </button>
