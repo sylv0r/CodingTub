@@ -53,11 +53,16 @@ function Search() {
                     </a>
 
                     {localStorage.getItem("jwt") ?
-                        <a className="pp" href="/modifyProfile" target="" rel="">
-                            <i className="fa-solid fa-user fa-2x"></i>
-                        </a>
+                        <div className='connected-icons'>
+                            <a className="pp" href="/createChannel" target="" rel="">
+                                <i class="fa-solid fa-plus fa-2x"></i>
+                            </a>
+                            <a className="pp" href="/modifyProfile" target="" rel="">
+                                <i className="fa-solid fa-user fa-2x"></i>
+                            </a>
+                        </div>
                     : 
-                    <a className="pp" href="/connexion" target="" rel="">
+                        <a className="pp" href="/connexion" target="" rel="">
                             <i className="fa-solid fa-user fa-2x"></i>
                         </a>
                     }
