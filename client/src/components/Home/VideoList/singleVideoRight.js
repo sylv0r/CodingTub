@@ -114,7 +114,7 @@ export default function SingleVideoRight({video}) {
         const vid = document.getElementById(`video-${video.id}`);
         vid.addEventListener('loadedmetadata', function() {
         //setDuration(Math.round(vid.duration));
-        console.log(vid.duration)
+        //console.log(vid.duration)
         //setDuration(vid.duration)
         //console.log(duration)
         const duree = Math.floor(vid.duration)
