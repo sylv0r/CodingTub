@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 
@@ -127,13 +127,33 @@ export default function SingleVideo({video}) {
 
     const channelPage = !location.pathname.includes('/channel/')
 
+    const [duration, setDuration] = useState("00 : 00")
+
+    useEffect(() => {
+        const vid = document.getElementById(`video-${video.id}`);
+        vid.addEventListener('loadedmetadata', function() {
+        //setDuration(Math.round(vid.duration));
+        console.log(vid.duration)
+        //setDuration(vid.duration)
+        //console.log(duration)
+        const duree = Math.floor(vid.duration)
+        const minutes = Math.floor(duree / 60);
+        const seconds = duree - minutes * 60;
+        function str_pad_left(string,pad,length){
+            return (new Array(length+1).join(pad)+string).slice(-length);   
+        }      
+        var finalTime = str_pad_left(minutes,'0',2)+':'+str_pad_left(seconds,'0',2);
+        setDuration(finalTime)
+        })
+    }, [])
+
     //render
     return (
         <div className="singleVid">
             <a href={`/video?id=${video.id}`}>
             <div className="thumbnail">
                 <img src={url + video.miniature} alt="" onError={(e) => handleThumbnailError(e)} /> <br />
-                <h6 className="video-duration">{video.duree}</h6>
+                <h6 className="video-duration">{duration}</h6>
             </div>
             </a>
 
@@ -158,6 +178,11 @@ export default function SingleVideo({video}) {
                     
                 </div>
                 
+            </div>
+
+            <div id={`video-div-${video.id}`}>
+                <video id={`video-${video.id}`} height="0" width="0" style={{"display": "none"}} src={url + video.video_link}>
+                </video>
             </div>
             
          </div>

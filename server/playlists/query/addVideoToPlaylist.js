@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
     const token = req.headers.authorization
     const id_user = await getDecodedId(token)
 
-    console.log("trying addition")
+    //console.log("trying addition")
 
      await fetch(`http://localhost:3001/playlists/getPlaylistId`, {
                 method: "POST",
@@ -21,8 +21,8 @@ module.exports = async (req, res) => {
                 return response.json()
             })
             .then((json) => {
-                console.log(req.body)
-                console.log(req.body.description)
+                //console.log(req.body)
+                //console.log(req.body.description)
                 let playlist_id = json
 
 
