@@ -1,0 +1,149 @@
+.video-editor {
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 20px;
+  background-color: darkgrey;
+  display: flex;
+  margin: 30px;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  width: 450px;
+  position: relative;
+  z-index: 9999;
+}
+
+.video-editor__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  margin-right: 20px;
+  width: 100%;
+}
+
+.video-editor__preview {
+  position: absolute;
+  top: 10%;
+  right: 0;
+  transform: translateY(-50%);
+  border-radius: 20px;
+}
+
+.video-preview__title {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.video-preview__video {
+  position: absolute;
+  top: 11%;
+  left: 47%;
+  margin-right: 40px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-editor__trimming {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.video-trimming__title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.video-trimming__slider {
+  width: 80%;
+  margin-bottom: 1rem;
+}
+
+.video-trimming__duration {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.video-trimming__info {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.video-editor__filters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.video-filters__title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.video-filters__text-input {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  width: 80%;
+}
+
+.video-filters__apply-button {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  background-color: #ff2819;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 80%;
+}
+
+@media (min-width: 768px) {
+  .video-editor {
+    padding: 50px;
+  }
+  
+  .video-editor__preview {
+    width: 60%;
+    margin-right: 40px;
+    margin-bottom: 0;
+    border-radius: 20px;
+  }
+  
+  .video-editor__trimming {
+    width: 40%;
+    margin-bottom: 0;
+  }
+  
+  .video-trimming__slider {
+    width: 100%;
+  }
+  
+  .video-filters__text-input {
+    width: 100%;
+    margin-right: 1rem;
+    margin-bottom: 0;
+  }
+  
+  .video-filters__apply-button {
+    width: auto;
+    margin-bottom: 1rem;
+  }
+  
+  .video-editor__filters {
+    align-self: flex-end;
+    margin-left: auto;
+    margin-right: 0;
+  }
+  
+  .video-editor__preview {
+    border-radius: 20px;
+  }
+}

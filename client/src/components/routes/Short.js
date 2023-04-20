@@ -13,6 +13,7 @@ const Short = () => {
   const [commentText, setCommentText] = useState("");
   const [comments, setComments] = useState([]);
   const [timer, setTimer] = useState(null);
+  const [likesCount, setLikesCount] = useState(0);
    //const userId = localStorage.getItem('user_id') || 1 ;
 
   const userId = 1;
@@ -38,6 +39,21 @@ const Short = () => {
     ]);
   }, [videos, currentIndex]);
 
+  const fetchLikes = async (videoId) => {
+    try {
+      const response = await axios.get(`http://localhost:3001/shorts/fetchlikes/${videoId}`);
+      console.log('Response data:', response.data); // Log the entire data object
+  
+      const likes = response.data[0].like;
+  
+      console.log('Likes fetched:', likes);
+      return likes;
+      
+    } catch (error) {
+      console.error('Error fetching likes:', error);
+      return null;
+    }}
+  
   const fetchComments = async (videoId) => {
     try {
       const response = await axios.get(`http://localhost:3001/shorts/fetchcomments/${videoId}`, { params: { user_id: userId } });
@@ -65,6 +81,21 @@ const Short = () => {
       };
     }
   }, [displayedVideos]);
+
+  useEffect(() => {
+    const fetchAndSetLikesCount = async () => {
+      const videoId = displayedVideos[1]?.id;
+      if (videoId) {
+        const likes = await fetchLikes(videoId); // Get the likes directly
+        console.log('Fetched likes:', likes);
+        setLikesCount(likes); // Set the likes count directly
+        console.log('Updated likesCount:', likes);
+      }
+    };
+  
+    console.log("useEffect called for displayedVideos[1]:", displayedVideos[1]);
+    fetchAndSetLikesCount();
+  }, [displayedVideos[1]]);
 
   const sendComment = async (commentText, videoId) => {
     try {
@@ -143,6 +174,7 @@ const Short = () => {
         
           <button className="like-button" onClick={() => handleLike(displayedVideos[1]?.id)}>
             <FaThumbsUp />
+            <span className="likes-count">{likesCount}</span>
           </button>
           <button className="comment-button" onClick={() => setShowComments(!showComments)}>
             <FaComment />
