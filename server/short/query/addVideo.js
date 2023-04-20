@@ -17,17 +17,11 @@ module.exports = async (req, res) => {
     console.log("log")
     console.log(urlVideo)
 
-  
-    await axios
-      .put(urlVideo, fileStreamVideo, {
-        
-        headers: {
-          'Content-Type': video.mimetype,
-        },
-      })
-  .catch((error) => {
-    console.error('Axios error:', error);
-  });
+    await axios.put(urlVideo, fileStreamVideo, {
+      headers: {
+        'Content-Type': video.mimetype,
+      },
+    });
 
     fs.unlink(videoPath, async (err) => {
       if (err) {
