@@ -9,7 +9,6 @@ import Playlists from './components/Playlist/Playlists';
 import History from './components/History/History';
 import Abonnements from './components/Abonnements/Abonnements';
 import CreateChannel from './components/createChannel/CreateChannel';
-import UploadForm from './components/chaine_upload/UploadForm';
 import Video from './components/show_video/ShowVideo.js';
 import MenuChaine from './components/Chaine/MenuChaine/MenuChaine';
 import Short from './components/routes/Short';
@@ -58,10 +57,6 @@ const router = createBrowserRouter([
   {
     path: "/modifyProfile",
     element: <ModifyProfile />
-  },
-  {
-    path: "/uploadVideo",
-    element: <UploadForm />
   },
   {
     path: "/video",
