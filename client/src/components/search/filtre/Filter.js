@@ -14,7 +14,7 @@ function FilterButton(props) {
             </button>
             {isOpen && (
                 <div className="filter-panel">
-                    {/* Add your filter options here */}
+
                 </div>
             )}
         </div>

@@ -3,7 +3,6 @@ import ControlledCarousel from "./hashtag/Hashtag";
 import Hashtag from "./hashtag/Hashtag";
 import React from 'react';
 import Search2 from './Search_bar/searchbar';
-import FilterButton from './filtre/Filter';
 
 function Search() {
     return (
@@ -39,8 +38,6 @@ function Search() {
                     <ControlledCarousel />
 
                 </div>
-
-                <FilterButton />
 
             </nav>
 
