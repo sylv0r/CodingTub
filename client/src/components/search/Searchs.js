@@ -3,9 +3,13 @@ import React, { useState, useEffect } from 'react';
 import ControlledCarousel from "./hashtag/Hashtag"
 import Hashtag from "./hashtag/Hashtag"
 import Search2 from './Search_bar/searchbar';
+import { useLocation } from 'react-router-dom';
 //import './Header.scss';
 
 function Search() {
+
+    let location = useLocation()
+    let homePage = location.pathname === '/'
 
     useEffect(() => {
         if(localStorage.getItem("jwt") === null) {
@@ -60,11 +64,12 @@ function Search() {
                 
             </div>
 
-                <div className="Navid">
+                {homePage &&
+                    <div className="Navid">
                     {Hashtag}
                     <ControlledCarousel />
 
-                </div>
+                </div>}
 
             </nav>
 

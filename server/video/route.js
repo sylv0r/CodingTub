@@ -12,6 +12,7 @@ const deleteLike = require('./query/deleteLike')
 const addToHistory = require('./query/addToHistory')
 const videoInHistory = require('./query/videoInHistory')
 const getHistory = require('./query/getHistory')
+const addViews = require('./query/addViews')
 
 const router = Router()
 
@@ -31,6 +32,7 @@ router.delete('/deleteLike', deleteLike)
 router.post('/addHistory', addToHistory)
 router.post('/videoInHistory', videoInHistory)
 router.get('/getHistory', getHistory )
+router.post('/addViews', addViews)
 
 
 

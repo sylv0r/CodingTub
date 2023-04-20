@@ -37,6 +37,8 @@ function Video() {
 
     const [videos, setVideos] = useState([]);
 
+    const [views, setViews] = useState()
+
 
 
     async function getVideosInfo() {
@@ -47,6 +49,7 @@ function Video() {
     
         const data = await response.json();
         setVideos(data);
+        setViews(data[0].views)
         console.log(data);
     }
     async function handleLikeClick() {
@@ -95,23 +98,33 @@ function Video() {
             element.firstChild.addEventListener("play", async function() {
                 console.log("Video started playing");
                 
-                    await fetch(`http://localhost:3001/videos/videoInHistory/`, {
+                await fetch(`http://localhost:3001/videos/videoInHistory/`, {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json', 'authorization' : localStorage.getItem('jwt') },
+                body: JSON.stringify({
+                    video : id
+                    })
+                })
+                .then((response) => response.json())
+                .then((json) => {
+                    if(json == "") {
+                        handleVideoClick(id, false)
+                    }
+                    else {
+                        handleVideoClick(id, true)
+                    }
+                })
+
+                await fetch(`http://localhost:3001/videos/addViews`, {
                     method: "POST",
-                    headers: { 'Content-Type': 'application/json', 'authorization' : localStorage.getItem('jwt') },
+                    headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({
-                        video : id
-                        })
+                        id: id
                     })
-                    .then((response) => response.json())
-                    .then((json) => {
-                        if(json == "") {
-                            handleVideoClick(id, false)
-                        }
-                        else {
-                            handleVideoClick(id, true)
-                        }
-                    })
+                })
                 });
+
+
                 
             element.firstChild.playEventListenerAdded = true;
             }
