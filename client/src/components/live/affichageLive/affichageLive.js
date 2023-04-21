@@ -110,9 +110,6 @@ function AffichageLive() {
     messagesContainer.insertBefore(newMessage, messagesContainer.firstChild);
 
     // Supprime le dernier message au bout de 10 secondes
-    setTimeout(() => {
-      messagesContainer.removeChild(messagesContainer.lastChild);
-    }, 5000);
 
     setMessages([message, ...messages]);
     setMessage('');
