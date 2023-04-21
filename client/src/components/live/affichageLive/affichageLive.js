@@ -94,32 +94,37 @@ function AffichageLive() {
     if (!socket || e.key !== 'Enter') {
       return;
     }
-
+    
     e.preventDefault();
-    console. log("log")
+    
+    console.log("Message envoyé :", message);
+    console.log("Socket utilisé :", socket.id);
+    
     socket.emit('chat-message', message);
+    
+    const messagesContainer = document.querySelector('.messages-container');
+    const newMessage = document.createElement('li');
+    newMessage.textContent = message;
+    
+    // Insère le nouveau message au début de la liste
+    messagesContainer.insertBefore(newMessage, messagesContainer.firstChild);
+
+    // Supprime le dernier message au bout de 10 secondes
+    setTimeout(() => {
+      messagesContainer.removeChild(messagesContainer.lastChild);
+    }, 5000);
+
+    setMessages([message, ...messages]);
     setMessage('');
-    console. log(message)
-
   };
+  
+  
+        if (!socket) return;
+        if (!socket) {
+          console.log("socket non initialisé");
+          return;
+        }
 
-  useEffect(() => {
-    if (!socket) {
-      console.log("socket non initialisé");
-      return;
-    }
-  
-  
-    socket.on('chat-message', message => {
-      setMessages(messages => [...messages, message]);
-    });
-  
-    return () => {
-      console.log("Déconnexion de la socket");
-      socket.disconnect();
-    };
-  }, [socket, message]);
-  
   const handleInputChange = e => {
     if (e.target.name === 'titre') {
     setInputTitre(e.target.value);
@@ -143,73 +148,33 @@ function AffichageLive() {
 
     
     
-    return (
-    <div className="affichageLive">
-    <div className="video-container">
-    <video className="video" autoPlay ref={videoRef}></video>
-    <div className="chat-container">
-    <div className="messages-container">
-  {messages.map((message, index) => (
-    <div key={index}>{message}</div>
-  ))}
+      return (
+        <div className="affichageLive">
+          <div className="video-container">
+            <video className="video" autoPlay ref={videoRef}></video>
+            <div className="chat-container">
+              <div className="messages-container">
+                <ul>
+                  {messages.map((message, index) => (
+                    <li key={index}>{message}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="input-container">
+                <input
+                  type="text"
+                  placeholder="Tapez votre message"
+                  value={message}
+                  onChange={e => setMessage(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                />
+              </div>
 </div>
 
-  <div className="input-container">
-    <input
-      type="text"
-      placeholder="Tapez votre message"
-      value={message}
-      onChange={e => setMessage(e.target.value)}
-      onKeyDown={handleKeyDown}
-    />
-  </div>
-</div>
 
     </div>
-    <div className="infos-container">
-    {liveEnCours ? (
-      <>
-        <h2>Titre : {inputTitre}</h2>
-        <p>Description : {inputDescription}</p>
-      </>
-    ) : (
-      <div className="form-container">
-        <form>
-          <label>
-            Titre :
-            <input
-              type="text"
-              name="titre"
-              value={inputTitre}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Description :
-            <textarea
-              name="description"
-              value={inputDescription}
-              onChange={handleInputChange}
-            />
-          </label>
-        </form>
-      </div>
-    )}
-
-    <div className="buttons-container">
-      {liveEnCours ? (
-        <button onClick={handleStartStopClick}>Stop</button>
-      ) : (
-        <button onClick={handleStartStopClick}>Start</button>
-      )}
-      <Link to="/">Retour à l'accueil</Link>
-    </div>
-  </div>
 </div>
 );
 }
 
 export default AffichageLive;
-
-
-
