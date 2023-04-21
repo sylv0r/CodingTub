@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
 
 function DeleteVidPlay({id_video, playlist_name}) {
-  const [confirmation, setConfirmation] = useState(false);
 
   const handleDelete = async () => {
     await fetch('http://localhost:3001/playlists/delVidPlay', {

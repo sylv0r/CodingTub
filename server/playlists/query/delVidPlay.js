@@ -18,8 +18,6 @@ module.exports = async (req, res) => {
         return response.json()
     })
     .then((json) => {
-        console.log(req.body)
-        console.log(req.body.description)
         let id_playlist = json
 
         con.query('DELETE FROM video_playlist WHERE id_video = ? AND id_playlist = ?', [id_video, id_playlist], function (err, results) {

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import './list_right.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from 'axios'
 
 import SingleVideoRight from '../Home/VideoList/singleVideoRight';
 
@@ -17,7 +16,6 @@ export default function VideoListRight({ action }) {
                 return response.json()
             })
             .then((json) => {
-                //console.log(json)
                 setVideos(json)
             })
             .catch(error => {
@@ -45,7 +43,6 @@ export default function VideoListRight({ action }) {
         <div className="list-right-videos">
         <div class="list-right-container">
             <ul class="playlist-right-list">
-            {/*<button onClick={getVideos}>Get Videos</button>*/}
             {videos.map((vid) => (
                 <SingleVideoRight video={vid} key={vid.id}/>
             ))}

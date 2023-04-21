@@ -2,7 +2,6 @@ import { React, useState, useEffect } from 'react';
 import './ListPlaylist.scss';
 import { useSearchParams } from 'react-router-dom';
 import SingleVideoRight from '../Home/VideoList/singleVideoRight'
-import axios from 'axios'
 import DeleteVidPlay from './DeleteVidPlay';
 
 export default function ListPlaylist() {
@@ -12,8 +11,6 @@ export default function ListPlaylist() {
 
     //state
     const [videos, setVideos] = useState([])
-
-    let vids = []
 
     const getPlaylistsVideos = async () => {
 
@@ -28,10 +25,7 @@ export default function ListPlaylist() {
                 return response.json()
             })
             .then((json) => {
-                console.log(json)
                 setVideos(json)
-                vids = json
-                console.log(vids)
             })
             .catch(error => {
                 if (error.response) {

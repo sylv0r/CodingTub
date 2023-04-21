@@ -82,7 +82,7 @@ export default function Search2() {
       class="search"
     />
     <button type="submit" class="search_button" onClick={handleSearch}>
-      Rechercher
+      <i className="fa-solid fa-magnifying-glass"></i>
     </button>
   </div>
   <div class={`search__results ${searchTerm.length > 0 ? "active" : ""}`}>

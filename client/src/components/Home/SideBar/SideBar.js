@@ -1,14 +1,12 @@
 import SideBarButton from './SideBarButton'
 import './sidebar.scss'
 import { useState, useEffect } from 'react'
- 
+
 
 export default function SideBar() {
 
     //state
     const [channels, setChannels] = useState([])
-
-    let user = localStorage.getItem('user_id')
 
     //comportement
     const getChannels = async () => {

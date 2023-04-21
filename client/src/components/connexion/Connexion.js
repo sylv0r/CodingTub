@@ -97,10 +97,12 @@ function Connexion() {
 		}
 	}
 
+	const url = process.env.REACT_APP_NGINX_LINK
+
   return (
     <div className="UsersConnexion">
 
-		<a href="/" className='linkCodingLogoConnexion'><img src={"https://149a-80-70-44-4.ngrok-free.app/logo/logo_codingtub.png"} id='codingLogoConnexion' alt='logo'/></a>
+		<a href="/" className='linkCodingLogoConnexion'><img src={url + "logo/logo_codingtub.png"} id='codingLogoConnexion' alt='logo'/></a>
 
       	<h1>Connexion</h1>
 
