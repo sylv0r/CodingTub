@@ -18,7 +18,7 @@ module.exports = async (req, res) => {
     .then((json) => {
         let playlist_id = json
 
-        con.query('SELECT videos.id, video_playlist.* FROM videos INNER JOIN video_playlist ON videos.id=video_playlist.id_video WHERE video_playlist.id_playlist=?', [playlist_id], function (err, results) {
+        con.query('SELECT videos.id, video_playlist.* FROM videos INNER JOIN video_playlist ON videos.id=video_playlist.id_video WHERE video_playlist.id_playlist=? ORDER BY date_ajout DESC', [playlist_id], function (err, results) {
             if (err) throw err
             res.send(results)
         }) })}

@@ -7,6 +7,8 @@ const getSubscriptions = require('./query/getSubscriptions');
 const getContent = require('./query/getContent');
 const showAllChannels = require('./query/showAllChannels');
 const getInfosChannel = require('./query/getInfosChannel');
+const redirectChannel = require("./query/redirectChannel");
+const getNbSubscribers = require('./query/getNbSubscribers');
 
 const path = require('path');
 const multer = require('multer');
@@ -32,6 +34,8 @@ router.post('/addContent', addContent)
 router.get('/getContent/:name', getContent)
 router.get('/showAllChannels/:channel_user_id', showAllChannels)
 router.get('/getInfosChannel/:name', getInfosChannel)
+router.get('/redirectChannel', redirectChannel)
+router.get('/getNbSubscribers/:id_channel', getNbSubscribers)
 
 router.post('/createChannel', upload.single('image'), createChannel)
 const cpUpload = upload.fields([{ name: 'video', maxCount: 1 }, { name: 'miniature', maxCount: 1 }])

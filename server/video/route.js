@@ -13,6 +13,7 @@ const addToHistory = require('./query/addToHistory')
 const videoInHistory = require('./query/videoInHistory')
 const getHistory = require('./query/getHistory')
 const addViews = require('./query/addViews')
+const getNbVideos = require('./query/getNbVideos');
 
 const router = Router()
 
@@ -30,5 +31,6 @@ router.post('/addHistory', addToHistory)
 router.post('/videoInHistory', videoInHistory)
 router.get('/getHistory', getHistory )
 router.post('/addViews', addViews)
+router.get('/getNbVideos/:channel_id', getNbVideos)
 
 module.exports.routes = router

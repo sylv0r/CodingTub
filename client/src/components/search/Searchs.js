@@ -34,7 +34,24 @@ function Search() {
         setvalue(event.target.value)
     }
 
-    const url = process.env.REACT_APP_NGINX_LINK
+    const handleChannel = async (e) => {
+        e.preventDefault()
+        const response = await fetch("http://localhost:3001/channels/redirectChannel", {
+            headers: {
+                authorization: localStorage.getItem("jwt")
+            }
+        })
+        const json = await response.json()
+        if (!json.error) {
+            if (json.results.length > 0) {
+                window.location.replace(`http://localhost:3000/channel/${json.results[0].name}`);
+            } else {
+                window.location.replace("http://localhost:3000/createChannel");
+            }
+        }
+    }
+
+    const url = process.env.REACT_APP_NGINX_LINK;
 
     return (
 
@@ -51,14 +68,13 @@ function Search() {
                         <Search2 />
                     </div>
 
-                    <div className="connect">
-
-                    <a className="not"href="" target="" rel="">
-                        <i className="fa-solid fa-bell fa-2x"></i>
-                    </a>
-
+                <div className="connect">
                     {localStorage.getItem("jwt") ?
                         <div className='connected-icons'>
+                            <a className="pp" style={{ cursor: "pointer" }} target="" rel="" onClick={(e) => handleChannel(e)}>
+                                <i class="fa-solid fa-video fa-2x"></i>
+                            </a>
+
                             <a className="pp" href="/createChannel" target="" rel="">
                                 <i class="fa-solid fa-plus fa-2x"></i>
                             </a>

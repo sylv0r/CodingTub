@@ -22,7 +22,7 @@ module.exports = async (req, res) => {
                 let playlist_id = json
 
 
-                con.query('INSERT INTO video_playlist VALUES(?, ?)', [id_video, playlist_id], function (err, results) {
+                con.query('INSERT INTO video_playlist(id_video, id_playlist) VALUES(?, ?)', [id_video, playlist_id], function (err, results) {
                     if (err) throw err
                     res.send(results)
                 }) 
