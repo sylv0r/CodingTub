@@ -18,6 +18,11 @@
     border-radius: 12px;
 }
 
+#hashtag div:hover {
+    transition: 0.35s;
+    background-color: rgb(145, 29, 52);
+}
+
 #hashtag div a {
     text-decoration: none;
     color: aliceblue;
