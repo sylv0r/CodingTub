@@ -18,7 +18,7 @@ function Abonnements() {
 	}, [])
 	
 	return (
-		user !== null ? <VideoList action={`getSubscriptionsVideos/${user}`} /> : null
+		<VideoList action={`getSubscriptionsVideos`} />
 	);
 }
 

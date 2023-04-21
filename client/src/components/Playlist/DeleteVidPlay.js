@@ -11,9 +11,18 @@ function DeleteVidPlay({id_video, playlist_name}) {
         body: JSON.stringify({
             playlist_name: playlist_name,
             id_video: id_video
-            })
-        })
-        window.location.reload()
+		})
+	})
+	await fetch(`http://localhost:3001/videos/deleteLike/`, {
+		method: 'DELETE',
+		headers: { authorization: localStorage.getItem("jwt"), 'Content-Type': 'application/json' },
+		body: JSON.stringify({
+			video_id: id_video,
+		}),
+	});
+
+	window.location.reload()
+	
   };
 
   return (
