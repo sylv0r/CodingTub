@@ -114,14 +114,6 @@ function Video() {
                                 handleVideoClick(id, true)
                             }
                         })
-
-                    await fetch(`http://localhost:3001/videos/addViews`, {
-                        method: "POST",
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            id: id
-                        })
-                    })
                 });
 
 
@@ -135,9 +127,20 @@ function Video() {
 
 
 
-
+    let viewed = false;
     useEffect(() => {
         getVideosInfo();
+        if(!viewed) {
+            fetch(`http://localhost:3001/videos/addViews`, {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                id: id
+            })
+        })
+        viewed = true
+        }
+        
         //console.log(id)
         //handleVideoClick(id)
     }, [])
