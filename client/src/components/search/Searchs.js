@@ -31,6 +31,11 @@ function Search() {
         setvalue(event.target.value)
     }
 
+    function handleChannel(e) {
+        e.preventDefault()
+        console.log(e)
+    }
+
     return (
 
     <header className="body">
@@ -47,13 +52,12 @@ function Search() {
                 </div>
 
                 <div className="connect">
-
-                    <a className="not"href="" target="" rel="">
-                        <i className="fa-solid fa-bell fa-2x"></i>
-                    </a>
-
                     {localStorage.getItem("jwt") ?
                         <div className='connected-icons'>
+                            <a className="pp" style={{ cursor: "pointer" }} target="" rel="" onClick={(e) => handleChannel(e)}>
+                                <i class="fa-solid fa-video fa-2x"></i>
+                            </a>
+
                             <a className="pp" href="/createChannel" target="" rel="">
                                 <i class="fa-solid fa-plus fa-2x"></i>
                             </a>
