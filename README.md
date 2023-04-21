@@ -1,44 +1,60 @@
-# CodingTub
-## Package à installer pour Live
+# Projet en React et Node.js
+Ce projet est une application web développée en utilisant les technologies React et Node.js. L'application permet de voir des vidéos en ligne.
 
-### Allez dans le dossier client et faites les commandes suivantes
-```
-npm install --save socket.io
-npm install --save socket.io-client
-npm install --save node-media-server
-````
+## Fonctionnalités
 
-### Dans votre OBS lancer la camera virtuelle, et dans la scène mettez le lien URL 
-````
-http://localhost:3000/
-`````
+Les fonctionnalités principales de l'application incluent :
 
-## Installation Front 
-### Allez dans le dossier client et faites les commandes suivantes
+- création de compte utilisateur.
+- regarder des vidéos.
+- enregistrer des vidéos dans des playlists.
+- système d'abonnement.
 
-```
-npm install
+## Clonez le projet:
 
-npm start
-```
+```git clone https://github.com/sylv0r/CodingTub.git ```
 
-## Installation Back
-### Allez dans le dossier server et faites les commandes suivantes
+## Côté serveur (node.js)
 
-```
-npm install
+Le côté serveur de l'application est développé en utilisant la bibliothèque Node.js. 
+Les fichiers de code source du côté client se trouvent dans le dossier /client.
 
-npm start
-```
+Configuration du côté serveur
+Avant de pouvoir exécuter le serveur, vous devez installer les dépendances nécessaires en exécutant la commande suivante dans le terminal :
 
-## Accès à la base de données
-### Aller au lien suivant
-```
-https://www.db4free.net/phpMyAdmin/
-```
+### aller dans le fichier serveur:
 
-### Créez un fichier initDb.js avec le JSON envoyé sur le groupe Discord à la racine du dossier "server"
-### Le fichier doit ressembler à ça :
-```
-module.exports = <<Le JSON du Discord>>
-```
+```cd server```
+
+puis installer:
+
+```npm install```
+
+enfin démarrer:
+
+```npm start```
+
+
+
+## Côté client (React)
+
+Le côté client de l'application est développé en utilisant la bibliothèque React. 
+Les fichiers de code source du côté client se trouvent dans le dossier /client.
+
+Configuration du côté client
+Avant de pouvoir exécuter le client, vous devez installer les dépendances nécessaires en exécutant la commande suivante dans le terminal :
+
+### meme chose dans le fichier client:
+
+```cd client```
+
+puis installer:
+
+```npm install```
+
+enfin démarrer:
+
+```npm start```
+
+
+Le client sera alors accessible à l'adresse http://localhost:3000.
