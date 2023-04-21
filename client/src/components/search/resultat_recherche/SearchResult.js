@@ -51,6 +51,23 @@ export default function SearchResults() {
 
   return (
     <div className="search-results">
+      {filteredData.filter(item => item.channelName).length > 0 && (
+      <div className="channelSection">
+        <h2>Résultats des chaînes :</h2>
+        <ul>
+          {filteredData.map((item, index) => {
+            if (item.channelName) {
+              return (
+                <li key={index}>
+                  <a href={`/channel/${filteredData.channelName}`}><img className="search-item-channel-logo" src={url + filteredData.channelImageLink}/>
+                  <p className="search-item-channel-name">{filteredData.channelName}</p></a>
+                </li>
+              )
+            }
+          })}
+        </ul>
+      </div>
+    )}
       {filteredData.map((filteredData) => {
         const datePublished = new Date(filteredData.videoPublishedAt);
         const now = new Date();
