@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams } from "react-router-dom";
 import ReactPlayer from 'react-player'
 import SingleVideoHashtag from './SingleVideoHashtag';
-import Filtre from '../../dropbutton/dropbutton';
+import SearchForm from '../../filtre/type';
 
 const ResultHashtag = () => {
-            
+
 
     let [searchParams, setSearchParams] = useSearchParams();
     const id = searchParams.get('id'); // send
@@ -41,13 +41,13 @@ const ResultHashtag = () => {
     //render
     return (
         <div>
-            <Filtre/>
-        <div id="videos">
-            {/*<button onClick={getVideos}>Get Videos</button>*/}
-            {videos.map((videos) => (
-                <SingleVideoHashtag video={videos} key={videos.id} />
-            ))}
-        </div>
+            <SearchForm />
+            <div id="videos">
+                {/*<button onClick={getVideos}>Get Videos</button>*/}
+                {videos.map((videos) => (
+                    <SingleVideoHashtag video={videos} key={videos.id} />
+                ))}
+            </div>
         </div>
     )
 

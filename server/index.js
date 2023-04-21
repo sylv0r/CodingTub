@@ -30,6 +30,8 @@ app.use("/search", searchMiddleware.routes)
 app.use("/dateajout", searchMiddleware.routes)
 app.use("/searchBar", searchMiddleware.routes)
 app.use("/ResultHashtag", searchMiddleware.routes)
+app.use("/test", searchMiddleware.routes)
+
 //utilise le middleware des channels lorsque la requête commence par /channels
 app.use("/users", usersMiddleware.routes)
 
