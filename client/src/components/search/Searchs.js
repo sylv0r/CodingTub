@@ -60,7 +60,7 @@ function Search() {
             <nav className="recherche">
                 <div className="Navsearch">
 
-                    <a className="logo" href=" " rel="">
+                    <a className="logo" href="/" rel="">
                         <img src={url + "logo/logo_codingtub.png"} alt="Logo CodingTube" className="icon_title" width="100" />
                     </a>
 
