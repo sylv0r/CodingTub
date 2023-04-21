@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const port = 3001
+const port = process.env.PORT || 5000;
 const usersMiddleware = require('./users/route')
 const videoMiddleware = require('./video/route')
 const channelsMiddleware = require('./channel/route')
@@ -41,6 +41,9 @@ app.use("/playlists", playlistMiddleware.routes)
 //utilise le middleware des channels lorsque la requête commence par /channels
 app.use("/users", usersMiddleware.routes)
 
+
+
+// Start the server
 app.listen(port, () => {
-    console.log(`--> Requete site sur ${port}`)
-})
+  console.log(`Server is running on port ${port}`);
+});
