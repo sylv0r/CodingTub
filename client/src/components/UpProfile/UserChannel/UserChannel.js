@@ -8,6 +8,35 @@ export default function UserChannel({ action }) {
     const [userId, setUserId] = useState(null)
     const localChannelId = action.idChaine.id;
 
+    const [nbSubscribers, setNbSubscribers] = useState([])
+
+    const getNbSubscribers = () => {
+        fetch(`http://localhost:3001/channels/getNbSubscribers/${localChannelId}`, {method: "GET", headers: { "Content-Type": "appplication/json"}})
+        .then(response => {
+            return response.json()
+        })
+        .then((json) => {
+            setNbSubscribers(json[0])
+        })
+        .catch(error => {
+            if (error.response) {
+                // Request made and server responded
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+            } else if (error.request) {
+                // The request was made but no response was received
+                console.log(error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log('Error :', error);
+            }
+        }) 
+    }
+
+    useEffect(() => {
+        getNbSubscribers()
+    }, [])
 
     axios.post('http://localhost:3001/users/getIfSubbed', {
         userId,
@@ -93,7 +122,7 @@ export default function UserChannel({ action }) {
                 <div className='profileUserBis'>
                     {/* Récupère les données de la base de données grâce à la requête SQL */}
                     <p className='pseudoUsername'>{action.name}</p>
-                    <p>{action.subscribersChannel.subscribers} abonnés {action.nbVideosChannel.number_videos} vidéos</p>
+                    <p>{nbSubscribers} abonnés {action.nbVideosChannel.number_videos} vidéos</p>
                     <p>{action.descriptionChannel.description_channel}</p>
                 </div>
             </div>
@@ -108,7 +137,7 @@ export default function UserChannel({ action }) {
                 <div className='profileUserBis'>
                     {/* Récupère les données de la base de données grâce à la requête SQL */}
                     <p className='pseudoUsername'>{action.name}</p>
-                    <p>{action.subscribersChannel.subscribers} abonnés {action.nbVideosChannel.number_videos} vidéos</p>
+                    <p>{nbSubscribers} abonnés {action.nbVideosChannel.number_videos} vidéos</p>
                     <p>{action.descriptionChannel.description_channel}</p>
                 </div>
                 <div className='profileUserBis'>

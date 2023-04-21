@@ -6,9 +6,11 @@ export default async () => {
       }
     })
     const json = await response.json()
-    if (json.error) window.location.replace("http://localhost:3000/connexion");
+    if (json.error) {
+      localStorage.removeItem("jwt")
+      window.location.replace("http://localhost:3000/connexion");
+    }
     else {
-      console.log("json :",json)
       return json.user_id
     }
   } else {
