@@ -10,6 +10,8 @@ const shortsMiddleware = require('./short/routes')
 const searchMiddleware = require('./recherche/route')
 const liveMiddleware = require('./live/route')
 const playlistMiddleware = require('./playlists/route')
+const path = require('path');
+app.use(express.static(path.join(dirname, '../client/build')));
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
