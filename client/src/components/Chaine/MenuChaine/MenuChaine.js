@@ -114,7 +114,7 @@ export default function MenuChaine() {
     if (userId == idUserChaine.user_id) {
         return (
             <div className='body_menu_chaine'>
-            <Profile action={{imageLink, name, subscribersChannel, descriptionChannel, nbVideosChannel, idUserChaine, idChaine}}/>
+            <Profile action={{imageLink, name, descriptionChannel, nbVideosChannel, idUserChaine, idChaine}}/>
             <div id="buttons">
             <button className='sections_menu' onClick={() => handleSectionChange('Accueil')}>Accueil</button>
             <button className='sections_menu' onClick={() => handleSectionChange('Vidéos')}>Vidéos</button>
@@ -133,7 +133,7 @@ export default function MenuChaine() {
     else {
         return (
             <div className='body_menu_chaine'>
-            <Profile action={{imageLink, name, subscribersChannel, descriptionChannel, nbVideosChannel, idUserChaine, idChaine}}/>
+            <Profile action={{imageLink, name, descriptionChannel, nbVideosChannel, idUserChaine, idChaine}}/>
             <div id="buttons">
             <button className='sections_menu' onClick={() => handleSectionChange('Accueil')}>Accueil</button>
             <button className='sections_menu' onClick={() => handleSectionChange('Vidéos')}>Vidéos</button>
