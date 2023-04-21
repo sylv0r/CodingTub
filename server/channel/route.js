@@ -35,7 +35,7 @@ router.get('/getContent/:name', getContent)
 router.get('/showAllChannels/:channel_user_id', showAllChannels)
 router.get('/getInfosChannel/:name', getInfosChannel)
 router.get('/redirectChannel', redirectChannel)
-router.get('/getNbSubscribers', getNbSubscribers)
+router.get('/getNbSubscribers/:id_channel', getNbSubscribers)
 
 router.post('/createChannel', upload.single('image'), createChannel)
 const cpUpload = upload.fields([{ name: 'video', maxCount: 1 }, { name: 'miniature', maxCount: 1 }])

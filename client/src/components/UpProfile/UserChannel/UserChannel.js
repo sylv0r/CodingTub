@@ -8,15 +8,16 @@ export default function UserChannel({ action }) {
     const [userId, setUserId] = useState(null)
     const localChannelId = action.idChaine.id;
 
-    const [nbSubscribers, setNbSubscribers] = useState([])
+    const [nbSubscribers, setNbSubscribers] = useState()
 
-    const getNbSubscribers = () => {
-        fetch(`http://localhost:3001/channels/getNbSubscribers/${localChannelId}`, {method: "GET", headers: { "Content-Type": "appplication/json"}})
+    const getNbSubscribers = async () => {
+        await fetch(`http://localhost:3001/channels/getNbSubscribers/${localChannelId}`, {method: "GET", headers: { "Content-Type": "appplication/json"}})
         .then(response => {
             return response.json()
         })
         .then((json) => {
-            setNbSubscribers(json[0])
+            setNbSubscribers(json.length)
+
         })
         .catch(error => {
             if (error.response) {
