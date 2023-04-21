@@ -9,7 +9,7 @@ import Search2 from './searchbar';
 function Search() {
 
     useEffect(() => {
-        if(localStorage.getItem("hashed_user_id") === null) {
+        if(localStorage.getItem("jwt") === null) {
             document.getElementsByClassName("logoutBtn")[0].innerHTML = "Login";
         } else {
             document.getElementsByClassName("logoutBtn")[0].innerHTML = "Logout";
