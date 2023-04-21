@@ -54,6 +54,7 @@ const io = require('socket.io')(server, {
 
 
 module.exports = async (req, res) => {
+
     }
 //-------------------------------------------------\\
 
@@ -148,7 +149,7 @@ requeteUpdateLiveViewer.post('/api/updateLivesViewer', (req, res) => {
         res.status(500).json({ error: "Une erreur s'est produite lors de l'exécution de la requête SQL" });
       } else {
         res.json(results);
-        console.log("Requete UPDATE LIVE  VIEWER envoyé")
+        console.log("Requete UPDATE LIVE VIEWER PLUS envoyé")
       }
     });
 });
@@ -164,7 +165,7 @@ requeteUpdateLiveViewerEnlevé.use(express.json());
 requeteUpdateLiveViewerEnlevé.use(cors());
 
 requeteUpdateLiveViewerEnlevé.post('/api/updateLivesViewerEnlever', (req, res) => {
-    const { title, description } = req.body;
+    const {url, title, description } = req.body;
     const sql = `UPDATE lives SET viewer = viewer - 1 WHERE title='${title}'`;
     con.query(sql, (error, results) => {
       if (error) {
@@ -172,7 +173,7 @@ requeteUpdateLiveViewerEnlevé.post('/api/updateLivesViewerEnlever', (req, res) 
         res.status(500).json({ error: "Une erreur s'est produite lors de l'exécution de la requête SQL" });
       } else {
         res.json(results);
-        console.log("Requete UPDATE LIVE  VIEWER envoyé")
+        console.log("Requete UPDATE LIVE VIEWER ENLEVÉ envoyé")
       }
     });
 });

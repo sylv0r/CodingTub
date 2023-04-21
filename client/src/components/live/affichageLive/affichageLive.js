@@ -46,7 +46,7 @@ function App() {
     }
     
     // Configuration des sockets pour relier le serveur au client
-    const socket = io.connect('http://localhost:3005');
+    const socket = io.connect('http://localhost:3000/affichageLive?url=6dabd4ea-1108-466a-a54e-c81c975509b9');
     // Configuration des sockets pour relier le serveur au client
 
     // Configuration des Peer to Peer
@@ -86,23 +86,24 @@ function App() {
   }, [liveEnCours]);
 
   //FERMÉ\\
-  const quitterViewer = () => {
+  const quitterViewer = (live) => {
     setLiveEnCours(false);
     localStorage.removeItem("liveEnCours");
-
-    const liveData2 = {title: inputTitre, description: inputDescription};
   
     fetch('http://localhost:3012/api/updateLivesViewerEnlever', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(liveData2)
+      body: JSON.stringify({ 
+        title: live.title,
+        description: live.description,
+        url: live.URL
+      })
     })
     .then(response => response.json())
     .then(data => console.log("requete sql : " + data))
     .catch(error => console.error(error));
-    navigator.mediaDevices.getUserMedia({ video: false, audio: false });
   }    
   //-----\\
   
@@ -133,7 +134,7 @@ function App() {
               <div id="option_creer_live">
                 <h1>Lives en cours</h1>
                 <Link to="/accueilLive">
-                  <button className="Accueil-button" >Retourner à l'accueil</button>
+                  <button className="Accueil-button" onClick={quitterViewer}>Retourner à l'accueil</button>
                 </Link>
                 {Array.isArray(lives) && lives.map(live => (
                 <li key={live.id}>
