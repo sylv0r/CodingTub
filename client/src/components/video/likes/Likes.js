@@ -29,17 +29,7 @@ function Likes(props) {
 
     async function handlePlaylistLLClick(){
             
-       await fetch("http://localhost:3001/playlists/addVideo", {
-            method: "POST",
-            headers: { 'Content-Type': 'application/json', "authorization" : localStorage.getItem('jwt') },
-            body: JSON.stringify({
-                playlist_name : "LL",
-                id_video : video_id
-            })
-        })
-        .then((response) => {
-            return response
-        })
+       
     }
 
 
@@ -58,6 +48,14 @@ function Likes(props) {
         }),
       });
       setVideoLikes(videoLikes - 1);
+      await fetch('http://localhost:3001/playlists/delVidPlay', {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json", "authorization" : localStorage.getItem('jwt')},
+        body: JSON.stringify({
+            playlist_name: "LL",
+            id_video: video_id
+            })
+        })
     } else {
       await fetch(`http://localhost:3001/videos/likes/`, {
         method: 'POST',
@@ -67,6 +65,14 @@ function Likes(props) {
         }),
       });
       setVideoLikes(videoLikes + 1);
+	  await fetch("http://localhost:3001/playlists/addVideo", {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json', "authorization" : localStorage.getItem('jwt') },
+            body: JSON.stringify({
+                playlist_name : "LL",
+                id_video : video_id
+            })
+      })
     }
     setIsActive(!isActive);
   }

@@ -12,7 +12,10 @@ export default function SideBar() {
 
     //comportement
     const getChannels = async () => {
-        await fetch(`http://localhost:3001/channels/getSubscriptions/${user}`, {method: "GET", headers: { "Content-Type": "application/json"}})
+        await fetch(`http://localhost:3001/channels/getSubscriptions`, 
+        {method: "GET",
+         headers: { "Content-Type": "application/json", "authorization" : localStorage.getItem('jwt')}
+        })
             .then(response => {
                 return response.json()
             })

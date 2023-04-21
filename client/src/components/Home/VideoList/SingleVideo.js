@@ -70,6 +70,7 @@ export default function SingleVideo({video}) {
 
     const [visibility, setVisibility] = useState(['hidden'])
     const [optionsVisibility, setOptionsVisibility] = useState(['hidden'])
+    const [confirmationVisibility, setConfVis] = useState(['hidden'])
     //comportement
     const handleHover = () => {
         setVisibility('visible')
@@ -90,6 +91,12 @@ export default function SingleVideo({video}) {
             
         async function addVid(playlist_name, id_video) {
             if (localStorage.getItem('jwt')) {
+                setOptionsVisibility('hidden')
+                setVisibility('hidden')
+                setConfVis('visible')
+                setTimeout(function() {
+                    setConfVis('hidden')
+                }, 1500)
             await fetch("http://localhost:3001/playlists/addVideo", {
                 method: "POST",
                 headers: { 'Content-Type': 'application/json', 'authorization' : localStorage.getItem('jwt') },
@@ -183,6 +190,10 @@ export default function SingleVideo({video}) {
             <div id={`video-div-${video.id}`}>
                 <video id={`video-${video.id}`} height="0" width="0" style={{"display": "none"}} src={url + video.video_link}>
                 </video>
+            </div>
+
+            <div id='confirmation' style={{visibility:confirmationVisibility}}>
+                Vidéo ajoutée
             </div>
             
          </div>

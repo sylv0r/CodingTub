@@ -1,12 +1,14 @@
 const { con } = require('../../db/connection')
+const { getDecodedId } = require('../../methods/token')
+
 
 module.exports = async (req, res) => {
-console.log(req.body)
-console.log(req.body.description)
-const user = req.params.user
-console.log('before getting subscriptions')
-await con.query('SELECT id_channel FROM abonnements WHERE id_user = ?', [user], function (err, results) {
-    console.log('results of subs ' + results)
-    if (err) throw err;
-    res.send(results)
+
+    const token = req.headers.authorization
+    const user = await getDecodedId(token)
+    
+    await con.query('SELECT id_channel FROM abonnements WHERE id_user = ?', [user], function (err, results) {
+        console.log('results of subs ' + results)
+        if (err) throw err;
+        res.send(results)
 })}
