@@ -57,7 +57,7 @@ export default function SideBar() {
         <div id='abonnements'>
             <h5>Abonnements</h5>
             {channels.map((channel) => (
-                <SideBarButton channelId={channel.id_channel} key={channel.id}/>
+                <SideBarButton channelId={channel.id_channel} key={channel.id_channel}/>
             ))}
         </div>
         </>

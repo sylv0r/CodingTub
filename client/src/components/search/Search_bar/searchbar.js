@@ -69,7 +69,7 @@ export default function Search2() {
 
   return (
     <div id="search">
-  <div class="searchBar">
+  <div className="searchBar">
     <input
       type="text"
       name="search"
@@ -79,13 +79,13 @@ export default function Search2() {
       ref={searchRef}
       onChange={handleSearchTerm}
       onKeyDown={handleKeyDown}
-      class="search"
+      className="search"
     />
-    <button type="submit" class="search_button" onClick={handleSearch}>
+    <button type="submit" className="search_button" onClick={handleSearch}>
       <i className="fa-solid fa-magnifying-glass"></i>
     </button>
   </div>
-  <div class={`search__results ${searchTerm.length > 0 ? "active" : ""}`}>
+  <div className={`search__results ${searchTerm.length > 0 ? "active" : ""}`}>
     {searchTerm.length > 0 &&
       filteredData.map((item, index) => (
         <div key={index} onClick={() => handleResultClick(item)}>
@@ -109,7 +109,7 @@ export default function Search2() {
       ))}
   </div>
   {selectedResult && (
-    <div class="selectedResult">
+    <div className="selectedResult">
       <div>
         {selectedResult.videoTitle ||
           selectedResult.userPseudo ||

@@ -60,7 +60,7 @@ function Search() {
             <nav className="recherche">
                 <div className="Navsearch">
 
-                    <a className="logo" href=" " rel="">
+                    <a className="logo" href="/" rel="">
                         <img src={url + "logo/logo_codingtub.png"} alt="Logo CodingTube" className="icon_title" width="100" />
                     </a>
 
@@ -72,11 +72,11 @@ function Search() {
                     {localStorage.getItem("jwt") ?
                         <div className='connected-icons'>
                             <a className="pp" style={{ cursor: "pointer" }} target="" rel="" onClick={(e) => handleChannel(e)}>
-                                <i class="fa-solid fa-video fa-2x"></i>
+                                <i className="fa-solid fa-video fa-2x"></i>
                             </a>
 
                             <a className="pp" href="/createChannel" target="" rel="">
-                                <i class="fa-solid fa-plus fa-2x"></i>
+                                <i className="fa-solid fa-plus fa-2x"></i>
                             </a>
                             <a className="pp" href="/modifyProfile" target="" rel="">
                                 <i className="fa-solid fa-user fa-2x"></i>
