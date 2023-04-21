@@ -27,7 +27,15 @@ export default function UserChannel({ action }) {
     // Déclare les variables
     const [buttonText, setButtonText] = useState(localStorage.getItem("buttonText") || "S'abonner");
     const [buttonColor, setButtonColor] = useState(localStorage.getItem("buttonColor") || "black");
+    const [localId, setLocalId] = useState(null);
 
+    useEffect(() => {
+        const checkConnectionAsync = async () => {
+            const id = await checkConnection()
+            setLocalId(id)
+        }
+        checkConnectionAsync()
+    }, [])
     // Concerne le bouton "s'abonner"
 
     const subscribed = () => {

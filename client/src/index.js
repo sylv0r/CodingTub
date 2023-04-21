@@ -4,13 +4,13 @@ import AffichageLive from './components/live/affichageLive/affichageLive';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
+
 import Home from './components/Home/Home';
 import Playlists from './components/Playlist/Playlists';
 import History from './components/History/History';
 import Abonnements from './components/Abonnements/Abonnements';
 import CreateChannel from './components/createChannel/CreateChannel';
 import SearchResults from './components/search/resultat_recherche/SearchResult';
-import UploadForm from './components/chaine_upload/UploadForm';
 import Video from './components/show_video/ShowVideo.js';
 import MenuChaine from './components/Chaine/MenuChaine/MenuChaine';
 import Short from './components/routes/Short';
@@ -23,6 +23,7 @@ import Inscription from './components/Inscription/InscriptionForm.js';
 import SideBar from './components/Home/SideBar/SideBar';
 import ResultHashtag from './components/search/hashtag/resulthashtag/ResultHashtag';
 import ModifyProfile from './components/modifyProfile/ModifyProfile';
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -121,21 +122,21 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {
-      connRegiPage ? 
-      <>
-        <nav className='side'><SideBar /></nav>
-        <section id="main-search">
-          <BrowserRouter>
-          <Search />
-          </BrowserRouter>
-          <main id="main">
-            <RouterProvider router={router} />
-          </main>
-        </section>
-      </>
-      :
-      <RouterProvider router={router} />
+      connRegiPage ?
+        <>
+          <nav className='side'><SideBar /></nav>
+          <section id="main-search">
+            <BrowserRouter>
+              <Search />
+            </BrowserRouter>
+            <main id="main">
+              <RouterProvider router={router} />
+            </main>
+          </section>
+        </>
+        :
+        <RouterProvider router={router} />
     }
-    
+
   </React.StrictMode>
 );

@@ -12,7 +12,7 @@ function Search() {
     let homePage = location.pathname === '/'
 
     useEffect(() => {
-        if(localStorage.getItem("jwt") === null) {
+        if (localStorage.getItem("jwt") === null) {
             document.getElementsByClassName("logoutBtn")[0].innerHTML = "Login";
         } else {
             document.getElementsByClassName("logoutBtn")[0].innerHTML = "Logout";
@@ -30,7 +30,7 @@ function Search() {
 
     const [value, setvalue] = useState("  ");
 
-    function handleChange (event) {
+    function handleChange(event) {
         setvalue(event.target.value)
     }
 
@@ -49,7 +49,7 @@ function Search() {
                         <Search2 />
                     </div>
 
-                <div className="connect">
+                    <div className="connect">
 
                     <a className="not"href="" target="" rel="">
                         <i className="fa-solid fa-bell fa-2x"></i>
@@ -71,18 +71,18 @@ function Search() {
                     }
                         
 
-                    <p onClick={logout} className='logoutBtn'>Logout</p>
+                        <p onClick={logout} className='logoutBtn'>Logout</p>
+
+                    </div>
 
                 </div>
-                
-            </div>
 
                 {homePage &&
                     <div className="Navid">
-                    {Hashtag}
-                    <ControlledCarousel />
+                        {Hashtag}
+                        <ControlledCarousel />
 
-                </div>}
+                    </div>}
 
             </nav>
 
