@@ -15,6 +15,7 @@
         /*height: inherit;*/
         height: 196.85px;
         background-color: #000;
+        border-radius: 5px;
 
         display: flex;
         justify-content: center;
@@ -23,6 +24,7 @@
         img {
             max-width: 350px;
             max-height: 196.85px;
+            border-radius: 5px;
         }
     
         .video-duration {
