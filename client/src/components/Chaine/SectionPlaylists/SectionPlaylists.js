@@ -9,7 +9,7 @@ export default function SectionPlaylists(){
     // affichage (render)
     return (
         <div>
-            <Playlist />
+            <h3>Playlists :</h3>
         </div>
     );
 }
