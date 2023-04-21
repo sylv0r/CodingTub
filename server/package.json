@@ -31,7 +31,8 @@
     "socket.io": "^4.6.1",
     "socket.io-client": "^4.6.1",
     "y": "^0.3.2"
-  },"engines": {
+  },
+  "engines": {
     "node": "14.x"
   }
 }
