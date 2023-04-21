@@ -7,8 +7,6 @@ module.exports = async (req, res) => {
     const token = req.headers.authorization
     const id_user = await getDecodedId(token)
 
-    //console.log("trying addition")
-
      await fetch(`http://localhost:3001/playlists/getPlaylistId`, {
                 method: "POST",
                 headers: { 'Content-Type': 'application/json' },
@@ -21,14 +19,11 @@ module.exports = async (req, res) => {
                 return response.json()
             })
             .then((json) => {
-                //console.log(req.body)
-                //console.log(req.body.description)
                 let playlist_id = json
 
 
                 con.query('INSERT INTO video_playlist VALUES(?, ?)', [id_video, playlist_id], function (err, results) {
                     if (err) throw err
-                    //console.log(allChannels)
                     res.send(results)
                 }) 
     })}

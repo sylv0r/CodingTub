@@ -1,6 +1,7 @@
 import VideoList from './VideoList/VideoList';
 
-function Home() {
+export default function Home() {
+  
   return (
     <div>
       <VideoList action="getVideos" />
@@ -8,5 +9,3 @@ function Home() {
     
   );
 }
-
-export default Home;

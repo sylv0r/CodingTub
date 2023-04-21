@@ -11,8 +11,6 @@ export default function PreviewPlaylist(){
     //state
     const [videos, setVideos] = useState([])
     const [minia, setMiniature] = useState("")
-
-    let vids = []
     
     const getPlaylistsVideos = async () => {
 
@@ -27,12 +25,8 @@ export default function PreviewPlaylist(){
             return response.json()
         })
         .then((json) => {
-            console.log(json)
             setVideos(json)
             setMiniature(json[0].miniature)
-            console.log(videos)
-            vids = json
-            console.log(vids)
         })
         .catch(error => {
             if (error.response) {
@@ -47,18 +41,12 @@ export default function PreviewPlaylist(){
                 // Something happened in setting up the request that triggered an Error
                 console.log('Error :', error.message);
             }
-        })
-        
-        
+        })   
     }
-
-    let miniature
 
     useEffect(()=>{
         getPlaylistsVideos()
     }, []) 
-
-    console.log(videos)
 
     const url = process.env.REACT_APP_NGINX_LINK;
     let namePlaylist
@@ -78,16 +66,12 @@ export default function PreviewPlaylist(){
         <div className='container2'>
             <div className='preview-videos'>
                 <div className='display-videos'>
-                    {videos && <img src={minia} alt="" />}
+                    {videos && <img src={url + minia} alt="" />}
                 </div>
                 <div className='display-text'>
                     <h2>{namePlaylist}</h2>
                     <p>{videos.length} vidéos</p>
                 </div>
-                {/*<div className='display-buttons'>
-                    <input type="button" value="Play" className='display-button' id='button-play'></input>
-                    <input type="button" value="Aléatoire" className='display-button' id='button-random'></input>
-                </div>*/}
             </div>
         </div>
 

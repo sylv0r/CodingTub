@@ -16,9 +16,6 @@ const addViews = require('./query/addViews')
 
 const router = Router()
 
-//lance la fonction createChannel lorsqu'un post est effecté à /channels/createChannel
-//router.post('/createChannel', createChannel)
-
 router.get('/showVideo/:id', showVideo)
 router.get('/getComment/:id_video', getComment)
 router.post('/postComment', postComment)
@@ -33,8 +30,5 @@ router.post('/addHistory', addToHistory)
 router.post('/videoInHistory', videoInHistory)
 router.get('/getHistory', getHistory )
 router.post('/addViews', addViews)
-
-
-
 
 module.exports.routes = router
