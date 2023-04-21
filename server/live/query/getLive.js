@@ -11,56 +11,58 @@ const io = require('socket.io')(server, {
         origin: "http://localhost:3000",
         methods: ["GET", "POST"]
     }
-    });
+});
 
- 
 
-    io.on('connection', (socket) => {
+io.on("connection", socket => {
+    socket.join("stream");
     console.log('SERVEUR >>>> CONNECTION');
 
-    // Réception de l'offre du client
+    const streamData = {
+      streamUrl: 'http://localhost:3000/affichageLive?url=b6f1a91d-3104-4ff9-86ff-94092e2130c1.m3u8'
+    }
+    socket.emit('stream',streamData);
+
+    socket.on('join', (room) => {
+        console.log(`la room: ${room}`);
+        socket.join(room);
+    });
+
     socket.on('offer', (offer) => {
-        console.log('SERVEUR ++++ OFFRE');
-
-        // Envoi de l'offre au client suivant
-        socket.broadcast.emit('offer', offer);
+        socket.to("stream").emit('offer', offer);
+        console.log('SERVEUR ++++ OFFRE SERVER');
     });
 
-    // Réception de la réponse du client suivant
     socket.on('answer', (answer) => {
+        socket.to("stream").emit('answer', answer);
         console.log('SERVEUR <=== REPONSE', answer);
-
-        // Envoi de la réponse au client initial
-        socket.broadcast.emit('answer', answer);
     });
 
-    // Réception des candidats ICE du client
     socket.on('candidate', (candidate) => {
+        socket.to("stream").emit('candidate', candidate);
         console.log('SERVEUR <=== ', candidate);
-
-        // Envoi des candidats ICE au client suivant
-        socket.broadcast.emit('candidate', candidate);
     });
+
 
     // Gestion de la déconnexion
-    socket.on('disconnect', () => {
-        console.log('<-- Déconnexion');
+    socket.on("disconnecting", () => {
+        console.log(socket.rooms);
     });
-    });
+});
+server.listen(3005, () => {
+    console.log(`--> Serveur stream sur ${3005}`);
+});
 
-    server.listen(3005, () => {
-    console.log(`--> Serveur Live sur ${3005}`);
-    });
 
 
 module.exports = async (req, res) => {
 
-    }
+}
 //-------------------------------------------------\\
 
 
 
-//REQUETE POST LIVE VERS BDD => 3008\\
+//REQUETE POST LIVE VERS BDD => 3008
 requetePostLive.use(express.json());
 requetePostLive.use(cors());
 
@@ -69,46 +71,45 @@ requetePostLive.post('/api/postLives', (req, res) => {
     const { url, title, description } = req.body;
     const sql = `INSERT INTO lives (url, title, description, viewer, statut) VALUES ('${url}', '${title}', '${description}', "0", '1')`;
     con.query(sql, (error, results) => {
-      if (error) {
-        console.error(`Error executing SQL query: ${error.stack}`);
-        res.status(500).json({ error: "Une erreur s'est produite lors de l'exécution de la requête SQL" });
-      } else {
-        res.json(results);
-      }
+        if (error) {
+            console.error(`Error executing SQL query: ${error.stack}`);
+            res.status(500).json({ error: "Une erreur s'est produite lors de l'exécution de la requête SQL" });
+        } else {
+            res.json(results);
+        }
     });
-  });
+});
 
-  requetePostLive.listen(3008, () => { // Serveur Node
-console.log('--> Requete POST LIVE sur 3008');
+requetePostLive.listen(3008, () => { // Serveur Node
+    console.log('--> Requete POST LIVE sur 3008');
 });
 //----------------------------------\\
 
 
 
-//REQUETE GET LIVE DEPUIS BDD => 3009\\
+//REQUETE GET LIVE DEPUIS BDD => 3009
 const requeteGetLive = express()
 requeteGetLive.use(express.json());
 requeteGetLive.use(cors());
 
 requeteGetLive.get('/api/getLives', (req, res) => {
-  const sql = 'SELECT * FROM lives WHERE statut = 1';
+    const sql = 'SELECT * FROM lives WHERE statut = 1';
 
-  con.query(sql, (error, results) => {
-    if (error) {
-      console.error(`Error executing SQL query: ${error.stack}`);
-      res.status(500).json({ error: "Une erreur s'est produite lors de l'exécution de la requête SQL" });
-    } else {
-      res.json(results);
-      if (!Array.isArray(results)) {
-        results = [results];
-      }
-      
-    }
-  });
+    con.query(sql, (error, results) => {
+        if (error) {
+            console.error(`Error executing SQL query: ${error.stack}`);
+            res.status(500).json({ error: "Une erreur s'est produite lors de l'exécution de la requête SQL" });
+        } else {
+            res.json(results);
+            if (!Array.isArray(results)) {
+                results = [results];
+            }
+        }
+    });
 });
 
 requeteGetLive.listen(3009, () => { // Serveur Node
-  console.log('--> Requete GET LIVE sur 3009');
+    console.log('--> Requete GET LIVE sur 3009');
 });
 //----------------------------------\\
 
