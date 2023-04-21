@@ -2,11 +2,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const cors = require('cors')
-<<<<<<< HEAD
 const port = process.env.PORT || 5001;
-=======
-const port = process.env.PORT || 3001;
->>>>>>> 246977cfd474bdf47db02820352aaacbf8dd552e
 const usersMiddleware = require('./users/route')
 const videoMiddleware = require('./video/route')
 const channelsMiddleware = require('./channel/route')
