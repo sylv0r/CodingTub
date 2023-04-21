@@ -6,7 +6,7 @@
   "scripts": {
     "build-client": "npm install --prefix ../client && npm run build --prefix ../client",
     "postinstall": "npm run build-client",
-    "start": "nodemon server.js"
+    "start": "node index.js"
   },
   "author": "CodingFactory",
   "license": "ISC",
@@ -31,5 +31,7 @@
     "socket.io": "^4.6.1",
     "socket.io-client": "^4.6.1",
     "y": "^0.3.2"
+  },"engines": {
+    "node": "14.x"
   }
 }
