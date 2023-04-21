@@ -1,4 +1,3 @@
-initDb.js
 package-lock.json
 .DS_STORE
 scripts/flow/*/.flowconfig
