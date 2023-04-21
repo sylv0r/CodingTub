@@ -21,7 +21,6 @@ export default function MenuChaine() {
     const [creationChannel, setCreationChannel] = useState([])
     const [subscribersChannel, setSubscribersChannel] = useState([])
     const [nbVideosChannel, setNbVideosChannel] = useState([])
-    const [user_id, setUser_id] = useState(null)
 
     const [sectionAffichee, setSectionAffichee] = useState(<SectionAccueil />);
 
@@ -115,7 +114,7 @@ export default function MenuChaine() {
     if (userId == idUserChaine.user_id) {
         return (
             <div className='body_menu_chaine'>
-            <Profile action={{imageLink, name, descriptionChannel, nbVideosChannel, idUserChaine, idChaine}}/>
+            <Profile action={{imageLink, name, descriptionChannel, idUserChaine, idChaine}}/>
             <div id="buttons">
             <button className='sections_menu' onClick={() => handleSectionChange('Accueil')}>Accueil</button>
             <button className='sections_menu' onClick={() => handleSectionChange('Vidéos')}>Vidéos</button>
@@ -134,7 +133,7 @@ export default function MenuChaine() {
     else {
         return (
             <div className='body_menu_chaine'>
-            <Profile action={{imageLink, name, descriptionChannel, nbVideosChannel, idUserChaine, idChaine}}/>
+            <Profile action={{imageLink, name, descriptionChannel, idUserChaine, idChaine}}/>
             <div id="buttons">
             <button className='sections_menu' onClick={() => handleSectionChange('Accueil')}>Accueil</button>
             <button className='sections_menu' onClick={() => handleSectionChange('Vidéos')}>Vidéos</button>

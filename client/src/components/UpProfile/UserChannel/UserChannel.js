@@ -9,6 +9,7 @@ export default function UserChannel({ action }) {
     const localChannelId = action.idChaine.id;
 
     const [nbSubscribers, setNbSubscribers] = useState()
+    const [nbVideos, setNbVideos] = useState()
 
     const getNbSubscribers = async () => {
         await fetch(`http://localhost:3001/channels/getNbSubscribers/${localChannelId}`, {method: "GET", headers: { "Content-Type": "appplication/json"}})
@@ -17,7 +18,6 @@ export default function UserChannel({ action }) {
         })
         .then((json) => {
             setNbSubscribers(json.length)
-
         })
         .catch(error => {
             if (error.response) {
@@ -37,6 +37,34 @@ export default function UserChannel({ action }) {
 
     useEffect(() => {
         getNbSubscribers()
+    }, [])
+
+    const getNbVideos = async () => {
+        await fetch(`http://localhost:3001/videos/getNbVideos/${localChannelId}`, {method: "GET", headers: { "Content-Type": "appplication/json"}})
+        .then(response => {
+            return response.json()
+        })
+        .then((json) => {
+            setNbVideos(json.length)
+        })
+        .catch(error => {
+            if (error.response) {
+                // Request made and server responded
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+            } else if (error.request) {
+                // The request was made but no response was received
+                console.log(error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log('Error :', error);
+            }
+        }) 
+    }
+
+    useEffect(() => {
+        getNbVideos()
     }, [])
 
     axios.post('http://localhost:3001/users/getIfSubbed', {
@@ -123,7 +151,7 @@ export default function UserChannel({ action }) {
                 <div className='profileUserBis'>
                     {/* Récupère les données de la base de données grâce à la requête SQL */}
                     <p className='pseudoUsername'>{action.name}</p>
-                    <p>{nbSubscribers} abonnés {action.nbVideosChannel.number_videos} vidéos</p>
+                    <p>{nbSubscribers} abonnés {nbVideos} vidéos</p>
                     <p>{action.descriptionChannel.description_channel}</p>
                 </div>
             </div>
@@ -138,7 +166,7 @@ export default function UserChannel({ action }) {
                 <div className='profileUserBis'>
                     {/* Récupère les données de la base de données grâce à la requête SQL */}
                     <p className='pseudoUsername'>{action.name}</p>
-                    <p>{nbSubscribers} abonnés {action.nbVideosChannel.number_videos} vidéos</p>
+                    <p>{nbSubscribers} abonnés {nbVideos} vidéos</p>
                     <p>{action.descriptionChannel.description_channel}</p>
                 </div>
                 <div className='profileUserBis'>
