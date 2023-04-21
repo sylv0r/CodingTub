@@ -34,6 +34,8 @@ function Search() {
         setvalue(event.target.value)
     }
 
+    const url = process.env.REACT_APP_NGINX_LINK
+
     return (
 
         <header className="body">
@@ -42,7 +44,7 @@ function Search() {
                 <div className="Navsearch">
 
                     <a className="logo" href=" " rel="">
-                        <img src="assets/img_header/Project_title_picture.png" alt="Logo CodingTube" className="icon_title" width="100" />
+                        <img src={url + "logo/logo_codingtub.png"} alt="Logo CodingTube" className="icon_title" width="100" />
                     </a>
 
                     <div className="search" action="submit">
