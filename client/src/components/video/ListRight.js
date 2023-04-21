@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import './list_right.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -8,6 +9,9 @@ export default function VideoListRight({ action }) {
 
     //state
      const [videos, setVideos] = useState([])
+
+    let [searchParams, setSearchParams] = useSearchParams();
+    const id = searchParams.get('id'); // send
 
     //comportement
     const getVideos = async () => {
@@ -43,7 +47,7 @@ export default function VideoListRight({ action }) {
         <div className="list-right-videos">
         <div class="list-right-container">
             <ul class="playlist-right-list">
-            {videos.map((vid) => (
+            {videos.filter((vid) => vid.id != id).map((vid) => (
                 <SingleVideoRight video={vid} key={vid.id}/>
             ))}
             </ul>
