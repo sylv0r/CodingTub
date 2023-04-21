@@ -31,9 +31,21 @@ function Search() {
         setvalue(event.target.value)
     }
 
-    function handleChannel(e) {
+    const handleChannel = async (e) => {
         e.preventDefault()
-        console.log(e)
+        const response = await fetch("http://localhost:3001/channels/redirectChannel", {
+            headers: {
+                authorization: localStorage.getItem("jwt")
+            }
+        })
+        const json = await response.json()
+        if (!json.error) {
+            if (json.results.length > 0) {
+                window.location.replace(`http://localhost:3000/channel/${json.results[0].name}`);
+            } else {
+                window.location.replace("http://localhost:3000/createChannel");
+            }
+        }
     }
 
     return (
