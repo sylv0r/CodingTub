@@ -2,7 +2,11 @@
   "name": "codingtub",
   "version": "1.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd server && node index.js"
-    }
+    "install-client": "npm install --prefix client",
+    "install-server": "npm install --prefix server",
+    "start-client": "npm start --prefix client",
+    "start-server": "npm start --prefix server",
+    "postinstall": "npm run install-client && npm run install-server",
+    "start": "npm run start-client & npm run start-server"
+  }
 }
