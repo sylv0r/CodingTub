@@ -11,8 +11,12 @@ const searchMiddleware = require('./recherche/route')
 const liveMiddleware = require('./live/route')
 const playlistMiddleware = require('./playlists/route')
 const path = require('path');
-app.use(express.static(path.join(dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, './client/build')));
 
+// Catch-all route to serve the React app
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './client/build', 'index.html'));
+  });
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 
