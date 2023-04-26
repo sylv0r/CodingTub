@@ -1,0 +1,47 @@
+.form-control {
+    width: 40%;
+}
+.add-comment-container {
+    width: 70%;
+    background-color: #fff;
+    color: rgb(145, 29, 52);
+
+    border-radius: 5px;
+    //box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    margin: 20px 0 0 0;
+  }
+  
+  .add-comment-container form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .add-comment-container input {
+    width: 80%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid rgb(145, 29, 52);
+    margin-right: 10px;
+    font-size: 16px;
+  }
+  
+  .add-comment-container button {
+    background-color: rgb(145, 29, 52);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 17px;
+    transition: all 0.1s linear;
+    border: 2px solid rgb(145, 29, 52);
+
+  }
+  
+  .add-comment-container button:hover {
+    background-color: #fff;
+    color: rgb(145, 29, 52);
+    border: 2px solid rgb(145, 29, 52);
+  }
+  

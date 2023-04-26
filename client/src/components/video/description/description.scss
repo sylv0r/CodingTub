@@ -1,0 +1,34 @@
+#video-description {
+    margin-top: 20px;
+    width: 70%;
+    background-color: rgb(230, 230, 230);
+    border-radius: 10px;
+    padding: 10px;
+  
+    #name_description {
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+  
+    #description {
+      font-size: 14px;
+      line-height: 1.5;
+      max-height: 70px; /* hauteur maximale initiale */
+      overflow: hidden; /* cacher le contenu dépassant la hauteur maximale */
+      transition: max-height 0.3s ease-out; /* animation de transition pour une expérience utilisateur fluide */
+    }
+  
+    #description.show-more {
+      max-height: unset; /* supprimer la hauteur maximale pour afficher tout le contenu */
+    }
+  
+    .read-more {
+      color: rgb(145, 29, 52); /* couleur du lien pour "afficher plus" */
+      cursor: pointer;
+    }
+    #published_date_desc{
+        font-size: 13px;
+    }
+  }
+  

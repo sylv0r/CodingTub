@@ -1,0 +1,25 @@
+.body_menu_chaine {
+    height: 100vh;
+}
+
+.sections_menu {
+    background-color: #040404;
+    color: #a2a2a2;
+    border: none;
+    padding: 1% 2%;
+    font-size: 110%;
+    margin-bottom: 3%;
+    margin-left: 2%;
+    cursor: pointer;
+}
+
+.sections_menu:hover {
+    color: white;
+    background-color: rgb(145, 29, 52);
+}
+
+#buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}

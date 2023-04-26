@@ -1,0 +1,58 @@
+#hashtag {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: white;
+    height: 7vh;
+}
+
+#hashtag div {
+    height: 4.5vh;
+    padding: auto;
+    margin: 5px;
+    background-color: black;
+    text-decoration: none;
+    color: aliceblue;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 12px;
+}
+
+#hashtag div:hover {
+    transition: 0.35s;
+    background-color: rgb(145, 29, 52);
+}
+
+#hashtag div a {
+    text-decoration: none;
+    color: aliceblue;
+    margin: auto 1vw;
+}
+
+.carousel-control-prev {
+    left: 0;
+}
+
+.carousel-control-next {
+    right: 0;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 3.5%;
+    height: 4vh;
+    background-color: rgb(143, 143, 143);
+    color: black;
+    border-radius: 50%;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+    width: 100%;
+    height: 3vh;
+    ;
+}
+
+.carousel-indicators {
+    display: none;
+}

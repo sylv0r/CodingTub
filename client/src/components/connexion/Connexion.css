@@ -1,0 +1,86 @@
+.UsersConnexion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(250, 249, 250);
+  height: 100%;
+}
+
+.linkCodingLogoConnexion {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#codingLogoConnexion {
+  width: 50%;
+}
+
+.UsersConnexionForm {
+  display: flex;
+  height: 30%;
+  width: 30%;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 2%;
+  align-items: center;
+}
+
+#formP2Connexion {
+  display: flex;
+  width: 100%;
+  justify-content: center !important;
+  align-items: center;
+}
+
+.submitConnexion {
+  margin: 0px !important;
+  background-color: rgb(145, 29, 52);
+  color: #FFF;
+  font-size: 14px;
+  padding: 6px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submitConnexion:hover {
+  background-color: rgb(145, 29, 52) !important;
+}
+
+#showPassBtnConnexion {
+  margin-left: 2%;
+  margin-top: 0px !important;
+  background-color: rgb(145, 29, 52);
+  width: 48px;
+  color: #fff;
+  font-size: 14px;
+  padding: 6px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.inputSizeConnexion {
+  width: 100%;
+  height: 35px;
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid rgb(146, 146, 146);
+  border-radius: 2px !important;
+  margin: 0px;
+}
+
+.inputSizeConnexion[type='text'] {
+  color: black;
+  width: 100%;
+  margin: 0px;
+  border: 1px solid rgb(146, 146, 146);
+  border-radius: 2px !important;
+}
+
+.fa-regular {
+  color: #FFF;
+}

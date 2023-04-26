@@ -1,0 +1,131 @@
+.pageInscriptionSize {
+  height: 100vh;
+  background-color: rgb(250, 249, 250);
+}
+
+.linkCodingLogoInscription {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#codingLogoInscription {
+  width: 50%;
+}
+
+#showPassBtnInscription, #showPassBtnInscription2 {
+  margin-left: 2%;
+  background-color: rgb(145, 29, 52);
+  width: 48px;
+  color: #fff;
+  font-size: 14px;
+  padding: 6px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+.container-profile-inscription {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+  .grid-profil-inscription {
+    padding: 2%;
+    border: 1px solid black;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    
+    .form-group {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      
+     
+      
+      .inscriptionLabel {
+        width: 40%;
+        text-align: right;
+        margin-right: 10px;
+      }
+
+      .inputInscriptionSize {
+        width: 200px;
+        height: 30px;
+        border-radius: 5px !important;
+        border: 1px solid gray;
+        padding: 5px;
+        font-size: 16px;
+      }
+      
+      .inputInscriptionSize[type="text"], .inputInscriptionSize[type="email"], .inputInscriptionSize[type="password"] {
+        width: 200px;
+        height: 30px;
+        border-radius: 2px !important;
+        border: 1px solid gray;
+        padding: 5px;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+
+.container-profile-inscription {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.button-container-profile {
+  margin: 0px !important;
+  background-color: rgb(145, 29, 52);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.button-container-profile:hover {
+  background-color: rgb(145, 29, 52) !important;
+}
+
+#showPassBtnInscription, #showPassBtnInscription2 {
+  margin-top: 0px !important;
+  background-color: rgb(145, 29, 52);
+  border: none;
+  color: white;
+  padding: 3px 9px !important;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+p #errorInscription {
+  display: flex;
+  width: 50%;
+  text-align: center !important;
+  word-wrap: break-word;
+}
+
+.linkToConnexion {
+  display: flex;
+  justify-content: center;
+}
