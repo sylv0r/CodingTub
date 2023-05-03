@@ -1,60 +1,63 @@
-# Projet en React et Node.js
-Ce projet est une application web développée en utilisant les technologies React et Node.js. L'application permet de voir des vidéos en ligne.
+# Project in React and Node.js
+This project is a web application developed using React and Node.js technologies. The application allows you to watch online videos.
 
-## Fonctionnalités
+## Features
 
-Les fonctionnalités principales de l'application incluent :
+The app's main features include:
 
-- création de compte utilisateur.
-- regarder des vidéos.
-- enregistrer des vidéos dans des playlists.
-- système d'abonnement.
+- creation of user account.
+- watch videos.
+- save videos in playlists.
+- subscription system.
 
-## Clonez le projet:
+## Clone the project:
 
 ```git clone https://github.com/sylv0r/CodingTub.git ```
 
-## Côté serveur (node.js)
+## Server side (node.js)
 
-Le côté serveur de l'application est développé en utilisant la bibliothèque Node.js. 
-Les fichiers de code source du côté client se trouvent dans le dossier /client.
+The server side of the application is developed using the Node.js library.
+Client-side source code files are located in the /client folder.
 
-Configuration du côté serveur
-Avant de pouvoir exécuter le serveur, vous devez installer les dépendances nécessaires en exécutant la commande suivante dans le terminal :
+Server side configuration
+Before you can run the server, you must install the necessary dependencies by running the following command in the terminal:
 
-### aller dans le fichier serveur:
+### go to server file:
 
-```cd server```
+```cdserver```
 
-puis installer:
+then install:
 
 ```npm install```
 
-enfin démarrer:
+finally start:
 
 ```npm start```
 
 
 
-## Côté client (React)
+## Client side (React)
 
-Le côté client de l'application est développé en utilisant la bibliothèque React. 
-Les fichiers de code source du côté client se trouvent dans le dossier /client.
+The client side of the application is developed using the React library.
+Client-side source code files are located in the /client folder.
 
-Configuration du côté client
-Avant de pouvoir exécuter le client, vous devez installer les dépendances nécessaires en exécutant la commande suivante dans le terminal :
+Client-side configuration
+Before you can run the client, you need to install the necessary dependencies by running the following command in the terminal:
 
-### meme chose dans le fichier client:
+### same thing in client file:
 
-```cd client```
+```client cd```
 
-puis installer:
+then install:
 
 ```npm install```
 
-enfin démarrer:
+finally start:
 
 ```npm start```
 
 
-Le client sera alors accessible à l'adresse http://localhost:3000.
+The client will then be accessible at http://localhost:3000.
+
+
+## To see the videos/photos the hosting server is no longer available, so please create your own and put its url in an .env of each server/client folder
